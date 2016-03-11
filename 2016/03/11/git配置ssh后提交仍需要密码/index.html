@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/11/git配置ssh后提交仍需要密码/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="每次在配置git环境的时候，都会有配置ssh秘钥的步骤，然后根据资料的提示确实配置成功了。但是，每次提交的时候仍然需要输入密码，总觉得自己配置ssh哪里可能出了问题，今天才知道原来是提交的姿势不对。既然配置了ssh秘钥，那么在提交的时候也自然是要以ssh方式提交了。以前一直默认是https。所以，错咯，改吧。">
-<meta property="og:updated_time" content="2016-03-11T10:25:19.047Z">
+<meta property="og:updated_time" content="2016-03-11T10:28:53.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git配置ssh后提交仍需要密码">
 <meta name="twitter:description" content="每次在配置git环境的时候，都会有配置ssh秘钥的步骤，然后根据资料的提示确实配置成功了。但是，每次提交的时候仍然需要输入密码，总觉得自己配置ssh哪里可能出了问题，今天才知道原来是提交的姿势不对。既然配置了ssh秘钥，那么在提交的时候也自然是要以ssh方式提交了。以前一直默认是https。所以，错咯，改吧。">
@@ -265,7 +265,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[branch &quot;master&quot;]</span><br><span class="line">    remote = git@github.com:jacean/jacean.github.io.git</span><br><span class="line">    merge = refs/heads/master</span><br></pre></td></tr></table></figure>
 <p>  然后提交，刷新，发现还是不对。这可咋办，后来继续找，想起在设置和gitpage关联的时候在 _ config.yml里设置过git仓库。点开，发现里面果然也是https，于是赶紧改过来如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:jacean/jacean.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>然后提交，果然好了，不用再输，密码了哈哈。</p>
+<p>然后提交，果然好了，不用再输，密码了哈哈。<br>至于具体是哪个起作用的，把.git下的config改成https后还是不需要密码，所以，在Hex中主要是看的Hexo的设置。<br>但是，在其他项目中，因为我们直接是用的git，所以要想走git的ssh，还是需要把.git/config的远程连接改为ssh的模式。</p>
 
       
     </div>
@@ -277,7 +277,7 @@
         <p><span>本文标题:</span><a href="/2016/03/11/git配置ssh后提交仍需要密码/">git配置ssh后提交仍需要密码</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年03月11日 - 18时14分</p>
-        <p><span>最后更新:</span>2016年03月11日 - 18时25分</p>
+        <p><span>最后更新:</span>2016年03月11日 - 18时28分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/11/git配置ssh后提交仍需要密码/" title="git配置ssh后提交仍需要密码">http://yoursite.com/2016/03/11/git配置ssh后提交仍需要密码/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/11/git配置ssh后提交仍需要密码/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
