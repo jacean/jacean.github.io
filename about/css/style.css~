@@ -111,7 +111,7 @@ html,body{
 .header-profile{
 	position:absolute;
 	bottom:-26%;
-	left: 42%;
+	text-align:center
 }
 .header-top{
 	text-align:center;
