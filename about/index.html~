@@ -19,7 +19,7 @@
 	<!-- Header Starts Here ---->
 	<div class="header">
 		<div class="container">
-			<div class="header-profile">
+			<div class="">
 				<img class="profilepic" src="images/profile.jpg" alt=""/>
 			</div>
 		</div>
