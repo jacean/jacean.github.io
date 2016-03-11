@@ -3,21 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello My HexoBlog | Hexo</title>
+  <title>git配置ssh后提交仍需要密码 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="欢迎进入Hexo的世界。本博客使用Hexo构建，部署在github，访问  即可访问本站。博主，万嘉庆，邮箱:jaceanwan@gmail.com。这篇文章主要熟悉下markdown的语法。">
+  <meta name="description" content="每次在配置git环境的时候，都会有配置ssh秘钥的步骤，然后根据资料的提示确实配置成功了。但是，每次提交的时候仍然需要输入密码，总觉得自己配置ssh哪里可能出了问题，今天才知道原来是提交的姿势不对。既然配置了ssh秘钥，那么在提交的时候也自然是要以ssh方式提交了。以前一直默认是https。所以，错咯，改吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello My HexoBlog">
-<meta property="og:url" content="http://yoursite.com/2016/03/11/HelloHexo/index.html">
+<meta property="og:title" content="git配置ssh后提交仍需要密码">
+<meta property="og:url" content="http://yoursite.com/2016/03/11/git配置ssh后提交仍需要密码/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="欢迎进入Hexo的世界。本博客使用Hexo构建，部署在github，访问  即可访问本站。博主，万嘉庆，邮箱:jaceanwan@gmail.com。这篇文章主要熟悉下markdown的语法。">
-<meta property="og:image" content="http://yoursite.com/图片链接地址">
-<meta property="og:image" content="http://ww4.sinaimg.cn/bmiddle/aa397b7fjw1dzplsgpdw5j.jpg">
-<meta property="og:updated_time" content="2016-03-11T09:50:43.417Z">
+<meta property="og:description" content="每次在配置git环境的时候，都会有配置ssh秘钥的步骤，然后根据资料的提示确实配置成功了。但是，每次提交的时候仍然需要输入密码，总觉得自己配置ssh哪里可能出了问题，今天才知道原来是提交的姿势不对。既然配置了ssh秘钥，那么在提交的时候也自然是要以ssh方式提交了。以前一直默认是https。所以，错咯，改吧。">
+<meta property="og:updated_time" content="2016-03-11T10:25:19.047Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello My HexoBlog">
-<meta name="twitter:description" content="欢迎进入Hexo的世界。本博客使用Hexo构建，部署在github，访问  即可访问本站。博主，万嘉庆，邮箱:jaceanwan@gmail.com。这篇文章主要熟悉下markdown的语法。">
-<meta name="twitter:image" content="http://yoursite.com/图片链接地址">
+<meta name="twitter:title" content="git配置ssh后提交仍需要密码">
+<meta name="twitter:description" content="每次在配置git环境的时候，都会有配置ssh秘钥的步骤，然后根据资料的提示确实配置成功了。但是，每次提交的时候仍然需要输入密码，总觉得自己配置ssh哪里可能出了问题，今天才知道原来是提交的姿势不对。既然配置了ssh秘钥，那么在提交的时候也自然是要以ssh方式提交了。以前一直默认是https。所以，错咯，改吧。">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -227,11 +224,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-HelloHexo" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-git配置ssh后提交仍需要密码" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/11/HelloHexo/" class="article-date">
-      <time datetime="2016-03-11T02:50:42.000Z" itemprop="datePublished">2016-03-11</time>
+      <a href="/2016/03/11/git配置ssh后提交仍需要密码/" class="article-date">
+      <time datetime="2016-03-11T10:14:13.000Z" itemprop="datePublished">2016-03-11</time>
 </a>
     </div>
   
@@ -244,7 +241,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello My HexoBlog
+      git配置ssh后提交仍需要密码
     </h1>
   
 
@@ -261,74 +258,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="欢迎进入Hexo的世界。"><a href="#欢迎进入Hexo的世界。" class="headerlink" title="欢迎进入Hexo的世界。"></a>欢迎进入Hexo的世界。</h2><p>本博客使用Hexo构建，部署在github，访问 <jacean.github.io> 即可访问本站。<br>博主，万嘉庆，邮箱:jaceanwan@gmail.com。<br>这篇文章主要熟悉下markdown的语法。<br><a id="more"></a></jacean.github.io></p>
-<h2 id="MarkDown语法熟悉"><a href="#MarkDown语法熟悉" class="headerlink" title="MarkDown语法熟悉"></a>MarkDown语法熟悉</h2><p>参考文档：<a href="http://www.jianshu.com/p/q81RER" target="_blank" rel="external">http://www.jianshu.com/p/q81RER</a></p>
-<h3 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h3><p>  #作为标题的标志，一个即是一级标题，两个就是二级标题，直到6个。</p>
-<h3 id="列表语法"><a href="#列表语法" class="headerlink" title="列表语法"></a>列表语法</h3><p>列表格式的话，只需要在文字前面加上 - 就可以了。</p>
-<ul>
-<li>C#</li>
-<li>C/C++</li>
-<li>Java</li>
-<li>Python</li>
-</ul>
-<p>如果需要数字标号的话，直接加上1.，2.，3.即可.</p>
-<ol>
-<li>谷歌</li>
-<li>苹果</li>
-<li>微软</li>
-</ol>
-<h3 id="链接和图片"><a href="#链接和图片" class="headerlink" title="链接和图片"></a>链接和图片</h3><p>只需要使用“<a href="链接地址">显示文本</a>”就可以实现超链接。比如，<br><a href="www.baidu.com">百度</a> .<br>插入图片也是差不多。“<img src="图片链接地址" alt="">”。比如，<br><img src="http://ww4.sinaimg.cn/bmiddle/aa397b7fjw1dzplsgpdw5j.jpg" alt=""></p>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>在引用的文字前面加上 &gt; 就好了，不过记得中间留一个空格。</p>
-<blockquote>
-<p>中国人民从此站起来了！</p>
-</blockquote>
-<h3 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h3><p>两个<em>包含一段文本就是<strong>粗体</strong>的用法，一个</em>包含的就是<em>斜体</em>了。</p>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>主要就靠|和-来分割。</p>
-<table>
-<thead>
-<tr>
-<th>学校</th>
-<th style="text-align:center">地点</th>
-<th style="text-align:right">专业</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>大连理工</td>
-<td style="text-align:center">辽宁大连</td>
-<td style="text-align:right">自动化</td>
-</tr>
-</tbody>
-</table>
-<p>好像一定要对齐才行。</p>
-<table>
-<thead>
-<tr>
-<th>Tables</th>
-<th style="text-align:center">Are</th>
-<th style="text-align:right">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>col 3 is</td>
-<td style="text-align:center">right-aligned</td>
-<td style="text-align:right">$1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td style="text-align:center">centered</td>
-<td style="text-align:right">$12</td>
-</tr>
-<tr>
-<td>zebra stripes</td>
-<td style="text-align:center">are neat</td>
-<td style="text-align:right">$1</td>
-</tr>
-</tbody>
-</table>
-<p>加一句话，要在vim中使用系统剪切板，需要按shift+insert就行。</p>
-<h3 id="插入代码"><a href="#插入代码" class="headerlink" title="插入代码"></a>插入代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello Hexo!"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>每次在配置git环境的时候，都会有配置ssh秘钥的步骤，然后根据资料的提示确实配置成功了。但是，每次提交的时候仍然需要输入密码，总觉得自己配置ssh哪里可能出了问题，今天才知道原来是提交的姿势不对。<br>既然配置了ssh秘钥，那么在提交的时候也自然是要以ssh方式提交了。以前一直默认是https。所以，错咯，改吧。<br><a id="more"></a></p>
+<h2 id="Hexo博客ssh免密码提交"><a href="#Hexo博客ssh免密码提交" class="headerlink" title="Hexo博客ssh免密码提交"></a>Hexo博客ssh免密码提交</h2><p>  首先我找到了.deploy_git/.git/config，然后发现里面的远程链接是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[branch &quot;master&quot;]</span><br><span class="line">    remote = https://github.com/jacean/jacean.github.io.git</span><br><span class="line">    merge = refs/heads/master</span><br></pre></td></tr></table></figure>
+<p>  所以我就把它改成了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[branch &quot;master&quot;]</span><br><span class="line">    remote = git@github.com:jacean/jacean.github.io.git</span><br><span class="line">    merge = refs/heads/master</span><br></pre></td></tr></table></figure>
+<p>  然后提交，刷新，发现还是不对。这可咋办，后来继续找，想起在设置和gitpage关联的时候在 _ config.yml里设置过git仓库。点开，发现里面果然也是https，于是赶紧改过来如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:jacean/jacean.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>然后提交，果然好了，不用再输，密码了哈哈。</p>
 
       
     </div>
@@ -337,13 +274,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/11/HelloHexo/">Hello My HexoBlog</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/11/git配置ssh后提交仍需要密码/">git配置ssh后提交仍需要密码</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
-        <p><span>发布时间:</span>2016年03月11日 - 10时50分</p>
-        <p><span>最后更新:</span>2016年03月11日 - 17时50分</p>
+        <p><span>发布时间:</span>2016年03月11日 - 18时14分</p>
+        <p><span>最后更新:</span>2016年03月11日 - 18时25分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/11/HelloHexo/" title="Hello My HexoBlog">http://yoursite.com/2016/03/11/HelloHexo/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/11/HelloHexo/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/11/git配置ssh后提交仍需要密码/" title="git配置ssh后提交仍需要密码">http://yoursite.com/2016/03/11/git配置ssh后提交仍需要密码/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/11/git配置ssh后提交仍需要密码/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -356,16 +293,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/11/git配置ssh后提交仍需要密码/">
-                    git配置ssh后提交仍需要密码
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/11/hello-world/">
-                    Hello World
+                <a href="/2016/03/11/HelloHexo/">
+                    Hello My HexoBlog
                 </a>
             </div>
         
@@ -376,7 +307,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#欢迎进入Hexo的世界。"><span class="toc-number">1.</span> <span class="toc-text">欢迎进入Hexo的世界。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MarkDown语法熟悉"><span class="toc-number">2.</span> <span class="toc-text">MarkDown语法熟悉</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#标题语法"><span class="toc-number">2.1.</span> <span class="toc-text">标题语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列表语法"><span class="toc-number">2.2.</span> <span class="toc-text">列表语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接和图片"><span class="toc-number">2.3.</span> <span class="toc-text">链接和图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用"><span class="toc-number">2.4.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#粗体和斜体"><span class="toc-number">2.5.</span> <span class="toc-text">粗体和斜体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表格"><span class="toc-number">2.6.</span> <span class="toc-text">表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插入代码"><span class="toc-number">2.7.</span> <span class="toc-text">插入代码</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo博客ssh免密码提交"><span class="toc-number">1.</span> <span class="toc-text">Hexo博客ssh免密码提交</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -438,7 +369,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/11/HelloHexo/" data-title="Hello My HexoBlog" data-url="http://yoursite.com/2016/03/11/HelloHexo/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/11/git配置ssh后提交仍需要密码/" data-title="git配置ssh后提交仍需要密码" data-url="http://yoursite.com/2016/03/11/git配置ssh后提交仍需要密码/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -462,15 +393,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/11/git配置ssh后提交仍需要密码/" title="上一篇: git配置ssh后提交仍需要密码">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/11/hello-world/" title="下一篇: Hello World">
+            <a href="/2016/03/11/HelloHexo/" title="下一篇: Hello My HexoBlog">
                 <i class="fa fa-angle-right"></i>
             </a>
         
