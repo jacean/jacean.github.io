@@ -19,11 +19,12 @@
 	<!-- Header Starts Here ---->
 	<div class="header">
 		<div class="container">
-			<div class="header-profile" align="center">
-				<img class="profilepic" src="images/profile.jpg" alt=""/>
-			</div>
+			
 		</div>
 	</div>
+<div class="header-profile" >
+				<img class="profilepic" align="center" src="images/profile.jpg" alt=""/>
+			</div>
 	<div class="header-top">
 				<h2>万嘉庆</h2>
 				<small>.NET/C# & HTML-CSS-JS & PHP <br>jacean wan</small>
