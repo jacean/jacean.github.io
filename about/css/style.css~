@@ -153,6 +153,7 @@ span.line{
 	font-size:18px;
 	color:#7f8a90;
 	margin:10px 0 15px 0;
+	text-align:center
 }
 .about-top p{
 	font-weight:400;
