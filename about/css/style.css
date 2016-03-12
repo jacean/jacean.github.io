@@ -26,8 +26,7 @@ html,body{
 }
 .profilepic {
   position:absolute;
-  top:-26%
-  text-align: center;
+  top:-26%;
   display: block;
   border: 5px solid #fff;
   -webkit-border-radius: 50%;
