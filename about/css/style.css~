@@ -24,6 +24,98 @@ html,body{
 	min-height:400px;
 	position:relative;
 }
+.intrude-less {
+  width:100%;
+  position:absolute;
+  bottom:-20%;
+  text-align: center;
+  }
+
+.profilepic {
+  position:absolute;
+  top:-26%;
+  display: block;
+  border: 5px solid #fff;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: #88acdb;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  text-align: center;
+}
+.profilepic img {
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-animation-duration: 0.4s;
+  -moz-animation-duration: 0.4s;
+  -ms-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  -ms-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+  -webkit-animation-duration: 0.4s;
+  -webkit-animation-delay: 0.3s;
+}
+.profilepic:hover {
+  background: #fff;
+  border: 5px solid #88acdb;
+  -webkit-box-shadow: 0 0 1.5em #88acdb;
+  box-shadow: 0 0 1.5em #88acdb;
+  -webkit-animation: profilepic 0.15s linear infinite alternate;
+  -moz-animation: profilepic 0.15s linear infinite alternate;
+  -ms-animation: profilepic 0.15s linear infinite alternate;
+  animation: profilepic 0.15s linear infinite alternate;
+  -webkit-animation: profilepic 0.15s linear infinite alternate;
+}
+@-moz-keyframes profilepic {
+  0% {
+    right: 4px;
+    top: 1x;
+  }
+  100% {
+    right: 0px;
+    top: -1px;
+  }
+}
+@-webkit-keyframes profilepic {
+  0% {
+    right: 4px;
+    top: 1x;
+  }
+  100% {
+    right: 0px;
+    top: -1px;
+  }
+}
+@-o-keyframes profilepic {
+  0% {
+    right: 4px;
+    top: 1x;
+  }
+  100% {
+    right: 0px;
+    top: -1px;
+  }
+}
+@keyframes profilepic {
+  0% {
+    right: 4px;
+    top: 1x;
+  }
+  100% {
+    right: 0px;
+    top: -1px;
+  }
+}
 .header-profile{
 	position:absolute;
 	bottom:-26%;
