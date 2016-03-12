@@ -341,24 +341,19 @@ label.book{
 	top:1.5em;
 	
 }
-.exp-devide-grid-right h5,.exp-devide-grid-left h5,.exp-devide-grid-rightb h5{
-	color:#2b3b4b;
-	text-transform:uppercase;
-	font-size:18px;
-	font-weight:800;
-	margin:0;
+.exp-devide-grid-rightb{
+	width:40%;
+	text-align:left;
+	position:absolute;
+	top: 20em;
+	left: 43.255em;
 }
-.exp-devide-grid-right small,.exp-devide-grid-left small,.exp-devide-grid-rightb small{
-	font-size:16px;
-	font-weight:400;
-	color:#7f8a90;
-	padding:0 0 10px 0;
-}
-.exp-devide-grid-right p,.exp-devide-grid-left p,.exp-devide-grid-rightb p{
-	font-size:14px;
-	font-weight:400;
-	color:#7f8a90;
-	line-height:1.2em;
+.exp-devide-grid-rightb:before{
+	content:url(../images/sec-d.png)no-repeat 0px 0px;
+	position:relative;
+	left:-3em;
+	top:1.5em;
+	
 }
 .exp-devide-grid-left{
 	width:40%;
@@ -374,22 +369,44 @@ label.book{
 	top:1.5em;
 	
 }
-.exp-devide-grid-rightb{
+.exp-devide-grid-leftb{	
 	width:40%;
-	text-align:left;
+	text-align:right;
 	position:absolute;
-	top: 20em;
-	left: 43.255em;
+	top: 25em;
+	left: 5.8em;
+	
 }
-.exp-devide-grid-rightb:before{
+.exp-devide-grid-leftb:before{
 	content:url(../images/sec-d.png)no-repeat 0px 0px;
 	position:relative;
-	left:-3em;
+	left:3em;
 	top:1.5em;
 	
 }
+
+.exp-devide-grid-right h5,.exp-devide-grid-left h5,.exp-devide-grid-rightb h5,.exp-devide-grid-leftb h5{
+	color:#2b3b4b;
+	text-transform:uppercase;
+	font-size:18px;
+	font-weight:800;
+	margin:0;
+}
+.exp-devide-grid-right small,.exp-devide-grid-left small,.exp-devide-grid-rightb small,.exp-devide-grid-leftb small{
+	font-size:16px;
+	font-weight:400;
+	color:#7f8a90;
+	padding:0 0 10px 0;
+}
+.exp-devide-grid-right p,.exp-devide-grid-left p,.exp-devide-grid-rightb p,.exp-devide-grid-leftb p{
+	font-size:14px;
+	font-weight:400;
+	color:#7f8a90;
+	line-height:1.2em;
+}
+
 .education{
-	margin-top:35%;
+	margin-top:40%;
 }
 /*--- Experience Ends Here ----*/
 /*--- Skills Starts Here ----*/
