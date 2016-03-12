@@ -24,10 +24,103 @@ html,body{
 	min-height:400px;
 	position:relative;
 }
+.intrude-less {
+  width:100%;
+  position:absolute;
+  bottom:-20%;
+  text-align: center;
+  }
+
+.profilepic {
+  position:absolute;
+  top:-26%;
+  display: block;
+  border: 5px solid #fff;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: #88acdb;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  text-align: center;
+}
+.profilepic img {
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-animation-duration: 0.4s;
+  -moz-animation-duration: 0.4s;
+  -ms-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  -ms-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+  -webkit-animation-duration: 0.4s;
+  -webkit-animation-delay: 0.3s;
+}
+.profilepic:hover {
+  background: #fff;
+  border: 5px solid #88acdb;
+  -webkit-box-shadow: 0 0 1.5em #88acdb;
+  box-shadow: 0 0 1.5em #88acdb;
+  -webkit-animation: profilepic 0.15s linear infinite alternate;
+  -moz-animation: profilepic 0.15s linear infinite alternate;
+  -ms-animation: profilepic 0.15s linear infinite alternate;
+  animation: profilepic 0.15s linear infinite alternate;
+  -webkit-animation: profilepic 0.15s linear infinite alternate;
+}
+@-moz-keyframes profilepic {
+  0% {
+    right: 4px;
+    top: 1x;
+  }
+  100% {
+    right: 0px;
+    top: -1px;
+  }
+}
+@-webkit-keyframes profilepic {
+  0% {
+    right: 4px;
+    top: 1x;
+  }
+  100% {
+    right: 0px;
+    top: -1px;
+  }
+}
+@-o-keyframes profilepic {
+  0% {
+    right: 4px;
+    top: 1x;
+  }
+  100% {
+    right: 0px;
+    top: -1px;
+  }
+}
+@keyframes profilepic {
+  0% {
+    right: 4px;
+    top: 1x;
+  }
+  100% {
+    right: 0px;
+    top: -1px;
+  }
+}
 .header-profile{
-	position:absolute;
+	  position:absolute;
 	bottom:-26%;
-	left: 42%;
+    display:inline;
+    text-align:center
 }
 .header-top{
 	text-align:center;
@@ -69,6 +162,7 @@ span.line{
 	font-size:18px;
 	color:#7f8a90;
 	margin:10px 0 15px 0;
+	text-align:center
 }
 .about-top p{
 	font-weight:400;
@@ -210,7 +304,15 @@ a.download span{
 }
 span.devide-line{
 	width:3px;
-	height:450px;
+	height:500px;
+	position:absolute;
+	top:30px;
+	display:initial;
+	background:#d4d4d4;
+}
+span.devide-line-e{
+	width:3px;
+	height:400px;
 	position:absolute;
 	top:30px;
 	display:initial;
@@ -248,24 +350,19 @@ label.book{
 	top:1.5em;
 	
 }
-.exp-devide-grid-right h5,.exp-devide-grid-left h5,.exp-devide-grid-rightb h5{
-	color:#2b3b4b;
-	text-transform:uppercase;
-	font-size:18px;
-	font-weight:800;
-	margin:0;
+.exp-devide-grid-rightb{
+	width:40%;
+	text-align:left;
+	position:absolute;
+	top: 20em;
+	left: 43.255em;
 }
-.exp-devide-grid-right small,.exp-devide-grid-left small,.exp-devide-grid-rightb small{
-	font-size:16px;
-	font-weight:400;
-	color:#7f8a90;
-	padding:0 0 10px 0;
-}
-.exp-devide-grid-right p,.exp-devide-grid-left p,.exp-devide-grid-rightb p{
-	font-size:14px;
-	font-weight:400;
-	color:#7f8a90;
-	line-height:1.2em;
+.exp-devide-grid-rightb:before{
+	content:url(../images/sec-d.png)no-repeat 0px 0px;
+	position:relative;
+	left:-3em;
+	top:1.5em;
+	
 }
 .exp-devide-grid-left{
 	width:40%;
@@ -281,22 +378,44 @@ label.book{
 	top:1.5em;
 	
 }
-.exp-devide-grid-rightb{
+.exp-devide-grid-leftb{	
 	width:40%;
-	text-align:left;
+	text-align:right;
 	position:absolute;
-	top: 20em;
-	left: 43.255em;
+	top: 25em;
+	left: 5.8em;
+	
 }
-.exp-devide-grid-rightb:before{
+.exp-devide-grid-leftb:before{
 	content:url(../images/sec-d.png)no-repeat 0px 0px;
 	position:relative;
-	left:-3em;
+	left:3em;
 	top:1.5em;
 	
 }
+
+.exp-devide-grid-right h5,.exp-devide-grid-left h5,.exp-devide-grid-rightb h5,.exp-devide-grid-leftb h5{
+	color:#2b3b4b;
+	text-transform:uppercase;
+	font-size:18px;
+	font-weight:800;
+	margin:0;
+}
+.exp-devide-grid-right small,.exp-devide-grid-left small,.exp-devide-grid-rightb small,.exp-devide-grid-leftb small{
+	font-size:16px;
+	font-weight:400;
+	color:#7f8a90;
+	padding:0 0 10px 0;
+}
+.exp-devide-grid-right p,.exp-devide-grid-left p,.exp-devide-grid-rightb p,.exp-devide-grid-leftb p{
+	font-size:14px;
+	font-weight:400;
+	color:#7f8a90;
+	line-height:1.2em;
+}
+
 .education{
-	margin-top:35%;
+	margin-top:40%;
 }
 /*--- Experience Ends Here ----*/
 /*--- Skills Starts Here ----*/
@@ -785,12 +904,8 @@ p.copyright a:hover{
 	.header {
 		min-height: 300px;
 	}
-	.header-profile img {
-		width: 80%;
-	}
-	.header-profile {
-		left: 40%;
-	}
+	
+	
 	ul.hoby li {
 		margin: 1em 0em;
 	}
@@ -831,9 +946,7 @@ p.copyright a:hover{
 	}
 }
 @media (max-width:800px){
-	.header-profile img {
-		width: 60%;
-	}
+	
 	.header {
 		min-height: 192px;
 	}
@@ -900,12 +1013,7 @@ p.copyright a:hover{
 	}
 }
 @media (max-width:640px){
-	.header-profile img {
-		width: 55%;
-	}
-	.header-profile {
-		left: 39%;
-	}
+	
 	.header-top h2 {
 		font-size: 25px;
 	}
@@ -1017,21 +1125,14 @@ p.copyright a:hover{
 	.header {
 		min-height: 142px;
 	}
-	.header-profile img {
-		width: 40%;
-	}
-	.header-profile {
-		left: 37%;
-	}
+	
 	.header-top h2 {
 		font-size: 20px;
 	}
 	.header-top {
 		margin-top: 9%;
 	}	
-	.header-profile {
-		left: 39%;
-	}
+	
 	.header-top small {
 		font-size: 13px;
 	}
