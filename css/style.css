@@ -984,9 +984,6 @@ a {
 #disqus_thread {
   padding: 0 40px;
 }
-.search-parent {
-  text-align: center;
-}
 .search {
   width: 68%;
   height: 18px;
@@ -999,7 +996,6 @@ a {
   border-radius: 2px;
   opacity: 0.2;
   background: none;
-  text-align: center;
 }
 .search:hover {
   border: 2px solid #d3d3d3;
