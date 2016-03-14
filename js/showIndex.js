@@ -18,7 +18,7 @@ $('#left').addClass('left-col');
 $('#overlay').removeClass('panel-cover--overlay');
 $('#overlay').addClass('overlay');
 }
-
+alert(window.location.pathname);
   if (window.location.pathname == "/") {       // if hexo in subdir of site, should change this line
     //$('.panel-cover').addClass('panel-cover--collapsed');
 $('#left').removeClass('left-col');
