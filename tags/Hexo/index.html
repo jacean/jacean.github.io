@@ -27,10 +27,6 @@
   
       <link href="//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css" rel="stylesheet">
   
-  
-	 <link href="/css/ownCSS.css" rel="stylesheet">
-
-  
 
   <link rel="stylesheet" href="/css/style.css">
   
@@ -228,22 +224,7 @@
         </div>
     </header>                
 </div>
-<script>
-  if (window.location.pathname+'' == '/') {       // if hexo in subdir of site, should change this line
-    //$('.panel-cover').addClass('panel-cover--collapsed');
-$('#left').removeClass('left-col');
-$('#left').addClass('panel-cover');  
-$('#overlay').removeClass('overlay');
-$('#overlay').addClass('panel-cover--overlay');
-}else
-{
-	$('#left').removeClass('panel-cover');
-$('#left').addClass('left-col');  
-$('#overlay').removeClass('panel-cover--overlay');
-$('#overlay').addClass('overlay');
-}
 
-</script>
 
 
 
