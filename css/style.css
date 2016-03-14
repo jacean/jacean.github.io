@@ -984,6 +984,9 @@ a {
 #disqus_thread {
   padding: 0 40px;
 }
+.search-parent {
+  text-align: center;
+}
 .search {
   width: 68%;
   height: 18px;
