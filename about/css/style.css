@@ -15,7 +15,8 @@ html,body{
 
 /*--- Header Part Starts Her ---*/
 .header{
-	background:url(../images/banner.jpg)no-repeat;
+	/*background:url(../images/banner.jpg)no-repeat;*/
+	background:url(http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_about_banner.jpg)no-repeat;	
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
