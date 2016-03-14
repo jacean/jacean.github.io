@@ -11,6 +11,8 @@ $('#overlay').addClass('overlay');
     //$('.content-wrapper').addClass('animated slideInLeft');
   });
 */
+
+alert(window.location.pathname);
   if (window.location.hash && window.location.hash == "#blog") {
     //$('.panel-cover').addClass('panel-cover--collapsed');
 $('#left').removeClass('panel-cover');
@@ -18,7 +20,7 @@ $('#left').addClass('left-col');
 $('#overlay').removeClass('panel-cover--overlay');
 $('#overlay').addClass('overlay');
 }
-alert(window.location.pathname);
+
   if (window.location.pathname == "/") {       // if hexo in subdir of site, should change this line
     //$('.panel-cover').addClass('panel-cover--collapsed');
 $('#left').removeClass('left-col');
