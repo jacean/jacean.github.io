@@ -12,7 +12,7 @@ $('#overlay').addClass('overlay');
   });
 */
 
-alert(window.location.pathname);
+
   if (window.location.hash && window.location.hash == "#blog") {
     //$('.panel-cover').addClass('panel-cover--collapsed');
 $('#left').removeClass('panel-cover');
