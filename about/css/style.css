@@ -164,6 +164,9 @@ span.line{
 	margin:10px 0 15px 0;
 	text-align:center;
 }
+.about-top p.intro-p{	
+	text-align:center;
+}
 .about-top p{
 	font-weight:400;
 	font-size:17px;
