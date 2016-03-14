@@ -80,22 +80,6 @@
   _st('install','yJ4k3zCXEvG1yFMTr57z','2.0.0');
 </script> 
  
-<script>
-  if (window.location.pathname+'' == '/') {       // if hexo in subdir of site, should change this line
-    //$('.panel-cover').addClass('panel-cover--collapsed');
-$('#left').removeClass('left-col');
-$('#left').addClass('panel-cover');  
-$('#overlay').removeClass('overlay');
-$('#overlay').addClass('panel-cover--overlay');
-}else
-{
-	$('#left').removeClass('panel-cover');
-$('#left').addClass('left-col');  
-$('#overlay').removeClass('panel-cover--overlay');
-$('#overlay').addClass('overlay');
-}
-alert(window.location.pathname);
-</script>
 
 </head>
 
@@ -259,7 +243,7 @@ $('#left').addClass('left-col');
 $('#overlay').removeClass('panel-cover--overlay');
 $('#overlay').addClass('overlay');
 }
-alert(window.location.pathname);
+
 </script>
 
 
