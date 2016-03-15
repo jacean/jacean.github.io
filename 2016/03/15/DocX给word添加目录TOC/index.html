@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/15/DocX给word添加目录TOC/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
 <meta property="og:description" content="DocX是一款开源的C#操作word的库，使用方便，也很轻巧，比起微软的interop使用体验要好多了。可以在不打开word的情况下直接修改word，可以完成日常所需的操作，是实现批量操作word的好帮手。我这里主要是针对给word添加目录时遇到的一些问题记录下。刚要做目录的时候，我就想DocX应该提供了这个方面的函数。于是我就在讨论区搜索，看看别人是怎么用的。我搜索了catalog; catal">
-<meta property="og:updated_time" content="2016-03-15T07:32:26.106Z">
+<meta property="og:updated_time" content="2016-03-15T07:33:38.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DocX给word添加目录TOC">
 <meta name="twitter:description" content="DocX是一款开源的C#操作word的库，使用方便，也很轻巧，比起微软的interop使用体验要好多了。可以在不打开word的情况下直接修改word，可以完成日常所需的操作，是实现批量操作word的好帮手。我这里主要是针对给word添加目录时遇到的一些问题记录下。刚要做目录的时候，我就想DocX应该提供了这个方面的函数。于是我就在讨论区搜索，看看别人是怎么用的。我搜索了catalog; catal">
@@ -321,9 +321,10 @@
 <li>{</li>
 <li>using (TextReader tr = new StreamReader(settingsPart.GetStream()))</li>
 <li>settings = XDocument.Load(tr);</li>
-<li>}<br>Use these lines to use the new option:<br>docx.UpdateFieldsOnOpen();<br>docx.Save();<br>As a result, word will tell you that some fields need updating when you open the document.<br>Well after you bypassed that new preview mode that they put into word to complicate usage. Which i know everybody at my workplace loves very much.<br>It works on my computer :).<br>I hope it will help YOU ALL TOO since you are great people that deserve TOCs.<br>Best regards,<br>shoff</li>
+<li>}<br>Use these lines to use the new option:<br>docx.UpdateFieldsOnOpen();<br>docx.Save();<br>As a result, word will tell you that some fields need updating when you open the document.<br>Well after you bypassed that new preview mode that they put into word to complicate usage. Which i know everybody at my workplace loves very much.<br>It works on my computer :).<br>I hope it will help YOU ALL TOO since you are great people that deserve TOCs.<br>Best regards,</li>
 </ul>
 </blockquote>
+<p>shoff</p>
 <p>如上所述，就是在DocX.cs的源代码里改一下，在代码末尾添加</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">                 &lt;summary&gt;</span><br><span class="line">                 /// Activate Updating Fields on Open</span><br><span class="line">                 /// &lt;/summary&gt;</span><br><span class="line">                 public void UpdateFieldsOnOpen()</span><br><span class="line">                 &#123;</span><br><span class="line">                         XElement element = new XElement(XName.Get(&quot;updateFields&quot;, DocX.w.NamespaceName));</span><br><span class="line">                         element.Add(new XAttribute(XName.Get(&quot;val&quot;, DocX.w.NamespaceName), &quot;true&quot;));</span><br><span class="line"></span><br><span class="line">                        settings.Root.AddFirst(element);</span><br><span class="line">                 &#125;</span><br><span class="line">```  </span><br><span class="line">然后再修改下保存的函数save(),</span><br><span class="line"></span><br><span class="line">```C#</span><br><span class="line">                         //using (TextReader tr = new StreamReader(settingsPart.GetStream()))</span><br><span class="line">                         // settings = XDocument.Load(tr);</span><br><span class="line">                         if (settings == null)</span><br><span class="line">                         &#123;</span><br><span class="line">                                       using (TextReader tr = new StreamReader(settingsPart.GetStream()))</span><br><span class="line">                                       settings = XDocument.Load(tr);</span><br><span class="line">                         &#125;</span><br></pre></td></tr></table></figure>
 <p>把原本是注释里的代码改成现在的样子。<br>然后重新生成下DocX.dll。<br>在使用的时候自己添加个函数</p>
@@ -345,7 +346,7 @@
         <p><span>本文标题:</span><a href="/2016/03/15/DocX给word添加目录TOC/">DocX给word添加目录TOC</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年03月15日 - 15时15分</p>
-        <p><span>最后更新:</span>2016年03月15日 - 15时32分</p>
+        <p><span>最后更新:</span>2016年03月15日 - 15时33分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/15/DocX给word添加目录TOC/" title="DocX给word添加目录TOC">http://yoursite.com/2016/03/15/DocX给word添加目录TOC/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/15/DocX给word添加目录TOC/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
