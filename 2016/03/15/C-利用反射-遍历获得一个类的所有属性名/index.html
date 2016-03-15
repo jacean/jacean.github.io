@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>DocX给word添加目录TOC | Jacean say Hello</title>
+  <title>C#利用反射,遍历获得一个类的所有属性名 | Jacean say Hello</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DocX是一款开源的C#操作word的库，使用方便，也很轻巧，比起微软的interop使用体验要好多了。可以在不打开word的情况下直接修改word，可以完成日常所需的操作，是实现批量操作word的好帮手。我这里主要是针对给word添加目录时遇到的一些问题记录下。刚要做目录的时候，我就想DocX应该提供了这个方面的函数。于是我就在讨论区搜索，看看别人是怎么用的。我搜索了catalog; catal">
+  <meta name="description" content="通过反射是可以完全获取一个对象的所有可取属性，并利用这些属性实现更多操作，比如对象的序列化之类。代码如下">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DocX给word添加目录TOC">
-<meta property="og:url" content="http://yoursite.com/2016/03/15/DocX给word添加目录TOC/index.html">
+<meta property="og:title" content="C#利用反射,遍历获得一个类的所有属性名">
+<meta property="og:url" content="http://yoursite.com/2016/03/15/C-利用反射-遍历获得一个类的所有属性名/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
-<meta property="og:description" content="DocX是一款开源的C#操作word的库，使用方便，也很轻巧，比起微软的interop使用体验要好多了。可以在不打开word的情况下直接修改word，可以完成日常所需的操作，是实现批量操作word的好帮手。我这里主要是针对给word添加目录时遇到的一些问题记录下。刚要做目录的时候，我就想DocX应该提供了这个方面的函数。于是我就在讨论区搜索，看看别人是怎么用的。我搜索了catalog; catal">
-<meta property="og:updated_time" content="2016-03-15T07:54:14.686Z">
+<meta property="og:description" content="通过反射是可以完全获取一个对象的所有可取属性，并利用这些属性实现更多操作，比如对象的序列化之类。代码如下">
+<meta property="og:updated_time" content="2016-03-15T08:26:28.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DocX给word添加目录TOC">
-<meta name="twitter:description" content="DocX是一款开源的C#操作word的库，使用方便，也很轻巧，比起微软的interop使用体验要好多了。可以在不打开word的情况下直接修改word，可以完成日常所需的操作，是实现批量操作word的好帮手。我这里主要是针对给word添加目录时遇到的一些问题记录下。刚要做目录的时候，我就想DocX应该提供了这个方面的函数。于是我就在讨论区搜索，看看别人是怎么用的。我搜索了catalog; catal">
+<meta name="twitter:title" content="C#利用反射,遍历获得一个类的所有属性名">
+<meta name="twitter:description" content="通过反射是可以完全获取一个对象的所有可取属性，并利用这些属性实现更多操作，比如对象的序列化之类。代码如下">
   
     <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
   
@@ -267,11 +267,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-DocX给word添加目录TOC" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-C-利用反射-遍历获得一个类的所有属性名" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/15/DocX给word添加目录TOC/" class="article-date">
-      <time datetime="2016-03-15T07:15:55.000Z" itemprop="datePublished">2016-03-15</time>
+      <a href="/2016/03/15/C-利用反射-遍历获得一个类的所有属性名/" class="article-date">
+      <time datetime="2016-03-15T08:15:26.000Z" itemprop="datePublished">2016-03-15</time>
 </a>
     </div>
   
@@ -284,7 +284,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      DocX给word添加目录TOC
+      C#利用反射,遍历获得一个类的所有属性名
     </h1>
   
 
@@ -295,7 +295,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DocX/">DocX</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/反射/">反射</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -305,30 +305,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>DocX是一款开源的C#操作word的库，使用方便，也很轻巧，比起微软的interop使用体验要好多了。可以在不打开word的情况下直接修改word，可以完成日常所需的操作，是实现批量操作word的好帮手。<br>我这里主要是针对给word添加目录时遇到的一些问题记录下。刚要做目录的时候，我就想DocX应该提供了这个方面的函数。于是我就在讨论区搜索，看看别人是怎么用的。我搜索了catalog; catalogue; list; contents;，但是都没有和目录有关的东西，搞得我以为没提供，于是就又各种搜索，什么list之类的，搜着搜着就找到了一篇。<br>说是需要下载一个patch，但是不造在哪。还有的提供了利用其他的xml布局来帮助生成目录的。这些都不用管了，我用的是在DocX.cs里的源码里直接修改下的好方法。<br><a id="more"></a><br><a href="http://docx.codeplex.com/discussions/528384" target="_blank" rel="external">答案在DocX的codeplex里</a>,抄录如下：</p>
-<blockquote>
-<p>Hello together, </p>
-<p>i’m sorry, i didn’t like your solution proposals as I use docx to not have a need to include the open sdk. (But it took me to this solution 95% of the way, so thanks!) </p>
-<p>I found out DocX can actually do that easily with just a few minor changes to the code. </p>
-<p>To accomplish that goal add the following lines to DocX.cs into the class:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">/// Activate Updating Fields on Open</span><br><span class="line">/// &lt;/summary&gt;</span><br><span class="line">    public void UpdateFieldsOnOpen()</span><br><span class="line">    &#123;</span><br><span class="line">        XElement element = new XElement(XName.Get(&quot;updateFields&quot;, DocX.w.NamespaceName));</span><br><span class="line">        element.Add(new XAttribute(XName.Get(&quot;val&quot;, DocX.w.NamespaceName), &quot;true&quot;));</span><br><span class="line">        settings.Root.AddFirst(element);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>Finally you need to modify the save process slightly because docx reloads the settings part directly before saving the document.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> // Comment out or remove those lines:</span><br><span class="line">- using (TextReader tr = new StreamReader(settingsPart.GetStream()))</span><br><span class="line">- settings = XDocument.Load(tr);</span><br><span class="line">// Insert this instead:</span><br><span class="line">+ if (settings == null )</span><br><span class="line">+ &#123;</span><br><span class="line">+ using (TextReader tr = new StreamReader(settingsPart.GetStream()))</span><br><span class="line">+ settings = XDocument.Load(tr);</span><br><span class="line">+ &#125;</span><br></pre></td></tr></table></figure></p>
-<p>Use these lines to use the new option:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docx.UpdateFieldsOnOpen();</span><br><span class="line">docx.Save();</span><br></pre></td></tr></table></figure>
-<p>As a result, word will tell you that some fields need updating when you open the document.<br>Well after you bypassed that new preview mode that they put into word to complicate usage. Which i know everybody at my workplace loves very much.<br>It works on my computer :).<br>I hope it will help YOU ALL TOO since you are great people that deserve TOCs. </p>
-<p>Best regards,</p>
-<p>shoff</p>
-</blockquote>
-<p>如上所述，就是在DocX.cs的源代码里改一下，在代码末尾添加:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">    &lt;summary&gt;</span><br><span class="line">    /// Activate Updating Fields on Open</span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    public void UpdateFieldsOnOpen()</span><br><span class="line">    &#123;</span><br><span class="line">        XElement element = new XElement(XName.Get(&quot;updateFields&quot;, DocX.w.NamespaceName));</span><br><span class="line">        element.Add(new XAttribute(XName.Get(&quot;val&quot;, DocX.w.NamespaceName), &quot;true&quot;));</span><br><span class="line">        settings.Root.AddFirst(element);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">然后再修改下保存的函数save(),</span><br><span class="line"></span><br><span class="line">```C#</span><br><span class="line">                         //using (TextReader tr = new StreamReader(settingsPart.GetStream()))</span><br><span class="line">                         // settings = XDocument.Load(tr);</span><br><span class="line">                         if (settings == null)</span><br><span class="line">                         &#123;</span><br><span class="line">                                       using (TextReader tr = new StreamReader(settingsPart.GetStream()))</span><br><span class="line">                                       settings = XDocument.Load(tr);</span><br><span class="line">                         &#125;</span><br></pre></td></tr></table></figure>
-<p>把原本是注释里的代码改成现在的样子。<br>然后重新生成下DocX.dll。<br>在使用的时候自己添加个函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void update(string docx)</span><br><span class="line">                &#123;</span><br><span class="line">                        using (DocX document = DocX.Load(docx))</span><br><span class="line">                        &#123;</span><br><span class="line">                                document.UpdateFieldsOnOpen();</span><br><span class="line">                                document.Save();</span><br><span class="line">                        &#125;</span><br><span class="line">                        </span><br><span class="line">                &#125;</span><br></pre></td></tr></table></figure>
-<p>让文档在打开的时候自动更新目录域。<br>不过这样的话你得首先有目录，我用的办法是新建一个word，给它加上目录，然后创建新word的时候把这个的目录页给插入到新文档里。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void loadTOC(string s, string path, string name)</span><br><span class="line">                &#123;</span><br><span class="line">                        if (!Directory.Exists(path))</span><br><span class="line">                        &#123;</span><br><span class="line">                                Directory.CreateDirectory(path);</span><br><span class="line">                        &#125;</span><br><span class="line">                        string docx = @path + &quot;\\&quot; + name;</span><br><span class="line">                        DocX _template = DocX.Load(s);</span><br><span class="line">                        DocX _document = DocX.Create(docx);</span><br><span class="line">                        _document.InsertDocument(_template);</span><br><span class="line">                        _document.SaveAs(docx);</span><br><span class="line">                        addNewpage(docx);</span><br><span class="line"></span><br><span class="line">                &#125;</span><br></pre></td></tr></table></figure>
-<p>至此，目录就可以正常使用了。每次打开就会提示更新域。</p>
-<p>如上，结果今天一大早去翻看Example的时候，发现原来作者已经更新了，并且添加了操作目录的代码。使用起来也很简单。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void AddToc(string docx)</span><br><span class="line">                &#123;</span><br><span class="line">                      </span><br><span class="line">                        using (var document = DocX.Load(docx))</span><br><span class="line">                        &#123;</span><br><span class="line">                                document.InsertTableOfContents(&quot;目录&quot;, TableOfContentsSwitches.O | TableOfContentsSwitches.U | TableOfContentsSwitches.Z | TableOfContentsSwitches.H, &quot;Heading2&quot;);</span><br><span class="line">                                document.Save();</span><br><span class="line">                        &#125;</span><br><span class="line">                 &#125;</span><br></pre></td></tr></table></figure>
-<p>这样就已经ok了，也不用修改什么代码了，作用和之前的那个一样。顿时心里一阵草泥马奔腾而过。<br>提醒：多看example里的项目，有需求先在里面找。</p>
+        <p>通过反射是可以完全获取一个对象的所有可取属性，并利用这些属性实现更多操作，比如对象的序列化之类。<br>代码如下<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">//传入类的实例</span><br><span class="line">public static PropertyInfo[] getPropertyInfo&lt;T&gt;(T c)</span><br><span class="line">&#123;</span><br><span class="line">PropertyInfo[] ps = null;</span><br><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">Type type = typeof(T);</span><br><span class="line">T obj = Activator.CreateInstance(type);</span><br><span class="line">ps = type.GetProperties((BindingFlags.Public | BindingFlags.Instance));</span><br><span class="line">&#125;</span><br><span class="line">catch (System.Exception ex)</span><br><span class="line">&#123;         </span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line">return ps;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//传入类的类型</span><br><span class="line">//使用</span><br><span class="line"> PropertyInfo[] pis= actFunc.getPropertyInfo(typeof(property))</span><br><span class="line"></span><br><span class="line"> //方法</span><br><span class="line"> public static PropertyInfo[] getPropertyInfo(Type c)</span><br><span class="line"> &#123;</span><br><span class="line"> PropertyInfo[] ps = null;</span><br><span class="line"> try</span><br><span class="line"> &#123;</span><br><span class="line"> //Type type = typeof(c);</span><br><span class="line"> object obj = Activator.CreateInstance(c);</span><br><span class="line"> ps = c.GetProperties((BindingFlags.Public | BindingFlags.Instance));</span><br><span class="line"> &#125;</span><br><span class="line"> catch (System.Exception ex)</span><br><span class="line"> &#123;         </span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"> return ps;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="http://www.cnblogs.com/litian/articles/2002435.html" target="_blank" rel="external">参考文章</a><br>&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">private void button1_Click(object sender, EventArgs e)</span><br><span class="line">       &#123;</span><br><span class="line">          Type t = typeof(System.Drawing.Color);</span><br><span class="line">          string className = t.Name;</span><br><span class="line">          MessageBox.Show(className);</span><br><span class="line"></span><br><span class="line">          //获取所有方法</span><br><span class="line">          System.Reflection.MethodInfo[] methods = t.GetMethods();</span><br><span class="line">          this.textBox1.Text = &quot;&quot;;</span><br><span class="line">          foreach (System.Reflection.MethodInfo method in methods)</span><br><span class="line">          &#123;</span><br><span class="line">              this.textBox1.Text += method.Name + System.Environment.NewLine;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          //获取所有成员</span><br><span class="line">          System.Reflection.MemberInfo[] members = t.GetMembers();</span><br><span class="line"></span><br><span class="line">          //获取所有属性</span><br><span class="line">          System.Reflection.PropertyInfo[] properties = t.GetProperties();</span><br><span class="line"></span><br><span class="line">          foreach (System.Reflection.PropertyInfo property in properties)</span><br><span class="line">          &#123;</span><br><span class="line">              this.lstColors.Items.Add(property.Name);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      private void lstColors_SelectedIndexChanged(object sender, EventArgs e)</span><br><span class="line">      &#123;</span><br><span class="line">         this.pictureBox1.BackColor=  System.Drawing.Color.FromName(((ListBox)sender).Text);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -337,13 +315,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/15/DocX给word添加目录TOC/">DocX给word添加目录TOC</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/15/C-利用反射-遍历获得一个类的所有属性名/">C#利用反射,遍历获得一个类的所有属性名</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
-        <p><span>发布时间:</span>2016年03月15日 - 15时15分</p>
-        <p><span>最后更新:</span>2016年03月15日 - 15时54分</p>
+        <p><span>发布时间:</span>2016年03月15日 - 16时15分</p>
+        <p><span>最后更新:</span>2016年03月15日 - 16时26分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/15/DocX给word添加目录TOC/" title="DocX给word添加目录TOC">http://yoursite.com/2016/03/15/DocX给word添加目录TOC/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/15/DocX给word添加目录TOC/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/15/C-利用反射-遍历获得一个类的所有属性名/" title="C#利用反射,遍历获得一个类的所有属性名">http://yoursite.com/2016/03/15/C-利用反射-遍历获得一个类的所有属性名/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/15/C-利用反射-遍历获得一个类的所有属性名/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -357,15 +335,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/15/DocX添加多级标题/">
-                    DocX添加多级标题
+                <a href="/2016/03/15/C-设置ListView行高/">
+                    C#设置ListView行高
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/15/ComBox数据源绑定/">
-                    ComBox数据源绑定
+                <a href="/2016/03/15/无法打开物理文件-操作系统错误-5-拒绝访问-SQL-Sever/">
+                    无法打开物理文件 操作系统错误 5:拒绝访问 SQL Sever
                 </a>
             </div>
         
@@ -438,7 +416,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/15/DocX给word添加目录TOC/" data-title="DocX给word添加目录TOC" data-url="http://yoursite.com/2016/03/15/DocX给word添加目录TOC/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/15/C-利用反射-遍历获得一个类的所有属性名/" data-title="C#利用反射,遍历获得一个类的所有属性名" data-url="http://yoursite.com/2016/03/15/C-利用反射-遍历获得一个类的所有属性名/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -462,7 +440,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/15/DocX添加多级标题/" title="上一篇: DocX添加多级标题">
+            <a href="/2016/03/15/C-设置ListView行高/" title="上一篇: C#设置ListView行高">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -470,7 +448,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/15/ComBox数据源绑定/" title="下一篇: ComBox数据源绑定">
+            <a href="/2016/03/15/无法打开物理文件-操作系统错误-5-拒绝访问-SQL-Sever/" title="下一篇: 无法打开物理文件 操作系统错误 5:拒绝访问 SQL Sever">
                 <i class="fa fa-angle-right"></i>
             </a>
         
