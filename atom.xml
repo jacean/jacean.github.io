@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-15T08:29:59.456Z</updated>
+  <updated>2016-03-15T09:13:53.625Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,123 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>windows下Ubuntu虚拟机安装</title>
+    <link href="http://yoursite.com/2016/03/15/windows%E4%B8%8BUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85/"/>
+    <id>http://yoursite.com/2016/03/15/windows下Ubuntu虚拟机安装/</id>
+    <published>2016-03-15T08:57:59.000Z</published>
+    <updated>2016-03-15T09:13:53.625Z</updated>
+    
+    <content type="html">&lt;p&gt;虽然一直是win+Ubuntu双系统，但是工作环境一直在win下，为了方便就给Ubuntu装了个虚拟机。使用VirtualBox。&lt;br&gt;记录一些问题和过程以便日后查找。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;virtualBox虚拟机不能选择64位系统:&lt;br&gt;这可能是因为windows开启了hyper-V.在windows功能中关闭就可以了.&lt;br&gt;virtualbox下安装.5.0.10，主程序安装完毕后记得安装扩展包才行.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ssh登陆virtualbox安装的Ubuntu的同时也能连上互联网&lt;br&gt;在全局设定中添加网卡,然后给ubuntu启用第二张网卡.第一张还是nat,第二张设置成&lt;br&gt;仅主机(Host-Only)适配器，选择新添加的网卡。&lt;br&gt;！&lt;a href=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualBox-wlan-1.png&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;/a&gt;&lt;br&gt;然后启动ubuntu来设置网卡。&lt;br&gt;但是，在我添加完后要启动ubuntu时报错了。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualBox-2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Failed to open/create the internal network ‘HostInterfaceNetworking-VirtualBox Host-Only Ethernet Adapter #3’ (VERR_INTNET_FLT_IF_NOT_FOUND).&lt;br&gt;Failed to attach the network LUN (VERR_INTNET_FLT_IF_NOT_FOUND).&lt;br&gt;错误提示如上。&lt;br&gt;解决办法，在&lt;a href=&quot;http://stackoverflow.com/questions/33725779/failed-to-open-create-the-internal-network-vagrant-on-windows10&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;stackoverflow&lt;/a&gt;上找到的。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualBox-3.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;好可怜，我想评论感谢人家都不行。&lt;br&gt;网络设置参考&lt;a href=&quot;http://www.cnblogs.com/leoyoungblog/p/4927591.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;狼来了&lt;/a&gt;&lt;br&gt;-全局设定-&amp;gt;网络-&amp;gt;添加host only网络&lt;br&gt;-设置host only网络IP&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_VirtualBox-4.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;-虚拟机使用2块网卡&lt;br&gt;网卡1：NAT网络地址转换&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualBox-5.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;网卡2：host only（为便于分辨，可选用与网卡1不同的控制芯片）&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualbox-6.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;虚拟机内设置网卡2静态IP，与主机host only网卡相同网段&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualbox-7.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;添加ssh服务：在Ubuntu终端中输入命令：sudo apt-get install ssh&lt;br&gt;添加vsftpd服务：在Ubuntu终端中输入命令：sudo apt-get install vsftpd&lt;br&gt;Netstat -tlp&lt;br&gt;查看状态&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;secureCRT中文乱码&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualbox-8.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;选项-&amp;gt;会话选项&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualbox-9.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;外观-&amp;gt;字符编码，设为utf-8就可以了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;虽然一直是win+Ubuntu双系统，但是工作环境一直在win下，为了方便就给Ubuntu装了个虚拟机。使用VirtualBox。&lt;br&gt;记录一些问题和过程以便日后查找。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
+    
+      <category term="VirtualBox" scheme="http://yoursite.com/tags/VirtualBox/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>windows文件夹拒绝访问,特殊权限</title>
+    <link href="http://yoursite.com/2016/03/15/windows%E6%96%87%E4%BB%B6%E5%A4%B9%E6%8B%92%E7%BB%9D%E8%AE%BF%E9%97%AE-%E7%89%B9%E6%AE%8A%E6%9D%83%E9%99%90/"/>
+    <id>http://yoursite.com/2016/03/15/windows文件夹拒绝访问-特殊权限/</id>
+    <published>2016-03-15T08:50:25.000Z</published>
+    <updated>2016-03-15T08:53:26.507Z</updated>
+    
+    <content type="html">&lt;p&gt;windows在安装一些比较涉及底层的软件的时候，或是一些缓存文件，会对一些文件给予特殊权限，当我们想主动删除的时候就会遇到各种问题。这个时候，可以通过查看属性，来观察其所有者来重新设置权限，从而删除。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;有些文件或文件夹只有everyone账户的权限,而这个权限因为继承关系不能被删除,那么就在安全里面给他添加个当前账户,设为完全控制的权限,然后删除即可&lt;br&gt;之前有个cygwin64的程序安装,结果卸载后还有残余文件夹cygwin64删除不掉,总是拒绝访问.因为只有1m多所以也就没管.但今天实在是看不下去了,就想删掉.&lt;br&gt;网上有很多删除顽固文件的方法,比如批处理,dos,添加压缩文件然后选择删除源文件,但这的反应都是拒绝访问,原因就是这个文件夹有特殊权限.&lt;br&gt;右键,属性,安全.&lt;br&gt;发现里面有个特殊的账户,而且拥有这个文件夹的特殊权限,虽然我是管理员登陆,但是仍旧没法给自己添加这种特殊权限.&lt;br&gt;自己原本是微软账户登录,发现没法更改权限,就注销成了本地账户,然后在安全里更改权限.&lt;br&gt;先是删除那个奇怪的拥有特殊权限的账户,然后给其他账户加上完全控制的权限,就可以删除了.&lt;br&gt;有些说法是,特殊权限是由于父文件夹和子文件的权限不一致造成的,但我一个个更改权限发现所有文件和文件夹的权限都是那个特殊账户的.&lt;/p&gt;
+&lt;p&gt;所以我的做法是,从最底层的文件开始删除账户,更改权限,然后删除就ok了.这样一个个的删除可以,或是可以把权限都改完后删除文件夹就行.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;windows在安装一些比较涉及底层的软件的时候，或是一些缓存文件，会对一些文件给予特殊权限，当我们想主动删除的时候就会遇到各种问题。这个时候，可以通过查看属性，来观察其所有者来重新设置权限，从而删除。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="other" scheme="http://yoursite.com/tags/other/"/>
+    
+      <category term="windows" scheme="http://yoursite.com/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浏览器首页被hao.qquu8.com/tn=……篡改</title>
+    <link href="http://yoursite.com/2016/03/15/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A6%96%E9%A1%B5%E8%A2%ABhao-qquu8-com-tn-%E2%80%A6%E2%80%A6%E7%AF%A1%E6%94%B9/"/>
+    <id>http://yoursite.com/2016/03/15/浏览器首页被hao-qquu8-com-tn-……篡改/</id>
+    <published>2016-03-15T08:38:58.000Z</published>
+    <updated>2016-03-15T08:49:58.692Z</updated>
+    
+    <content type="html">&lt;p&gt;有时候装了什么奇怪的软件可能会使自己的浏览器首页被莫名其妙的篡改。比如不干净的激活软件，或是其他下载工具。&lt;br&gt;&lt;a href=&quot;http://www.techweb.com.cn/internet/2015-07-20/2177852.shtml&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考文章&lt;/a&gt;,有几张图借用了参考文章里的，若有侵权请提出，立刻更改。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;刚开始,我进入注册表搜索hao123,hao.qquu8.com，把能删的都删完了，但是并没有什么卵用。后来照下边的方法才弄好.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;第一步，首先在桌面和开始菜单里查看所有IE、Chrome浏览器快捷方式属性，把目标栏里的“&lt;a href=&quot;http://hao.qquu8.com”删掉；&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://hao.qquu8.com”删掉；&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_other-index-changed-1.jpg&quot; alt=&quot;Chrome浏览器快捷方式属性&quot;&gt;&lt;br&gt;我的这里是正常的，因为是win10，所以在开始屏幕那里右键文件位置（C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome），那里的谷歌是好使的。&lt;br&gt;但是IE就发现问题了（C:\Users\XX\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Accessories），在快捷方式上果然有问题，怒而删之。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;别忘了进入C:\Users\你的用户名\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch文件夹，同样是查看IE和Chrome的属性，然后把其中的“&lt;a href=&quot;http://hao.qquu8.com”删掉。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://hao.qquu8.com”删掉。&lt;/a&gt;&lt;/em&gt;&lt;br&gt;我是在这里发现了Chrome的问题，原来在这会有Chrome的快捷方式，而且还出错了，再次怒而删之！！！然后好了。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_other-index-changed-2.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;我在这一步就已经成功了.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;第二步： 按一下组合键“Win+R”调出运行命令框。在打开栏中键入regedit.exe，回车，打开注册表编辑器（若弹出用户账户控制窗口，请点击 是 继续），依次定位到：&lt;br&gt;HKEY_CURRENT_USER\Software\Policies\Microsoft&lt;br&gt;展开Microsoft，查看其下是否包含子项 Internet Explorer 若有，删除（右击Internet Explorer，选择“删除”）。&lt;br&gt;然后再依次定位到以下3个注册表项。单击Main，查看右边细节窗口中[Default_Page_URL]值和[Start Page]值是否有异常。如果被修改了，请根据自己的需要改回（右击键值，选择“修改”进行更改）。&lt;br&gt;HKEY_CURRENT&lt;em&gt;USER\SOFTWARE\Microsoft\Internet Explorer\Main&lt;br&gt;HKEY&lt;/em&gt; LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Main&lt;br&gt;HKEY_USERS\Default\Software\Microsoft\Internet Explorer\Main&lt;/li&gt;
+&lt;li&gt;第三步：&lt;br&gt;完成以上工作后，将系统设置为“显示隐藏的文件、文件夹”，然后在C:\Windows目录下找到OEM文件（或文件夹），将他们删除。&lt;br&gt;这两步以防万一我也做了一遍，但是并没有遇到上面所说的情况，可能是之前删注册表给搞干净了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;有些时候，任务栏的图标会被打上非法链接。可以在删除开始菜单的属性里的东西后取消固定后重新固定。&lt;br&gt;本质方法如下：&lt;br&gt;C:\Users\wanja\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar&lt;br&gt;在这个目录下是任务栏快捷方式。属性，删除恶意指向就行。 &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有时候装了什么奇怪的软件可能会使自己的浏览器首页被莫名其妙的篡改。比如不干净的激活软件，或是其他下载工具。&lt;br&gt;&lt;a href=&quot;http://www.techweb.com.cn/internet/2015-07-20/2177852.shtml&quot;&gt;参考文章&lt;/a&gt;,有几张图借用了参考文章里的，若有侵权请提出，立刻更改。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Other" scheme="http://yoursite.com/tags/Other/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>onenote笔记导出成markdown发布到Hexo</title>
+    <link href="http://yoursite.com/2016/03/15/onenote%E7%AC%94%E8%AE%B0%E5%AF%BC%E5%87%BA%E6%88%90markdown%E5%8F%91%E5%B8%83%E5%88%B0Hexo/"/>
+    <id>http://yoursite.com/2016/03/15/onenote笔记导出成markdown发布到Hexo/</id>
+    <published>2016-03-15T08:32:17.000Z</published>
+    <updated>2016-03-15T08:38:29.373Z</updated>
+    
+    <content type="html">&lt;p&gt;首先说明一点，就是我并没有找到可以直接由onenote笔记转换成markdown的方式。许多方法都是通过迂回策略，也就是先将onenote导出word，再把word转换成HTML，然后再转成markdown。&lt;br&gt;虽然有些麻烦，但还是挺好用的。需要用到unoconv和pandoc。原文&lt;a href=&quot;http://wenzhixin.net.cn/2014/01/03/convert_word_to_markdown&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ubuntu 下将 word 文件转换为 markdown&lt;/a&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;主要介绍如何将 word 文件转换为 markdown 文件。&lt;br&gt;第一步：安装 unoconv 和 pandoc&lt;br&gt;&lt;em&gt;sudo apt-get install unoconv pandoc&lt;/em&gt;&lt;br&gt;第二步：将 word 文件转换 html&lt;br&gt;&lt;em&gt;unoconv -f html -o file.html file.docx&lt;/em&gt;&lt;br&gt;-f html：指定我们要转为 html 格式（format）&lt;br&gt;-o file.html：表示输出（output）的文件名为 file.html&lt;br&gt;file.docx：表示要转换的文件为 file.docx&lt;br&gt;第三步：将 html 转换为 markdown&lt;br&gt;&lt;em&gt;pandoc -f html -t markdown -o file.md file.html&lt;/em&gt;&lt;br&gt;-f html：指定我们要从什么文件（from）转换&lt;br&gt;-t markdown：指定我们要转为 markdown 格式（to）&lt;br&gt;-o file.md：表示输出（output）的文件名为 file.md&lt;br&gt;file.docx：表示要转换的文件为 file.html&lt;br&gt;第四步：将图片拷贝到 images 中&lt;br&gt;转换出来后会有很多图片，需要将图片拷贝到 images 文件夹中， 然后在替换 md 中的 ![]( 为 ![(images/ 即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;但是我转换后并没有出现image，具体看代码，发现转换后的html里引用的文件都成了直接的编码表示。所以可以在网页中另存为图片了。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先说明一点，就是我并没有找到可以直接由onenote笔记转换成markdown的方式。许多方法都是通过迂回策略，也就是先将onenote导出word，再把word转换成HTML，然后再转成markdown。&lt;br&gt;虽然有些麻烦，但还是挺好用的。需要用到unoconv和pandoc。原文&lt;a href=&quot;http://wenzhixin.net.cn/2014/01/03/convert_word_to_markdown&quot;&gt;ubuntu 下将 word 文件转换为 markdown&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
+    
+      <category term="OneNote" scheme="http://yoursite.com/tags/OneNote/"/>
+    
+  </entry>
   
   <entry>
     <title>C#设置ListView行高</title>
