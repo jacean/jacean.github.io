@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-15T07:03:50.877Z</updated>
+  <updated>2016-03-15T07:27:46.502Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,82 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DocX给word添加目录TOC</title>
+    <link href="http://yoursite.com/2016/03/15/DocX%E7%BB%99word%E6%B7%BB%E5%8A%A0%E7%9B%AE%E5%BD%95TOC/"/>
+    <id>http://yoursite.com/2016/03/15/DocX给word添加目录TOC/</id>
+    <published>2016-03-15T07:15:55.000Z</published>
+    <updated>2016-03-15T07:27:46.502Z</updated>
+    
+    <content type="html">&lt;p&gt;DocX是一款开源的C#操作word的库，使用方便，也很轻巧，比起微软的interop使用体验要好多了。可以在不打开word的情况下直接修改word，可以完成日常所需的操作，是实现批量操作word的好帮手。&lt;br&gt;我这里主要是针对给word添加目录时遇到的一些问题记录下。刚要做目录的时候，我就想DocX应该提供了这个方面的函数。于是我就在讨论区搜索，看看别人是怎么用的。我搜索了catalog; catalogue; list; contents;，但是都没有和目录有关的东西，搞得我以为没提供，于是就又各种搜索，什么list之类的，搜着搜着就找到了一篇。&lt;br&gt;说是需要下载一个patch，但是不造在哪。还有的提供了利用其他的xml布局来帮助生成目录的。这些都不用管了，我用的是在DocX.cs里的源码里直接修改下的好方法。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://docx.codeplex.com/discussions/528384&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;答案在DocX的codeplex里&lt;/a&gt;,抄录如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hello together, &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;i’m sorry, i didn’t like your solution proposals as I use docx to not have a need to include the open sdk. (But it took me to this solution 95% of the way, so thanks!) &lt;/p&gt;
+&lt;p&gt;I found out DocX can actually do that easily with just a few minor changes to the code. &lt;/p&gt;
+&lt;p&gt;To accomplish that goal add the following lines to DocX.cs into the class:&lt;br&gt;/// &lt;summary&gt;&lt;br&gt;/// Activate Updating Fields on Open&lt;br&gt;/// &lt;/summary&gt;&lt;br&gt;public void UpdateFieldsOnOpen()&lt;br&gt;{&lt;br&gt;XElement element = new XElement(XName.Get(“updateFields”, DocX.w.NamespaceName));&lt;br&gt;element.Add(new XAttribute(XName.Get(“val”, DocX.w.NamespaceName), “true”));&lt;br&gt;settings.Root.AddFirst(element);&lt;br&gt;}&lt;/p&gt;
+&lt;p&gt;Finally you need to modify the save process slightly because docx reloads the settings part directly before saving the document.&lt;br&gt;// Comment out or remove those lines:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;using (TextReader tr = new StreamReader(settingsPart.GetStream()))&lt;/li&gt;
+&lt;li&gt;settings = XDocument.Load(tr);&lt;br&gt;// Insert this instead:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;if (settings == null )&lt;/li&gt;
+&lt;li&gt;{&lt;/li&gt;
+&lt;li&gt;using (TextReader tr = new StreamReader(settingsPart.GetStream()))&lt;/li&gt;
+&lt;li&gt;settings = XDocument.Load(tr);&lt;/li&gt;
+&lt;li&gt;}&lt;br&gt;Use these lines to use the new option:&lt;br&gt;docx.UpdateFieldsOnOpen();&lt;br&gt;docx.Save();&lt;br&gt;As a result, word will tell you that some fields need updating when you open the document.&lt;br&gt;Well after you bypassed that new preview mode that they put into word to complicate usage. Which i know everybody at my workplace loves very much. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It works on my computer :).&lt;br&gt;I hope it will help YOU ALL TOO since you are great people that deserve TOCs. &lt;/p&gt;
+&lt;p&gt;Best regards,&lt;br&gt;shoff&lt;/p&gt;
+&lt;p&gt;如上所述，就是在DocX.cs的源代码里改一下，在代码末尾添加&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;                 &amp;lt;summary&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                 /// Activate Updating Fields on Open&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                 /// &amp;lt;/summary&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                 public void UpdateFieldsOnOpen()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                 &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         XElement element = new XElement(XName.Get(&amp;quot;updateFields&amp;quot;, DocX.w.NamespaceName));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         element.Add(new XAttribute(XName.Get(&amp;quot;val&amp;quot;, DocX.w.NamespaceName), &amp;quot;true&amp;quot;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        settings.Root.AddFirst(element);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                 &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;然后再修改下保存的函数save(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```C#&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         //using (TextReader tr = new StreamReader(settingsPart.GetStream()))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         // settings = XDocument.Load(tr);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         if (settings == null)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                       using (TextReader tr = new StreamReader(settingsPart.GetStream()))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                       settings = XDocument.Load(tr);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;把原本是注释里的代码改成现在的样子。&lt;br&gt;然后重新生成下DocX.dll。&lt;br&gt;在使用的时候自己添加个函数&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public static void update(string docx)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        using (DocX document = DocX.Load(docx))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                document.UpdateFieldsOnOpen();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                document.Save();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;让文档在打开的时候自动更新目录域。&lt;br&gt;不过这样的话你得首先有目录，我用的办法是新建一个word，给它加上目录，然后创建新word的时候把这个的目录页给插入到新文档里。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public static void loadTOC(string s, string path, string name)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        if (!Directory.Exists(path))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                Directory.CreateDirectory(path);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        string docx = @path + &amp;quot;\\&amp;quot; + name;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        DocX _template = DocX.Load(s);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        DocX _document = DocX.Create(docx);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        _document.InsertDocument(_template);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        _document.SaveAs(docx);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        addNewpage(docx);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;至此，目录就可以正常使用了。每次打开就会提示更新域。&lt;/p&gt;
+&lt;p&gt;如上，结果今天一大早去翻看Example的时候，发现原来作者已经更新了，并且添加了操作目录的代码。使用起来也很简单。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public static void AddToc(string docx)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                      &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        using (var document = DocX.Load(docx))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                document.InsertTableOfContents(&amp;quot;目录&amp;quot;, TableOfContentsSwitches.O | TableOfContentsSwitches.U | TableOfContentsSwitches.Z | TableOfContentsSwitches.H, &amp;quot;Heading2&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                document.Save();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                 &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这样就已经ok了，也不用修改什么代码了，作用和之前的那个一样。顿时心里一阵草泥马奔腾而过。&lt;br&gt;提醒：多看example里的项目，有需求先在里面找。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;DocX是一款开源的C#操作word的库，使用方便，也很轻巧，比起微软的interop使用体验要好多了。可以在不打开word的情况下直接修改word，可以完成日常所需的操作，是实现批量操作word的好帮手。&lt;br&gt;我这里主要是针对给word添加目录时遇到的一些问题记录下。刚要做目录的时候，我就想DocX应该提供了这个方面的函数。于是我就在讨论区搜索，看看别人是怎么用的。我搜索了catalog; catalogue; list; contents;，但是都没有和目录有关的东西，搞得我以为没提供，于是就又各种搜索，什么list之类的，搜着搜着就找到了一篇。&lt;br&gt;说是需要下载一个patch，但是不造在哪。还有的提供了利用其他的xml布局来帮助生成目录的。这些都不用管了，我用的是在DocX.cs里的源码里直接修改下的好方法。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="C#" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="DocX" scheme="http://yoursite.com/tags/DocX/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ComBox数据源绑定</title>
+    <link href="http://yoursite.com/2016/03/15/ComBox%E6%95%B0%E6%8D%AE%E6%BA%90%E7%BB%91%E5%AE%9A/"/>
+    <id>http://yoursite.com/2016/03/15/ComBox数据源绑定/</id>
+    <published>2016-03-15T07:08:29.000Z</published>
+    <updated>2016-03-15T07:14:05.739Z</updated>
+    
+    <content type="html">&lt;p&gt;.NET对很多数据控件都提供了数据绑定的功能，很方便，但是在方便的时候又会有很多不便，以我的经验来看还是慎用为妙。不过在这里还是记录下ComBox的数据绑定，自动不全以及避免两个combox的数据联动。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;c#winform中，两个combox绑定到同一个数据源会联动变化。解决办法是把当前表复制，其中一个combox绑定的复制表中。&lt;/p&gt;
+&lt;p&gt;‘’’C#&lt;br&gt;combox1.DataSource = datatable.Copy();&lt;/p&gt;
+&lt;p&gt;comboBox1.DataSource = dt;&lt;br&gt;comboBox2.DataSource = dt;//修改此处&lt;br&gt;comboBox1.DisplayMember = “name”;&lt;br&gt;comboBox2.DisplayMember = “name”;&lt;br&gt;comboBox1.ValueMember = “name”;&lt;br&gt;comboBox2.ValueMember = “name”;&lt;br&gt;comboBox1.AutoC ompleteSource = AutoCompleteSource.ListItems;&lt;br&gt;comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;&lt;br&gt;comboBox2.AutoCompleteSource = AutoCompleteSource.ListItems;&lt;br&gt;comboBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;&lt;br&gt;//设置自动补全和从数据表中绑定&lt;/p&gt;
+&lt;p&gt;//通过Linq来绑定数据&lt;br&gt;var l=listControls.Select(lc=&amp;gt;lc.Name);&lt;br&gt;cBPro.DataSource = l.ToList&lt;string&gt;();&lt;br&gt;```&lt;/string&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;.NET对很多数据控件都提供了数据绑定的功能，很方便，但是在方便的时候又会有很多不便，以我的经验来看还是慎用为妙。不过在这里还是记录下ComBox的数据绑定，自动不全以及避免两个combox的数据联动。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="C#" scheme="http://yoursite.com/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>winForm鼠标坐标</title>

@@ -191,7 +191,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/swiftype/" style="font-size: 10px;">swiftype</a> <a href="/tags/yelee/" style="font-size: 20px;">yelee</a> <a href="/tags/七牛云/" style="font-size: 10px;">七牛云</a> <a href="/tags/自定义控件/" style="font-size: 10px;">自定义控件</a>
+                        <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a> <a href="/tags/DocX/" style="font-size: 10px;">DocX</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/swiftype/" style="font-size: 10px;">swiftype</a> <a href="/tags/yelee/" style="font-size: 15px;">yelee</a> <a href="/tags/七牛云/" style="font-size: 10px;">七牛云</a> <a href="/tags/自定义控件/" style="font-size: 10px;">自定义控件</a>
                     </div>
                 </section>
                 
@@ -272,6 +272,130 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-DocX给word添加目录TOC" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/15/DocX给word添加目录TOC/" class="article-date">
+      <time datetime="2016-03-15T07:15:55.000Z" itemprop="datePublished">2016-03-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/15/DocX给word添加目录TOC/">DocX给word添加目录TOC</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>DocX是一款开源的C#操作word的库，使用方便，也很轻巧，比起微软的interop使用体验要好多了。可以在不打开word的情况下直接修改word，可以完成日常所需的操作，是实现批量操作word的好帮手。<br>我这里主要是针对给word添加目录时遇到的一些问题记录下。刚要做目录的时候，我就想DocX应该提供了这个方面的函数。于是我就在讨论区搜索，看看别人是怎么用的。我搜索了catalog; catalogue; list; contents;，但是都没有和目录有关的东西，搞得我以为没提供，于是就又各种搜索，什么list之类的，搜着搜着就找到了一篇。<br>说是需要下载一个patch，但是不造在哪。还有的提供了利用其他的xml布局来帮助生成目录的。这些都不用管了，我用的是在DocX.cs里的源码里直接修改下的好方法。<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DocX/">DocX</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/15/DocX给word添加目录TOC/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ComBox数据源绑定" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/15/ComBox数据源绑定/" class="article-date">
+      <time datetime="2016-03-15T07:08:29.000Z" itemprop="datePublished">2016-03-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/15/ComBox数据源绑定/">ComBox数据源绑定</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>.NET对很多数据控件都提供了数据绑定的功能，很方便，但是在方便的时候又会有很多不便，以我的经验来看还是慎用为妙。不过在这里还是记录下ComBox的数据绑定，自动不全以及避免两个combox的数据联动。<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/15/ComBox数据源绑定/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-winForm鼠标坐标" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -765,68 +889,10 @@
 
 
   
-    <article id="post-HelloHexo" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2016/03/11/HelloHexo/" class="article-date">
-      <time datetime="2016-03-11T02:50:42.000Z" itemprop="datePublished">2016-03-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/11/HelloHexo/">Hello My HexoBlog</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="欢迎进入Hexo的世界。"><a href="#欢迎进入Hexo的世界。" class="headerlink" title="欢迎进入Hexo的世界。"></a>欢迎进入Hexo的世界。</h2><p>本博客使用Hexo构建，部署在github，访问 <jacean.github.io> 即可访问本站。<br>博主，万嘉庆，邮箱:jaceanwan@gmail.com。<br>这篇文章主要熟悉下markdown的语法。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MarkDown/">MarkDown</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/11/HelloHexo/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
