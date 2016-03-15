@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-15T09:13:53.625Z</updated>
+  <updated>2016-03-15T09:16:34.317Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,20 +20,15 @@
     <link href="http://yoursite.com/2016/03/15/windows%E4%B8%8BUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85/"/>
     <id>http://yoursite.com/2016/03/15/windows下Ubuntu虚拟机安装/</id>
     <published>2016-03-15T08:57:59.000Z</published>
-    <updated>2016-03-15T09:13:53.625Z</updated>
+    <updated>2016-03-15T09:16:34.317Z</updated>
     
     <content type="html">&lt;p&gt;虽然一直是win+Ubuntu双系统，但是工作环境一直在win下，为了方便就给Ubuntu装了个虚拟机。使用VirtualBox。&lt;br&gt;记录一些问题和过程以便日后查找。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;virtualBox虚拟机不能选择64位系统:&lt;br&gt;这可能是因为windows开启了hyper-V.在windows功能中关闭就可以了.&lt;br&gt;virtualbox下安装.5.0.10，主程序安装完毕后记得安装扩展包才行.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ssh登陆virtualbox安装的Ubuntu的同时也能连上互联网&lt;br&gt;在全局设定中添加网卡,然后给ubuntu启用第二张网卡.第一张还是nat,第二张设置成&lt;br&gt;仅主机(Host-Only)适配器，选择新添加的网卡。&lt;br&gt;！&lt;a href=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualBox-wlan-1.png&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;/a&gt;&lt;br&gt;然后启动ubuntu来设置网卡。&lt;br&gt;但是，在我添加完后要启动ubuntu时报错了。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualBox-2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;virtualBox虚拟机不能选择64位系统&quot;&gt;&lt;a href=&quot;#virtualBox虚拟机不能选择64位系统&quot; class=&quot;headerlink&quot; title=&quot;virtualBox虚拟机不能选择64位系统:&quot;&gt;&lt;/a&gt;virtualBox虚拟机不能选择64位系统:&lt;/h2&gt;&lt;p&gt;这可能是因为windows开启了hyper-V.在windows功能中关闭就可以了.&lt;br&gt;virtualbox下安装.5.0.10，主程序安装完毕后记得安装扩展包才行.&lt;/p&gt;
+&lt;h2 id=&quot;ssh登陆virtualbox安装的Ubuntu的同时也能连上互联网&quot;&gt;&lt;a href=&quot;#ssh登陆virtualbox安装的Ubuntu的同时也能连上互联网&quot; class=&quot;headerlink&quot; title=&quot;ssh登陆virtualbox安装的Ubuntu的同时也能连上互联网&quot;&gt;&lt;/a&gt;ssh登陆virtualbox安装的Ubuntu的同时也能连上互联网&lt;/h2&gt;&lt;p&gt;在全局设定中添加网卡,然后给ubuntu启用第二张网卡.第一张还是nat,第二张设置成&lt;br&gt;仅主机(Host-Only)适配器，选择新添加的网卡。&lt;br&gt;！&lt;a href=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualBox-wlan-1.png&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;/a&gt;&lt;br&gt;然后启动ubuntu来设置网卡。&lt;br&gt;但是，在我添加完后要启动ubuntu时报错了。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualBox-2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Failed to open/create the internal network ‘HostInterfaceNetworking-VirtualBox Host-Only Ethernet Adapter #3’ (VERR_INTNET_FLT_IF_NOT_FOUND).&lt;br&gt;Failed to attach the network LUN (VERR_INTNET_FLT_IF_NOT_FOUND).&lt;br&gt;错误提示如上。&lt;br&gt;解决办法，在&lt;a href=&quot;http://stackoverflow.com/questions/33725779/failed-to-open-create-the-internal-network-vagrant-on-windows10&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;stackoverflow&lt;/a&gt;上找到的。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualBox-3.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;好可怜，我想评论感谢人家都不行。&lt;br&gt;网络设置参考&lt;a href=&quot;http://www.cnblogs.com/leoyoungblog/p/4927591.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;狼来了&lt;/a&gt;&lt;br&gt;-全局设定-&amp;gt;网络-&amp;gt;添加host only网络&lt;br&gt;-设置host only网络IP&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_VirtualBox-4.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;-虚拟机使用2块网卡&lt;br&gt;网卡1：NAT网络地址转换&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualBox-5.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;网卡2：host only（为便于分辨，可选用与网卡1不同的控制芯片）&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualbox-6.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;虚拟机内设置网卡2静态IP，与主机host only网卡相同网段&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualbox-7.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;添加ssh服务：在Ubuntu终端中输入命令：sudo apt-get install ssh&lt;br&gt;添加vsftpd服务：在Ubuntu终端中输入命令：sudo apt-get install vsftpd&lt;br&gt;Netstat -tlp&lt;br&gt;查看状态&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;secureCRT中文乱码&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualbox-8.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;选项-&amp;gt;会话选项&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualbox-9.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;外观-&amp;gt;字符编码，设为utf-8就可以了。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&quot;secureCRT中文乱码&quot;&gt;&lt;a href=&quot;#secureCRT中文乱码&quot; class=&quot;headerlink&quot; title=&quot;secureCRT中文乱码&quot;&gt;&lt;/a&gt;secureCRT中文乱码&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualbox-8.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;选项-&amp;gt;会话选项&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_virtualbox-9.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;外观-&amp;gt;字符编码，设为utf-8就可以了。&lt;/p&gt;
 </content>
     
     <summary type="html">
