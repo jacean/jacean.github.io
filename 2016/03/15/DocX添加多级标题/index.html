@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>C#在拖放文件的同时检测shift键的状态 | Jacean say Hello</title>
+  <title>DocX添加多级标题 | Jacean say Hello</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="老板要给原来文件拖放的功能加个扩展分类，于是想在文件拖放时判断shift键的状态来区分。">
+  <meta name="description" content="DocX实现了很多对word的需求，即使是没有直接提供的方法，也可以通过自定义来实现。如果要添加多级标题的话，实质上就是添加一个段落，只是设置字体格式不同而已。自定义扩展函数来实现此功能.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C#在拖放文件的同时检测shift键的状态">
-<meta property="og:url" content="http://yoursite.com/2016/03/15/C-在拖放文件的同时检测shift键的状态/index.html">
+<meta property="og:title" content="DocX添加多级标题">
+<meta property="og:url" content="http://yoursite.com/2016/03/15/DocX添加多级标题/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
-<meta property="og:description" content="老板要给原来文件拖放的功能加个扩展分类，于是想在文件拖放时判断shift键的状态来区分。">
-<meta property="og:updated_time" content="2016-03-15T06:57:03.936Z">
+<meta property="og:description" content="DocX实现了很多对word的需求，即使是没有直接提供的方法，也可以通过自定义来实现。如果要添加多级标题的话，实质上就是添加一个段落，只是设置字体格式不同而已。自定义扩展函数来实现此功能.">
+<meta property="og:image" content="http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_DocX-mutilevel-title.png">
+<meta property="og:updated_time" content="2016-03-15T08:05:30.572Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C#在拖放文件的同时检测shift键的状态">
-<meta name="twitter:description" content="老板要给原来文件拖放的功能加个扩展分类，于是想在文件拖放时判断shift键的状态来区分。">
+<meta name="twitter:title" content="DocX添加多级标题">
+<meta name="twitter:description" content="DocX实现了很多对word的需求，即使是没有直接提供的方法，也可以通过自定义来实现。如果要添加多级标题的话，实质上就是添加一个段落，只是设置字体格式不同而已。自定义扩展函数来实现此功能.">
+<meta name="twitter:image" content="http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_DocX-mutilevel-title.png">
   
     <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
   
@@ -267,11 +269,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-C-在拖放文件的同时检测shift键的状态" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-DocX添加多级标题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/15/C-在拖放文件的同时检测shift键的状态/" class="article-date">
-      <time datetime="2016-03-15T06:53:52.000Z" itemprop="datePublished">2016-03-15</time>
+      <a href="/2016/03/15/DocX添加多级标题/" class="article-date">
+      <time datetime="2016-03-15T07:55:51.000Z" itemprop="datePublished">2016-03-15</time>
 </a>
     </div>
   
@@ -284,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      C#在拖放文件的同时检测shift键的状态
+      DocX添加多级标题
     </h1>
   
 
@@ -295,7 +297,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DocX/">DocX</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -305,11 +307,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>老板要给原来文件拖放的功能加个扩展分类，于是想在文件拖放时判断shift键的状态来区分。<br><a id="more"></a></p>
-<h2 id="在拖放文件的同时检测shift键的状态"><a href="#在拖放文件的同时检测shift键的状态" class="headerlink" title="在拖放文件的同时检测shift键的状态"></a>在拖放文件的同时检测shift键的状态</h2><p>一般通过keydown和keyup来判断按下与否，但这都是需要控件事件触发，而在拖放的时候是没法触发key事件的，所以需要通过其他的检测。</p>
-<p>百度后，找到了这么一句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if (Control.ModifierKeys == Keys.Shift)</span><br><span class="line">//keys Control.ModifierKeys 返回的是当前修改键的状态，ALT，SHIFT，CTRL</span><br><span class="line">&#123;</span><br><span class="line"> shiftDown = true;</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line"> shiftDown = false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在文件拖放完成的事件中执行这个就可以得到shift的状态从而区分响应。</p>
+        <p>DocX实现了很多对word的需求，即使是没有直接提供的方法，也可以通过自定义来实现。<br>如果要添加多级标题的话，实质上就是添加一个段落，只是设置字体格式不同而已。<br>自定义扩展函数来实现此功能.<br><a id="more"></a></p>
+<h2 id="定义扩展函数添加多级标题"><a href="#定义扩展函数添加多级标题" class="headerlink" title="定义扩展函数添加多级标题"></a>定义扩展函数添加多级标题</h2><p>实现方法是给Paragraph增加一个扩展函数来设置它的格式。比如Heading1,Heading2之类。<br>我的插入段函数有两个重载，一个是插入正常文本，一个是插入标题，需要提供标题级数。<br>还有一点需要注意的是，如果在paragraph.append(content)，改成appendline的话，会多出现换行符，尽量别用就好。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public static void insertParagraph(string docx,string content,int level)</span><br><span class="line">&#123;</span><br><span class="line">using (DocX document = DocX.Load(docx))</span><br><span class="line">&#123;</span><br><span class="line"> Paragraph pTitle = document.InsertParagraph();</span><br><span class="line"> pTitle.Append(content).Heading(level).Color(Color.Black);</span><br><span class="line"> document.Save();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void insertParagraph(string docx, string content)</span><br><span class="line">&#123;</span><br><span class="line"> using (DocX document = DocX.Load(docx))</span><br><span class="line"> &#123;</span><br><span class="line"></span><br><span class="line"> Paragraph pTitle = document.InsertParagraph();</span><br><span class="line"> pTitle.Append(content);</span><br><span class="line"></span><br><span class="line"> document.Save();</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"> public static Paragraph Heading(this Paragraph paragraph,int level)</span><br><span class="line"> &#123;</span><br><span class="line"> paragraph.StyleName = &quot;Heading&quot;+level.ToString();</span><br><span class="line"> paragraph.ListItemType = ListItemType.Numbered;</span><br><span class="line"> return paragraph;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>插入效果图<br><img src="http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_DocX-mutilevel-title.png" alt=""></p>
 
       
     </div>
@@ -318,13 +319,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/15/C-在拖放文件的同时检测shift键的状态/">C#在拖放文件的同时检测shift键的状态</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/15/DocX添加多级标题/">DocX添加多级标题</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
-        <p><span>发布时间:</span>2016年03月15日 - 14时53分</p>
-        <p><span>最后更新:</span>2016年03月15日 - 14时57分</p>
+        <p><span>发布时间:</span>2016年03月15日 - 15时55分</p>
+        <p><span>最后更新:</span>2016年03月15日 - 16时05分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/15/C-在拖放文件的同时检测shift键的状态/" title="C#在拖放文件的同时检测shift键的状态">http://yoursite.com/2016/03/15/C-在拖放文件的同时检测shift键的状态/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/15/C-在拖放文件的同时检测shift键的状态/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/15/DocX添加多级标题/" title="DocX添加多级标题">http://yoursite.com/2016/03/15/DocX添加多级标题/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/15/DocX添加多级标题/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -337,16 +338,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/15/winForm鼠标坐标/">
-                    winForm鼠标坐标
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/15/CSharp自定义控件属性面板及选择资源设置/">
-                    CSharp自定义控件属性面板及选择资源设置
+                <a href="/2016/03/15/DocX给word添加目录TOC/">
+                    DocX给word添加目录TOC
                 </a>
             </div>
         
@@ -357,7 +352,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#在拖放文件的同时检测shift键的状态"><span class="toc-number">1.</span> <span class="toc-text">在拖放文件的同时检测shift键的状态</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义扩展函数添加多级标题"><span class="toc-number">1.</span> <span class="toc-text">定义扩展函数添加多级标题</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -419,7 +414,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/15/C-在拖放文件的同时检测shift键的状态/" data-title="C#在拖放文件的同时检测shift键的状态" data-url="http://yoursite.com/2016/03/15/C-在拖放文件的同时检测shift键的状态/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/15/DocX添加多级标题/" data-title="DocX添加多级标题" data-url="http://yoursite.com/2016/03/15/DocX添加多级标题/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -443,15 +438,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/15/winForm鼠标坐标/" title="上一篇: winForm鼠标坐标">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/15/CSharp自定义控件属性面板及选择资源设置/" title="下一篇: CSharp自定义控件属性面板及选择资源设置">
+            <a href="/2016/03/15/DocX给word添加目录TOC/" title="下一篇: DocX给word添加目录TOC">
                 <i class="fa fa-angle-right"></i>
             </a>
         

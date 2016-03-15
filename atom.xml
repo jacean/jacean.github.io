@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-15T07:54:14.686Z</updated>
+  <updated>2016-03-15T08:05:30.572Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DocX添加多级标题</title>
+    <link href="http://yoursite.com/2016/03/15/DocX%E6%B7%BB%E5%8A%A0%E5%A4%9A%E7%BA%A7%E6%A0%87%E9%A2%98/"/>
+    <id>http://yoursite.com/2016/03/15/DocX添加多级标题/</id>
+    <published>2016-03-15T07:55:51.000Z</published>
+    <updated>2016-03-15T08:05:30.572Z</updated>
+    
+    <content type="html">&lt;p&gt;DocX实现了很多对word的需求，即使是没有直接提供的方法，也可以通过自定义来实现。&lt;br&gt;如果要添加多级标题的话，实质上就是添加一个段落，只是设置字体格式不同而已。&lt;br&gt;自定义扩展函数来实现此功能.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;定义扩展函数添加多级标题&quot;&gt;&lt;a href=&quot;#定义扩展函数添加多级标题&quot; class=&quot;headerlink&quot; title=&quot;定义扩展函数添加多级标题&quot;&gt;&lt;/a&gt;定义扩展函数添加多级标题&lt;/h2&gt;&lt;p&gt;实现方法是给Paragraph增加一个扩展函数来设置它的格式。比如Heading1,Heading2之类。&lt;br&gt;我的插入段函数有两个重载，一个是插入正常文本，一个是插入标题，需要提供标题级数。&lt;br&gt;还有一点需要注意的是，如果在paragraph.append(content)，改成appendline的话，会多出现换行符，尽量别用就好。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public static void insertParagraph(string docx,string content,int level)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;using (DocX document = DocX.Load(docx))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; Paragraph pTitle = document.InsertParagraph();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; pTitle.Append(content).Heading(level).Color(Color.Black);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; document.Save();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;public static void insertParagraph(string docx, string content)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; using (DocX document = DocX.Load(docx))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; Paragraph pTitle = document.InsertParagraph();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; pTitle.Append(content);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; document.Save();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; public static Paragraph Heading(this Paragraph paragraph,int level)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; paragraph.StyleName = &amp;quot;Heading&amp;quot;+level.ToString();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; paragraph.ListItemType = ListItemType.Numbered;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; return paragraph;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;插入效果图&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_DocX-mutilevel-title.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;DocX实现了很多对word的需求，即使是没有直接提供的方法，也可以通过自定义来实现。&lt;br&gt;如果要添加多级标题的话，实质上就是添加一个段落，只是设置字体格式不同而已。&lt;br&gt;自定义扩展函数来实现此功能.&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="C#" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="DocX" scheme="http://yoursite.com/tags/DocX/"/>
+    
+  </entry>
   
   <entry>
     <title>DocX给word添加目录TOC</title>
