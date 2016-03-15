@@ -474,7 +474,7 @@ label.book{
 .exp-devide::before{
 	
     left: 10%;
-margin-left:-2px;
+  margin-left:-2px;
   content: '';
   position: absolute;
   top: 0;
@@ -523,7 +523,7 @@ label.book{
     margin-bottom:1em
    
 }
-.exp-devide-grid-right, .exp-devide-grid-rightb ,.exp-devide-grid-left, .exp-devide-grid-leftb{
+.exp-devide-grid-right, .exp-devide-grid-rightb , .exp-devide-grid-left, .exp-devide-grid-leftb{
     text-align: left;
     margin-left: 15%;
 	margin-right: 5%;
