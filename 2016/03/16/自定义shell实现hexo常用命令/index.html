@@ -5,16 +5,22 @@
   
   <title>自定义shell实现hexo常用命令 | Jacean say Hello</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。于是就看了会Shell，自定义一些命令来简化操作。">
+  <meta name="description" content="利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。于是就看了会Shell，自定义一些命令来简化操作。实现如下
+
+jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义shell实现hexo常用命令">
 <meta property="og:url" content="http://jacean.github.io/2016/03/16/自定义shell实现hexo常用命令/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
-<meta property="og:description" content="利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。于是就看了会Shell，自定义一些命令来简化操作。">
-<meta property="og:updated_time" content="2016-03-16T13:41:35.235Z">
+<meta property="og:description" content="利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。于是就看了会Shell，自定义一些命令来简化操作。实现如下
+
+jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现">
+<meta property="og:updated_time" content="2016-03-16T14:30:45.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义shell实现hexo常用命令">
-<meta name="twitter:description" content="利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。于是就看了会Shell，自定义一些命令来简化操作。">
+<meta name="twitter:description" content="利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。于是就看了会Shell，自定义一些命令来简化操作。实现如下
+
+jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现">
   
     <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
   
@@ -305,7 +311,30 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。<br>于是就看了会Shell，自定义一些命令来简化操作。</p>
+        <p>利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。<br>超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。<br>于是就看了会Shell，自定义一些命令来简化操作。实现如下</p>
+<blockquote>
+<p>jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现hexo常用命令<br>change dir to /home/jacean/HexoBlog/source/_posts<br>INFO  Created: ~/HexoBlog/source/_posts/自定义shell实现hexo常用命令.md<br>hexo new 自定义shell实现hexo常用命令<br>gvim 自定义shell实现hexo常用命令<br>jacean@jacean-Ubuntu:~$ hexogd<br>INFO  Start processing<br>INFO  Files loaded in 659 ms&gt;<br><a id="more"></a></p>
+</blockquote>
+<h2 id="Shell基础"><a href="#Shell基础" class="headerlink" title="Shell基础"></a>Shell基础</h2><h2 id="Hexo命令"><a href="#Hexo命令" class="headerlink" title="Hexo命令"></a>Hexo命令</h2><p>默认Shell的解释器是bash，所以我就直接在bash的相关文件里应用更改。</p>
+<ol>
+<li>在$HOME下建立文件夹<em>mycmd</em>,在里面建立脚本文件。</li>
+</ol>
+<ul>
+<li>hexonew.sh</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">path=~/HexoBlog/source/_posts</span><br><span class="line">current=$0</span><br><span class="line">cd $path</span><br><span class="line">echo &quot;change dir to $path&quot;</span><br><span class="line">if [ $# -ge 1 ]</span><br><span class="line">then</span><br><span class="line">    for f in $*</span><br><span class="line">    do  </span><br><span class="line">        hexo new $f</span><br><span class="line">        echo &quot;hexo new $f &quot;</span><br><span class="line">#        hexo g</span><br><span class="line">        gvim $f.md</span><br><span class="line">        echo &quot;gvim $f&quot;</span><br><span class="line">    done</span><br><span class="line">else</span><br><span class="line">    echo &quot;parm error,need file1[,file2...]&quot;</span><br><span class="line">fi</span><br><span class="line">#echo &quot;change dir to $current&quot;</span><br><span class="line">cd ~</span><br></pre></td></tr></table></figure>
+<p>这段代码实现的是hexo的new，new后同时编辑文件，如果是多个就同时打开编辑。</p>
+<ul>
+<li>myalias</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alias hexogd=&quot;cd ~/HexoBlog; hexo g -d;cd ~&quot;</span><br><span class="line">alias hexog=&quot;cd ~/HexoBlog; hexo g;cd ~&quot;</span><br><span class="line">alias hexod=&quot;cd ~/HexoBlog; hexo d;cd ~&quot;</span><br><span class="line">alias hexonew=&quot;. hexonew.sh&quot;</span><br></pre></td></tr></table></figure>
+<p>这段代码前3句是直接建立别名来执行命令，后一句是执行上一个hexonew.sh。那个<em>.</em>的意思是直接在本Shell下执行，不必新开子进程。<br>不过现在还不好使，需要在bash那里配置下。</p>
+<ol>
+<li>配置.bashrc<br>bash的配置文件在etc/和home文件夹之下都有，明显就是针对用户的设置，所以我选择编辑home下的.bashrc，个人习惯。<br>在末尾添加</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if [ -d &quot;$HOME/mycmd&quot; ]; then</span><br><span class="line">	PATH=$PATH:~/mycmd</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -f &quot;$HOME/mycmd/myalias&quot; ]; then</span><br><span class="line">	. ~/mycmd/myalias</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p>第一个是把mycmd的路径加入path，第二个是把别名文件载入，这样的话别名文件里加载的hexonew.sh也就可以直接用了。</p>
+<p>至此，大功告成，执行那几个命令都有相对实现，也不用再收到切换目录了。</p>
 
       
     </div>
@@ -317,7 +346,7 @@
         <p><span>本文标题:</span><a href="/2016/03/16/自定义shell实现hexo常用命令/">自定义shell实现hexo常用命令</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年03月16日 - 21时38分</p>
-        <p><span>最后更新:</span>2016年03月16日 - 21时41分</p>
+        <p><span>最后更新:</span>2016年03月16日 - 22时30分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/16/自定义shell实现hexo常用命令/" title="自定义shell实现hexo常用命令">http://jacean.github.io/2016/03/16/自定义shell实现hexo常用命令/</a>
             <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/03/16/自定义shell实现hexo常用命令/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -347,7 +376,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shell基础"><span class="toc-number">1.</span> <span class="toc-text">Shell基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo命令"><span class="toc-number">2.</span> <span class="toc-text">Hexo命令</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {

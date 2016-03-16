@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-03-16T13:41:35.235Z</updated>
+  <updated>2016-03-16T14:30:45.643Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -20,15 +20,39 @@
     <link href="http://jacean.github.io/2016/03/16/%E8%87%AA%E5%AE%9A%E4%B9%89shell%E5%AE%9E%E7%8E%B0hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>http://jacean.github.io/2016/03/16/自定义shell实现hexo常用命令/</id>
     <published>2016-03-16T13:38:27.000Z</published>
-    <updated>2016-03-16T13:41:35.235Z</updated>
+    <updated>2016-03-16T14:30:45.643Z</updated>
     
-    <content type="html">&lt;p&gt;利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。&lt;br&gt;于是就看了会Shell，自定义一些命令来简化操作。&lt;/p&gt;
+    <content type="html">&lt;p&gt;利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。&lt;br&gt;超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。&lt;br&gt;于是就看了会Shell，自定义一些命令来简化操作。实现如下&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现hexo常用命令&lt;br&gt;change dir to /home/jacean/HexoBlog/source/_posts&lt;br&gt;INFO  Created: ~/HexoBlog/source/_posts/自定义shell实现hexo常用命令.md&lt;br&gt;hexo new 自定义shell实现hexo常用命令&lt;br&gt;gvim 自定义shell实现hexo常用命令&lt;br&gt;jacean@jacean-Ubuntu:~$ hexogd&lt;br&gt;INFO  Start processing&lt;br&gt;INFO  Files loaded in 659 ms&amp;gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Shell基础&quot;&gt;&lt;a href=&quot;#Shell基础&quot; class=&quot;headerlink&quot; title=&quot;Shell基础&quot;&gt;&lt;/a&gt;Shell基础&lt;/h2&gt;&lt;h2 id=&quot;Hexo命令&quot;&gt;&lt;a href=&quot;#Hexo命令&quot; class=&quot;headerlink&quot; title=&quot;Hexo命令&quot;&gt;&lt;/a&gt;Hexo命令&lt;/h2&gt;&lt;p&gt;默认Shell的解释器是bash，所以我就直接在bash的相关文件里应用更改。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在$HOME下建立文件夹&lt;em&gt;mycmd&lt;/em&gt;,在里面建立脚本文件。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;hexonew.sh&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;path=~/HexoBlog/source/_posts&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;current=$0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd $path&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;echo &amp;quot;change dir to $path&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if [ $# -ge 1 ]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;then&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    for f in $*&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    do  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        hexo new $f&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        echo &amp;quot;hexo new $f &amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#        hexo g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        gvim $f.md&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        echo &amp;quot;gvim $f&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;else&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    echo &amp;quot;parm error,need file1[,file2...]&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#echo &amp;quot;change dir to $current&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd ~&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这段代码实现的是hexo的new，new后同时编辑文件，如果是多个就同时打开编辑。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;myalias&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;alias hexogd=&amp;quot;cd ~/HexoBlog; hexo g -d;cd ~&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias hexog=&amp;quot;cd ~/HexoBlog; hexo g;cd ~&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias hexod=&amp;quot;cd ~/HexoBlog; hexo d;cd ~&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias hexonew=&amp;quot;. hexonew.sh&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这段代码前3句是直接建立别名来执行命令，后一句是执行上一个hexonew.sh。那个&lt;em&gt;.&lt;/em&gt;的意思是直接在本Shell下执行，不必新开子进程。&lt;br&gt;不过现在还不好使，需要在bash那里配置下。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;配置.bashrc&lt;br&gt;bash的配置文件在etc/和home文件夹之下都有，明显就是针对用户的设置，所以我选择编辑home下的.bashrc，个人习惯。&lt;br&gt;在末尾添加&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;if [ -d &amp;quot;$HOME/mycmd&amp;quot; ]; then&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	PATH=$PATH:~/mycmd&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if [ -f &amp;quot;$HOME/mycmd/myalias&amp;quot; ]; then&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	. ~/mycmd/myalias&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;第一个是把mycmd的路径加入path，第二个是把别名文件载入，这样的话别名文件里加载的hexonew.sh也就可以直接用了。&lt;/p&gt;
+&lt;p&gt;至此，大功告成，执行那几个命令都有相对实现，也不用再收到切换目录了。&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。&lt;br&gt;于是就看了会Shell，自定义一些命令来简化操作。&lt;/p&gt;
-
+      &lt;p&gt;利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。&lt;br&gt;超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。&lt;br&gt;于是就看了会Shell，自定义一些命令来简化操作。实现如下&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现hexo常用命令&lt;br&gt;change dir to /home/jacean/HexoBlog/source/_posts&lt;br&gt;INFO  Created: ~/HexoBlog/source/_posts/自定义shell实现hexo常用命令.md&lt;br&gt;hexo new 自定义shell实现hexo常用命令&lt;br&gt;gvim 自定义shell实现hexo常用命令&lt;br&gt;jacean@jacean-Ubuntu:~$ hexogd&lt;br&gt;INFO  Start processing&lt;br&gt;INFO  Files loaded in 659 ms&amp;gt;&lt;br&gt;
     
     </summary>
     
