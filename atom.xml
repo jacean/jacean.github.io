@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-03-16T14:30:45.643Z</updated>
+  <updated>2016-03-16T14:38:29.384Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -20,13 +20,14 @@
     <link href="http://jacean.github.io/2016/03/16/%E8%87%AA%E5%AE%9A%E4%B9%89shell%E5%AE%9E%E7%8E%B0hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>http://jacean.github.io/2016/03/16/自定义shell实现hexo常用命令/</id>
     <published>2016-03-16T13:38:27.000Z</published>
-    <updated>2016-03-16T14:30:45.643Z</updated>
+    <updated>2016-03-16T14:38:29.384Z</updated>
     
     <content type="html">&lt;p&gt;利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。&lt;br&gt;超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。&lt;br&gt;于是就看了会Shell，自定义一些命令来简化操作。实现如下&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现hexo常用命令&lt;br&gt;change dir to /home/jacean/HexoBlog/source/_posts&lt;br&gt;INFO  Created: ~/HexoBlog/source/_posts/自定义shell实现hexo常用命令.md&lt;br&gt;hexo new 自定义shell实现hexo常用命令&lt;br&gt;gvim 自定义shell实现hexo常用命令&lt;br&gt;jacean@jacean-Ubuntu:~$ hexogd&lt;br&gt;INFO  Start processing&lt;br&gt;INFO  Files loaded in 659 ms&amp;gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;~Hexonew 自定义shell实现hexo常用命令&lt;br&gt;change dir to /home/jacean/HexoBlog/source/_posts&lt;br&gt;INFO  Created: ~/HexoBlog/source/_posts/自定义shell实现hexo常用命令.md&lt;br&gt;hexo new 自定义shell实现hexo常用命令&lt;br&gt;gvim 自定义shell实现hexo常用命令&lt;br&gt;~hexogd&lt;br&gt;INFO  Start processing&lt;br&gt;INFO  Files loaded in 659 ms&amp;gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;Shell基础&quot;&gt;&lt;a href=&quot;#Shell基础&quot; class=&quot;headerlink&quot; title=&quot;Shell基础&quot;&gt;&lt;/a&gt;Shell基础&lt;/h2&gt;&lt;h2 id=&quot;Hexo命令&quot;&gt;&lt;a href=&quot;#Hexo命令&quot; class=&quot;headerlink&quot; title=&quot;Hexo命令&quot;&gt;&lt;/a&gt;Hexo命令&lt;/h2&gt;&lt;p&gt;默认Shell的解释器是bash，所以我就直接在bash的相关文件里应用更改。&lt;/p&gt;
+&lt;h2 id=&quot;Shell基础&quot;&gt;&lt;a href=&quot;#Shell基础&quot; class=&quot;headerlink&quot; title=&quot;Shell基础&quot;&gt;&lt;/a&gt;Shell基础&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://jacean.github.io/2016/03/16/Shell%E5%85%A5%E9%97%A8/&quot;&gt;Shell入门&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Hexo命令&quot;&gt;&lt;a href=&quot;#Hexo命令&quot; class=&quot;headerlink&quot; title=&quot;Hexo命令&quot;&gt;&lt;/a&gt;Hexo命令&lt;/h2&gt;&lt;p&gt;默认Shell的解释器是bash，所以我就直接在bash的相关文件里应用更改。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;在$HOME下建立文件夹&lt;em&gt;mycmd&lt;/em&gt;,在里面建立脚本文件。&lt;/li&gt;
 &lt;/ol&gt;
@@ -38,7 +39,7 @@
 &lt;ul&gt;
 &lt;li&gt;myalias&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;alias hexogd=&amp;quot;cd ~/HexoBlog; hexo g -d;cd ~&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias hexog=&amp;quot;cd ~/HexoBlog; hexo g;cd ~&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias hexod=&amp;quot;cd ~/HexoBlog; hexo d;cd ~&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias hexonew=&amp;quot;. hexonew.sh&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;alias hexogd=&amp;quot;cd ~/HexoBlog; hexo g -d;cd ~&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias hexog=&amp;quot;cd ~/HexoBlog; hexo g;cd ~&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias hexod=&amp;quot;cd ~/HexoBlog; hexo d;cd ~&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias hexop=&amp;quot;cd ~/HexoBlog/source/_posts&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias hexonew=&amp;quot;. hexonew.sh&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;这段代码前3句是直接建立别名来执行命令，后一句是执行上一个hexonew.sh。那个&lt;em&gt;.&lt;/em&gt;的意思是直接在本Shell下执行，不必新开子进程。&lt;br&gt;不过现在还不好使，需要在bash那里配置下。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;配置.bashrc&lt;br&gt;bash的配置文件在etc/和home文件夹之下都有，明显就是针对用户的设置，所以我选择编辑home下的.bashrc，个人习惯。&lt;br&gt;在末尾添加&lt;/li&gt;
@@ -52,7 +53,7 @@
     
       &lt;p&gt;利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。&lt;br&gt;超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。&lt;br&gt;于是就看了会Shell，自定义一些命令来简化操作。实现如下&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现hexo常用命令&lt;br&gt;change dir to /home/jacean/HexoBlog/source/_posts&lt;br&gt;INFO  Created: ~/HexoBlog/source/_posts/自定义shell实现hexo常用命令.md&lt;br&gt;hexo new 自定义shell实现hexo常用命令&lt;br&gt;gvim 自定义shell实现hexo常用命令&lt;br&gt;jacean@jacean-Ubuntu:~$ hexogd&lt;br&gt;INFO  Start processing&lt;br&gt;INFO  Files loaded in 659 ms&amp;gt;&lt;br&gt;
+&lt;p&gt;~Hexonew 自定义shell实现hexo常用命令&lt;br&gt;change dir to /home/jacean/HexoBlog/source/_posts&lt;br&gt;INFO  Created: ~/HexoBlog/source/_posts/自定义shell实现hexo常用命令.md&lt;br&gt;hexo new 自定义shell实现hexo常用命令&lt;br&gt;gvim 自定义shell实现hexo常用命令&lt;br&gt;~hexogd&lt;br&gt;INFO  Start processing&lt;br&gt;INFO  Files loaded in 659 ms&amp;gt;&lt;br&gt;
     
     </summary>
     
@@ -68,9 +69,10 @@
     <link href="http://jacean.github.io/2016/03/16/Vim%E6%93%8D%E4%BD%9C/"/>
     <id>http://jacean.github.io/2016/03/16/Vim操作/</id>
     <published>2016-03-16T09:32:53.000Z</published>
-    <updated>2016-03-16T11:30:46.353Z</updated>
+    <updated>2016-03-16T14:40:36.412Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;分屏操作&quot;&gt;&lt;a href=&quot;#分屏操作&quot; class=&quot;headerlink&quot; title=&quot;分屏操作&quot;&gt;&lt;/a&gt;分屏操作&lt;/h2&gt;&lt;h3 id=&quot;启动分屏&quot;&gt;&lt;a href=&quot;#启动分屏&quot; class=&quot;headerlink&quot; title=&quot;启动分屏&quot;&gt;&lt;/a&gt;启动分屏&lt;/h3&gt;&lt;ol&gt;
+    <content type="html">&lt;p&gt;vim是号称编辑器之神的编辑器，一段时间的使用之后我觉得我也爱上了它。&lt;br&gt;但是vim的操作技巧实在太多，得慢慢适应。所以就把一些自己不常用的操作在这里记录下，持续更新吧。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;分屏操作&quot;&gt;&lt;a href=&quot;#分屏操作&quot; class=&quot;headerlink&quot; title=&quot;分屏操作&quot;&gt;&lt;/a&gt;分屏操作&lt;/h2&gt;&lt;h3 id=&quot;启动分屏&quot;&gt;&lt;a href=&quot;#启动分屏&quot; class=&quot;headerlink&quot; title=&quot;启动分屏&quot;&gt;&lt;/a&gt;启动分屏&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;使用大写的参数O来垂直分屏，小写o是水平分屏，n表示的是分成几个屏。&lt;blockquote&gt;
 &lt;p&gt;vim -O&lt;em&gt;n&lt;/em&gt; file1 file2 …&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -150,7 +152,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;分屏操作&quot;&gt;&lt;a href=&quot;#分屏操作&quot; class=&quot;headerlink&quot; title=&quot;分屏操作&quot;&gt;&lt;/a&gt;分屏操作&lt;/h2&gt;&lt;h3 id=&quot;启动分屏&quot;&gt;&lt;a href=&quot;#启动分屏&quot; class=&quot;headerlink&quot; title=&quot;启动分屏&quot;&gt;&lt;/a
+      &lt;p&gt;vim是号称编辑器之神的编辑器，一段时间的使用之后我觉得我也爱上了它。&lt;br&gt;但是vim的操作技巧实在太多，得慢慢适应。所以就把一些自己不常用的操作在这里记录下，持续更新吧。&lt;br&gt;
     
     </summary>
     

@@ -7,20 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。于是就看了会Shell，自定义一些命令来简化操作。实现如下
 
-jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现">
+~Hexonew 自定义shell实现hexo常用命令change dir to /">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义shell实现hexo常用命令">
 <meta property="og:url" content="http://jacean.github.io/2016/03/16/自定义shell实现hexo常用命令/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
 <meta property="og:description" content="利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。于是就看了会Shell，自定义一些命令来简化操作。实现如下
 
-jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现">
-<meta property="og:updated_time" content="2016-03-16T14:30:45.643Z">
+~Hexonew 自定义shell实现hexo常用命令change dir to /">
+<meta property="og:updated_time" content="2016-03-16T14:38:29.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义shell实现hexo常用命令">
 <meta name="twitter:description" content="利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。于是就看了会Shell，自定义一些命令来简化操作。实现如下
 
-jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现">
+~Hexonew 自定义shell实现hexo常用命令change dir to /">
   
     <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
   
@@ -313,9 +313,10 @@ jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现">
           
         <p>利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。<br>超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。<br>于是就看了会Shell，自定义一些命令来简化操作。实现如下</p>
 <blockquote>
-<p>jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现hexo常用命令<br>change dir to /home/jacean/HexoBlog/source/_posts<br>INFO  Created: ~/HexoBlog/source/_posts/自定义shell实现hexo常用命令.md<br>hexo new 自定义shell实现hexo常用命令<br>gvim 自定义shell实现hexo常用命令<br>jacean@jacean-Ubuntu:~$ hexogd<br>INFO  Start processing<br>INFO  Files loaded in 659 ms&gt;<br><a id="more"></a></p>
+<p>~Hexonew 自定义shell实现hexo常用命令<br>change dir to /home/jacean/HexoBlog/source/_posts<br>INFO  Created: ~/HexoBlog/source/_posts/自定义shell实现hexo常用命令.md<br>hexo new 自定义shell实现hexo常用命令<br>gvim 自定义shell实现hexo常用命令<br>~hexogd<br>INFO  Start processing<br>INFO  Files loaded in 659 ms&gt;<br><a id="more"></a></p>
 </blockquote>
-<h2 id="Shell基础"><a href="#Shell基础" class="headerlink" title="Shell基础"></a>Shell基础</h2><h2 id="Hexo命令"><a href="#Hexo命令" class="headerlink" title="Hexo命令"></a>Hexo命令</h2><p>默认Shell的解释器是bash，所以我就直接在bash的相关文件里应用更改。</p>
+<h2 id="Shell基础"><a href="#Shell基础" class="headerlink" title="Shell基础"></a>Shell基础</h2><p><a href="http://jacean.github.io/2016/03/16/Shell%E5%85%A5%E9%97%A8/">Shell入门</a></p>
+<h2 id="Hexo命令"><a href="#Hexo命令" class="headerlink" title="Hexo命令"></a>Hexo命令</h2><p>默认Shell的解释器是bash，所以我就直接在bash的相关文件里应用更改。</p>
 <ol>
 <li>在$HOME下建立文件夹<em>mycmd</em>,在里面建立脚本文件。</li>
 </ol>
@@ -327,7 +328,7 @@ jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现">
 <ul>
 <li>myalias</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alias hexogd=&quot;cd ~/HexoBlog; hexo g -d;cd ~&quot;</span><br><span class="line">alias hexog=&quot;cd ~/HexoBlog; hexo g;cd ~&quot;</span><br><span class="line">alias hexod=&quot;cd ~/HexoBlog; hexo d;cd ~&quot;</span><br><span class="line">alias hexonew=&quot;. hexonew.sh&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">alias hexogd=&quot;cd ~/HexoBlog; hexo g -d;cd ~&quot;</span><br><span class="line">alias hexog=&quot;cd ~/HexoBlog; hexo g;cd ~&quot;</span><br><span class="line">alias hexod=&quot;cd ~/HexoBlog; hexo d;cd ~&quot;</span><br><span class="line">alias hexop=&quot;cd ~/HexoBlog/source/_posts&quot;</span><br><span class="line">alias hexonew=&quot;. hexonew.sh&quot;</span><br></pre></td></tr></table></figure>
 <p>这段代码前3句是直接建立别名来执行命令，后一句是执行上一个hexonew.sh。那个<em>.</em>的意思是直接在本Shell下执行，不必新开子进程。<br>不过现在还不好使，需要在bash那里配置下。</p>
 <ol>
 <li>配置.bashrc<br>bash的配置文件在etc/和home文件夹之下都有，明显就是针对用户的设置，所以我选择编辑home下的.bashrc，个人习惯。<br>在末尾添加</li>
@@ -346,7 +347,7 @@ jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现">
         <p><span>本文标题:</span><a href="/2016/03/16/自定义shell实现hexo常用命令/">自定义shell实现hexo常用命令</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年03月16日 - 21时38分</p>
-        <p><span>最后更新:</span>2016年03月16日 - 22时30分</p>
+        <p><span>最后更新:</span>2016年03月16日 - 22时38分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/16/自定义shell实现hexo常用命令/" title="自定义shell实现hexo常用命令">http://jacean.github.io/2016/03/16/自定义shell实现hexo常用命令/</a>
             <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/03/16/自定义shell实现hexo常用命令/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

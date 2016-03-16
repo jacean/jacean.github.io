@@ -302,7 +302,7 @@
           
               <p>利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。<br>超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。<br>于是就看了会Shell，自定义一些命令来简化操作。实现如下</p>
 <blockquote>
-<p>jacean@jacean-Ubuntu:~$ hexonew 自定义shell实现hexo常用命令<br>change dir to /home/jacean/HexoBlog/source/_posts<br>INFO  Created: ~/HexoBlog/source/_posts/自定义shell实现hexo常用命令.md<br>hexo new 自定义shell实现hexo常用命令<br>gvim 自定义shell实现hexo常用命令<br>jacean@jacean-Ubuntu:~$ hexogd<br>INFO  Start processing<br>INFO  Files loaded in 659 ms&gt;<br>
+<p>~Hexonew 自定义shell实现hexo常用命令<br>change dir to /home/jacean/HexoBlog/source/_posts<br>INFO  Created: ~/HexoBlog/source/_posts/自定义shell实现hexo常用命令.md<br>hexo new 自定义shell实现hexo常用命令<br>gvim 自定义shell实现hexo常用命令<br>~hexogd<br>INFO  Start processing<br>INFO  Files loaded in 659 ms&gt;<br>
           
       
     </div>
@@ -364,83 +364,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="分屏操作"><a href="#分屏操作" class="headerlink" title="分屏操作"></a>分屏操作</h2><h3 id="启动分屏"><a href="#启动分屏" class="headerlink" title="启动分屏"></a>启动分屏</h3><ol>
-<li>使用大写的参数O来垂直分屏，小写o是水平分屏，n表示的是分成几个屏。<blockquote>
-<p>vim -O<em>n</em> file1 file2 …</p>
-</blockquote>
-</li>
-<li>关闭当前窗口<blockquote>
-<p>Ctrl+W c<br>Ctrl+W q,关闭当前窗口，如果只剩最后一个了则退出vim</p>
-</blockquote>
-</li>
-<li>上下分开当前打开的文件<blockquote>
-<p>Ctrl+W s</p>
-</blockquote>
-</li>
-<li>上下分开，并打开新文件<blockquote>
-<p>:sp filename</p>
-</blockquote>
-</li>
-<li>左右分割当前打开的文件<blockquote>
-<p>Ctrl+W v</p>
-</blockquote>
-</li>
-<li>左右分割，并打开新文件<blockquote>
-<p>:vsp filename</p>
-<h3 id="多屏切换光标"><a href="#多屏切换光标" class="headerlink" title="多屏切换光标"></a>多屏切换光标</h3></blockquote>
-</li>
-<li>把光标移到右边的屏。<blockquote>
-<p>Ctrl+W l</p>
-</blockquote>
-</li>
-<li>把光标移到左边的屏中。<blockquote>
-<p>Ctrl+W h</p>
-</blockquote>
-</li>
-<li>把光标移到上边的屏中。<blockquote>
-<p>Ctrl+W k</p>
-</blockquote>
-</li>
-<li>把光标移到下边的屏中。<blockquote>
-<p>Ctrl+W j</p>
-</blockquote>
-</li>
-<li>把光标移到下一个的屏中。.<blockquote>
-<p>Ctrl+W w</p>
-<h3 id="移动分屏"><a href="#移动分屏" class="headerlink" title="移动分屏"></a>移动分屏</h3><p>这个功能还是使用了Vim的光标键，只不过都是大写。当然了，如果你的分屏很乱很复杂的话，这个功能可能会出现一些非常奇怪的症状。</p>
-</blockquote>
-</li>
-<li>向右移动。<blockquote>
-<p>Ctrl+W L</p>
-</blockquote>
-</li>
-<li>向左移动<blockquote>
-<p>Ctrl+W H</p>
-</blockquote>
-</li>
-<li>向上移动<blockquote>
-<p>Ctrl+W K</p>
-</blockquote>
-</li>
-<li>向下移动<blockquote>
-<p>Ctrl+W J</p>
-<h3 id="分屏尺寸"><a href="#分屏尺寸" class="headerlink" title="分屏尺寸"></a>分屏尺寸</h3><p>下面是改变尺寸的一些操作，主要是高度，对于宽度你可以使用[Ctrl+W &lt;]或是[Ctrl+W &gt;]，但这可能需要最新的版本才支持。</p>
-</blockquote>
-</li>
-<li>让所有的屏都有一样的高度。<blockquote>
-<p>Ctrl+W =</p>
-</blockquote>
-</li>
-<li>增加高度。<blockquote>
-<p>Ctrl+W +</p>
-</blockquote>
-</li>
-<li>减少高度。<blockquote>
-<p>Ctrl+W -</p>
-</blockquote>
-</li>
-</ol>
-
+              <p>vim是号称编辑器之神的编辑器，一段时间的使用之后我觉得我也爱上了它。<br>但是vim的操作技巧实在太多，得慢慢适应。所以就把一些自己不常用的操作在这里记录下，持续更新吧。<br>
+          
       
     </div>
     
@@ -453,6 +378,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/">Vim</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/16/Vim操作/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
