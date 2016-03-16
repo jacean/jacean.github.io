@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-03-16T13:24:37.266Z</updated>
+  <updated>2016-03-16T13:41:35.235Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -16,18 +16,26 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>测试1</title>
-    <link href="http://jacean.github.io/2016/03/16/%E6%B5%8B%E8%AF%951/"/>
-    <id>http://jacean.github.io/2016/03/16/测试1/</id>
-    <published>2016-03-16T13:24:37.000Z</published>
-    <updated>2016-03-16T13:24:37.266Z</updated>
+    <title>自定义shell实现hexo常用命令</title>
+    <link href="http://jacean.github.io/2016/03/16/%E8%87%AA%E5%AE%9A%E4%B9%89shell%E5%AE%9E%E7%8E%B0hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://jacean.github.io/2016/03/16/自定义shell实现hexo常用命令/</id>
+    <published>2016-03-16T13:38:27.000Z</published>
+    <updated>2016-03-16T13:41:35.235Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;p&gt;利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。&lt;br&gt;于是就看了会Shell，自定义一些命令来简化操作。&lt;/p&gt;
+</content>
     
     <summary type="html">
     
+      &lt;p&gt;利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。&lt;br&gt;于是就看了会Shell，自定义一些命令来简化操作。&lt;/p&gt;
+
+    
     </summary>
     
+    
+      <category term="Shell" scheme="http://jacean.github.io/tags/Shell/"/>
+    
+      <category term="hexo" scheme="http://jacean.github.io/tags/hexo/"/>
     
   </entry>
   
@@ -607,9 +615,9 @@
     
       <category term="C#" scheme="http://jacean.github.io/tags/C/"/>
     
-      <category term="自定义控件" scheme="http://jacean.github.io/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6/"/>
-    
       <category term="ListView" scheme="http://jacean.github.io/tags/ListView/"/>
+    
+      <category term="自定义控件" scheme="http://jacean.github.io/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6/"/>
     
   </entry>
   
