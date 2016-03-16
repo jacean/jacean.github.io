@@ -623,9 +623,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="http://www.jb51.net/article/55131.htm" target="_blank" rel="external">参考文章</a></p>
+              <p><a href="http://www.jb51.net/article/55131.htm">参考文章</a></p>
 <ol>
-<li><p>首先到<a href="http://www.oracle.com/technetwork/java/javase/downloads/下载jdk，我下载的是最新版jdk-8u20-linux-i586.tar.gz，下载完成使用命令" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/下载jdk，我下载的是最新版jdk-8u20-linux-i586.tar.gz，下载完成使用命令</a></p>
+<li><p>首先到<a href="http://www.oracle.com/technetwork/java/javase/downloads/下载jdk，我下载的是最新版jdk-8u20-linux-i586.tar.gz，下载完成使用命令">http://www.oracle.com/technetwork/java/javase/downloads/下载jdk，我下载的是最新版jdk-8u20-linux-i586.tar.gz，下载完成使用命令</a></p>
 <blockquote>
 <p>sudo tar zxvf jdk-8u20-linux-i586.tar.gz</p>
 </blockquote>
@@ -641,32 +641,7 @@
 </blockquote>
 </li>
 </ol>
-<p>在末尾加上：</p>
-<blockquote>
-<p>export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_20</p>
-</blockquote>
-<p>然后保存关闭，使用source更新下<br>source ~/.profile<br>使用env命令察看JAVA_HOME的值<br>env<br>如果显示JAVA_HOME=/usr/lib/jvm/jdk1.8.0_20，说明配置成功。</p>
-<ol>
-<li><p>修改系统默认的jdk，如下</p>
-<blockquote>
-<p>sudo update-alternatives –install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_20/bin/java 300<br>sudo update-alternatives –install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_20/bin/javac 300<br>sudo update-alternatives –config java<br>sudo update-alternatives –config javac</p>
-</blockquote>
-</li>
-<li><p>查看java版本信息，<br>终端输入 java -version<br>看到如下信息，就说明修改Ok: </p>
-<blockquote>
-<p>java version “1.8.0_20”<br>Java(TM) SE Runtime Environment (build 1.8.0_20-b26)<br>Java HotSpot(TM) Client VM (build 25.20-b23, mixed mode)</p>
-</blockquote>
-</li>
-<li><p>ubuntu下安装配置eclipse<br>去官网<a href="http://developer.android.com/sdk/index.html下载了eclipse包adt-bundle-linux-x86-20140702.zip，下载后解压到你想放的文件夹中就可以了。" target="_blank" rel="external">http://developer.android.com/sdk/index.html下载了eclipse包adt-bundle-linux-x86-20140702.zip，下载后解压到你想放的文件夹中就可以了。</a><br>解压命令 unzip adt-bundle-linux-x86-20140702.zip<br>我放在/home/kingqi/ADT目录下</p>
-</li>
-<li><p>将eclipse执行文件符号链接到/usr/local/bin。</p>
-<blockquote>
-<p>cd /usr/local/bin<br>sudo ln -s /home/kingqi/ADT/adt-bundle-linux-x86-20140702/eclipse/eclipse</p>
-</blockquote>
-</li>
-</ol>
-<p>ok，大功告成，打开终端，输入eclipse就可以启动了。<br>好吧，完全是转载了，出处在最前，我就再加一句。。。版本号按自己下载的来。<br>下载eclipse的时候，选择国内的镜像提供商下载速度快，尤其是教育网，直接用大连东软的就特别快，10多M。</p>
-
+          
       
     </div>
     
@@ -679,6 +654,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Eclipse/">Eclipse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/16/Ubuntu安装Eclipse/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

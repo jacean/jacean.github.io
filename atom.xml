@@ -206,7 +206,7 @@
     <link href="http://jacean.github.io/2016/03/16/Ubuntu%E5%AE%89%E8%A3%85Eclipse/"/>
     <id>http://jacean.github.io/2016/03/16/Ubuntu安装Eclipse/</id>
     <published>2016-03-16T15:44:19.000Z</published>
-    <updated>2016-03-16T15:54:01.998Z</updated>
+    <updated>2016-03-16T16:33:27.375Z</updated>
     
     <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.jb51.net/article/55131.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考文章&lt;/a&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -226,6 +226,7 @@
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;在末尾加上：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_20&lt;/p&gt;
@@ -255,9 +256,24 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;http://www.jb51.net/article/55131.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考文章&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;http://www.jb51.net/article/55131.htm&quot;&gt;参考文章&lt;/a&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;首先到&lt;a href=&quot;http://www.oracle.com
+&lt;li&gt;&lt;p&gt;首先到&lt;a href=&quot;http://www.oracle.com/technetwork/java/javase/downloads/下载jdk，我下载的是最新版jdk-8u20-linux-i586.tar.gz，下载完成使用命令&quot;&gt;http://www.oracle.com/technetwork/java/javase/downloads/下载jdk，我下载的是最新版jdk-8u20-linux-i586.tar.gz，下载完成使用命令&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo tar zxvf jdk-8u20-linux-i586.tar.gz&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;然后将解压好的jdk1.8.0_20文件夹复制到/usr/lib/jvm目录里&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo cp -r ~/jdk1.8.0_20/ /usr/lib/jvm/&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;配置环境变量 &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo gedit ~/.profile&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     
