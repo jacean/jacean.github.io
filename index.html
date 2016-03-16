@@ -191,7 +191,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a> <a href="/tags/DocX/" style="font-size: 13.33px;">DocX</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/ListView/" style="font-size: 13.33px;">ListView</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/OneNote/" style="font-size: 10px;">OneNote</a> <a href="/tags/Other/" style="font-size: 10px;">Other</a> <a href="/tags/SQL-Server/" style="font-size: 10px;">SQL Server</a> <a href="/tags/Ubuntu/" style="font-size: 13.33px;">Ubuntu</a> <a href="/tags/VirtualBox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/swiftype/" style="font-size: 10px;">swiftype</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/yelee/" style="font-size: 13.33px;">yelee</a> <a href="/tags/七牛云/" style="font-size: 10px;">七牛云</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/自定义控件/" style="font-size: 13.33px;">自定义控件</a>
+                        <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a> <a href="/tags/DocX/" style="font-size: 13.33px;">DocX</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/ListView/" style="font-size: 13.33px;">ListView</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/OneNote/" style="font-size: 10px;">OneNote</a> <a href="/tags/Other/" style="font-size: 10px;">Other</a> <a href="/tags/SQL-Server/" style="font-size: 10px;">SQL Server</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Ubuntu/" style="font-size: 13.33px;">Ubuntu</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/VirtualBox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/swiftype/" style="font-size: 10px;">swiftype</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/yelee/" style="font-size: 13.33px;">yelee</a> <a href="/tags/七牛云/" style="font-size: 10px;">七牛云</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/自定义控件/" style="font-size: 13.33px;">自定义控件</a>
                     </div>
                 </section>
                 
@@ -272,6 +272,203 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Vim操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/Vim操作/" class="article-date">
+      <time datetime="2016-03-16T09:32:53.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/Vim操作/">Vim操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="分屏操作"><a href="#分屏操作" class="headerlink" title="分屏操作"></a>分屏操作</h2><h3 id="启动分屏"><a href="#启动分屏" class="headerlink" title="启动分屏"></a>启动分屏</h3><ol>
+<li>使用大写的参数O来垂直分屏，小写o是水平分屏，n表示的是分成几个屏。<blockquote>
+<p>vim -O<em>n</em> file1 file2 …</p>
+</blockquote>
+</li>
+<li>关闭当前窗口<blockquote>
+<p>Ctrl+W c<br>Ctrl+W q,关闭当前窗口，如果只剩最后一个了则退出vim</p>
+</blockquote>
+</li>
+<li>上下分开当前打开的文件<blockquote>
+<p>Ctrl+W s</p>
+</blockquote>
+</li>
+<li>上下分开，并打开新文件<blockquote>
+<p>:sp filename</p>
+</blockquote>
+</li>
+<li>左右分割当前打开的文件<blockquote>
+<p>Ctrl+W v</p>
+</blockquote>
+</li>
+<li>左右分割，并打开新文件<blockquote>
+<p>:vsp filename</p>
+<h3 id="多屏切换光标"><a href="#多屏切换光标" class="headerlink" title="多屏切换光标"></a>多屏切换光标</h3></blockquote>
+</li>
+<li>把光标移到右边的屏。<blockquote>
+<p>Ctrl+W l</p>
+</blockquote>
+</li>
+<li>把光标移到左边的屏中。<blockquote>
+<p>Ctrl+W h</p>
+</blockquote>
+</li>
+<li>把光标移到上边的屏中。<blockquote>
+<p>Ctrl+W k</p>
+</blockquote>
+</li>
+<li>把光标移到下边的屏中。<blockquote>
+<p>Ctrl+W j</p>
+</blockquote>
+</li>
+<li>把光标移到下一个的屏中。.<blockquote>
+<p>Ctrl+W w</p>
+<h3 id="移动分屏"><a href="#移动分屏" class="headerlink" title="移动分屏"></a>移动分屏</h3><p>这个功能还是使用了Vim的光标键，只不过都是大写。当然了，如果你的分屏很乱很复杂的话，这个功能可能会出现一些非常奇怪的症状。</p>
+</blockquote>
+</li>
+<li>向右移动。<blockquote>
+<p>Ctrl+W L</p>
+</blockquote>
+</li>
+<li>向左移动<blockquote>
+<p>Ctrl+W H</p>
+</blockquote>
+</li>
+<li>向上移动<blockquote>
+<p>Ctrl+W K</p>
+</blockquote>
+</li>
+<li>向下移动<blockquote>
+<p>Ctrl+W J</p>
+<h3 id="分屏尺寸"><a href="#分屏尺寸" class="headerlink" title="分屏尺寸"></a>分屏尺寸</h3><p>下面是改变尺寸的一些操作，主要是高度，对于宽度你可以使用[Ctrl+W &lt;]或是[Ctrl+W &gt;]，但这可能需要最新的版本才支持。</p>
+</blockquote>
+</li>
+<li>让所有的屏都有一样的高度。<blockquote>
+<p>Ctrl+W =</p>
+</blockquote>
+</li>
+<li>增加高度。<blockquote>
+<p>Ctrl+W +</p>
+</blockquote>
+</li>
+<li>减少高度。<blockquote>
+<p>Ctrl+W -</p>
+</blockquote>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/">Vim</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Shell入门" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/Shell入门/" class="article-date">
+      <time datetime="2016-03-16T09:12:51.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/Shell入门/">Shell入门</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>入门参考<a href="http://c.biancheng.net/cpp/shell/">Linux Shell脚本教程：30分钟玩转Shell脚本编程</a>。</p>
+<blockquote>
+<p>Shell本身是一个用C语言编写的程序，是用户使用Unix/Linux的桥梁。<br>Shell既是一种命令语言，又是一种程序设计语言。作为命令语言，交互式的解释和执行用户输入的命令;作为程序设计语言，定义了各种变量和参数，并提供了许多在高级语言中才具有的控制结构，包括循环和分支。<br>它虽然不是Unix/Linux系统内核的一部分，但它调用了系统核心的大部分功能来执行程序、建立文件并以并行的方式协调各个程序的运行。因此，对于用户来说，shell是最重要的实用程序，深入了解和熟练掌握shell的特性极其使用方法，是用好Unix/Linux系统的关键。<br>可以说，shell使用的熟练程度反映了用户对Unix/Linux使用的熟练程度。<br>Shell脚本是解释型的，不需要编译。可通过交互式(Interactive)和批处理(Batch)两种方式执行。<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/">Shell</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/16/Shell入门/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-windows下Ubuntu虚拟机安装" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -768,133 +965,9 @@
 
 
   
-    <article id="post-DocX添加多级标题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/15/DocX添加多级标题/" class="article-date">
-      <time datetime="2016-03-15T07:55:51.000Z" itemprop="datePublished">2016-03-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/15/DocX添加多级标题/">DocX添加多级标题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>DocX实现了很多对word的需求，即使是没有直接提供的方法，也可以通过自定义来实现。<br>如果要添加多级标题的话，实质上就是添加一个段落，只是设置字体格式不同而已。<br>自定义扩展函数来实现此功能.<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DocX/">DocX</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/15/DocX添加多级标题/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-DocX给word添加目录TOC" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/15/DocX给word添加目录TOC/" class="article-date">
-      <time datetime="2016-03-15T07:15:55.000Z" itemprop="datePublished">2016-03-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/15/DocX给word添加目录TOC/">DocX给word添加目录TOC</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>DocX是一款开源的C#操作word的库，使用方便，也很轻巧，比起微软的interop使用体验要好多了。可以在不打开word的情况下直接修改word，可以完成日常所需的操作，是实现批量操作word的好帮手。<br>我这里主要是针对给word添加目录时遇到的一些问题记录下。刚要做目录的时候，我就想DocX应该提供了这个方面的函数。于是我就在讨论区搜索，看看别人是怎么用的。我搜索了catalog; catalogue; list; contents;，但是都没有和目录有关的东西，搞得我以为没提供，于是就又各种搜索，什么list之类的，搜着搜着就找到了一篇。<br>说是需要下载一个patch，但是不造在哪。还有的提供了利用其他的xml布局来帮助生成目录的。这些都不用管了，我用的是在DocX.cs里的源码里直接修改下的好方法。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DocX/">DocX</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/15/DocX给word添加目录TOC/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
