@@ -191,7 +191,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a> <a href="/tags/DocX/" style="font-size: 13.33px;">DocX</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/ListView/" style="font-size: 13.33px;">ListView</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/OneNote/" style="font-size: 10px;">OneNote</a> <a href="/tags/Other/" style="font-size: 10px;">Other</a> <a href="/tags/SQL-Server/" style="font-size: 10px;">SQL Server</a> <a href="/tags/Shell/" style="font-size: 13.33px;">Shell</a> <a href="/tags/Ubuntu/" style="font-size: 13.33px;">Ubuntu</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/VirtualBox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/swiftype/" style="font-size: 10px;">swiftype</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/yelee/" style="font-size: 13.33px;">yelee</a> <a href="/tags/七牛云/" style="font-size: 10px;">七牛云</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/自定义控件/" style="font-size: 13.33px;">自定义控件</a>
+                        <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a> <a href="/tags/DocX/" style="font-size: 12.5px;">DocX</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitPage/" style="font-size: 10px;">GitPage</a> <a href="/tags/Hexo/" style="font-size: 17.5px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/ListView/" style="font-size: 12.5px;">ListView</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/OneNote/" style="font-size: 10px;">OneNote</a> <a href="/tags/Other/" style="font-size: 10px;">Other</a> <a href="/tags/SQL-Server/" style="font-size: 10px;">SQL Server</a> <a href="/tags/Shell/" style="font-size: 12.5px;">Shell</a> <a href="/tags/Ubuntu/" style="font-size: 20px;">Ubuntu</a> <a href="/tags/Vim/" style="font-size: 15px;">Vim</a> <a href="/tags/VirtualBox/" style="font-size: 12.5px;">VirtualBox</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/swiftype/" style="font-size: 10px;">swiftype</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/windows/" style="font-size: 15px;">windows</a> <a href="/tags/yelee/" style="font-size: 12.5px;">yelee</a> <a href="/tags/七牛云/" style="font-size: 10px;">七牛云</a> <a href="/tags/双系统/" style="font-size: 10px;">双系统</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/自定义控件/" style="font-size: 12.5px;">自定义控件</a> <a href="/tags/虚拟机/" style="font-size: 10px;">虚拟机</a>
                     </div>
                 </section>
                 
@@ -273,6 +273,612 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-vim写markdown在浏览器实时预览" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/17/vim写markdown在浏览器实时预览/" class="article-date">
+      <time datetime="2016-03-16T16:24:38.000Z" itemprop="datePublished">2016-03-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/17/vim写markdown在浏览器实时预览/">vim写markdown在浏览器实时预览</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>用了Hexo后，自然就不得不用markdown，而Ubuntu下不用Vim我不开心，于是就发现了<em>vim-instant-markdown</em>。</p>
+<blockquote>
+<p>vim-instant-markdown（<a href="https://github.com/suan/vim-instant-markdown" target="_blank" rel="external">https://github.com/suan/vim-instant-markdown</a> ） 的安装相比其他插件较为特殊，它由 ruby 开发，所以你的 vim 必须集成 ruby 解释器（见“1 源码安装编辑器 vim ”），并且安装 pygments.rb、redcarpet、instant-markdown-d 三个依赖库：<br>gem install pygments.rb<br>gem install redcarpet</p>
+<h1 id="若系统提示无-npm-命令，你需要先执行-zypper-–no-refresh-install-nodejs"><a href="#若系统提示无-npm-命令，你需要先执行-zypper-–no-refresh-install-nodejs" class="headerlink" title="若系统提示无 npm 命令，你需要先执行 zypper –no-refresh install nodejs"></a>若系统提示无 npm 命令，你需要先执行 zypper –no-refresh install nodejs</h1><p>npm -g install instant-markdown-d</p>
+</blockquote>
+<p>此文不全。。。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/">Vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ubuntu配置hexo和gitpage" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/17/ubuntu配置hexo和gitpage/" class="article-date">
+      <time datetime="2016-03-16T16:10:11.000Z" itemprop="datePublished">2016-03-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/17/ubuntu配置hexo和gitpage/">ubuntu配置hexo和gitpage</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>部署参考<a href="https://hexo.io/zh-cn/docs/index.html">官方文档</a>和<a href="http://www.jianshu.com/p/465830080ea9">潘柏信 HEXO+Github,搭建属于自己的博客</a><br>按照官方文档一步步来没问题。最终完成很快的。</p>
+<p>有几个和文档不同的地方记下来。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitPage/">GitPage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/17/ubuntu配置hexo和gitpage/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Ubuntu无法访问双系统机子上的windows文件分区" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/17/Ubuntu无法访问双系统机子上的windows文件分区/" class="article-date">
+      <time datetime="2016-03-16T16:04:56.000Z" itemprop="datePublished">2016-03-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/17/Ubuntu无法访问双系统机子上的windows文件分区/">Ubuntu无法访问双系统机子上的windows文件分区</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>装好Ubuntu用了几天，因为要用ps，所以回到win10，结果再回来发现无法进入windows的文件分区了。</p>
+<blockquote>
+<p>Error mounting /dev/sda1 at /media/jacean/系统保留: Command-line `mount -t “ntfs” -o “uhelper=udisks2,nodev,nosuid,uid=1000,gid=1000” “/dev/sda1” “/media/jacean/系统保留”‘ exited with non-zero exit status 14: The disk contains an unclean file system (0, 0).<br>Metadata kept in Windows cache, refused to mount.<br>Failed to mount ‘/dev/sda1’: 不允许的操作<br>The NTFS partition is in an unsafe state. Please resume and shutdown<br>Windows fully (no hibernation or fast restarting), or mount the volume<br>read-only with the ‘ro’ mount option.</p>
+</blockquote>
+<p>参考ubuntu提示和这篇<a href="http://blog.sina.com.cn/s/blog_6b7bd17e0101eyz9.html">博客</a>,确定问题是windows在win8以后添加的快速启动功能导致的.</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/17/Ubuntu无法访问双系统机子上的windows文件分区/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Ubuntu15-10-VirtualBox出现virtualbox-kernel-driver-not-installed-rc-1908" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/Ubuntu15-10-VirtualBox出现virtualbox-kernel-driver-not-installed-rc-1908/" class="article-date">
+      <time datetime="2016-03-16T15:59:06.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/Ubuntu15-10-VirtualBox出现virtualbox-kernel-driver-not-installed-rc-1908/">Ubuntu15.10_VirtualBox出现virtualbox_kernel_driver_not_installed_(rc=-1908)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>就是在一个风和日丽的时候，Ubuntu提醒我更新软件，我更新了，然后我的VirtualBox就罢工了。<br>google答案呗，果然又在<a href="http://askubuntu.com/questions/498900/vbox-on-14-04-kernel-driver-not-installed-rc-1908">askubuntu</a>上找到了答案。<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VirtualBox/">VirtualBox</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/16/Ubuntu15-10-VirtualBox出现virtualbox-kernel-driver-not-installed-rc-1908/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-vim安装addons插件管理后Warning-Ignoring-unknown-addons-winmanager" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/vim安装addons插件管理后Warning-Ignoring-unknown-addons-winmanager/" class="article-date">
+      <time datetime="2016-03-16T15:55:50.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/vim安装addons插件管理后Warning-Ignoring-unknown-addons-winmanager/">vim安装addons插件管理后Warning:Ignoring_unknown_addons:_winmanager</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <blockquote>
+<p>jacean@jacean-Ubuntu:~$ vim-addons install winmanager<br>Warning: Ignoring unknown addons: winmanager</p>
+</blockquote>
+<p>需要先</p>
+<blockquote>
+<p>jacean@jacean-Ubuntu:~$ sudo apt-get install vim-scripts</p>
+</blockquote>
+<p>OK了。<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/">Vim</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/16/vim安装addons插件管理后Warning-Ignoring-unknown-addons-winmanager/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Ubuntu安装Eclipse" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/Ubuntu安装Eclipse/" class="article-date">
+      <time datetime="2016-03-16T15:44:19.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/Ubuntu安装Eclipse/">Ubuntu安装Eclipse</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="http://www.jb51.net/article/55131.htm" target="_blank" rel="external">参考文章</a></p>
+<ol>
+<li><p>首先到<a href="http://www.oracle.com/technetwork/java/javase/downloads/下载jdk，我下载的是最新版jdk-8u20-linux-i586.tar.gz，下载完成使用命令" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/下载jdk，我下载的是最新版jdk-8u20-linux-i586.tar.gz，下载完成使用命令</a></p>
+<blockquote>
+<p>sudo tar zxvf jdk-8u20-linux-i586.tar.gz</p>
+</blockquote>
+</li>
+<li><p>然后将解压好的jdk1.8.0_20文件夹复制到/usr/lib/jvm目录里</p>
+<blockquote>
+<p>sudo cp -r ~/jdk1.8.0_20/ /usr/lib/jvm/</p>
+</blockquote>
+</li>
+<li><p>配置环境变量 </p>
+<blockquote>
+<p>sudo gedit ~/.profile</p>
+</blockquote>
+</li>
+</ol>
+<p>在末尾加上：</p>
+<blockquote>
+<p>export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_20</p>
+</blockquote>
+<p>然后保存关闭，使用source更新下<br>source ~/.profile<br>使用env命令察看JAVA_HOME的值<br>env<br>如果显示JAVA_HOME=/usr/lib/jvm/jdk1.8.0_20，说明配置成功。</p>
+<ol>
+<li><p>修改系统默认的jdk，如下</p>
+<blockquote>
+<p>sudo update-alternatives –install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_20/bin/java 300<br>sudo update-alternatives –install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_20/bin/javac 300<br>sudo update-alternatives –config java<br>sudo update-alternatives –config javac</p>
+</blockquote>
+</li>
+<li><p>查看java版本信息，<br>终端输入 java -version<br>看到如下信息，就说明修改Ok: </p>
+<blockquote>
+<p>java version “1.8.0_20”<br>Java(TM) SE Runtime Environment (build 1.8.0_20-b26)<br>Java HotSpot(TM) Client VM (build 25.20-b23, mixed mode)</p>
+</blockquote>
+</li>
+<li><p>ubuntu下安装配置eclipse<br>去官网<a href="http://developer.android.com/sdk/index.html下载了eclipse包adt-bundle-linux-x86-20140702.zip，下载后解压到你想放的文件夹中就可以了。" target="_blank" rel="external">http://developer.android.com/sdk/index.html下载了eclipse包adt-bundle-linux-x86-20140702.zip，下载后解压到你想放的文件夹中就可以了。</a><br>解压命令 unzip adt-bundle-linux-x86-20140702.zip<br>我放在/home/kingqi/ADT目录下</p>
+</li>
+<li><p>将eclipse执行文件符号链接到/usr/local/bin。</p>
+<blockquote>
+<p>cd /usr/local/bin<br>sudo ln -s /home/kingqi/ADT/adt-bundle-linux-x86-20140702/eclipse/eclipse</p>
+</blockquote>
+</li>
+</ol>
+<p>ok，大功告成，打开终端，输入eclipse就可以启动了。<br>好吧，完全是转载了，出处在最前，我就再加一句。。。版本号按自己下载的来。<br>下载eclipse的时候，选择国内的镜像提供商下载速度快，尤其是教育网，直接用大连东软的就特别快，10多M。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Eclipse/">Eclipse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-windows远程ubuntu的virtualbox中的windows虚拟机" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/windows远程ubuntu的virtualbox中的windows虚拟机/" class="article-date">
+      <time datetime="2016-03-16T15:41:41.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/windows远程ubuntu的virtualbox中的windows虚拟机/">windows远程ubuntu的virtualbox中的windows虚拟机</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>想着以后要把ubuntu作为工作环境，但是windows中的C#开发还是得继续，所以就把之前windows中virtualbox的虚拟几在ubuntu中打开，我一般都是远程的，所以得把这个windows7虚拟机配置的能够在外网远程控制就好。<br>很简单了，在virtualBox中设置网卡为桥接，然后在win7中设置获取固定ip，然后在路由器中端口映射到这个ip，直接远程这个ip就可以了。保险的话还可以把这个ip来个mac绑定。<br>我把虚拟机的ip设为：192.168.xxruurx.197，开启允许远程<br>路由器中设置：路由器公网ip:1234===&gt;192.168.xxx.197:3389<br>然后找一台windows电脑，mstsc后输入192.168.xxx.197:3389，就ok了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/虚拟机/">虚拟机</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ubuntu安装搜狗输入法不出现或是不显示输入法切换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/ubuntu安装搜狗输入法不出现或是不显示输入法切换/" class="article-date">
+      <time datetime="2016-03-16T15:30:18.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/ubuntu安装搜狗输入法不出现或是不显示输入法切换/">ubuntu安装搜狗输入法不出现或是不显示输入法切换</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>不管在什么系统下，输入法始终是和系统交互最重要的东西。<br>转移到Ubuntu后，自然也要换个好点的输入法，一般就选搜狗咯，毕竟bing没占这一块。。。<br>首先下载搜狗拼音for linux  ：<a href="http://pinyin.sogou.com/linux/?r=pinyin">http://pinyin.sogou.com/linux/?r=pinyin</a><br>双击deb文件安装，安全性问题同意，然后再有啥的话安装、修复之类，总之显示安装完毕就成。<br>但是安装之后你会发现，切换输入法中还是没有搜狗 输入法，甚至连在菜单栏上显示的输入法图标都没有了。<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/16/ubuntu安装搜狗输入法不出现或是不显示输入法切换/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-win10安装ubuntu15-0双系统遇到-initramfs-unable-to-find-a-medium-containing-a-live-file" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/win10安装ubuntu15-0双系统遇到-initramfs-unable-to-find-a-medium-containing-a-live-file/" class="article-date">
+      <time datetime="2016-03-16T15:18:24.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/win10安装ubuntu15-0双系统遇到-initramfs-unable-to-find-a-medium-containing-a-live-file/">win10安装ubuntu15.0双系统遇到(initramfs)unable_to_find_a_medium_containing_a_live_file</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>因为要把工作环境转移到Ubuntu,所以自然不能只用虚拟机了。而之前的Ubuntu麒麟系统用起来有点不爽，于是就直接重装吧，装的是15.10，但是呢，一起安装双系统，三系统一点问题都没有的我，这次遇到问题了。</p>
+<blockquote>
+<p>(initramfs)unable to find a  medium  containing a  live  file<br>遇到这个问题我也头大了，因为以前装的时候都好好地，完全没啥风险，这次出问题简直始料未及啊。当下就赶紧查资料，果不其然，国内的方法都不好使或者是根本就没啥方法，于是google之。不过google也不是很给力啊，也是很多废答案。不过万幸找到了，在看完好多英文解答之后才找到的，发现原因后当时就哭了。<br>最终最有效最简单的办法是在<a href="http://askubuntu.com/questions/15425/error-when-installing-unable-to-find-a-medium-containing-a-live-file-system" target="_blank" rel="external">askubuntu</a>上找到的。<br>For me changing from USB 3.0 socket to 2.0 helped. I’m using 10.04 Ubuntu on Asus 1015PEM.</p>
+</blockquote>
+<p>原来仅仅是因为我把u盘插在了3.0的口上。。。。</p>
+<p><a href="http://askubuntu.com/questions/221835/installing-ubuntu-on-a-pre-installed-windows-with-uefi?lq=1" target="_blank" rel="external">这里</a>有个答案特别好，完美的分析了win和Ubuntu怎么互相搞，真的特别棒，您看看吧，就看一看啊。我真的耐着性子看了这么多英文，然后发现对我的问题并没有什么卵用，不开心。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/win10/">win10</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/双系统/">双系统</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-自定义shell实现hexo常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -337,568 +943,9 @@
 
 
   
-    <article id="post-Vim操作" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/16/Vim操作/" class="article-date">
-      <time datetime="2016-03-16T09:32:53.000Z" itemprop="datePublished">2016-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/Vim操作/">Vim操作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>vim是号称编辑器之神的编辑器，一段时间的使用之后我觉得我也爱上了它。<br>但是vim的操作技巧实在太多，得慢慢适应。所以就把一些自己不常用的操作在这里记录下，持续更新吧。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/">Vim</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/16/Vim操作/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Shell入门" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/16/Shell入门/" class="article-date">
-      <time datetime="2016-03-16T09:12:51.000Z" itemprop="datePublished">2016-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/Shell入门/">Shell入门</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>入门参考<a href="http://c.biancheng.net/cpp/shell/">Linux Shell脚本教程：30分钟玩转Shell脚本编程</a>。</p>
-<blockquote>
-<p>Shell本身是一个用C语言编写的程序，是用户使用Unix/Linux的桥梁。<br>Shell既是一种命令语言，又是一种程序设计语言。作为命令语言，交互式的解释和执行用户输入的命令;作为程序设计语言，定义了各种变量和参数，并提供了许多在高级语言中才具有的控制结构，包括循环和分支。<br>它虽然不是Unix/Linux系统内核的一部分，但它调用了系统核心的大部分功能来执行程序、建立文件并以并行的方式协调各个程序的运行。因此，对于用户来说，shell是最重要的实用程序，深入了解和熟练掌握shell的特性极其使用方法，是用好Unix/Linux系统的关键。<br>可以说，shell使用的熟练程度反映了用户对Unix/Linux使用的熟练程度。<br>Shell脚本是解释型的，不需要编译。可通过交互式(Interactive)和批处理(Batch)两种方式执行。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/">Shell</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/16/Shell入门/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-windows下Ubuntu虚拟机安装" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/15/windows下Ubuntu虚拟机安装/" class="article-date">
-      <time datetime="2016-03-15T08:57:59.000Z" itemprop="datePublished">2016-03-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/15/windows下Ubuntu虚拟机安装/">windows下Ubuntu虚拟机安装</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>虽然一直是win+Ubuntu双系统，但是工作环境一直在win下，为了方便就给Ubuntu装了个虚拟机。使用VirtualBox。<br>记录一些问题和过程以便日后查找。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VirtualBox/">VirtualBox</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/15/windows下Ubuntu虚拟机安装/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-windows文件夹拒绝访问-特殊权限" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/15/windows文件夹拒绝访问-特殊权限/" class="article-date">
-      <time datetime="2016-03-15T08:50:25.000Z" itemprop="datePublished">2016-03-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/15/windows文件夹拒绝访问-特殊权限/">windows文件夹拒绝访问,特殊权限</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>windows在安装一些比较涉及底层的软件的时候，或是一些缓存文件，会对一些文件给予特殊权限，当我们想主动删除的时候就会遇到各种问题。这个时候，可以通过查看属性，来观察其所有者来重新设置权限，从而删除。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/other/">other</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/15/windows文件夹拒绝访问-特殊权限/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-浏览器首页被hao-qquu8-com-tn-……篡改" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/15/浏览器首页被hao-qquu8-com-tn-……篡改/" class="article-date">
-      <time datetime="2016-03-15T08:38:58.000Z" itemprop="datePublished">2016-03-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/15/浏览器首页被hao-qquu8-com-tn-……篡改/">浏览器首页被hao.qquu8.com/tn=……篡改</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>有时候装了什么奇怪的软件可能会使自己的浏览器首页被莫名其妙的篡改。比如不干净的激活软件，或是其他下载工具。<br><a href="http://www.techweb.com.cn/internet/2015-07-20/2177852.shtml">参考文章</a>,有几张图借用了参考文章里的，若有侵权请提出，立刻更改。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Other/">Other</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/15/浏览器首页被hao-qquu8-com-tn-……篡改/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-onenote笔记导出成markdown发布到Hexo" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/15/onenote笔记导出成markdown发布到Hexo/" class="article-date">
-      <time datetime="2016-03-15T08:32:17.000Z" itemprop="datePublished">2016-03-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/15/onenote笔记导出成markdown发布到Hexo/">onenote笔记导出成markdown发布到Hexo</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>首先说明一点，就是我并没有找到可以直接由onenote笔记转换成markdown的方式。许多方法都是通过迂回策略，也就是先将onenote导出word，再把word转换成HTML，然后再转成markdown。<br>虽然有些麻烦，但还是挺好用的。需要用到unoconv和pandoc。原文<a href="http://wenzhixin.net.cn/2014/01/03/convert_word_to_markdown">ubuntu 下将 word 文件转换为 markdown</a><br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OneNote/">OneNote</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/15/onenote笔记导出成markdown发布到Hexo/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-C-设置ListView行高" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/15/C-设置ListView行高/" class="article-date">
-      <time datetime="2016-03-15T08:28:01.000Z" itemprop="datePublished">2016-03-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/15/C-设置ListView行高/">C#设置ListView行高</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>listView的行高没法单独设置，可以迂回策略，通过在里面放一个imageList来把行高撑大。<br>代码如下：<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ListView/">ListView</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/15/C-设置ListView行高/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-C-利用反射-遍历获得一个类的所有属性名" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/15/C-利用反射-遍历获得一个类的所有属性名/" class="article-date">
-      <time datetime="2016-03-15T08:15:26.000Z" itemprop="datePublished">2016-03-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/15/C-利用反射-遍历获得一个类的所有属性名/">C#利用反射,遍历获得一个类的所有属性名</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>通过反射是可以完全获取一个对象的所有可取属性，并利用这些属性实现更多操作，比如对象的序列化之类。<br>代码如下<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/反射/">反射</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/15/C-利用反射-遍历获得一个类的所有属性名/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-无法打开物理文件-操作系统错误-5-拒绝访问-SQL-Sever" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/15/无法打开物理文件-操作系统错误-5-拒绝访问-SQL-Sever/" class="article-date">
-      <time datetime="2016-03-15T08:12:52.000Z" itemprop="datePublished">2016-03-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/15/无法打开物理文件-操作系统错误-5-拒绝访问-SQL-Sever/">无法打开物理文件 操作系统错误 5:拒绝访问 SQL Sever</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>今天分离附加数据库，分离出去然后再附加，没有问题。但是一把.mdf文件拷到其它文件夹下就出错，错误如下：<br>无法打开物理文件 “E:\db\homework.mdf”。操作系统错误 5:”5(拒绝访问。)”。 (Microsoft SQL Server，错误: 5120)</p>
-<p>问了下朋友，朋友说找到.mdf文件改文件的安全权限。</p>
-<p>搞了半天才明白，原来是找到.mdf文件，右键-&gt;属性-&gt;安全-&gt;选择当前用户-&gt;编辑-&gt;完全控制。</p>
-<p>如果还出现这种情况，记得把.log文件的安全权限也改了。<br><a href="http://blog.sina.com.cn/s/blog_7e0127220101b62j.html" target="_blank" rel="external">参考文章</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL-Server/">SQL Server</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
