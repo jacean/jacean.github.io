@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-03-16T16:28:41.181Z</updated>
+  <updated>2016-03-17T05:54:55.104Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -14,6 +14,69 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为2016研发工程师笔试题</title>
+    <link href="http://jacean.github.io/2016/03/17/%E5%8D%8E%E4%B8%BA2016%E7%A0%94%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    <id>http://jacean.github.io/2016/03/17/华为2016研发工程师笔试题/</id>
+    <published>2016-03-17T05:15:53.000Z</published>
+    <updated>2016-03-17T05:54:55.104Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;有这样一道智力题：“某商店规定：三个空汽水瓶可以换一瓶汽水。小张手上有十个空汽水瓶，她最多可以换多少瓶汽水喝？”答案是5瓶，方法如下：先用9个空瓶子换3瓶汽水，喝掉3瓶满的，喝完以后4个空瓶子，用3个再换一瓶，喝掉这瓶满的，这时候剩2个空瓶子。然后你让老板先借给你一瓶汽水，喝掉这瓶满的，喝完以后用3个空瓶子换一瓶满的还给老板。如果小张手上有n个空汽水瓶，最多可以换多少瓶汽水喝？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;输入描述:&lt;br&gt;输入文件最多包含10组测试数据，每个数据占一行，仅包含一个正整数n（1&amp;lt;=n&amp;lt;=100），表示小张手上的空汽水瓶数。n=0表示输入结束，你的程序不应当处理这一行。&lt;/p&gt;
+&lt;p&gt;输出描述:&lt;br&gt;对于每组测试数据，输出一行，表示最多可以喝的汽水瓶数。如果一瓶也喝不到，输出0。&lt;/p&gt;
+&lt;p&gt;输入例子:&lt;br&gt;3&lt;br&gt;10&lt;br&gt;81&lt;br&gt;0&lt;/p&gt;
+&lt;p&gt;输出例子:&lt;br&gt;1&lt;br&gt;5&lt;br&gt;40&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; value;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; num=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;(&lt;span class=&quot;built_in&quot;&gt;scanf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%d&quot;&lt;/span&gt;,&amp;amp;value)!=EOF&amp;amp;&amp;amp;value!=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(value&amp;gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            num=value/&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            num=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;d%\n&quot;&lt;/span&gt;,num); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;有这样一道智力题：“某商店规定：三个空汽水瓶可以换一瓶汽水。小张手上有十个空汽水瓶，她最多可以换多少瓶汽水喝？”答案是5瓶，方法如下：先用9个空瓶子换3瓶汽水，喝掉3瓶满的，喝完以后4个空瓶子，用3个再换一瓶，喝掉这瓶满的，这时候剩2个空瓶子。然后
+    
+    </summary>
+    
+    
+      <category term="C" scheme="http://jacean.github.io/tags/C/"/>
+    
+      <category term="数据结构" scheme="http://jacean.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网易2016校招研发工程师笔试题</title>
+    <link href="http://jacean.github.io/2016/03/17/%E7%BD%91%E6%98%932016%E6%A0%A1%E6%8B%9B%E7%A0%94%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    <id>http://jacean.github.io/2016/03/17/网易2016校招研发工程师笔试题/</id>
+    <published>2016-03-17T04:45:56.000Z</published>
+    <updated>2016-03-17T05:15:21.659Z</updated>
+    
+    <content type="html">&lt;p&gt;在牛客网做网易2016校招研发工程师的题，记录如下。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[编程题]小易的升级之路&lt;br&gt;小易经常沉迷于网络游戏.有一次,他在玩一个打怪升级的游戏,他的角色的初始能力值为 a.在接下来的一段时间内,他将会依次遇见n个怪物,每个怪物的防御力为b1,b2,b3…bn. 如果遇到的怪物防御力bi小于等于小易的当前能力值c,那么他就能轻松打败怪物,并 且使得自己的能力值增加bi;如果bi大于c,那他也能打败怪物,但他的能力值只能增加bi 与c的最大公约数.那么问题来了,在一系列的锻炼后,小易的最终能力值为多少?&lt;br&gt;&lt;em&gt;输入描述:&lt;/em&gt;&lt;br&gt;对于每组数据,第一行是两个整数n(1≤n&amp;lt;100000)表示怪物的数量和a表示小易的初始能力值.&lt;br&gt;第二行n个整数,b1,b2…bn(1≤bi≤n)表示每个怪物的防御力&lt;br&gt;&lt;em&gt;输出描述:&lt;/em&gt;&lt;br&gt;对于每组数据,输出一行.每行仅包含一个整数,表示小易的最终能力值&lt;br&gt;输入例子:&lt;br&gt;3 50&lt;br&gt;50 105 200&lt;br&gt;5 20&lt;br&gt;30 20 15 40 100&lt;br&gt;输出例子:&lt;br&gt;110&lt;br&gt;205&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;解答如下，重点是求取公约数。&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;gcd&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b)&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; c=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;(b)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;c=b;b=a%b;a=c;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; count;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; value;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;(&lt;span class=&quot;built_in&quot;&gt;scanf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%d %d&quot;&lt;/span&gt;,&amp;amp;count,&amp;amp;value)!=EOF)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,x;i&amp;lt;count;i++)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;scanf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%d&quot;&lt;/span&gt;,&amp;amp;x);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        value&amp;gt;=x?value+=x : value+=gcd(value,x);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%d\n&quot;&lt;/span&gt;,value);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在牛客网做网易2016校招研发工程师的题，记录如下。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[编程题]小易的升级之路&lt;br&gt;小易经常沉迷于网络游戏.有一次,他在玩一个打怪升级的游戏,他的角色的初始能力值为 a.在接下来的一段时间内,他将会依次遇见n个怪物,每个怪物的防御力
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="http://jacean.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="c" scheme="http://jacean.github.io/tags/c/"/>
+    
+      <category term="算法" scheme="http://jacean.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>vim写markdown在浏览器实时预览</title>
@@ -951,58 +1014,6 @@
       <category term="C#" scheme="http://jacean.github.io/tags/C/"/>
     
       <category term="反射" scheme="http://jacean.github.io/tags/%E5%8F%8D%E5%B0%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>无法打开物理文件 操作系统错误 5:拒绝访问 SQL Sever</title>
-    <link href="http://jacean.github.io/2016/03/15/%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E7%89%A9%E7%90%86%E6%96%87%E4%BB%B6-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%94%99%E8%AF%AF-5-%E6%8B%92%E7%BB%9D%E8%AE%BF%E9%97%AE-SQL-Sever/"/>
-    <id>http://jacean.github.io/2016/03/15/无法打开物理文件-操作系统错误-5-拒绝访问-SQL-Sever/</id>
-    <published>2016-03-15T08:12:52.000Z</published>
-    <updated>2016-03-15T08:14:21.691Z</updated>
-    
-    <content type="html">&lt;p&gt;今天分离附加数据库，分离出去然后再附加，没有问题。但是一把.mdf文件拷到其它文件夹下就出错，错误如下：&lt;br&gt;无法打开物理文件 “E:\db\homework.mdf”。操作系统错误 5:”5(拒绝访问。)”。 (Microsoft SQL Server，错误: 5120)&lt;/p&gt;
-&lt;p&gt;问了下朋友，朋友说找到.mdf文件改文件的安全权限。&lt;/p&gt;
-&lt;p&gt;搞了半天才明白，原来是找到.mdf文件，右键-&amp;gt;属性-&amp;gt;安全-&amp;gt;选择当前用户-&amp;gt;编辑-&amp;gt;完全控制。&lt;/p&gt;
-&lt;p&gt;如果还出现这种情况，记得把.log文件的安全权限也改了。&lt;br&gt;&lt;a href=&quot;http://blog.sina.com.cn/s/blog_7e0127220101b62j.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考文章&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天分离附加数据库，分离出去然后再附加，没有问题。但是一把.mdf文件拷到其它文件夹下就出错，错误如下：&lt;br&gt;无法打开物理文件 “E:\db\homework.mdf”。操作系统错误 5:”5(拒绝访问。)”。 (Microsoft SQL Server，错误: 5120
-    
-    </summary>
-    
-    
-      <category term="SQL Server" scheme="http://jacean.github.io/tags/SQL-Server/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义含ListView控件获取listView的滚动条事件</title>
-    <link href="http://jacean.github.io/2016/03/15/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%90%ABListView%E6%8E%A7%E4%BB%B6%E8%8E%B7%E5%8F%96listView%E7%9A%84%E6%BB%9A%E5%8A%A8%E6%9D%A1%E4%BA%8B%E4%BB%B6/"/>
-    <id>http://jacean.github.io/2016/03/15/自定义含ListView控件获取listView的滚动条事件/</id>
-    <published>2016-03-15T08:07:26.000Z</published>
-    <updated>2016-03-15T08:12:06.983Z</updated>
-    
-    <content type="html">&lt;p&gt;自定义组合控件，内含有ListView控件，需要获取Listview的滚动条事件来进行操作。&lt;br&gt;事件外传，具体实现代码如下。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;‘’’C#&lt;br&gt;public partial class myListview : ListView&lt;br&gt;{&lt;br&gt;public event ScrollEventHandler Scroll;&lt;br&gt;private const int WM_HSCROLL = 0x114;&lt;br&gt;private const int WM_VSCROLL = 0x115;&lt;br&gt;private const int MOUSEWHEEL = 0x020A;&lt;br&gt;private const int KEYDOWN = 0x0100;&lt;/p&gt;
-&lt;p&gt;protected virtual void OnScroll(ScrollEventArgs e)&lt;br&gt;{&lt;br&gt;ScrollEventHandler handler = this.Scroll;&lt;br&gt;if (handler != null)&lt;br&gt;{&lt;br&gt;handler(this, e);&lt;br&gt;}&lt;br&gt;}&lt;br&gt;protected override void WndProc(ref Message m)&lt;br&gt;{&lt;br&gt;base.WndProc(ref m);&lt;br&gt;if (m.Msg == MOUSEWHEEL || m.Msg == WM_VSCROLL || (m.Msg == KEYDOWN &amp;amp;&amp;amp; (m.WParam == (IntPtr)40 || m.WParam == (IntPtr)35)))&lt;br&gt;{&lt;br&gt;// Trap WM_VSCROLL&lt;br&gt;OnScroll(new ScrollEventArgs((ScrollEventType)(m.WParam.ToInt32() &amp;amp; 0xffff), 0));&lt;br&gt;}&lt;br&gt;}&lt;br&gt;}&lt;/p&gt;
-&lt;p&gt;```&lt;br&gt;自定义控件的事件外传是做好自定义控件的关键，才能更好的实现逻辑。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;自定义组合控件，内含有ListView控件，需要获取Listview的滚动条事件来进行操作。&lt;br&gt;事件外传，具体实现代码如下。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="C#" scheme="http://jacean.github.io/tags/C/"/>
-    
-      <category term="ListView" scheme="http://jacean.github.io/tags/ListView/"/>
-    
-      <category term="自定义控件" scheme="http://jacean.github.io/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6/"/>
     
   </entry>
   
