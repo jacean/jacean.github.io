@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo使用yelee主题添加swiftype搜索 | Jacean say Hello</title>
+  <title>自旋锁和互斥锁 | Jacean say Hello</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="yelee主题是自带有搜索框的，只是没有功能，而且要显示搜索框首先得在主题配置里打开。然后，需要的站内搜索功能可由第三方提供服务，我选择了swiftepy，还不错，现在就来说说怎么配置swiftype的搜索功能给Hexo的yelee主题。">
+  <meta name="description" content="为了解决对共享资源的互斥使用，出现了一些锁机制。比如，自旋锁和互斥锁。自旋锁和互斥锁很类似，在任何时刻，最多只能有一个保持者，也就说，在任何时刻最多只能有一个执行单元获得锁。但是两者在调度机制上略有不同。对于互斥锁，如果资源已经被占用，资源申请者只能进入睡眠状态。但是自旋锁不会引起调用者睡眠，如果自旋锁已经被别的执行单元保持，调用者就一直循环在那里看是否该自旋锁的保持者已经释放了锁，”自旋”一词就">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo使用yelee主题添加swiftype搜索">
-<meta property="og:url" content="http://jacean.github.io/2016/03/13/Hexo使用yelee主题添加swiftype搜索/index.html">
+<meta property="og:title" content="自旋锁和互斥锁">
+<meta property="og:url" content="http://jacean.github.io/2016/03/23/自旋锁和互斥锁/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
-<meta property="og:description" content="yelee主题是自带有搜索框的，只是没有功能，而且要显示搜索框首先得在主题配置里打开。然后，需要的站内搜索功能可由第三方提供服务，我选择了swiftepy，还不错，现在就来说说怎么配置swiftype的搜索功能给Hexo的yelee主题。">
-<meta property="og:updated_time" content="2016-03-13T16:02:05.554Z">
+<meta property="og:description" content="为了解决对共享资源的互斥使用，出现了一些锁机制。比如，自旋锁和互斥锁。自旋锁和互斥锁很类似，在任何时刻，最多只能有一个保持者，也就说，在任何时刻最多只能有一个执行单元获得锁。但是两者在调度机制上略有不同。对于互斥锁，如果资源已经被占用，资源申请者只能进入睡眠状态。但是自旋锁不会引起调用者睡眠，如果自旋锁已经被别的执行单元保持，调用者就一直循环在那里看是否该自旋锁的保持者已经释放了锁，”自旋”一词就">
+<meta property="og:updated_time" content="2016-03-23T15:44:21.048Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo使用yelee主题添加swiftype搜索">
-<meta name="twitter:description" content="yelee主题是自带有搜索框的，只是没有功能，而且要显示搜索框首先得在主题配置里打开。然后，需要的站内搜索功能可由第三方提供服务，我选择了swiftepy，还不错，现在就来说说怎么配置swiftype的搜索功能给Hexo的yelee主题。">
+<meta name="twitter:title" content="自旋锁和互斥锁">
+<meta name="twitter:description" content="为了解决对共享资源的互斥使用，出现了一些锁机制。比如，自旋锁和互斥锁。自旋锁和互斥锁很类似，在任何时刻，最多只能有一个保持者，也就说，在任何时刻最多只能有一个执行单元获得锁。但是两者在调度机制上略有不同。对于互斥锁，如果资源已经被占用，资源申请者只能进入睡眠状态。但是自旋锁不会引起调用者睡眠，如果自旋锁已经被别的执行单元保持，调用者就一直循环在那里看是否该自旋锁的保持者已经释放了锁，”自旋”一词就">
   
     <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
   
@@ -267,11 +267,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Hexo使用yelee主题添加swiftype搜索" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-自旋锁和互斥锁" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/13/Hexo使用yelee主题添加swiftype搜索/" class="article-date">
-      <time datetime="2016-03-13T14:20:07.000Z" itemprop="datePublished">2016-03-13</time>
+      <a href="/2016/03/23/自旋锁和互斥锁/" class="article-date">
+      <time datetime="2016-03-23T15:31:48.000Z" itemprop="datePublished">2016-03-23</time>
 </a>
     </div>
   
@@ -284,7 +284,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo使用yelee主题添加swiftype搜索
+      自旋锁和互斥锁
     </h1>
   
 
@@ -295,7 +295,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swiftype/">swiftype</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yelee/">yelee</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统/">操作系统</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -305,17 +305,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>yelee主题是自带有搜索框的，只是没有功能，而且要显示搜索框首先得在主题配置里打开。然后，需要的站内搜索功能可由第三方提供服务，我选择了swiftepy，还不错，现在就来说说怎么配置swiftype的搜索功能给Hexo的yelee主题。<br><a id="more"></a></p>
-<h2 id="yelee主题使用swiftype添加站内搜索功能"><a href="#yelee主题使用swiftype添加站内搜索功能" class="headerlink" title="yelee主题使用swiftype添加站内搜索功能"></a>yelee主题使用swiftype添加站内搜索功能</h2><h3 id="打开yelee主题的搜索框"><a href="#打开yelee主题的搜索框" class="headerlink" title="打开yelee主题的搜索框"></a>打开yelee主题的搜索框</h3><p>在theme的yelee里打开_config文件，找到searchBox，然后打开显示，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 是否显示边栏中的搜索框（仅样式，未添加搜索功能）</span><br><span class="line"># Search Box in left column</span><br><span class="line">search_box: true</span><br></pre></td></tr></table></figure>
-<h3 id="注册swiftype服务"><a href="#注册swiftype服务" class="headerlink" title="注册swiftype服务"></a>注册swiftype服务</h3><p>这个就直接进入<a href="https://swiftype.com/" target="_blank" rel="external">swiftype</a>,注create册账号，登陆，然后根据提示很容易就会设置好一个对应自己站点的Engine，注意一点是在输入网站的时候，不如我的<a href="http://jacean.github.io/，一定要有最后的斜杠/。设置好后进入Install，开始配置。">http://jacean.github.io/，一定要有最后的斜杠/。设置好后进入Install，开始配置。</a><br>安装的时候，会有一段js，但是这个js咱还先不能直接粘贴啊，得先修改下配置。点击下边的<em>change Configuration</em>，进入后会有各种设置，选择<em>Search field</em>，edit，是选择怎么加搜索框的。因为yelle自带搜索框，所以我们选择<em>yes</em>，然后复制好css格式，后边要用，直接save，然后返回主配置，如果不自定义搜索结果的话直接<em>activate</em>，这里的设置就ok了。<br>然后，复制好那一大段js代码，准备修改yelle。</p>
-<h3 id="修改yelle"><a href="#修改yelle" class="headerlink" title="修改yelle"></a>修改yelle</h3><p>根据swiftype提示，要把这段js放在每个页面都能使用的位置，那自然是模板的head了。<br>因为Hexo是静态的，所以不要把js和css修改在生成好的html里，记得要在主题的布局文件里改。不过找search框的时候直接在网页里调试查找位置。</p>
-<ul>
-<li>添加js<br>HexoBlog/themes/yelee/layout/_partial/head.ejs，就在这个文件里修改，将js代码放在最后的标签之前即可。</li>
-<li>添加css<br>HexoBlog/themes/yelee/layout/_partial/left-col.ejs，在这个文件里找到search，代码如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.search_box)&#123; %&gt;</span><br><span class="line">&lt;form&gt;&lt;input type=&quot;text&quot; class=&quot;search st-default-search-input&quot; placeholder=&quot; Search...&quot;&gt;&lt;/form&gt;</span><br><span class="line">&lt;%&#125;%&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h3><p><em>hexo g -d</em>重新生成部署看看吧。</p>
+        <p>为了解决对共享资源的互斥使用，出现了一些锁机制。比如，自旋锁和互斥锁。<br>自旋锁和互斥锁很类似，在任何时刻，最多只能有一个保持者，也就说，在任何时刻最多只能有一个执行单元获得锁。但是两者在调度机制上略有不同。对于互斥锁，如果资源已经被占用，资源申请者只能进入睡眠状态。但是自旋锁不会引起调用者睡眠，如果自旋锁已经被别的执行单元保持，调用者就一直循环在那里看是否该自旋锁的保持者已经释放了锁，”自旋”一词就是因此而得名。<br><a id="more"></a></p>
+<p>自旋锁，曾经有个经典的例子来比喻自旋锁：A，B两个人合租一套房子，共用一个厕所，那么这个厕所就是共享资源，且在任一时刻最多只能有一个人在使用。当厕所闲置时，谁来了都可以使用，当A使用时，就会关上厕所门，而B也要使用，但是急啊，就得在门外焦急地等待，急得团团转，是为“自旋”，呵呵。这个比喻还算恰当吧，大家也明白为什么要求锁的持有时间尽量短了吧！A B 相当于 cpu 内核，厕所就相当于互斥资源。<br>百度百科：</p>
+<blockquote>
+<p>跟互斥锁一样，一个执行单元要想访问被自旋锁保护的共享资源，必须先得到锁，在访问完共享资源后，必须释放锁。如果在获取自旋锁时，没有任何执行单元保持该锁，那么将立即得到锁；如果在获取自旋锁时锁已经有保持者，那么获取锁操作将自旋在那里，直到该自旋锁的保持者释放了锁。由此我们可以看出，自旋锁是一种比较低级的保护数据结构或代码片段的原始方式，这种锁可能存在两个问题：<br>死锁。试图递归地获得自旋锁必然会引起死锁：递归程序的持有实例在第二个实例循环，以试图获得相同自旋锁时，不会释放此自旋锁。在递归程序中使用自旋锁应遵守下列策略：递归程序决不能在持有自旋锁时调用它自己，也决不能在递归调用时试图获得相同的自旋锁。此外如果一个进程已经将资源锁定，那么，即使其它申请这个资源的进程不停地疯狂“自旋”,也无法获得资源，从而进入死循环。<br>过多占用cpu资源。如果不加限制，由于申请者一直在循环等待，因此自旋锁在锁定的时候,如果不成功,不会睡眠,会持续的尝试,单cpu的时候自旋锁会让其它process动不了. 因此，一般自旋锁实现会有一个参数限定最多持续尝试次数. 超出后, 自旋锁放弃当前time slice. 等下一次机会<br>由此可见，自旋锁比较适用于锁使用者保持锁时间比较短的情况。正是由于自旋锁使用者一般保持锁时间非常短，因此选择自旋而不是睡眠是非常必要的，自旋锁的效率远高于互斥锁。信号量和读写信号量适合于保持时间较长的情况，它们会导致调用者睡眠，因此只能在进程上下文使用，而自旋锁适合于保持时间非常短的情况，它可以在任何上下文使用。如果被保护的共享资源只在进程上下文访问，使用信号量保护该共享资源非常合适，如果对共享资源的访问时间非常短，自旋锁也可以。但是如果被保护的共享资源需要在中断上下文访问（包括底半部即中断处理句柄和顶半部即软中断），就必须使用自旋锁。自旋锁保持期间是抢占失效的，而信号量和读写信号量保持期间是可以被抢占的。自旋锁只有在内核可抢占或SMP（多处理器）的情况下才真正需要，在单CPU且不可抢占的内核下，自旋锁的所有操作都是空操作。</p>
+</blockquote>
+<p><a href="http://blog.csdn.net/swordmanwk/article/details/6819457" target="_blank" rel="external">自旋锁(spin lock)与互斥量(mutex)的比较——多核编程学习笔记2</a></p>
+<blockquote>
+<p>自旋锁是一种非阻塞锁，也就是说，如果某线程需要获取自旋锁，但该锁已经被其他线程占用时，该线程不会被挂起，而是在不断的消耗CPU的时间，不停的试图获取自旋锁。<br>互斥量是阻塞锁，当某线程无法获取互斥量时，该线程会被直接挂起，该线程不再消耗CPU时间，当其他线程释放互斥量后，操作系统会激活那个被挂起的线程，让其投入运行。<br>两种锁适用于不同场景：<br>如果是多核处理器，如果预计线程等待锁的时间很短，短到比线程两次上下文切换时间要少的情况下，使用自旋锁是划算的。<br>如果是多核处理器，如果预计线程等待锁的时间较长，至少比两次线程上下文切换的时间要长，建议使用互斥量。<br>如果是单核处理器，一般建议不要使用自旋锁。因为，在同一时间只有一个线程是处在运行状态，那如果运行线程发现无法获取锁，只能等待解锁，但因为自身不挂起，所以那个获取到锁的线程没有办法进入运行状态，只能等到运行线程把操作系统分给它的时间片用完，才能有机会被调度。这种情况下使用自旋锁的代价很高。</p>
+</blockquote>
+<p>自旋锁实际上是忙等锁(一直刷新等待),也可能导致系统死锁(递归调用)。</p>
 
       
     </div>
@@ -324,13 +323,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/13/Hexo使用yelee主题添加swiftype搜索/">Hexo使用yelee主题添加swiftype搜索</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/23/自旋锁和互斥锁/">自旋锁和互斥锁</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
-        <p><span>发布时间:</span>2016年03月13日 - 22时20分</p>
-        <p><span>最后更新:</span>2016年03月14日 - 00时02分</p>
+        <p><span>发布时间:</span>2016年03月23日 - 23时31分</p>
+        <p><span>最后更新:</span>2016年03月23日 - 23时44分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/13/Hexo使用yelee主题添加swiftype搜索/" title="Hexo使用yelee主题添加swiftype搜索">http://jacean.github.io/2016/03/13/Hexo使用yelee主题添加swiftype搜索/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/03/13/Hexo使用yelee主题添加swiftype搜索/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/23/自旋锁和互斥锁/" title="自旋锁和互斥锁">http://jacean.github.io/2016/03/23/自旋锁和互斥锁/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/03/23/自旋锁和互斥锁/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -343,16 +342,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/14/Hexo使用七牛云存储图片等文件/">
-                    Hexo使用七牛云存储图片等文件
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/12/Hexo自定义页面禁用主题/">
-                    Hexo自定义页面禁用主题
+                <a href="/2016/03/23/JavaScript闭包/">
+                    JavaScript闭包
                 </a>
             </div>
         
@@ -363,7 +356,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#yelee主题使用swiftype添加站内搜索功能"><span class="toc-number">1.</span> <span class="toc-text">yelee主题使用swiftype添加站内搜索功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#打开yelee主题的搜索框"><span class="toc-number">1.1.</span> <span class="toc-text">打开yelee主题的搜索框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注册swiftype服务"><span class="toc-number">1.2.</span> <span class="toc-text">注册swiftype服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改yelle"><span class="toc-number">1.3.</span> <span class="toc-text">修改yelle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大功告成"><span class="toc-number">1.4.</span> <span class="toc-text">大功告成</span></a></li></ol></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -425,7 +418,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/13/Hexo使用yelee主题添加swiftype搜索/" data-title="Hexo使用yelee主题添加swiftype搜索" data-url="http://jacean.github.io/2016/03/13/Hexo使用yelee主题添加swiftype搜索/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/23/自旋锁和互斥锁/" data-title="自旋锁和互斥锁" data-url="http://jacean.github.io/2016/03/23/自旋锁和互斥锁/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -449,15 +442,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/14/Hexo使用七牛云存储图片等文件/" title="上一篇: Hexo使用七牛云存储图片等文件">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/12/Hexo自定义页面禁用主题/" title="下一篇: Hexo自定义页面禁用主题">
+            <a href="/2016/03/23/JavaScript闭包/" title="下一篇: JavaScript闭包">
                 <i class="fa fa-angle-right"></i>
             </a>
         
