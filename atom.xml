@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-03-24T14:51:46.027Z</updated>
+  <updated>2016-03-24T16:07:28.674Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -14,6 +14,125 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://jacean.github.io/2016/03/24/HTTP%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://jacean.github.io/2016/03/24/HTTP协议学习/</id>
+    <published>2016-03-24T15:05:54.000Z</published>
+    <updated>2016-03-24T16:07:28.674Z</updated>
+    
+    <content type="html">&lt;p&gt;HTTP,HyperText Transfer Protocol,超文本传输协议。&lt;br&gt;HTTP设计最初的目的是为了提供一种发布和接收HTML页面的方法。通过HTTP或HTTPS协议请求的资源由统一资源标识符来标识。&lt;br&gt;1999年，RFC2616发布了HTTP1.1，这个当前广泛使用的版本。&lt;br&gt;2014年，提交HTTP/2,2015年5月以RFC7540正式发表，取代HTTP 1.1成为HTTP的实现标准。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;协议概述&quot;&gt;&lt;a href=&quot;#协议概述&quot; class=&quot;headerlink&quot; title=&quot;协议概述&quot;&gt;&lt;/a&gt;协议概述&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;HTTP是一个客户端终端(用户)和服务器端(网站)请求和应答的标准(TCP).通过使用Web浏览器、网络爬虫或者其它的工具，客户端发起一个HTTP请求到服务器上指定端口（默认端口为80）。我们称这个客户端为用户代理程序（user agent）。应答的服务器上存储着一些资源，比如HTML文件和图像。我们称这个应答服务器为源服务器（origin server）。在用户代理和源服务器中间可能存在多个“中间层”，比如代理服务器、网关或者隧道（tunnel）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;user agent —&amp;gt;&amp;gt;&amp;gt;origin server&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;HTTP协议假定其下层协议提供可靠的传输，因此，任何能够提供这种保证的协议都可以被其使用。所以，&lt;br&gt;TCP/IP协议族使用TCP作为其传输层。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;TCP提供的是点对点的可靠传输，UDP则是广播型的不可靠连接。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通常，由HTTP客户端发起一个请求，创建一个到服务器指定端口（默认是80端口）的TCP连接。HTTP服务器则在那个端口监听客户端的请求。一旦收到请求，服务器会向客户端返回一个状态，比如”HTTP/1.1 200 OK”，以及返回的内容，如请求的文件、错误消息、或者其它信息。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;客户端—&amp;gt;&amp;gt;&amp;gt;发起请求—&amp;gt;&amp;gt;&amp;gt;创建TCP连接—&amp;gt;&amp;gt;&amp;gt;服务器端监听请求—&amp;gt;&amp;gt;&amp;gt;返回状态&lt;/p&gt;
+&lt;h2 id=&quot;请求信息&quot;&gt;&lt;a href=&quot;#请求信息&quot; class=&quot;headerlink&quot; title=&quot;请求信息&quot;&gt;&lt;/a&gt;请求信息&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;请求行&lt;/li&gt;
+&lt;li&gt;请求头&lt;/li&gt;
+&lt;li&gt;空行&lt;/li&gt;
+&lt;li&gt;其他消息体&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;请求方法&quot;&gt;&lt;a href=&quot;#请求方法&quot; class=&quot;headerlink&quot; title=&quot;请求方法&quot;&gt;&lt;/a&gt;请求方法&lt;/h2&gt;&lt;p&gt;HTTP/1.1协议中共定义了八种方法（也叫“动作”）来以不同方式操作指定的资源：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OPTIONS：这个方法可使服务器传回该资源所支持的所有HTTP请求方法。用’&lt;em&gt;‘来代替资源名称，向Web服务器发送OPTIONS请求，可以&lt;/em&gt;测试*服务器功能是否正常运作。&lt;/li&gt;
+&lt;li&gt;HEAD：与GET方法一样，都是向服务器发出指定资源的请求。只不过服务器将不传回资源的本文部分。它的好处在于，使用这个方法可以在不必传输全部内容的情况下，就可以获取其中“关于该资源的信息”（元信息或称元数据）。&lt;/li&gt;
+&lt;li&gt;GET：向指定的资源发出“显示”请求。使用GET方法应该只用在&lt;em&gt;读取数据&lt;/em&gt;，而不应当被用于产生“副作用”的操作中，例如在Web Application中。其中一个原因是GET可能会被网络蜘蛛等随意访问。参见安全方法&lt;/li&gt;
+&lt;li&gt;POST：向指定资源提交数据，请求服务器进行处理（例如提交表单或者上传文件）。数据被包含在请求本文中。这个请求可能会创建新的资源或修改现有资源，或二者皆有。&lt;/li&gt;
+&lt;li&gt;PUT：向指定资源位置上传其最新内容。&lt;/li&gt;
+&lt;li&gt;DELETE：请求服务器删除Request-URI所标识的资源。&lt;/li&gt;
+&lt;li&gt;TRACE：回显服务器收到的请求，主要用于测试或诊断。&lt;/li&gt;
+&lt;li&gt;CONNECT：HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。通常用于SSL加密服务器的链接（经由非加密的HTTP代理服务器）。&lt;blockquote&gt;
+&lt;p&gt;HTTP服务器至少应该实现GET和HEAD方法，其他方法都是可选的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;安全方法:GET和HEAD，除了获取资源信息外，这些请求不应当再有其他意义。被认为是安全的。&lt;br&gt;副作用:幂等，非幂等。假如在不考虑诸如错误或者过期等问题的情况下，若干次请求的副作用与单次请求相同或者根本没有副作用，那么这些请求方法就能够被视作“幂等”的。&lt;/p&gt;
+&lt;h2 id=&quot;HTTPS&quot;&gt;&lt;a href=&quot;#HTTPS&quot; class=&quot;headerlink&quot; title=&quot;HTTPS&quot;&gt;&lt;/a&gt;HTTPS&lt;/h2&gt;&lt;p&gt;目前有两种方法来创建安全超文本协议连接：HTTPS URI方案和HTTP 1.1请求头（由 RFC 2817 引入）。由于浏览器对后者几乎没有任何支持，因此HTTPS URI方案仍是创建安全超文本协议连接的主要手段。安全超文本连接协议使用&lt;a href=&quot;https://代替http://&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://代替http://&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;版本&quot;&gt;&lt;a href=&quot;#版本&quot; class=&quot;headerlink&quot; title=&quot;版本&quot;&gt;&lt;/a&gt;版本&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;0.9，只接受GET一种请求方法，没有在通讯中指定版本号，不支持请求头。&lt;/li&gt;
+&lt;li&gt;HTTP/1.0，第一个在通讯中指定版本号的HTTP协议，仍被广泛采用，特别是在代理服务器中。&lt;/li&gt;
+&lt;li&gt;HTTP/1.1，持久连接被默认采用，并能很好的配合代理服务器工作。支持以管道方式同时发送多个请求。相较于HTTP/1.0，区别如下：&lt;ul&gt;
+&lt;li&gt;缓存处理&lt;/li&gt;
+&lt;li&gt;带宽优化及网络连接的使用&lt;/li&gt;
+&lt;li&gt;错误通知的管理&lt;/li&gt;
+&lt;li&gt;消息在网络中发送&lt;/li&gt;
+&lt;li&gt;互联网地址的维护&lt;/li&gt;
+&lt;li&gt;安全性及完整性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HTTP/2，当前版本，于2015年5月作为互联网标准正式发布。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;状态码&quot;&gt;&lt;a href=&quot;#状态码&quot; class=&quot;headerlink&quot; title=&quot;状态码&quot;&gt;&lt;/a&gt;状态码&lt;/h2&gt;&lt;p&gt;所有HTTP响应的第一行都是状态行，依次是当前HTTP版本号，3位数字组成的状态代码，以及描述状态的短语，彼此由空格分隔。&lt;br&gt;状态代码的第一个数字代表当前响应的类型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1xx消息——请求已被服务器接收，继续处理（临时响应，1.0未定义任何1xx状态码）&lt;ul&gt;
+&lt;li&gt;100 Continue。客户端应当继续发送请求。&lt;/li&gt;
+&lt;li&gt;101 Switching Protocols。服务器已经理解了客户端的请求，并将通过Upgrade消息头通知客户端采用不同的协议来完成这个请求。&lt;/li&gt;
+&lt;li&gt;102 Processing。代表处理将被继续执行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;2xx成功——请求已成功被服务器接收、理解、并接受&lt;ul&gt;
+&lt;li&gt;200 OK。请求已成功，请求所希望的响应头或数据体将随此响应返回。&lt;/li&gt;
+&lt;li&gt;201 Created。请求已经被实现，而且有一个新的资源已经依据请求的需要而创建，且其URI已经随Location头信息返回。假如需要的资源无法及时创建的话，应当返回’202 Accepted’。&lt;/li&gt;
+&lt;li&gt;202 Accepted。服务器已接受请求，但尚未处理。适用于异步操作。&lt;/li&gt;
+&lt;li&gt;203 Non-Authoritative Information。服务器已成功处理了请求，但返回的实体头部元信息不是在原始服务器上有效的确定集合，而是来自本地或者第三方的拷贝。&lt;/li&gt;
+&lt;li&gt;204 No Content。服务器成功处理了请求，但不需要返回任何实体内容，并且希望返回更新了的元信息。&lt;/li&gt;
+&lt;li&gt;205 Reset Content。服务器成功处理了请求，且没有返回任何内容。但是与204响应不同，返回此状态码的响应要求请求者重置文档视图。该响应主要是被用于接受用户输入后，立即重置表单，以便用户能够轻松地开始另一次输入。与204响应一样，该响应也被禁止包含任何消息体，且以消息头后的第一个空行结束。&lt;/li&gt;
+&lt;li&gt;206 Partial Content。服务器已经成功处理了部分GET请求。常用于断点续传等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;3xx重定向——需要后续操作才能完成这一请求&lt;ul&gt;
+&lt;li&gt;300 Multiple Choices。被请求的资源有一系列可供选择的回馈信息，用户或浏览器能够自行选择一个首选的地址进行重定向。&lt;/li&gt;
+&lt;li&gt;301 Moved Permanently。被请求的资源已永久移动到新位置，并且将来任何对此资源的引用都应该使用本响应返回的若干个URI之一。&lt;/li&gt;
+&lt;li&gt;302 Found。请求的资源现在临时从不同的URI响应请求。只有在Cache-Control或Expires中进行了指定的情况下，这个响应才是可缓存的。&lt;/li&gt;
+&lt;li&gt;303 See Other。对应当前请求的响应可以在另一个URI上被找到，而且客户端应当采用GET的方式访问那个资源。303响应禁止被缓存。&lt;/li&gt;
+&lt;li&gt;304 Not Modified。如果客户端发送了一个带条件的GET请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，&lt;/li&gt;
+&lt;li&gt;305 Use Proxy.被请求的资源必须通过指定的代理才能被访问。&lt;/li&gt;
+&lt;li&gt;307 Temporary Redirect.请求的资源现在临时从不同的URI响应请求。由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;4xx请求错误——请求含有词法错误或者无法被执行&lt;ul&gt;
+&lt;li&gt;400 Bad Request.由于包含语法错误，当前请求无法被服务器理解。除非进行修改，否则客户端不应该重复提交这个请求。&lt;/li&gt;
+&lt;li&gt;401 Unauthorized.当前请求需要用户验证。&lt;/li&gt;
+&lt;li&gt;403 Forbidden.服务器已经理解请求，但是拒绝执行它。&lt;/li&gt;
+&lt;li&gt;404 Not Found.请求失败，请求所希望得到的资源未被在服务器上发现。&lt;/li&gt;
+&lt;li&gt;405 Method Not Allowed.请求行中指定的请求方法不能被用于请求相应的资源。&lt;/li&gt;
+&lt;li&gt;408 Request Timeout.请求超时。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;5xx服务器错误——服务器在处理某个正确请求时发生错误&lt;ul&gt;
+&lt;li&gt;500 Internal Server Error.服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。一般来说，这个问题都会在服务器的程序码出错时出现。&lt;/li&gt;
+&lt;li&gt;501 Not Implemented.服务器不支持当前请求所需要的某个功能。&lt;/li&gt;
+&lt;li&gt;502 Bad Gateway.作为网关或者代理工作的服务器尝试执行请求时，从上游服务器接收到无效的响应。&lt;/li&gt;
+&lt;li&gt;503 Service Unavailable.由于临时的服务器维护或者过载，服务器当前无法处理请求。&lt;/li&gt;
+&lt;li&gt;504 Gateway Timeout.作为网关或者代理工作的服务器尝试执行请求时超时。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;持续连接&quot;&gt;&lt;a href=&quot;#持续连接&quot; class=&quot;headerlink&quot; title=&quot;持续连接&quot;&gt;&lt;/a&gt;持续连接&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;在HTTP 0.9和1.0使用非持续连接，在非持续连接下，每个tcp只连接一个web对象，连接在每个请求-回应对后都会关闭，一个连接可被多个请求重复利用的保持连接机制被引入。这种连接持续化显著地减少了请求延迟，因为客户不用在首次请求后再次进行TCP交互确认创建连接。现在在HTTP 1.1使用持续连接，不必为每个web对象创建一个新的连接，一个连接可以传送多个对象。 HTTP1.1还进行了带宽优化，例如1.1引入了分块传输编码来允许流化传输持续连接上发送的内容，取代原先的buffer式传输。HTTP管道允许客户在上一个回应被收到前发送多重请求从而进一步减少了延迟时间。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;未完。。。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;HTTP,HyperText Transfer Protocol,超文本传输协议。&lt;br&gt;HTTP设计最初的目的是为了提供一种发布和接收HTML页面的方法。通过HTTP或HTTPS协议请求的资源由统一资源标识符来标识。&lt;br&gt;1999年，RFC2616发布了HTTP1.1，这个当前广泛使用的版本。&lt;br&gt;2014年，提交HTTP/2,2015年5月以RFC7540正式发表，取代HTTP 1.1成为HTTP的实现标准。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="HTTP" scheme="http://jacean.github.io/tags/HTTP/"/>
+    
+  </entry>
   
   <entry>
     <title>建立最新版的wordpress_for_sae</title>
@@ -201,9 +320,9 @@
     </summary>
     
     
-      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
-    
       <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
+    
+      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
     
       <category term="sae" scheme="http://jacean.github.io/tags/sae/"/>
     
@@ -241,9 +360,9 @@
     </summary>
     
     
-      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
-    
       <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
+    
+      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
     
       <category term="sae" scheme="http://jacean.github.io/tags/sae/"/>
     
@@ -270,9 +389,9 @@
     </summary>
     
     
-      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
-    
       <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
+    
+      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
     
       <category term="SAE" scheme="http://jacean.github.io/tags/SAE/"/>
     
@@ -713,31 +832,6 @@
       <category term="Eclipse" scheme="http://jacean.github.io/tags/Eclipse/"/>
     
       <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>windows远程ubuntu的virtualbox中的windows虚拟机</title>
-    <link href="http://jacean.github.io/2016/03/16/windows%E8%BF%9C%E7%A8%8Bubuntu%E7%9A%84virtualbox%E4%B8%AD%E7%9A%84windows%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    <id>http://jacean.github.io/2016/03/16/windows远程ubuntu的virtualbox中的windows虚拟机/</id>
-    <published>2016-03-16T15:41:41.000Z</published>
-    <updated>2016-03-16T15:43:02.188Z</updated>
-    
-    <content type="html">&lt;p&gt;想着以后要把ubuntu作为工作环境，但是windows中的C#开发还是得继续，所以就把之前windows中virtualbox的虚拟几在ubuntu中打开，我一般都是远程的，所以得把这个windows7虚拟机配置的能够在外网远程控制就好。&lt;br&gt;很简单了，在virtualBox中设置网卡为桥接，然后在win7中设置获取固定ip，然后在路由器中端口映射到这个ip，直接远程这个ip就可以了。保险的话还可以把这个ip来个mac绑定。&lt;br&gt;我把虚拟机的ip设为：192.168.xxruurx.197，开启允许远程&lt;br&gt;路由器中设置：路由器公网ip:1234===&amp;gt;192.168.xxx.197:3389&lt;br&gt;然后找一台windows电脑，mstsc后输入192.168.xxx.197:3389，就ok了。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;想着以后要把ubuntu作为工作环境，但是windows中的C#开发还是得继续，所以就把之前windows中virtualbox的虚拟几在ubuntu中打开，我一般都是远程的，所以得把这个windows7虚拟机配置的能够在外网远程控制就好。&lt;br&gt;很简单了，在virtual
-    
-    </summary>
-    
-    
-      <category term="windows" scheme="http://jacean.github.io/tags/windows/"/>
-    
-      <category term="ubuntu" scheme="http://jacean.github.io/tags/ubuntu/"/>
-    
-      <category term="虚拟机" scheme="http://jacean.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
