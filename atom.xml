@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-03-24T14:09:28.815Z</updated>
+  <updated>2016-03-24T14:51:46.027Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -14,6 +14,87 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>建立最新版的wordpress_for_sae</title>
+    <link href="http://jacean.github.io/2016/03/24/wordpress-for-sae%E9%85%8D%E7%BD%AE/"/>
+    <id>http://jacean.github.io/2016/03/24/wordpress-for-sae配置/</id>
+    <published>2016-03-24T14:41:53.000Z</published>
+    <updated>2016-03-24T14:51:46.027Z</updated>
+    
+    <content type="html">&lt;p&gt;wordpress是一个很不错的博客系统，现在的各种支持也很好，能够很方便的建立一个不错的博客。&lt;br&gt;依托于新浪云，建立wordpress for sae，而且是最新版的wordpress，需要自己动手改一下，而不仅仅是使用wordpressforsae的模板。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在sae上新建自己的wordpress for sae，这会帮助我们初始化MySQL、在storage创建一个名为wordpress的domain、设置Memcache，方便之后的操作。&lt;/li&gt;
+&lt;li&gt;安装并配置启用wordpress&lt;/li&gt;
+&lt;li&gt;在wordpress官网下载最新版本的wordpress。解压，修改&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_wordpress-1.png&quot; alt=&quot;&quot;&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// ** MySQL 设置 - 具体信息来自您正在使用的主机 ** //&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/** WordPress数据库的名称 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;define(&lt;span class=&quot;string&quot;&gt;&#39;DB_NAME&#39;&lt;/span&gt;, SAE_MYSQL_DB);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/** MySQL数据库用户名 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;define(&lt;span class=&quot;string&quot;&gt;&#39;DB_USER&#39;&lt;/span&gt;, SAE_MYSQL_USER);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/** MySQL数据库密码 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;define(&lt;span class=&quot;string&quot;&gt;&#39;DB_PASSWORD&#39;&lt;/span&gt;, SAE_MYSQL_PASS);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/** MySQL主机 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;define(&lt;span class=&quot;string&quot;&gt;&#39;DB_HOST&#39;&lt;/span&gt;, SAE_MYSQL_HOST_M.&lt;span class=&quot;string&quot;&gt;&#39;:&#39;&lt;/span&gt;.SAE_MYSQL_PORT);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这四处。可参照之前的wordpress for sae的此文件。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;重新压缩，保持格式&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_wordpress-2.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;即压缩目录里没有wordpress主目录，直接就是代码文件。&lt;/li&gt;
+&lt;li&gt;在sae的应用管理中代码管理，上传代码包。等待ok。就成功了。&lt;/li&gt;
+&lt;li&gt;这样之后会发现进不了仪表盘，直接输入xxx/wp-admin即可。会提示需要更新数据库，确认更新即可。&lt;/li&gt;
+&lt;li&gt;如果仪表盘是英文去设置改正就好。&lt;/li&gt;
+&lt;li&gt;插件虽然显示有安装，但实际不行，还是svn之后在本地安装插件在上传。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_wordpress-3.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;然后add，commit。ok。&lt;br&gt;安装主题也是同样的办法，因为没法直接在网站上操作sae的storage，只能在本地弄好之后提交，让文件覆盖。&lt;/li&gt;
+&lt;li&gt;如上，我安装了jetpack插件。需要wordpress账户，这是墙外的，翻墙注册链接同意就好。然后进入主页会有强力启动很多功能，启动吧。然后查看所有功能，启用markdown就ok。&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;wordpress是一个很不错的博客系统，现在的各种支持也很好，能够很方便的建立一个不错的博客。&lt;br&gt;依托于新浪云，建立wordpress for sae，而且是最新版的wordpress，需要自己动手改一下，而不仅仅是使用wordpressforsae的模板。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="sae" scheme="http://jacean.github.io/tags/sae/"/>
+    
+      <category term="wordpress" scheme="http://jacean.github.io/tags/wordpress/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Eclipse参数是arg0</title>
+    <link href="http://jacean.github.io/2016/03/24/Eclipse%E5%8F%82%E6%95%B0%E6%98%AFarg0/"/>
+    <id>http://jacean.github.io/2016/03/24/Eclipse参数是arg0/</id>
+    <published>2016-03-24T14:27:07.000Z</published>
+    <updated>2016-03-24T14:37:06.267Z</updated>
+    
+    <content type="html">&lt;p&gt;Eclipse是一个很好的IDE，IDE能够帮助开发者快速编辑代码调试代码，这里就有代码补全的作用。代码补全，不仅仅是补全，还要能够根据函数本来的面目提供一定的指引，比如函数参数。&lt;br&gt;如果函数参数是arg0，arg1，那谁看都得懵逼不是，但是如果是postion，count，name之类的有语义的就大不一样了，很容易帮助开发者理解参数含义和使用对象。Eclipse就是可以这样的。&lt;br&gt;但是，有的人由于一些不恰当操作，会发现自己的Eclipse函数自动补全后，参数还真是arg0，arg1，这可就愁死人了。&lt;br&gt;我也遇到了，所以解决了。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;这是因为缺少源码文件，导致eclipse无法分析。需要下载source for android sdk。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_eclipse-7.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;打开eclipse，定位到一个函数上，ctrl点击，出现绑定源代码文件的窗口，选择sources文件夹就好。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_eclipse-8.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;应用后&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_eclipse-10.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;get!&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Eclipse是一个很好的IDE，IDE能够帮助开发者快速编辑代码调试代码，这里就有代码补全的作用。代码补全，不仅仅是补全，还要能够根据函数本来的面目提供一定的指引，比如函数参数。&lt;br&gt;如果函数参数是arg0，arg1，那谁看都得懵逼不是，但是如果是postion，count，name之类的有语义的就大不一样了，很容易帮助开发者理解参数含义和使用对象。Eclipse就是可以这样的。&lt;br&gt;但是，有的人由于一些不恰当操作，会发现自己的Eclipse函数自动补全后，参数还真是arg0，arg1，这可就愁死人了。&lt;br&gt;我也遇到了，所以解决了。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Eclipse" scheme="http://jacean.github.io/tags/Eclipse/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android安装参考文档</title>
+    <link href="http://jacean.github.io/2016/03/24/Android%E5%AE%89%E8%A3%85%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3/"/>
+    <id>http://jacean.github.io/2016/03/24/Android安装参考文档/</id>
+    <published>2016-03-24T14:21:01.000Z</published>
+    <updated>2016-03-24T14:26:40.847Z</updated>
+    
+    <content type="html">&lt;p&gt;不管是开发什么产品，用什么语言开发，帮助文档总是必须的，开发android也当然是必须的。&lt;br&gt;有时候，装Eclipse配置android后，会发现没有文档，这个时候就需要自己重新搞一搞了。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;如果发现sdk目录下没有docs的话，可以在sdkmanager里下载。&lt;br&gt;注意，documention只在最新的版本下有,不要因为自己用哪个版本就去哪找，真的找不到。。。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_android-1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;下载后再本地浏览，切换版本就好。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_android-2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;OK!&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;不管是开发什么产品，用什么语言开发，帮助文档总是必须的，开发android也当然是必须的。&lt;br&gt;有时候，装Eclipse配置android后，会发现没有文档，这个时候就需要自己重新搞一搞了。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://jacean.github.io/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>Eclipse打开genymotion模拟器的sd卡</title>
@@ -120,9 +201,9 @@
     </summary>
     
     
-      <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
-    
       <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
+    
+      <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
     
       <category term="sae" scheme="http://jacean.github.io/tags/sae/"/>
     
@@ -160,9 +241,9 @@
     </summary>
     
     
-      <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
-    
       <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
+    
+      <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
     
       <category term="sae" scheme="http://jacean.github.io/tags/sae/"/>
     
@@ -189,9 +270,9 @@
     </summary>
     
     
-      <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
-    
       <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
+    
+      <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
     
       <category term="SAE" scheme="http://jacean.github.io/tags/SAE/"/>
     
@@ -657,120 +738,6 @@
       <category term="ubuntu" scheme="http://jacean.github.io/tags/ubuntu/"/>
     
       <category term="虚拟机" scheme="http://jacean.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu安装搜狗输入法不出现或是不显示输入法切换</title>
-    <link href="http://jacean.github.io/2016/03/16/ubuntu%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95%E4%B8%8D%E5%87%BA%E7%8E%B0%E6%88%96%E6%98%AF%E4%B8%8D%E6%98%BE%E7%A4%BA%E8%BE%93%E5%85%A5%E6%B3%95%E5%88%87%E6%8D%A2/"/>
-    <id>http://jacean.github.io/2016/03/16/ubuntu安装搜狗输入法不出现或是不显示输入法切换/</id>
-    <published>2016-03-16T15:30:18.000Z</published>
-    <updated>2016-03-16T15:40:54.696Z</updated>
-    
-    <content type="html">&lt;p&gt;不管在什么系统下，输入法始终是和系统交互最重要的东西。&lt;br&gt;转移到Ubuntu后，自然也要换个好点的输入法，一般就选搜狗咯，毕竟bing没占这一块。。。&lt;br&gt;首先下载搜狗拼音for linux  ：&lt;a href=&quot;http://pinyin.sogou.com/linux/?r=pinyin&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://pinyin.sogou.com/linux/?r=pinyin&lt;/a&gt;&lt;br&gt;双击deb文件安装，安全性问题同意，然后再有啥的话安装、修复之类，总之显示安装完毕就成。&lt;br&gt;但是安装之后你会发现，切换输入法中还是没有搜狗 输入法，甚至连在菜单栏上显示的输入法图标都没有了。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;在安装完毕搜狗输入法后你会发现同时安装了fctix的软件，这是因为Linux输入法暂时有两种框架，一种是ibus，一种是fctix，搜狗输入法属于fcitx，所以需要同时安装这个框架才行。我装的ubuntu默认的输入框架是ibus，所以首先你的切换到fcitx。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sougou-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sougou-2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;这样的话框架就调过来了。但是这样你会发现并没有什么卵用，所以还需要接着来。&lt;br&gt;在终端：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;jacean@jacean-Ubuntu:~$ fcitx autostart&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sougou-4.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;jacean@jacean-Ubuntu:~$ fcitx-diagnose&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;#&lt;a href=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sougou-5.png&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;看到提示了吧，现在就可以开始用了，搜狗给你不一般的体验。。。。。。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sougou-6.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;不管在什么系统下，输入法始终是和系统交互最重要的东西。&lt;br&gt;转移到Ubuntu后，自然也要换个好点的输入法，一般就选搜狗咯，毕竟bing没占这一块。。。&lt;br&gt;首先下载搜狗拼音for linux  ：&lt;a href=&quot;http://pinyin.sogou.com/linux/?r=pinyin&quot;&gt;http://pinyin.sogou.com/linux/?r=pinyin&lt;/a&gt;&lt;br&gt;双击deb文件安装，安全性问题同意，然后再有啥的话安装、修复之类，总之显示安装完毕就成。&lt;br&gt;但是安装之后你会发现，切换输入法中还是没有搜狗 输入法，甚至连在菜单栏上显示的输入法图标都没有了。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>win10安装ubuntu15.0双系统遇到(initramfs)unable_to_find_a_medium_containing_a_live_file</title>
-    <link href="http://jacean.github.io/2016/03/16/win10%E5%AE%89%E8%A3%85ubuntu15-0%E5%8F%8C%E7%B3%BB%E7%BB%9F%E9%81%87%E5%88%B0-initramfs-unable-to-find-a-medium-containing-a-live-file/"/>
-    <id>http://jacean.github.io/2016/03/16/win10安装ubuntu15-0双系统遇到-initramfs-unable-to-find-a-medium-containing-a-live-file/</id>
-    <published>2016-03-16T15:18:24.000Z</published>
-    <updated>2016-03-16T15:29:57.385Z</updated>
-    
-    <content type="html">&lt;p&gt;因为要把工作环境转移到Ubuntu,所以自然不能只用虚拟机了。而之前的Ubuntu麒麟系统用起来有点不爽，于是就直接重装吧，装的是15.10，但是呢，一起安装双系统，三系统一点问题都没有的我，这次遇到问题了。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;(initramfs)unable to find a  medium  containing a  live  file&lt;br&gt;遇到这个问题我也头大了，因为以前装的时候都好好地，完全没啥风险，这次出问题简直始料未及啊。当下就赶紧查资料，果不其然，国内的方法都不好使或者是根本就没啥方法，于是google之。不过google也不是很给力啊，也是很多废答案。不过万幸找到了，在看完好多英文解答之后才找到的，发现原因后当时就哭了。&lt;br&gt;最终最有效最简单的办法是在&lt;a href=&quot;http://askubuntu.com/questions/15425/error-when-installing-unable-to-find-a-medium-containing-a-live-file-system&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;askubuntu&lt;/a&gt;上找到的。&lt;br&gt;For me changing from USB 3.0 socket to 2.0 helped. I’m using 10.04 Ubuntu on Asus 1015PEM.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;原来仅仅是因为我把u盘插在了3.0的口上。。。。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://askubuntu.com/questions/221835/installing-ubuntu-on-a-pre-installed-windows-with-uefi?lq=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;有个答案特别好，完美的分析了win和Ubuntu怎么互相搞，真的特别棒，您看看吧，就看一看啊。我真的耐着性子看了这么多英文，然后发现对我的问题并没有什么卵用，不开心。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;因为要把工作环境转移到Ubuntu,所以自然不能只用虚拟机了。而之前的Ubuntu麒麟系统用起来有点不爽，于是就直接重装吧，装的是15.10，但是呢，一起安装双系统，三系统一点问题都没有的我，这次遇到问题了。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;(initramfs)u
-    
-    </summary>
-    
-    
-      <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
-    
-      <category term="win10" scheme="http://jacean.github.io/tags/win10/"/>
-    
-      <category term="双系统" scheme="http://jacean.github.io/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义shell实现hexo常用命令</title>
-    <link href="http://jacean.github.io/2016/03/16/%E8%87%AA%E5%AE%9A%E4%B9%89shell%E5%AE%9E%E7%8E%B0hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>http://jacean.github.io/2016/03/16/自定义shell实现hexo常用命令/</id>
-    <published>2016-03-16T13:38:27.000Z</published>
-    <updated>2016-03-16T14:38:29.384Z</updated>
-    
-    <content type="html">&lt;p&gt;利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。&lt;br&gt;超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。&lt;br&gt;于是就看了会Shell，自定义一些命令来简化操作。实现如下&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;~Hexonew 自定义shell实现hexo常用命令&lt;br&gt;change dir to /home/jacean/HexoBlog/source/_posts&lt;br&gt;INFO  Created: ~/HexoBlog/source/_posts/自定义shell实现hexo常用命令.md&lt;br&gt;hexo new 自定义shell实现hexo常用命令&lt;br&gt;gvim 自定义shell实现hexo常用命令&lt;br&gt;~hexogd&lt;br&gt;INFO  Start processing&lt;br&gt;INFO  Files loaded in 659 ms&amp;gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;Shell基础&quot;&gt;&lt;a href=&quot;#Shell基础&quot; class=&quot;headerlink&quot; title=&quot;Shell基础&quot;&gt;&lt;/a&gt;Shell基础&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://jacean.github.io/2016/03/16/Shell%E5%85%A5%E9%97%A8/&quot;&gt;Shell入门&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Hexo命令&quot;&gt;&lt;a href=&quot;#Hexo命令&quot; class=&quot;headerlink&quot; title=&quot;Hexo命令&quot;&gt;&lt;/a&gt;Hexo命令&lt;/h2&gt;&lt;p&gt;默认Shell的解释器是bash，所以我就直接在bash的相关文件里应用更改。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;在$HOME下建立文件夹&lt;em&gt;mycmd&lt;/em&gt;,在里面建立脚本文件。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;hexonew.sh&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;path=~/HexoBlog/source/_posts&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;current=$0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd $path&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;echo &amp;quot;change dir to $path&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if [ $# -ge 1 ]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;then&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    for f in $*&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    do  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        hexo new $f&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        echo &amp;quot;hexo new $f &amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#        hexo g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        gvim $f.md&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        echo &amp;quot;gvim $f&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;else&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    echo &amp;quot;parm error,need file1[,file2...]&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#echo &amp;quot;change dir to $current&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd ~&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这段代码实现的是hexo的new，new后同时编辑文件，如果是多个就同时打开编辑。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;myalias&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;alias hexogd=&amp;quot;cd ~/HexoBlog; hexo g -d;cd ~&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias hexog=&amp;quot;cd ~/HexoBlog; hexo g;cd ~&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias hexod=&amp;quot;cd ~/HexoBlog; hexo d;cd ~&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias hexop=&amp;quot;cd ~/HexoBlog/source/_posts&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias hexonew=&amp;quot;. hexonew.sh&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这段代码前3句是直接建立别名来执行命令，后一句是执行上一个hexonew.sh。那个&lt;em&gt;.&lt;/em&gt;的意思是直接在本Shell下执行，不必新开子进程。&lt;br&gt;不过现在还不好使，需要在bash那里配置下。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;配置.bashrc&lt;br&gt;bash的配置文件在etc/和home文件夹之下都有，明显就是针对用户的设置，所以我选择编辑home下的.bashrc，个人习惯。&lt;br&gt;在末尾添加&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;if [ -d &amp;quot;$HOME/mycmd&amp;quot; ]; then&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	PATH=$PATH:~/mycmd&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if [ -f &amp;quot;$HOME/mycmd/myalias&amp;quot; ]; then&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	. ~/mycmd/myalias&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;第一个是把mycmd的路径加入path，第二个是把别名文件载入，这样的话别名文件里加载的hexonew.sh也就可以直接用了。&lt;/p&gt;
-&lt;p&gt;至此，大功告成，执行那几个命令都有相对实现，也不用再收到切换目录了。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;利用Hexo搭建好博客之后，如果要新建或是生产都必须先切换到blog的根目录，然后在编辑文件的时候又得切换目录。但是一般，也就是新建直接编辑，那么多命令也是麻烦。&lt;br&gt;超过3行的持续输入已经令人产生厌烦，所以需要批处理来解决。在ubuntu下就是shell了。&lt;br&gt;于是就看了会Shell，自定义一些命令来简化操作。实现如下&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;~Hexonew 自定义shell实现hexo常用命令&lt;br&gt;change dir to /home/jacean/HexoBlog/source/_posts&lt;br&gt;INFO  Created: ~/HexoBlog/source/_posts/自定义shell实现hexo常用命令.md&lt;br&gt;hexo new 自定义shell实现hexo常用命令&lt;br&gt;gvim 自定义shell实现hexo常用命令&lt;br&gt;~hexogd&lt;br&gt;INFO  Start processing&lt;br&gt;INFO  Files loaded in 659 ms&amp;gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="Shell" scheme="http://jacean.github.io/tags/Shell/"/>
-    
-      <category term="hexo" scheme="http://jacean.github.io/tags/hexo/"/>
     
   </entry>
   
