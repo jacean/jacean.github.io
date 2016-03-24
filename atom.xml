@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-03-24T10:43:13.287Z</updated>
+  <updated>2016-03-24T14:09:28.815Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Eclipse打开genymotion模拟器的sd卡</title>
+    <link href="http://jacean.github.io/2016/03/24/Eclipse%E6%89%93%E5%BC%80genymotion%E6%A8%A1%E6%8B%9F%E5%99%A8%E7%9A%84sd%E5%8D%A1/"/>
+    <id>http://jacean.github.io/2016/03/24/Eclipse打开genymotion模拟器的sd卡/</id>
+    <published>2016-03-24T11:32:11.000Z</published>
+    <updated>2016-03-24T14:09:28.815Z</updated>
+    
+    <content type="html">&lt;p&gt;开发Android的时候，除了真机调试外，一个流畅的Android虚拟机可以提高开发体验，避免很多时候因为等待虚拟机而造成的烦躁。&lt;br&gt;genymotion模拟器是传说中最流畅的Android模拟器，想要开发Android必不可少的利器。&lt;br&gt;安装完genymotion后，在开发过程中，势必与模拟器中的文件要进行交互，怎么打开并使用模拟器中的SD卡，且见下文分晓。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;window-&amp;gt;&amp;gt;show view-&amp;gt;&amp;gt;Other，然后弹出ShowView对话框，选择Android-&amp;gt;&amp;gt;FileExplore，这样就可以看到文件浏览器了。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_Eclipse-1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_eclipse-2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;根据文件浏览器的提示确定SD的位置。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_eclipse-3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;使用位置&lt;br&gt;在指明路径的时候应该使用sdcard，而不是在浏览器中看到的真是路径。要替换为sdcard，否则找不到。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_eclipse-4.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_eclipse-5.png&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;li&gt;交互&lt;br&gt;点击右上角&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_eclipse-6.png&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这样就OK了。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;开发Android的时候，除了真机调试外，一个流畅的Android虚拟机可以提高开发体验，避免很多时候因为等待虚拟机而造成的烦躁。&lt;br&gt;genymotion模拟器是传说中最流畅的Android模拟器，想要开发Android必不可少的利器。&lt;br&gt;安装完genymotion后，在开发过程中，势必与模拟器中的文件要进行交互，怎么打开并使用模拟器中的SD卡，且见下文分晓。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://jacean.github.io/tags/Android/"/>
+    
+      <category term="Eclipse" scheme="http://jacean.github.io/tags/Eclipse/"/>
+    
+      <category term="genymotion" scheme="http://jacean.github.io/tags/genymotion/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu状态栏显示网速CPU</title>
@@ -595,9 +629,9 @@
     </summary>
     
     
-      <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
-    
       <category term="Eclipse" scheme="http://jacean.github.io/tags/Eclipse/"/>
+    
+      <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
     
   </entry>
   
@@ -737,103 +771,6 @@
       <category term="Shell" scheme="http://jacean.github.io/tags/Shell/"/>
     
       <category term="hexo" scheme="http://jacean.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vim操作</title>
-    <link href="http://jacean.github.io/2016/03/16/Vim%E6%93%8D%E4%BD%9C/"/>
-    <id>http://jacean.github.io/2016/03/16/Vim操作/</id>
-    <published>2016-03-16T09:32:53.000Z</published>
-    <updated>2016-03-16T14:40:36.412Z</updated>
-    
-    <content type="html">&lt;p&gt;vim是号称编辑器之神的编辑器，一段时间的使用之后我觉得我也爱上了它。&lt;br&gt;但是vim的操作技巧实在太多，得慢慢适应。所以就把一些自己不常用的操作在这里记录下，持续更新吧。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;分屏操作&quot;&gt;&lt;a href=&quot;#分屏操作&quot; class=&quot;headerlink&quot; title=&quot;分屏操作&quot;&gt;&lt;/a&gt;分屏操作&lt;/h2&gt;&lt;h3 id=&quot;启动分屏&quot;&gt;&lt;a href=&quot;#启动分屏&quot; class=&quot;headerlink&quot; title=&quot;启动分屏&quot;&gt;&lt;/a&gt;启动分屏&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;使用大写的参数O来垂直分屏，小写o是水平分屏，n表示的是分成几个屏。&lt;blockquote&gt;
-&lt;p&gt;vim -O&lt;em&gt;n&lt;/em&gt; file1 file2 …&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;关闭当前窗口&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W c&lt;br&gt;Ctrl+W q,关闭当前窗口，如果只剩最后一个了则退出vim&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;上下分开当前打开的文件&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W s&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;上下分开，并打开新文件&lt;blockquote&gt;
-&lt;p&gt;:sp filename&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;左右分割当前打开的文件&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W v&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;左右分割，并打开新文件&lt;blockquote&gt;
-&lt;p&gt;:vsp filename&lt;/p&gt;
-&lt;h3 id=&quot;多屏切换光标&quot;&gt;&lt;a href=&quot;#多屏切换光标&quot; class=&quot;headerlink&quot; title=&quot;多屏切换光标&quot;&gt;&lt;/a&gt;多屏切换光标&lt;/h3&gt;&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;把光标移到右边的屏。&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W l&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;把光标移到左边的屏中。&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W h&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;把光标移到上边的屏中。&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W k&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;把光标移到下边的屏中。&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W j&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;把光标移到下一个的屏中。.&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W w&lt;/p&gt;
-&lt;h3 id=&quot;移动分屏&quot;&gt;&lt;a href=&quot;#移动分屏&quot; class=&quot;headerlink&quot; title=&quot;移动分屏&quot;&gt;&lt;/a&gt;移动分屏&lt;/h3&gt;&lt;p&gt;这个功能还是使用了Vim的光标键，只不过都是大写。当然了，如果你的分屏很乱很复杂的话，这个功能可能会出现一些非常奇怪的症状。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;向右移动。&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W L&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;向左移动&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W H&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;向上移动&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W K&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;向下移动&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W J&lt;/p&gt;
-&lt;h3 id=&quot;分屏尺寸&quot;&gt;&lt;a href=&quot;#分屏尺寸&quot; class=&quot;headerlink&quot; title=&quot;分屏尺寸&quot;&gt;&lt;/a&gt;分屏尺寸&lt;/h3&gt;&lt;p&gt;下面是改变尺寸的一些操作，主要是高度，对于宽度你可以使用[Ctrl+W &amp;lt;]或是[Ctrl+W &amp;gt;]，但这可能需要最新的版本才支持。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;让所有的屏都有一样的高度。&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W =&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;增加高度。&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W +&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;减少高度。&lt;blockquote&gt;
-&lt;p&gt;Ctrl+W -&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;vim是号称编辑器之神的编辑器，一段时间的使用之后我觉得我也爱上了它。&lt;br&gt;但是vim的操作技巧实在太多，得慢慢适应。所以就把一些自己不常用的操作在这里记录下，持续更新吧。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="Vim" scheme="http://jacean.github.io/tags/Vim/"/>
     
   </entry>
   
