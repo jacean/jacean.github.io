@@ -126,11 +126,11 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>HTTP协议学习</title>
     <link href="http://jacean.github.io/2016/03/24/HTTP%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/"/>
     <id>http://jacean.github.io/2016/03/24/HTTP协议学习/</id>
     <published>2016-03-24T15:05:54.000Z</published>
-    <updated>2016-03-24T16:07:28.674Z</updated>
+    <updated>2016-03-26T04:06:33.407Z</updated>
     
     <content type="html">&lt;p&gt;HTTP,HyperText Transfer Protocol,超文本传输协议。&lt;br&gt;HTTP设计最初的目的是为了提供一种发布和接收HTML页面的方法。通过HTTP或HTTPS协议请求的资源由统一资源标识符来标识。&lt;br&gt;1999年，RFC2616发布了HTTP1.1，这个当前广泛使用的版本。&lt;br&gt;2014年，提交HTTP/2,2015年5月以RFC7540正式发表，取代HTTP 1.1成为HTTP的实现标准。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;协议概述&quot;&gt;&lt;a href=&quot;#协议概述&quot; class=&quot;headerlink&quot; title=&quot;协议概述&quot;&gt;&lt;/a&gt;协议概述&lt;/h2&gt;&lt;blockquote&gt;
