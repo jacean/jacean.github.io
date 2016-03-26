@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-03-26T15:30:49.416Z</updated>
+  <updated>2016-03-26T15:35:37.949Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -20,13 +20,12 @@
     <link href="http://jacean.github.io/2016/03/26/%E7%AC%94%E8%AF%95%E9%A2%98%E8%81%9A%E7%84%A6%E2%80%94%E2%80%94%E6%A0%91/"/>
     <id>http://jacean.github.io/2016/03/26/笔试题聚焦——树/</id>
     <published>2016-03-26T14:54:16.000Z</published>
-    <updated>2016-03-26T15:30:49.416Z</updated>
+    <updated>2016-03-26T15:35:37.949Z</updated>
     
     <content type="html">&lt;p&gt;要找工作自然得接受人家公司的考验，笔试就是第一关了。&lt;br&gt;树在数据结构中是很重要的，有关二叉树等的考核特别多，仅在此记录自己做题时遇到的的一些问题和知识点吧。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;h3 id=&quot;平衡因子&quot;&gt;&lt;a href=&quot;#平衡因子&quot; class=&quot;headerlink&quot; title=&quot;平衡因子&quot;&gt;&lt;/a&gt;平衡因子&lt;/h3&gt;&lt;p&gt;一个节点的左子树和右子树的深度之差即为此节点的平衡因子。&lt;br&gt;平衡二叉树上所有节点的平衡因子只可能是-1,0,1。&lt;br&gt;平衡二叉树的性质:它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。&lt;br&gt;例子：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;pre&gt;&lt;code&gt;a
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   b       c&lt;br&gt; h   d        e&lt;br&gt;f g&lt;br&gt;如上，这个二叉树，a节点的平衡因子是3-2=1，b的是2-1=1，h的是1-1=0，d的是0-0=0，c的是0-1=-1。&lt;/p&gt;
+&lt;p&gt;——–a——–&lt;br&gt;—-b——-c—-&lt;br&gt;–h—d——-e–&lt;br&gt;-f-g—–&lt;br&gt;如上，这个二叉树，a节点的平衡因子是3-2=1，b的是2-1=1，h的是1-1=0，d的是0-0=0，c的是0-1=-1。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; title=&quot;算法&quot;&gt;&lt;/a&gt;算法&lt;/h2&gt;&lt;h3 id=&quot;AVL&quot;&gt;&lt;a href=&quot;#AVL&quot; class=&quot;headerlink&quot; title=&quot;AVL&quot;&gt;&lt;/a&gt;AVL&lt;/h3&gt;&lt;h3 id=&quot;红黑树&quot;&gt;&lt;a href=&quot;#红黑树&quot; class=&quot;headerlink&quot; title=&quot;红黑树&quot;&gt;&lt;/a&gt;红黑树&lt;/h3&gt;&lt;h3 id=&quot;Treap&quot;&gt;&lt;a href=&quot;#Treap&quot; class=&quot;headerlink&quot; title=&quot;Treap&quot;&gt;&lt;/a&gt;Treap&lt;/h3&gt;&lt;h3 id=&quot;伸展树&quot;&gt;&lt;a href=&quot;#伸展树&quot; class=&quot;headerlink&quot; title=&quot;伸展树&quot;&gt;&lt;/a&gt;伸展树&lt;/h3&gt;&lt;h3 id=&quot;SBT&quot;&gt;&lt;a href=&quot;#SBT&quot; class=&quot;headerlink&quot; title=&quot;SBT&quot;&gt;&lt;/a&gt;SBT&lt;/h3&gt;</content>
     
