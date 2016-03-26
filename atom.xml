@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-03-26T15:38:08.913Z</updated>
+  <updated>2016-03-26T04:02:53.142Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -14,55 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>笔试题聚焦——树</title>
-    <link href="http://jacean.github.io/2016/03/26/%E7%AC%94%E8%AF%95%E9%A2%98%E8%81%9A%E7%84%A6%E2%80%94%E2%80%94%E6%A0%91/"/>
-    <id>http://jacean.github.io/2016/03/26/笔试题聚焦——树/</id>
-    <published>2016-03-26T14:54:16.000Z</published>
-    <updated>2016-03-26T15:38:08.913Z</updated>
-    
-    <content type="html">&lt;p&gt;要找工作自然得接受人家公司的考验，笔试就是第一关了。&lt;br&gt;树在数据结构中是很重要的，有关二叉树等的考核特别多，仅在此记录自己做题时遇到的的一些问题和知识点吧。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;h3 id=&quot;平衡因子&quot;&gt;&lt;a href=&quot;#平衡因子&quot; class=&quot;headerlink&quot; title=&quot;平衡因子&quot;&gt;&lt;/a&gt;平衡因子&lt;/h3&gt;&lt;p&gt;一个节点的左子树和右子树的深度之差即为此节点的平衡因子。&lt;br&gt;平衡二叉树上所有节点的平衡因子只可能是-1,0,1。&lt;br&gt;平衡二叉树的性质:它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。&lt;br&gt;例子：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;——–a——–&lt;br&gt;—-b— —c—-&lt;br&gt;–h- -d- — -e–&lt;br&gt;-f g————-&lt;br&gt;如上，这个二叉树，a节点的平衡因子是3-2=1，b的是2-1=1，h的是1-1=0，d的是0-0=0，c的是0-1=-1。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; title=&quot;算法&quot;&gt;&lt;/a&gt;算法&lt;/h2&gt;&lt;h3 id=&quot;AVL&quot;&gt;&lt;a href=&quot;#AVL&quot; class=&quot;headerlink&quot; title=&quot;AVL&quot;&gt;&lt;/a&gt;AVL&lt;/h3&gt;&lt;h3 id=&quot;红黑树&quot;&gt;&lt;a href=&quot;#红黑树&quot; class=&quot;headerlink&quot; title=&quot;红黑树&quot;&gt;&lt;/a&gt;红黑树&lt;/h3&gt;&lt;h3 id=&quot;Treap&quot;&gt;&lt;a href=&quot;#Treap&quot; class=&quot;headerlink&quot; title=&quot;Treap&quot;&gt;&lt;/a&gt;Treap&lt;/h3&gt;&lt;h3 id=&quot;伸展树&quot;&gt;&lt;a href=&quot;#伸展树&quot; class=&quot;headerlink&quot; title=&quot;伸展树&quot;&gt;&lt;/a&gt;伸展树&lt;/h3&gt;&lt;h3 id=&quot;SBT&quot;&gt;&lt;a href=&quot;#SBT&quot; class=&quot;headerlink&quot; title=&quot;SBT&quot;&gt;&lt;/a&gt;SBT&lt;/h3&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;要找工作自然得接受人家公司的考验，笔试就是第一关了。&lt;br&gt;树在数据结构中是很重要的，有关二叉树等的考核特别多，仅在此记录自己做题时遇到的的一些问题和知识点吧。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="树" scheme="http://jacean.github.io/tags/%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络体系结构</title>
-    <link href="http://jacean.github.io/2016/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/"/>
-    <id>http://jacean.github.io/2016/03/26/计算机网络体系结构/</id>
-    <published>2016-03-26T04:16:06.000Z</published>
-    <updated>2016-03-26T14:17:20.221Z</updated>
-    
-    <content type="html">&lt;p&gt;在做题的时候，发现很多都是关于网络协议的题，自己没有系统的学习过，只知道个大概，总感觉隔着一层纱。所以就像拿着书本好好看看，认真学习一番。&lt;/p&gt;
-&lt;p&gt;计算机网络中，分层次的体系结构是非常重要的。每层承担的任务担当的角色，以及做了什么事情，提供了什么保障，对于理解计算机网络是非常重要的。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;###&lt;br&gt;暂留。。。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在做题的时候，发现很多都是关于网络协议的题，自己没有系统的学习过，只知道个大概，总感觉隔着一层纱。所以就像拿着书本好好看看，认真学习一番。&lt;/p&gt;
-&lt;p&gt;计算机网络中，分层次的体系结构是非常重要的。每层承担的任务担当的角色，以及做了什么事情，提供了什么保障，对于理解计算机网络是非常重要的。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="网络" scheme="http://jacean.github.io/tags/%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
   
   <entry>
     <title>Linux文件权限</title>
@@ -804,6 +755,72 @@
       <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
     
       <category term="GitPage" scheme="http://jacean.github.io/tags/GitPage/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu无法访问双系统机子上的windows文件分区</title>
+    <link href="http://jacean.github.io/2016/03/17/Ubuntu%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%9C%BA%E5%AD%90%E4%B8%8A%E7%9A%84windows%E6%96%87%E4%BB%B6%E5%88%86%E5%8C%BA/"/>
+    <id>http://jacean.github.io/2016/03/17/Ubuntu无法访问双系统机子上的windows文件分区/</id>
+    <published>2016-03-16T16:04:56.000Z</published>
+    <updated>2016-03-16T16:09:15.703Z</updated>
+    
+    <content type="html">&lt;p&gt;装好Ubuntu用了几天，因为要用ps，所以回到win10，结果再回来发现无法进入windows的文件分区了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Error mounting /dev/sda1 at /media/jacean/系统保留: Command-line `mount -t “ntfs” -o “uhelper=udisks2,nodev,nosuid,uid=1000,gid=1000” “/dev/sda1” “/media/jacean/系统保留”‘ exited with non-zero exit status 14: The disk contains an unclean file system (0, 0).&lt;br&gt;Metadata kept in Windows cache, refused to mount.&lt;br&gt;Failed to mount ‘/dev/sda1’: 不允许的操作&lt;br&gt;The NTFS partition is in an unsafe state. Please resume and shutdown&lt;br&gt;Windows fully (no hibernation or fast restarting), or mount the volume&lt;br&gt;read-only with the ‘ro’ mount option.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;参考ubuntu提示和这篇&lt;a href=&quot;http://blog.sina.com.cn/s/blog_6b7bd17e0101eyz9.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;博客&lt;/a&gt;,确定问题是windows在win8以后添加的快速启动功能导致的.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;快速启动有助于windows快速关机并迅速恢复,但是这是需要缓存当前状态,当ubuntu试图打开这些windows分区时,会发现这些缓存,认为是不安全的状态,为了不影响改变windows状态就会直接表示拒绝访问.并提示将windows完全关闭,取消快速启动.&lt;br&gt;当然,快速启动不影响重启,如果是重启的话是不会有这种问题的,只有选择关机在按电源开启才会.&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_windowspower.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;有时候会发现启用快速启动的开关是灰色的没法点击,那就滚动到开头,有个&amp;lt;&amp;lt;&amp;lt;更改当前不可用设置&amp;gt;&amp;gt;&amp;gt;,把这个打开就行了,然后修改保存.大功告成.关机,开机试试.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;装好Ubuntu用了几天，因为要用ps，所以回到win10，结果再回来发现无法进入windows的文件分区了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Error mounting /dev/sda1 at /media/jacean/系统保留: Command-line `mount -t “ntfs” -o “uhelper=udisks2,nodev,nosuid,uid=1000,gid=1000” “/dev/sda1” “/media/jacean/系统保留”‘ exited with non-zero exit status 14: The disk contains an unclean file system (0, 0).&lt;br&gt;Metadata kept in Windows cache, refused to mount.&lt;br&gt;Failed to mount ‘/dev/sda1’: 不允许的操作&lt;br&gt;The NTFS partition is in an unsafe state. Please resume and shutdown&lt;br&gt;Windows fully (no hibernation or fast restarting), or mount the volume&lt;br&gt;read-only with the ‘ro’ mount option.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;参考ubuntu提示和这篇&lt;a href=&quot;http://blog.sina.com.cn/s/blog_6b7bd17e0101eyz9.html&quot;&gt;博客&lt;/a&gt;,确定问题是windows在win8以后添加的快速启动功能导致的.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
+    
+      <category term="windows" scheme="http://jacean.github.io/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu15.10_VirtualBox出现virtualbox_kernel_driver_not_installed_(rc=-1908)</title>
+    <link href="http://jacean.github.io/2016/03/16/Ubuntu15-10-VirtualBox%E5%87%BA%E7%8E%B0virtualbox-kernel-driver-not-installed-rc-1908/"/>
+    <id>http://jacean.github.io/2016/03/16/Ubuntu15-10-VirtualBox出现virtualbox-kernel-driver-not-installed-rc-1908/</id>
+    <published>2016-03-16T15:59:06.000Z</published>
+    <updated>2016-03-16T16:03:35.691Z</updated>
+    
+    <content type="html">&lt;p&gt;就是在一个风和日丽的时候，Ubuntu提醒我更新软件，我更新了，然后我的VirtualBox就罢工了。&lt;br&gt;google答案呗，果然又在&lt;a href=&quot;http://askubuntu.com/questions/498900/vbox-on-14-04-kernel-driver-not-installed-rc-1908&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;askubuntu&lt;/a&gt;上找到了答案。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The fix for 14.04 is indeed different, but not that different:&lt;br&gt;sudo apt-get install linux-headers-generic build-essential dkms&lt;br&gt;sudo apt-get remove –purge virtualbox-dkms&lt;br&gt;sudo apt-get install virtualbox-dkms&lt;br&gt;The install virtualbox-dkms command was actually failing applying the 13.10 fix. By fully purging the package things got back to normal.&lt;br&gt;Update [17-01-2015]: In the latest iteration of this bug a restart to the system is required between the apt-get remove command and the second apt-get install.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本来我安装的是5.0.16，结果更新后反倒成了5.0.14.然后我之前的虚拟机就打不开了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The device helper structure version has changed.&lt;br&gt;If you have upgraded VirtualBox recently, please make sure you have terminated all VMs and upgraded any extension packs. If this error persists, try re-installing VirtualBox. (VERR_PDM_DEVHLPR3_VERSION_MISMATCH).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;没办法，只能到官网重新下载了对应于5。0.14的扩展包安装。提示是否降级，降呗。&lt;/p&gt;
+&lt;p&gt;ok，好了。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;就是在一个风和日丽的时候，Ubuntu提醒我更新软件，我更新了，然后我的VirtualBox就罢工了。&lt;br&gt;google答案呗，果然又在&lt;a href=&quot;http://askubuntu.com/questions/498900/vbox-on-14-04-kernel-driver-not-installed-rc-1908&quot;&gt;askubuntu&lt;/a&gt;上找到了答案。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
+    
+      <category term="VirtualBox" scheme="http://jacean.github.io/tags/VirtualBox/"/>
     
   </entry>
   
