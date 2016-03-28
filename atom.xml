@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-03-28T11:00:39.467Z</updated>
+  <updated>2016-03-28T11:07:17.736Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -20,12 +20,9 @@
     <link href="http://jacean.github.io/2016/03/28/TCP%E7%88%B1%E6%83%85%E6%95%85%E4%BA%8B%E2%80%94%E2%80%94%E6%88%91%E4%BB%AC%E6%81%8B%E7%88%B1%E4%BA%86/"/>
     <id>http://jacean.github.io/2016/03/28/TCP爱情故事——我们恋爱了/</id>
     <published>2016-03-28T10:44:57.000Z</published>
-    <updated>2016-03-28T11:00:39.467Z</updated>
+    <updated>2016-03-28T11:07:17.736Z</updated>
     
-    <content type="html">&lt;p&gt;谈恋爱是两。。个。。人。。相互喜欢，然后表白，我喜欢你，你喜欢我，大家就开开心心的在一起了。&lt;br&gt;在这里，我来谈一谈被称为&lt;strong&gt;TCP爱情&lt;/strong&gt;的小故事,&lt;br&gt;这场爱情因为3条短信成就，也就是大家盛传的&lt;em&gt;三次握手&lt;/em&gt;。&lt;/p&gt;
-&lt;p&gt;主人公是小T和小P。一个大方勇敢的姑娘，一个腼腆有才的少年。现在他们都是单身狗状态(CLOSED).&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;话说春天到了，小P看着人家小情侣成双成对的心里很是羡慕，然后就一直想啊，想啊，要是他 也有对象多好，小P有点害羞，不好意思去跟女孩说话，所以想着要是有人跟他表白该多好，只要看对眼就好啊。不管这想法有多天真，总之，小P是进入了发春状态(执行了LISTEN原语，进入Listen状态),渴望被爱。&lt;/p&gt;
+    <content type="html">&lt;p&gt;谈恋爱是两。。个。。人。。相互喜欢，然后表白，我喜欢你，你喜欢我，大家就开开心心的在一起了。&lt;br&gt;在这里，我来谈一谈被称为&lt;strong&gt;TCP爱情&lt;/strong&gt;的小故事,&lt;br&gt;这场爱情因为3条短信成就，也就是大家盛传的&lt;em&gt;三次握手&lt;/em&gt;。&lt;br&gt;主人公是小T和小P。一个大方勇敢的姑娘，一个腼腆有才的少年。现在他们都是单身狗状态(CLOSED).&lt;br&gt;然后结局是小T和小P在一起了，他们connect了，简称TCP。&lt;br&gt;故事开始了。。。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;话说春天到了，小P看着人家小情侣成双成对的心里很是羡慕，然后就一直想啊，想啊，要是他 也有对象多好，小P有点害羞，不好意思去跟女孩说话，所以想着要是有人跟他表白该多好，只要看对眼就好啊。不管这想法有多天真，总之，小P是进入了发春状态(执行了LISTEN原语，进入Listen状态),渴望被爱。&lt;/p&gt;
 &lt;p&gt;小T这个姑娘啊，很不错，现在是单身。有一次莫名的邂逅(番外)之后，小T对小P有了莫名的思念，然后渐渐的，越来越关注小P，终于，发现自己喜欢上了虽然有些腼腆，但是可爱干净的小P。在一番纠结之后，小T终于还是决定，我要跟小P表白，我要跟他在一起。于是，勇敢找到小P的电话，发了条短信(执行了CONNECT原语)。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;T：我喜欢你。&lt;br&gt;我还没喜欢过人(SEQ=0,常规:seq=t),&lt;br&gt;你要做第一个吗?&lt;/p&gt;
@@ -55,8 +52,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;谈恋爱是两。。个。。人。。相互喜欢，然后表白，我喜欢你，你喜欢我，大家就开开心心的在一起了。&lt;br&gt;在这里，我来谈一谈被称为&lt;strong&gt;TCP爱情&lt;/strong&gt;的小故事,&lt;br&gt;这场爱情因为3条短信成就，也就是大家盛传的&lt;em&gt;三次握手&lt;/em&gt;。&lt;/p&gt;
-&lt;p&gt;主人公是小T和小P。一个大方勇敢的姑娘，一个腼腆有才的少年。现在他们都是单身狗状态(CLOSED).&lt;/p&gt;
+      &lt;p&gt;谈恋爱是两。。个。。人。。相互喜欢，然后表白，我喜欢你，你喜欢我，大家就开开心心的在一起了。&lt;br&gt;在这里，我来谈一谈被称为&lt;strong&gt;TCP爱情&lt;/strong&gt;的小故事,&lt;br&gt;这场爱情因为3条短信成就，也就是大家盛传的&lt;em&gt;三次握手&lt;/em&gt;。&lt;br&gt;主人公是小T和小P。一个大方勇敢的姑娘，一个腼腆有才的少年。现在他们都是单身狗状态(CLOSED).&lt;br&gt;然后结局是小T和小P在一起了，他们connect了，简称TCP。&lt;br&gt;故事开始了。。。&lt;br&gt;
     
     </summary>
     
