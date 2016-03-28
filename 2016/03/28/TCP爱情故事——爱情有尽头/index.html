@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>winForm鼠标坐标 | Jacean say Hello</title>
+  <title>TCP爱情故事——爱情有尽头 | Jacean say Hello</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在C#winform中，可以用Control.MousePosition获得当前鼠标的坐标，使用PointToClient计算鼠标相对于某个控件的坐标，如下12345Point screenPoint = Control.MousePosition;//鼠标相对于屏幕左上角的坐标Point formPoint = this.PointToClient(Control.MousePosition);">
+  <meta name="description" content="小T和小P过上了幸福的生活。就这样，过了xxx天。因为一些原因(番外)，小T决定还是和小P分手。唉，真是可惜啊。分手呢，是4条短信，也就是传说中的四次挥手。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="winForm鼠标坐标">
-<meta property="og:url" content="http://jacean.github.io/2016/03/15/winForm鼠标坐标/index.html">
+<meta property="og:title" content="TCP爱情故事——爱情有尽头">
+<meta property="og:url" content="http://jacean.github.io/2016/03/28/TCP爱情故事——爱情有尽头/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
-<meta property="og:description" content="在C#winform中，可以用Control.MousePosition获得当前鼠标的坐标，使用PointToClient计算鼠标相对于某个控件的坐标，如下12345Point screenPoint = Control.MousePosition;//鼠标相对于屏幕左上角的坐标Point formPoint = this.PointToClient(Control.MousePosition);">
-<meta property="og:updated_time" content="2016-03-15T07:03:50.877Z">
+<meta property="og:description" content="小T和小P过上了幸福的生活。就这样，过了xxx天。因为一些原因(番外)，小T决定还是和小P分手。唉，真是可惜啊。分手呢，是4条短信，也就是传说中的四次挥手。">
+<meta property="og:image" content="http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_TCP-2.png">
+<meta property="og:updated_time" content="2016-03-28T12:33:56.399Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="winForm鼠标坐标">
-<meta name="twitter:description" content="在C#winform中，可以用Control.MousePosition获得当前鼠标的坐标，使用PointToClient计算鼠标相对于某个控件的坐标，如下12345Point screenPoint = Control.MousePosition;//鼠标相对于屏幕左上角的坐标Point formPoint = this.PointToClient(Control.MousePosition);">
+<meta name="twitter:title" content="TCP爱情故事——爱情有尽头">
+<meta name="twitter:description" content="小T和小P过上了幸福的生活。就这样，过了xxx天。因为一些原因(番外)，小T决定还是和小P分手。唉，真是可惜啊。分手呢，是4条短信，也就是传说中的四次挥手。">
+<meta name="twitter:image" content="http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_TCP-2.png">
   
     <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
   
@@ -267,11 +269,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-winForm鼠标坐标" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-TCP爱情故事——爱情有尽头" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/15/winForm鼠标坐标/" class="article-date">
-      <time datetime="2016-03-15T06:57:43.000Z" itemprop="datePublished">2016-03-15</time>
+      <a href="/2016/03/28/TCP爱情故事——爱情有尽头/" class="article-date">
+      <time datetime="2016-03-28T11:26:27.000Z" itemprop="datePublished">2016-03-28</time>
 </a>
     </div>
   
@@ -284,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      winForm鼠标坐标
+      TCP爱情故事——爱情有尽头
     </h1>
   
 
@@ -295,7 +297,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TCP/">TCP</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -305,16 +307,32 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>在C#winform中，可以用Control.MousePosition获得当前鼠标的坐标，使用PointToClient计算鼠标相对于某个控件的坐标，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Point screenPoint = Control.MousePosition;//鼠标相对于屏幕左上角的坐标</span><br><span class="line">Point formPoint = this.PointToClient(Control.MousePosition);//鼠标相对于窗体左上角的坐标</span><br><span class="line">Point contextMenuPoint = contextMenuStrip1.PointToClient(Control.MousePosition); //鼠标相对于contextMenuStrip1左上角的坐标</span><br><span class="line"></span><br><span class="line">this.capture = true;//使用窗口捕捉鼠标移动事件,就是让当前的鼠标所有者为窗体，不能跨越控件</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>附，参考文章<a href="http://bbs.csdn.net/topics/350071938" target="_blank" rel="external">CSDN回答</a></p>
+        <p>小T和小P过上了幸福的生活。就这样，过了xxx天。<br>因为一些原因(番外)，小T决定还是和小P分手。唉，真是可惜啊。<br>分手呢，是4条短信，也就是传说中的<em>四次挥手</em>。<br><a id="more"></a><br>原本呢，小T和小P是恋人，他们在恋爱期(ESTABLISHED)，但是，对吧，所以，继续咯。<br>小T在一番决心之后，终于还是发出了第一条短信。</p>
 <blockquote>
-<p>鼠标移动的事件属于某个控件, 你写的代码也跟那个控件有关.如果鼠标移出那个控件怎么办, 需要 grab 住鼠标, 使得鼠标移动到外面, 控件仍旧能接收到鼠标消息.随后你就跟踪鼠标移动事件,在移动中:</p>
+<p>我们分手吧。(FIN)</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 得到窗口句柄</span><br><span class="line">POINT windowPoint = POINT.FromPoint(this.PointToScreen(new Point(e.X, e.Y)));</span><br><span class="line">IntPtr hwnd = NativeUtils.WindowFromPoint(windowPoint);</span><br><span class="line"></span><br><span class="line">if (hwnd != IntPtr.Zero) &#123;</span><br><span class="line">// 如果是托管的, 就能得到对应的 control 类对象</span><br><span class="line">// 不是所有 hwnd 都是托管的哦</span><br><span class="line">Control c = Control.FromHandle(hwnd);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[DllImport(&quot;user32.dll&quot;)]</span><br><span class="line">public static extern IntPtr WindowFromPoint(POINT Point);</span><br></pre></td></tr></table></figure>
+<p>发完之后，小T就进入了主动提出分手的烦闷状态(FIN WAIT1)，一个人闷在被子里，可能在哭，也可能是在睡觉吧，反正我没掀开被子看。<br>小P呢，这傻孩子，虽然也发觉到了两人的感情情况有异了，但还是舍不得，更下不了决心。<br>这天，小P正在床上躺着，突然，嘟，短信提示音，小P伸手拿过手机一看，哦，原来是要分手。拿着手机的手突然无力，手机差点砸到脸上，他心里一阵难过。沉默中坐起身子，靠着床边，盯着手机，1秒，2秒，3秒，。。。(进入了CLOSE WAIT状态)。。。，就这样不知过了多久，他终于发出了消息。</p>
 <blockquote>
-<p>给你一个完整的示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">/**********************</span><br><span class="line">* 课题：将窗体中鼠标所在控件名显示在窗体标题上</span><br><span class="line">* 作者：ZAXX</span><br><span class="line">* QQ : 94027486</span><br><span class="line">* 本课题可简单扩展：获取屏幕上鼠标所在位置的窗口句柄与类名</span><br><span class="line">**********************/</span><br><span class="line">using System;</span><br><span class="line">using System.Drawing;</span><br><span class="line">using System.Windows.Forms;</span><br><span class="line">using System.Runtime.InteropServices;</span><br><span class="line">namespace Zaxx</span><br><span class="line">&#123;</span><br><span class="line">public partial class MouseOnControl: Form</span><br><span class="line">&#123;</span><br><span class="line">[DllImport(&quot;User32.dll&quot;)]</span><br><span class="line">private static extern IntPtr WindowFromPoint(Point p);</span><br><span class="line"></span><br><span class="line">Timer timer;</span><br><span class="line"></span><br><span class="line">public MouseOnControl()</span><br><span class="line">&#123;</span><br><span class="line">InitializeComponent();</span><br><span class="line">timer = new Timer();</span><br><span class="line">timer.Interval = 200;</span><br><span class="line">timer.Enabled = true;</span><br><span class="line">timer.Tick += new EventHandler(timer_Tick);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void timer_Tick(object sender, EventArgs e)</span><br><span class="line">&#123;</span><br><span class="line">Point p = Cursor.Position;</span><br><span class="line">IntPtr h = WindowFromPoint(p);</span><br><span class="line">foreach (Control con in this.Controls)</span><br><span class="line">if (con.Handle == h)</span><br><span class="line">this.Text = con.Name;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我明白了，给我点时间。(ACK)</p>
 </blockquote>
+<p>小P继续沉默(CLOSE WAIT)，可能是在回忆过去，也可能是在，谁知道呢，我怎么会直到他在想什么。<br>小T的短信提示音响了，被子里伸出一只手，摸索着找到了手机。可能是哭过，睁开红肿的眼睛看到了屏幕里的字，放下手机，闭上眼，趴在床上，就此无声(进入了FIN WAIT2状态)。</p>
+<p>摄像机转回小P，这时他正拿着手机，慢慢打字。1个字，2个字，5个字，10个字，2个字，1个字，50个字，3个字，100个字，就这样发吧，那就这样吧。最后，他发出了短信(FIN)，把手机扔到一旁，打开了电视，声音开到很大很大，然后就没有他的声响了(进入了LAST ACK状态)。</p>
+<blockquote>
+<p>好</p>
+</blockquote>
+<p>小T看着只有1个字的短信，知道他们从此结束了。深呼吸，深呼吸，深呼吸，强作笑脸，给了自己一个微笑，想着再回复一条吧。(ACK)</p>
+<blockquote>
+<p>那就这样吧，祝你幸福</p>
+</blockquote>
+<p>一切都结束了，保持微笑，小T看着窗外的天空，很蓝，伸出手，阳光很温暖，想着，就是这么温暖的阳光，给了生命生机，孕育出了这美丽的世界吧。<br>手机放在身边，她在等，等到等不到小P再发来消息，那我们就真的这样了(这就进入了TIME WAIT状态)。</p>
+<p>小P看着回复，祝我幸福，可能真的会幸福吧，可是再幸福也不会有你了，你的幸福也不会有我了。<br>终究还是分手了，长按关机，对着手机说，你也会幸福的，对吧。<br>双手交叉放在脖颈，躺倒床上，让我最后一次梦到你，梦到属于我们的幸福之后，再醒来，醒来享受没有你的幸福(进入了CLOSED状态)。</p>
+<p>一小时，两小时，该吃饭了，你在吃饭么，５小时，看来你会很好的。对着快要落山的夕阳挥挥手，明天见。(CLOSED)</p>
+<p>这段爱情有了自己的结局，也许不是我们期待的走上婚姻殿堂，但是也会是是曾经的幸福。</p>
+<p>好了，剧情结束。<br>来好好说说ＴＣＰ的四次挥手。图如下<br><img src="http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_TCP-2.png" alt=""></p>
+<p>先看第一条短信，小Ｔ说要分手，这是她主动提出要分手，因为她觉得没有感情了，对主机１来说，它提出要关闭连接，是因为没有数据要发送了。<br>第二条，小Ｐ收到后，自然直到小Ｔ是没感情了，但是他还有啊，所以他需要时间去在自己心里砍一刀。对主机２来说，就是主机１你发完了，我还有数据没发完呢，你给老子再等等。然后，小Ｔ就继续等，小Ｐ就继续砍，对应主机就是主机１等待主机２发送完毕数据，主机２继续腾空自己的数据。<br>第三条短信，小Ｐ处理完了自己的感情，觉得可以结束了，就告诉小Ｔ可以分手了。对应于主机２，就是它数据发送完毕了，可以关闭连接了。同时等待主机１来发送最后通牒。<br>第四条短信，小Ｔ收到后，那就分手吧，我说你那边可以确定分手了，别再跟人说你不是单身。然后就等着，看小Ｐ有没有收到我的确定消息，收到了就不会说话，我等待时间过了就自己也关闭，没收到可能还会瞎逼逼，我得再跟你说一次，咱们都是单身了。小Ｐ收到确定消息之后，就直接关闭连接，就此两清，等待下一次的爱情。主机１和主机２也是这样。</p>
+<p>这里之所以是４条，就是因为小Ｐ可能想不明白，需要等他想明白，也就是主机１虽然没数据了，但是主机２可能还有，得等他发完再说。<br>不过，当小Ｐ也有这念头，主机２数据也正好发完，那就第２，３条短信合一块，直接分手了，直接关闭连接了。</p>
+<p>还有就是，WAIT TIME，这里是主机１对网络环境保持怀疑，所以要通过２×MSL来自己确认主机２是真的没数据要发送了。</p>
+<p>这就是我理解的四次挥手了，应该比较清晰了。如果哪里有不对，请指出来我再学习。</p>
 
       
     </div>
@@ -323,13 +341,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/15/winForm鼠标坐标/">winForm鼠标坐标</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/28/TCP爱情故事——爱情有尽头/">TCP爱情故事——爱情有尽头</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
-        <p><span>发布时间:</span>2016年03月15日 - 14时57分</p>
-        <p><span>最后更新:</span>2016年03月15日 - 15时03分</p>
+        <p><span>发布时间:</span>2016年03月28日 - 19时26分</p>
+        <p><span>最后更新:</span>2016年03月28日 - 20时33分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/15/winForm鼠标坐标/" title="winForm鼠标坐标">http://jacean.github.io/2016/03/15/winForm鼠标坐标/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/03/15/winForm鼠标坐标/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/28/TCP爱情故事——爱情有尽头/" title="TCP爱情故事——爱情有尽头">http://jacean.github.io/2016/03/28/TCP爱情故事——爱情有尽头/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/03/28/TCP爱情故事——爱情有尽头/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -342,16 +360,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/15/ComBox数据源绑定/">
-                    ComBox数据源绑定
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/15/C-在拖放文件的同时检测shift键的状态/">
-                    C#在拖放文件的同时检测shift键的状态
+                <a href="/2016/03/28/TCP爱情故事——我们恋爱了/">
+                    TCP爱情故事——我们恋爱了
                 </a>
             </div>
         
@@ -424,7 +436,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/15/winForm鼠标坐标/" data-title="winForm鼠标坐标" data-url="http://jacean.github.io/2016/03/15/winForm鼠标坐标/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/28/TCP爱情故事——爱情有尽头/" data-title="TCP爱情故事——爱情有尽头" data-url="http://jacean.github.io/2016/03/28/TCP爱情故事——爱情有尽头/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -448,15 +460,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/15/ComBox数据源绑定/" title="上一篇: ComBox数据源绑定">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/15/C-在拖放文件的同时检测shift键的状态/" title="下一篇: C#在拖放文件的同时检测shift键的状态">
+            <a href="/2016/03/28/TCP爱情故事——我们恋爱了/" title="下一篇: TCP爱情故事——我们恋爱了">
                 <i class="fa fa-angle-right"></i>
             </a>
         

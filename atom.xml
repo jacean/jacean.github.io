@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-03-28T11:07:17.736Z</updated>
+  <updated>2016-03-28T12:33:56.399Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -16,11 +16,57 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>TCP爱情故事——爱情有尽头</title>
+    <link href="http://jacean.github.io/2016/03/28/TCP%E7%88%B1%E6%83%85%E6%95%85%E4%BA%8B%E2%80%94%E2%80%94%E7%88%B1%E6%83%85%E6%9C%89%E5%B0%BD%E5%A4%B4/"/>
+    <id>http://jacean.github.io/2016/03/28/TCP爱情故事——爱情有尽头/</id>
+    <published>2016-03-28T11:26:27.000Z</published>
+    <updated>2016-03-28T12:33:56.399Z</updated>
+    
+    <content type="html">&lt;p&gt;小T和小P过上了幸福的生活。就这样，过了xxx天。&lt;br&gt;因为一些原因(番外)，小T决定还是和小P分手。唉，真是可惜啊。&lt;br&gt;分手呢，是4条短信，也就是传说中的&lt;em&gt;四次挥手&lt;/em&gt;。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;原本呢，小T和小P是恋人，他们在恋爱期(ESTABLISHED)，但是，对吧，所以，继续咯。&lt;br&gt;小T在一番决心之后，终于还是发出了第一条短信。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我们分手吧。(FIN)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;发完之后，小T就进入了主动提出分手的烦闷状态(FIN WAIT1)，一个人闷在被子里，可能在哭，也可能是在睡觉吧，反正我没掀开被子看。&lt;br&gt;小P呢，这傻孩子，虽然也发觉到了两人的感情情况有异了，但还是舍不得，更下不了决心。&lt;br&gt;这天，小P正在床上躺着，突然，嘟，短信提示音，小P伸手拿过手机一看，哦，原来是要分手。拿着手机的手突然无力，手机差点砸到脸上，他心里一阵难过。沉默中坐起身子，靠着床边，盯着手机，1秒，2秒，3秒，。。。(进入了CLOSE WAIT状态)。。。，就这样不知过了多久，他终于发出了消息。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我明白了，给我点时间。(ACK)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;小P继续沉默(CLOSE WAIT)，可能是在回忆过去，也可能是在，谁知道呢，我怎么会直到他在想什么。&lt;br&gt;小T的短信提示音响了，被子里伸出一只手，摸索着找到了手机。可能是哭过，睁开红肿的眼睛看到了屏幕里的字，放下手机，闭上眼，趴在床上，就此无声(进入了FIN WAIT2状态)。&lt;/p&gt;
+&lt;p&gt;摄像机转回小P，这时他正拿着手机，慢慢打字。1个字，2个字，5个字，10个字，2个字，1个字，50个字，3个字，100个字，就这样发吧，那就这样吧。最后，他发出了短信(FIN)，把手机扔到一旁，打开了电视，声音开到很大很大，然后就没有他的声响了(进入了LAST ACK状态)。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;好&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;小T看着只有1个字的短信，知道他们从此结束了。深呼吸，深呼吸，深呼吸，强作笑脸，给了自己一个微笑，想着再回复一条吧。(ACK)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;那就这样吧，祝你幸福&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一切都结束了，保持微笑，小T看着窗外的天空，很蓝，伸出手，阳光很温暖，想着，就是这么温暖的阳光，给了生命生机，孕育出了这美丽的世界吧。&lt;br&gt;手机放在身边，她在等，等到等不到小P再发来消息，那我们就真的这样了(这就进入了TIME WAIT状态)。&lt;/p&gt;
+&lt;p&gt;小P看着回复，祝我幸福，可能真的会幸福吧，可是再幸福也不会有你了，你的幸福也不会有我了。&lt;br&gt;终究还是分手了，长按关机，对着手机说，你也会幸福的，对吧。&lt;br&gt;双手交叉放在脖颈，躺倒床上，让我最后一次梦到你，梦到属于我们的幸福之后，再醒来，醒来享受没有你的幸福(进入了CLOSED状态)。&lt;/p&gt;
+&lt;p&gt;一小时，两小时，该吃饭了，你在吃饭么，５小时，看来你会很好的。对着快要落山的夕阳挥挥手，明天见。(CLOSED)&lt;/p&gt;
+&lt;p&gt;这段爱情有了自己的结局，也许不是我们期待的走上婚姻殿堂，但是也会是是曾经的幸福。&lt;/p&gt;
+&lt;p&gt;好了，剧情结束。&lt;br&gt;来好好说说ＴＣＰ的四次挥手。图如下&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_TCP-2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;先看第一条短信，小Ｔ说要分手，这是她主动提出要分手，因为她觉得没有感情了，对主机１来说，它提出要关闭连接，是因为没有数据要发送了。&lt;br&gt;第二条，小Ｐ收到后，自然直到小Ｔ是没感情了，但是他还有啊，所以他需要时间去在自己心里砍一刀。对主机２来说，就是主机１你发完了，我还有数据没发完呢，你给老子再等等。然后，小Ｔ就继续等，小Ｐ就继续砍，对应主机就是主机１等待主机２发送完毕数据，主机２继续腾空自己的数据。&lt;br&gt;第三条短信，小Ｐ处理完了自己的感情，觉得可以结束了，就告诉小Ｔ可以分手了。对应于主机２，就是它数据发送完毕了，可以关闭连接了。同时等待主机１来发送最后通牒。&lt;br&gt;第四条短信，小Ｔ收到后，那就分手吧，我说你那边可以确定分手了，别再跟人说你不是单身。然后就等着，看小Ｐ有没有收到我的确定消息，收到了就不会说话，我等待时间过了就自己也关闭，没收到可能还会瞎逼逼，我得再跟你说一次，咱们都是单身了。小Ｐ收到确定消息之后，就直接关闭连接，就此两清，等待下一次的爱情。主机１和主机２也是这样。&lt;/p&gt;
+&lt;p&gt;这里之所以是４条，就是因为小Ｐ可能想不明白，需要等他想明白，也就是主机１虽然没数据了，但是主机２可能还有，得等他发完再说。&lt;br&gt;不过，当小Ｐ也有这念头，主机２数据也正好发完，那就第２，３条短信合一块，直接分手了，直接关闭连接了。&lt;/p&gt;
+&lt;p&gt;还有就是，WAIT TIME，这里是主机１对网络环境保持怀疑，所以要通过２×MSL来自己确认主机２是真的没数据要发送了。&lt;/p&gt;
+&lt;p&gt;这就是我理解的四次挥手了，应该比较清晰了。如果哪里有不对，请指出来我再学习。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;小T和小P过上了幸福的生活。就这样，过了xxx天。&lt;br&gt;因为一些原因(番外)，小T决定还是和小P分手。唉，真是可惜啊。&lt;br&gt;分手呢，是4条短信，也就是传说中的&lt;em&gt;四次挥手&lt;/em&gt;。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="TCP" scheme="http://jacean.github.io/tags/TCP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>TCP爱情故事——我们恋爱了</title>
     <link href="http://jacean.github.io/2016/03/28/TCP%E7%88%B1%E6%83%85%E6%95%85%E4%BA%8B%E2%80%94%E2%80%94%E6%88%91%E4%BB%AC%E6%81%8B%E7%88%B1%E4%BA%86/"/>
     <id>http://jacean.github.io/2016/03/28/TCP爱情故事——我们恋爱了/</id>
     <published>2016-03-28T10:44:57.000Z</published>
-    <updated>2016-03-28T11:07:17.736Z</updated>
+    <updated>2016-03-28T12:42:01.003Z</updated>
     
     <content type="html">&lt;p&gt;谈恋爱是两。。个。。人。。相互喜欢，然后表白，我喜欢你，你喜欢我，大家就开开心心的在一起了。&lt;br&gt;在这里，我来谈一谈被称为&lt;strong&gt;TCP爱情&lt;/strong&gt;的小故事,&lt;br&gt;这场爱情因为3条短信成就，也就是大家盛传的&lt;em&gt;三次握手&lt;/em&gt;。&lt;br&gt;主人公是小T和小P。一个大方勇敢的姑娘，一个腼腆有才的少年。现在他们都是单身狗状态(CLOSED).&lt;br&gt;然后结局是小T和小P在一起了，他们connect了，简称TCP。&lt;br&gt;故事开始了。。。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;话说春天到了，小P看着人家小情侣成双成对的心里很是羡慕，然后就一直想啊，想啊，要是他 也有对象多好，小P有点害羞，不好意思去跟女孩说话，所以想着要是有人跟他表白该多好，只要看对眼就好啊。不管这想法有多天真，总之，小P是进入了发春状态(执行了LISTEN原语，进入Listen状态),渴望被爱。&lt;/p&gt;
 &lt;p&gt;小T这个姑娘啊，很不错，现在是单身。有一次莫名的邂逅(番外)之后，小T对小P有了莫名的思念，然后渐渐的，越来越关注小P，终于，发现自己喜欢上了虽然有些腼腆，但是可爱干净的小P。在一番纠结之后，小T终于还是决定，我要跟小P表白，我要跟他在一起。于是，勇敢找到小P的电话，发了条短信(执行了CONNECT原语)。&lt;/p&gt;
@@ -39,7 +85,6 @@
 &lt;p&gt;SYN(SEQ=1,ACK=1)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;于是，小T正式脱单了，进入了恋爱状态(ESTABLISHED)。很快，收到小T肯定回复的小P也知道自己终于脱单了，也进入了恋爱状态(ESTABLISHED)。&lt;br&gt;从此，小T和小P开始了亲密的互动，过上了幸福的生活，他们彼此连接在了一起，就是TCP。&lt;br&gt;这就是小T和小P的TCP爱情故事。&lt;/p&gt;
-&lt;p&gt;流程图就是下边这样咯&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_tcp-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;多么美好的结局，但是，现实总是残酷的。&lt;br&gt;剧情回到小P收到短信那一刻。&lt;/p&gt;
 &lt;p&gt;————————————————华丽丽的分割线—————————————————————&lt;/p&gt;
 &lt;p&gt;小P看着手机中的短信，“我喜欢你”，这四个字让他有点小激动，但是看到发送人，小T，他懵了，小T不是那个巴拉巴拉(自行脑补)的，一直人送外号“别人家的对象”的女孩吗，我还是不要喜欢她了，我要继续等我的女神。也就是，并没有看对眼，于是，回了句&lt;/p&gt;
@@ -48,6 +93,9 @@
 &lt;/blockquote&gt;
 &lt;p&gt;剧情到此结束，小T被拒绝了，收到了好人卡(RST标志位为1).&lt;/p&gt;
 &lt;p&gt;爱情，谁知道哪天就变了。下篇，小T和小P就要分手了，也就是释放连接，四次挥手。。。&lt;/p&gt;
+&lt;p&gt;然后，就来具体讲讲３次握手怎么握的了。&lt;br&gt;流程图就是下边这样咯&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_tcp-1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;第一条短信，小Ｔ说喜欢小Ｐ，这就是主动进行连接。主机１向主机２主动发出连接请求，进入同步发送状态，处于ｌｉｓｔｅｎ的主机２发现请求，并接受请求，于是就给回应准备好了。&lt;br&gt;第二条短信，小Ｐ也说喜欢，然后邀请在一起。就是主机２说咱可以连接，回复主机１的序号加１作为确认号，同时还会传送自己序号。然后进入同步接收状态。&lt;br&gt;第三条短信，小Ｔ给小Ｐ确认，两个人建立正式的关系。主机１和主机２也是，两边都问好之后就发送序号和确认号，建立连接。&lt;/p&gt;
+&lt;p&gt;ＴＣＰ是全双工的，也可能两端同时连接，这时候通过序号和确认号，最终建立的是一条连接，进行通信。&lt;/p&gt;
+&lt;p&gt;大体我理解的就是这样，有不对请指出。&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -801,40 +849,6 @@
       <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
     
       <category term="GitPage" scheme="http://jacean.github.io/tags/GitPage/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu无法访问双系统机子上的windows文件分区</title>
-    <link href="http://jacean.github.io/2016/03/17/Ubuntu%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%9C%BA%E5%AD%90%E4%B8%8A%E7%9A%84windows%E6%96%87%E4%BB%B6%E5%88%86%E5%8C%BA/"/>
-    <id>http://jacean.github.io/2016/03/17/Ubuntu无法访问双系统机子上的windows文件分区/</id>
-    <published>2016-03-16T16:04:56.000Z</published>
-    <updated>2016-03-16T16:09:15.703Z</updated>
-    
-    <content type="html">&lt;p&gt;装好Ubuntu用了几天，因为要用ps，所以回到win10，结果再回来发现无法进入windows的文件分区了。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Error mounting /dev/sda1 at /media/jacean/系统保留: Command-line `mount -t “ntfs” -o “uhelper=udisks2,nodev,nosuid,uid=1000,gid=1000” “/dev/sda1” “/media/jacean/系统保留”‘ exited with non-zero exit status 14: The disk contains an unclean file system (0, 0).&lt;br&gt;Metadata kept in Windows cache, refused to mount.&lt;br&gt;Failed to mount ‘/dev/sda1’: 不允许的操作&lt;br&gt;The NTFS partition is in an unsafe state. Please resume and shutdown&lt;br&gt;Windows fully (no hibernation or fast restarting), or mount the volume&lt;br&gt;read-only with the ‘ro’ mount option.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;参考ubuntu提示和这篇&lt;a href=&quot;http://blog.sina.com.cn/s/blog_6b7bd17e0101eyz9.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;博客&lt;/a&gt;,确定问题是windows在win8以后添加的快速启动功能导致的.&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;快速启动有助于windows快速关机并迅速恢复,但是这是需要缓存当前状态,当ubuntu试图打开这些windows分区时,会发现这些缓存,认为是不安全的状态,为了不影响改变windows状态就会直接表示拒绝访问.并提示将windows完全关闭,取消快速启动.&lt;br&gt;当然,快速启动不影响重启,如果是重启的话是不会有这种问题的,只有选择关机在按电源开启才会.&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_windowspower.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;有时候会发现启用快速启动的开关是灰色的没法点击,那就滚动到开头,有个&amp;lt;&amp;lt;&amp;lt;更改当前不可用设置&amp;gt;&amp;gt;&amp;gt;,把这个打开就行了,然后修改保存.大功告成.关机,开机试试.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;装好Ubuntu用了几天，因为要用ps，所以回到win10，结果再回来发现无法进入windows的文件分区了。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Error mounting /dev/sda1 at /media/jacean/系统保留: Command-line `mount -t “ntfs” -o “uhelper=udisks2,nodev,nosuid,uid=1000,gid=1000” “/dev/sda1” “/media/jacean/系统保留”‘ exited with non-zero exit status 14: The disk contains an unclean file system (0, 0).&lt;br&gt;Metadata kept in Windows cache, refused to mount.&lt;br&gt;Failed to mount ‘/dev/sda1’: 不允许的操作&lt;br&gt;The NTFS partition is in an unsafe state. Please resume and shutdown&lt;br&gt;Windows fully (no hibernation or fast restarting), or mount the volume&lt;br&gt;read-only with the ‘ro’ mount option.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;参考ubuntu提示和这篇&lt;a href=&quot;http://blog.sina.com.cn/s/blog_6b7bd17e0101eyz9.html&quot;&gt;博客&lt;/a&gt;,确定问题是windows在win8以后添加的快速启动功能导致的.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
-    
-      <category term="windows" scheme="http://jacean.github.io/tags/windows/"/>
     
   </entry>
   
