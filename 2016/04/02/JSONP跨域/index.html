@@ -5,16 +5,16 @@
   
   <title>JSONP跨域 | Jacean say Hello</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JSONP跨域最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。JSONP进行跨域的办法是利用标签不受来源限制。当然，等的来源也是不受限制的。">
+  <meta name="description" content="JSONP跨域最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。JSONP进行跨域的办法是利用\标签不受来源限制。当然，\等的来源也是不受限制的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSONP跨域">
 <meta property="og:url" content="http://jacean.github.io/2016/04/02/JSONP跨域/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
-<meta property="og:description" content="JSONP跨域最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。JSONP进行跨域的办法是利用标签不受来源限制。当然，等的来源也是不受限制的。">
-<meta property="og:updated_time" content="2016-04-02T13:27:06.589Z">
+<meta property="og:description" content="JSONP跨域最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。JSONP进行跨域的办法是利用\标签不受来源限制。当然，\等的来源也是不受限制的。">
+<meta property="og:updated_time" content="2016-04-02T13:38:28.111Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSONP跨域">
-<meta name="twitter:description" content="JSONP跨域最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。JSONP进行跨域的办法是利用标签不受来源限制。当然，等的来源也是不受限制的。">
+<meta name="twitter:description" content="JSONP跨域最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。JSONP进行跨域的办法是利用\标签不受来源限制。当然，\等的来源也是不受限制的。">
   
     <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
   
@@ -307,15 +307,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="JSONP跨域"><a href="#JSONP跨域" class="headerlink" title="JSONP跨域"></a>JSONP跨域</h2><p>最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。<br>说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。<br>JSONP进行跨域的办法是利用<script>标签不受来源限制。当然，<img>等的来源也是不受限制的。<br><a id="more"></a></p>
+        <h2 id="JSONP跨域"><a href="#JSONP跨域" class="headerlink" title="JSONP跨域"></a>JSONP跨域</h2><p>最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。<br>说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。<br>JSONP进行跨域的办法是利用\<script\>标签不受来源限制。当然，\<img\>等的来源也是不受限制的。<br><a id="more"></a></img\></script\></p>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>在请求页面声明一个函数作为回调函数，</p>
 <p>‘’’JavaScript<br>function returnJsonp(data){</p>
 <pre><code>alert(data.value);
 </code></pre><p>}<br>‘’’</p>
 <p>然后添加远程调用</p>
-<p>‘’’HTML<br>    <srcipt src="xxx://remote.js"></script><br>‘’’<br>当然，远程调用的文件里必须有这个回调函数的使用，回调函数的参数就是要传递的json数据。<br>同时，注意引用标签应该在回调函数声明之后，以保证回调函数的定义。</p>
-<p>‘’’JavaScript<br>//xxx://remote.js<br>returnJsonp({“value”:”我是要传过去的值”});<br>‘’’<br>原理很清晰。其实就是引用的远程文件利用自己的数据调用回调函数，我们可以自定义回调函数的处理。<br>所以，只要远程文件能够生成对回调函数的引用，并将json数据传入参数，就大功可成。<br>回调函数在远程服务器端并不一定需要知晓，也就是是可以由客户端指定的，只是这样就需要服务器端解析ｕｒｌ了，传递过来的ｕｒｌ也自然不能只是一个简单的ｊｓ文件。而应该是能解析服务器的语言。<br>如果远程是ｐｈｐ的话，在添加远程ｕｒｌ的时候，记得在最后<em>&amp;callback=returnJsonp</em>,然后服务器端只需要$_GET[‘callback’],就能获得回调函数的名字，然后拼接出一个js的回调函数的调用就可以了。</p>
-<p>‘’’PHP<br>echo “<script>“.$_GET[‘callback’].”(“.$data.”)”.”</script>“;<br>‘’’</p>
+<p>‘’’HTML<br>    <srcipt src="xxx://remote.js"><br>‘’’<br>当然，远程调用的文件里必须有这个回调函数的使用，回调函数的参数就是要传递的json数据。<br>同时，注意引用标签应该在回调函数声明之后，以保证回调函数的定义。</srcipt></p>
+<p>‘’’JavaScript<br>//xxx://remote.js<br>returnJsonp({“value”:”我是要传过去的值”});<br>‘’’<br>原理很清晰。其实就是引用的远程文件利用自己的数据调用回调函数，我们可以自定义回调函数的处理。<br>所以，只要远程文件能够生成对回调函数的引用，并将json数据传入参数，就大功可成。<br>回调函数在远程服务器端并不一定需要知晓，也就是是可以由客户端指定的，只是这样就需要服务器端解析ｕｒｌ了，传递过来的ｕｒｌ也自然不能只是一个简单的ｊｓ文件。而应该是能解析服务器的语言。<br>如果远程是ｐｈｐ的话，在添加远程ｕｒｌ的时候，记得在最后<em>&amp;callback=returnJsonp</em>,然后服务器端只需要”$_GET[‘callback’]”,就能获得回调函数的名字，然后拼接出一个js的回调函数的调用就可以了。</p>
+<p>‘’’PHP<br>    echo “<script>“.$_GET[‘callback’].”(“.$data.”)”.”</script>“;<br>‘’’</p>
 <p><strong>有一点要注意，利用JSONP的原理，传过来的并不一定非是JSON数据，也可以是其他对象，在使用中应灵活运用。比如微信传过来的Object对象。</strong></p>
 <h2 id="JQuery使用JSONP"><a href="#JQuery使用JSONP" class="headerlink" title="JQuery使用JSONP"></a>JQuery使用JSONP</h2><p>在dataType处指定类型为jsonp，提供success的回调函数。其他的方式，比如JQuery.get,JQuery.getJSON等，都是一样的指定类型和回调函数就可。<br>‘’’JavaScript</p>
 <p>$.ajax({<br>        url:src,<br>        dataType:’jsonp’,<br>        data:’’,<br>        jsonp:’callback’,//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)<br>        //jsonpCallback:”returnJsonp”,//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写”?”，jQuery会自动为你处理数据<br>        success:function(result) {<br>            //result就是Json数据<br>        },<br>        timeout:3000<br>    });<br>‘’’</p>
@@ -339,7 +339,7 @@
         <p><span>本文标题:</span><a href="/2016/04/02/JSONP跨域/">JSONP跨域</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年04月02日 - 21时16分</p>
-        <p><span>最后更新:</span>2016年04月02日 - 21时27分</p>
+        <p><span>最后更新:</span>2016年04月02日 - 21时38分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/02/JSONP跨域/" title="JSONP跨域">http://jacean.github.io/2016/04/02/JSONP跨域/</a>
             <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/04/02/JSONP跨域/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -375,7 +375,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP跨域"><span class="toc-number">1.</span> <span class="toc-text">JSONP跨域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JQuery使用JSONP"><span class="toc-number">2.</span> <span class="toc-text">JQuery使用JSONP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录JSON语法"><span class="toc-number">3.</span> <span class="toc-text">附录JSON语法</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP跨域"><span class="toc-number">1.</span> <span class="toc-text">JSONP跨域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">2.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JQuery使用JSONP"><span class="toc-number">3.</span> <span class="toc-text">JQuery使用JSONP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录JSON语法"><span class="toc-number">4.</span> <span class="toc-text">附录JSON语法</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
