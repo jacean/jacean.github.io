@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://jacean.github.io/2016/04/02/JSONP跨域/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
 <meta property="og:description" content="JSONP跨域最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。JSONP进行跨域的办法是利用\标签不受来源限制。当然，\等的来源也是不受限制的。">
-<meta property="og:updated_time" content="2016-04-02T13:38:28.111Z">
+<meta property="og:updated_time" content="2016-04-02T13:46:13.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSONP跨域">
 <meta name="twitter:description" content="JSONP跨域最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。JSONP进行跨域的办法是利用\标签不受来源限制。当然，\等的来源也是不受限制的。">
@@ -309,16 +309,15 @@
           
         <h2 id="JSONP跨域"><a href="#JSONP跨域" class="headerlink" title="JSONP跨域"></a>JSONP跨域</h2><p>最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。<br>说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。<br>JSONP进行跨域的办法是利用\<script\>标签不受来源限制。当然，\<img\>等的来源也是不受限制的。<br><a id="more"></a></img\></script\></p>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>在请求页面声明一个函数作为回调函数，</p>
-<p>‘’’JavaScript<br>function returnJsonp(data){</p>
-<pre><code>alert(data.value);
-</code></pre><p>}<br>‘’’</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">returnJsonp</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">	alert(data.value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后添加远程调用</p>
-<p>‘’’HTML<br>    <srcipt src="xxx://remote.js"><br>‘’’<br>当然，远程调用的文件里必须有这个回调函数的使用，回调函数的参数就是要传递的json数据。<br>同时，注意引用标签应该在回调函数声明之后，以保证回调函数的定义。</srcipt></p>
-<p>‘’’JavaScript<br>//xxx://remote.js<br>returnJsonp({“value”:”我是要传过去的值”});<br>‘’’<br>原理很清晰。其实就是引用的远程文件利用自己的数据调用回调函数，我们可以自定义回调函数的处理。<br>所以，只要远程文件能够生成对回调函数的引用，并将json数据传入参数，就大功可成。<br>回调函数在远程服务器端并不一定需要知晓，也就是是可以由客户端指定的，只是这样就需要服务器端解析ｕｒｌ了，传递过来的ｕｒｌ也自然不能只是一个简单的ｊｓ文件。而应该是能解析服务器的语言。<br>如果远程是ｐｈｐ的话，在添加远程ｕｒｌ的时候，记得在最后<em>&amp;callback=returnJsonp</em>,然后服务器端只需要”$_GET[‘callback’]”,就能获得回调函数的名字，然后拼接出一个js的回调函数的调用就可以了。</p>
-<p>‘’’PHP<br>    echo “<script>“.$_GET[‘callback’].”(“.$data.”)”.”</script>“;<br>‘’’</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">srcipt</span> <span class="attr">src</span>=<span class="string">"xxx://remote.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当然，远程调用的文件里必须有这个回调函数的使用，回调函数的参数就是要传递的json数据。<br>同时，注意引用标签应该在回调函数声明之后，以保证回调函数的定义。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//xxx://remote.js</span></span><br><span class="line">returnJsonp(&#123;<span class="string">"value"</span>:<span class="string">"我是要传过去的值"</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>原理很清晰。其实就是引用的远程文件利用自己的数据调用回调函数，我们可以自定义回调函数的处理。<br>所以，只要远程文件能够生成对回调函数的引用，并将json数据传入参数，就大功可成。<br>回调函数在远程服务器端并不一定需要知晓，也就是是可以由客户端指定的，只是这样就需要服务器端解析ｕｒｌ了，传递过来的ｕｒｌ也自然不能只是一个简单的ｊｓ文件。而应该是能解析服务器的语言。<br>如果远程是ｐｈｐ的话，在添加远程ｕｒｌ的时候，记得在最后<em>&amp;callback=returnJsonp</em>,然后服务器端只需要”$_GET[‘callback’]”,就能获得回调函数的名字，然后拼接出一个js的回调函数的调用就可以了。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;script&gt;"</span>.$_GET[<span class="string">'callback'</span>].<span class="string">"("</span>.$data.<span class="string">")"</span>.<span class="string">"&lt;/script&gt;"</span>;</span><br></pre></td></tr></table></figure>
 <p><strong>有一点要注意，利用JSONP的原理，传过来的并不一定非是JSON数据，也可以是其他对象，在使用中应灵活运用。比如微信传过来的Object对象。</strong></p>
-<h2 id="JQuery使用JSONP"><a href="#JQuery使用JSONP" class="headerlink" title="JQuery使用JSONP"></a>JQuery使用JSONP</h2><p>在dataType处指定类型为jsonp，提供success的回调函数。其他的方式，比如JQuery.get,JQuery.getJSON等，都是一样的指定类型和回调函数就可。<br>‘’’JavaScript</p>
-<p>$.ajax({<br>        url:src,<br>        dataType:’jsonp’,<br>        data:’’,<br>        jsonp:’callback’,//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)<br>        //jsonpCallback:”returnJsonp”,//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写”?”，jQuery会自动为你处理数据<br>        success:function(result) {<br>            //result就是Json数据<br>        },<br>        timeout:3000<br>    });<br>‘’’</p>
+<h2 id="JQuery使用JSONP"><a href="#JQuery使用JSONP" class="headerlink" title="JQuery使用JSONP"></a>JQuery使用JSONP</h2><p>在dataType处指定类型为jsonp，提供success的回调函数。其他的方式，比如JQuery.get,JQuery.getJSON等，都是一样的指定类型和回调函数就可。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">        url:src,</span><br><span class="line">        dataType:<span class="string">'jsonp'</span>,</span><br><span class="line">        data:<span class="string">''</span>,</span><br><span class="line">        jsonp:<span class="string">'callback'</span>,<span class="comment">//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)</span></span><br><span class="line">        <span class="comment">//jsonpCallback:"returnJsonp",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据</span></span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">			<span class="comment">//result就是Json数据</span></span><br><span class="line">        &#125;,</span><br><span class="line">        timeout:<span class="number">3000</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p>
 <h2 id="附录JSON语法"><a href="#附录JSON语法" class="headerlink" title="附录JSON语法"></a>附录JSON语法</h2><p>json和xml一样，是轻量级的数据交换格式。方便书写和理解。<br>JSON 语法是 JavaScript 对象表示语法的子集。</p>
 <ul>
 <li>数据在键值对中</li>
@@ -327,7 +326,7 @@
 <li>方括号保存数组</li>
 </ul>
 <p>简单说就有对象和数组两种结构。实例如下：</p>
-<p>‘’’JavaScript<br>{<br>    “people”:[<br>        {“firstName”:”Brett”,”lastName”:”McLaughlin”,”email”:”aaaa”},<br>        {“firstName”:”Jason”,”lastName”:”Hunter”,”email”:”bbbb”},<br>        {“firstName”:”Elliotte”,”lastName”:”Harold”,”email”:”cccc”}<br>    ]<br>}<br>‘’’</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"people"</span>:[</span><br><span class="line">        &#123;<span class="string">"firstName"</span>:<span class="string">"Brett"</span>,<span class="string">"lastName"</span>:<span class="string">"McLaughlin"</span>,<span class="string">"email"</span>:<span class="string">"aaaa"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"firstName"</span>:<span class="string">"Jason"</span>,<span class="string">"lastName"</span>:<span class="string">"Hunter"</span>,<span class="string">"email"</span>:<span class="string">"bbbb"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"firstName"</span>:<span class="string">"Elliotte"</span>,<span class="string">"lastName"</span>:<span class="string">"Harold"</span>,<span class="string">"email"</span>:<span class="string">"cccc"</span>&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -339,7 +338,7 @@
         <p><span>本文标题:</span><a href="/2016/04/02/JSONP跨域/">JSONP跨域</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年04月02日 - 21时16分</p>
-        <p><span>最后更新:</span>2016年04月02日 - 21时38分</p>
+        <p><span>最后更新:</span>2016年04月02日 - 21时46分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/02/JSONP跨域/" title="JSONP跨域">http://jacean.github.io/2016/04/02/JSONP跨域/</a>
             <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/04/02/JSONP跨域/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
