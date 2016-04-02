@@ -5,16 +5,16 @@
   
   <title>JSONP跨域 | Jacean say Hello</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JSONP跨域最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。JSONP进行跨域的办法是利用”“标签不受来源限制。当然，”“等的来源也是不受限制的。">
+  <meta name="description" content="JSONP跨域最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。JSONP进行跨域的办法是利用&amp;lt; script&amp;gt;标签不受来源限制。当然，&amp;lt; img&amp;gt;等的来源也是不受限制的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSONP跨域">
 <meta property="og:url" content="http://jacean.github.io/2016/04/02/JSONP跨域/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
-<meta property="og:description" content="JSONP跨域最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。JSONP进行跨域的办法是利用”“标签不受来源限制。当然，”“等的来源也是不受限制的。">
-<meta property="og:updated_time" content="2016-04-02T13:48:35.059Z">
+<meta property="og:description" content="JSONP跨域最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。JSONP进行跨域的办法是利用&amp;lt; script&amp;gt;标签不受来源限制。当然，&amp;lt; img&amp;gt;等的来源也是不受限制的。">
+<meta property="og:updated_time" content="2016-04-02T13:49:09.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSONP跨域">
-<meta name="twitter:description" content="JSONP跨域最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。JSONP进行跨域的办法是利用”“标签不受来源限制。当然，”“等的来源也是不受限制的。">
+<meta name="twitter:description" content="JSONP跨域最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。JSONP进行跨域的办法是利用&amp;lt; script&amp;gt;标签不受来源限制。当然，&amp;lt; img&amp;gt;等的来源也是不受限制的。">
   
     <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
   
@@ -307,7 +307,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="JSONP跨域"><a href="#JSONP跨域" class="headerlink" title="JSONP跨域"></a>JSONP跨域</h2><p>最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。<br>说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。<br>JSONP进行跨域的办法是利用”<script>“标签不受来源限制。当然，”<img>“等的来源也是不受限制的。<br><a id="more"></a></p>
+        <h2 id="JSONP跨域"><a href="#JSONP跨域" class="headerlink" title="JSONP跨域"></a>JSONP跨域</h2><p>最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。<br>说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。<br>JSONP进行跨域的办法是利用&lt; script&gt;标签不受来源限制。当然，&lt; img&gt;等的来源也是不受限制的。<br><a id="more"></a></p>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>在请求页面声明一个函数作为回调函数，</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">returnJsonp</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">	alert(data.value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后添加远程调用</p>
@@ -327,7 +327,7 @@
 </ul>
 <p>简单说就有对象和数组两种结构。实例如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"people"</span>:[</span><br><span class="line">        &#123;<span class="string">"firstName"</span>:<span class="string">"Brett"</span>,<span class="string">"lastName"</span>:<span class="string">"McLaughlin"</span>,<span class="string">"email"</span>:<span class="string">"aaaa"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"firstName"</span>:<span class="string">"Jason"</span>,<span class="string">"lastName"</span>:<span class="string">"Hunter"</span>,<span class="string">"email"</span>:<span class="string">"bbbb"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"firstName"</span>:<span class="string">"Elliotte"</span>,<span class="string">"lastName"</span>:<span class="string">"Harold"</span>,<span class="string">"email"</span>:<span class="string">"cccc"</span>&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</script></p>
+
       
     </div>
     
@@ -338,7 +338,7 @@
         <p><span>本文标题:</span><a href="/2016/04/02/JSONP跨域/">JSONP跨域</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年04月02日 - 21时16分</p>
-        <p><span>最后更新:</span>2016年04月02日 - 21时48分</p>
+        <p><span>最后更新:</span>2016年04月02日 - 21时49分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/02/JSONP跨域/" title="JSONP跨域">http://jacean.github.io/2016/04/02/JSONP跨域/</a>
             <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/04/02/JSONP跨域/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -374,7 +374,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP跨域"><span class="toc-number">1.</span> <span class="toc-text">JSONP跨域</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP跨域"><span class="toc-number">1.</span> <span class="toc-text">JSONP跨域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">2.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JQuery使用JSONP"><span class="toc-number">3.</span> <span class="toc-text">JQuery使用JSONP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录JSON语法"><span class="toc-number">4.</span> <span class="toc-text">附录JSON语法</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
