@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-04-02T13:40:52.889Z</updated>
+  <updated>2016-04-02T13:44:12.890Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -20,36 +20,25 @@
     <link href="http://jacean.github.io/2016/04/02/CSS%E8%AE%BE%E7%BD%AEDOM%E5%AE%BD%E9%AB%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8Ftips/"/>
     <id>http://jacean.github.io/2016/04/02/CSS设置DOM宽高的一些小tips/</id>
     <published>2016-04-02T13:29:36.000Z</published>
-    <updated>2016-04-02T13:40:52.889Z</updated>
+    <updated>2016-04-02T13:44:12.890Z</updated>
     
     <content type="html">&lt;p&gt;做前端开发总会有一些小技巧需要用到，虽然简单，但是也很容易忘记。所以从现在开始就在这记录下一些感觉比较好玩的小tips。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;高度等于宽度&quot;&gt;&lt;a href=&quot;#高度等于宽度&quot; class=&quot;headerlink&quot; title=&quot;高度等于宽度&quot;&gt;&lt;/a&gt;高度等于宽度&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;用js自然很简单了&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;‘’’JavaScript&lt;br&gt;    $(“#ss”).attr(“height”,$(“#ss”).attr(“width”));&lt;br&gt;‘’’&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&quot;#ss&quot;&lt;/span&gt;).attr(&lt;span class=&quot;string&quot;&gt;&quot;height&quot;&lt;/span&gt;,$(&lt;span class=&quot;string&quot;&gt;&quot;#ss&quot;&lt;/span&gt;).attr(&lt;span class=&quot;string&quot;&gt;&quot;width&quot;&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ol&gt;
 &lt;li&gt;利用padding撑开&lt;br&gt;padding是依靠宽度来定大小的，百分比完全依赖于宽度&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;‘’’HTML&lt;/p&gt;
-&lt;p&gt; #container{&lt;br&gt;            width: 100%;&lt;br&gt;            height: 0;&lt;br&gt;            padding-bottom: 100%;&lt;br&gt;        }&lt;/p&gt;
-&lt;p&gt;‘’’&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#container&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           width: 100%;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           height: 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           padding-bottom: 100%;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;高度等于屏高&quot;&gt;&lt;a href=&quot;#高度等于屏高&quot; class=&quot;headerlink&quot; title=&quot;高度等于屏高&quot;&gt;&lt;/a&gt;高度等于屏高&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;设置body和html为100%后，里面的元素就可以用百分比控制了&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;‘’’HTML&lt;br&gt;        body,html{&lt;br&gt;            height:100%;&lt;br&gt;        }&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; #container{
-    width: 100%;
-    height: 100%;
-    /*padding-bottom: 100%;*/
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;‘’’&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;body,html&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          height:100%;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       #container&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          width: 100%;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          height: 100%;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          /*padding-bottom: 100%;*/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ol&gt;
-&lt;li&gt;js设置&lt;br&gt;‘’’JavaScript&lt;pre&gt;&lt;code&gt; //改变div的高度
-$(&amp;quot;#container&amp;quot;).height($(window).height());
-//改变div的宽度
-$(&amp;quot;#container&amp;quot;).width($(window).width());
-&lt;/code&gt;&lt;/pre&gt;‘’’&lt;/li&gt;
+&lt;li&gt;js设置&lt;/li&gt;
 &lt;/ol&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//改变div的高度&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           $(&lt;span class=&quot;string&quot;&gt;&quot;#container&quot;&lt;/span&gt;).height($(&lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;).height());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;comment&quot;&gt;//改变div的宽度&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           $(&lt;span class=&quot;string&quot;&gt;&quot;#container&quot;&lt;/span&gt;).width($(&lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;).width());&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;持续更新。。。&lt;/p&gt;
 </content>
     
