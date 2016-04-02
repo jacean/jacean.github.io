@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-03-28T12:33:56.399Z</updated>
+  <updated>2016-04-02T13:33:09.554Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -14,6 +14,99 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS设置DOM宽高的一些小tips</title>
+    <link href="http://jacean.github.io/2016/04/02/CSS%E8%AE%BE%E7%BD%AEDOM%E5%AE%BD%E9%AB%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8Ftips/"/>
+    <id>http://jacean.github.io/2016/04/02/CSS设置DOM宽高的一些小tips/</id>
+    <published>2016-04-02T13:29:36.000Z</published>
+    <updated>2016-04-02T13:33:09.554Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;CSS高度&quot;&gt;&lt;a href=&quot;#CSS高度&quot; class=&quot;headerlink&quot; title=&quot;CSS高度&quot;&gt;&lt;/a&gt;CSS高度&lt;/h2&gt;&lt;h3 id=&quot;高度等于宽度&quot;&gt;&lt;a href=&quot;#高度等于宽度&quot; class=&quot;headerlink&quot; title=&quot;高度等于宽度&quot;&gt;&lt;/a&gt;高度等于宽度&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;用js自然很简单了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;‘’’JavaScript&lt;br&gt;$(“#ss”).attr(“height”,$(“#ss”).attr(“width”));&lt;br&gt;‘’’&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;利用padding撑开&lt;br&gt;padding是依靠宽度来定大小的，百分比完全依赖于宽度&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;‘’’HTML&lt;/p&gt;
+&lt;p&gt; #container{&lt;br&gt;            width: 100%;&lt;br&gt;            height: 0;&lt;br&gt;            padding-bottom: 100%;&lt;br&gt;        }&lt;/p&gt;
+&lt;p&gt;‘’’&lt;/p&gt;
+&lt;h3 id=&quot;高度等于屏高&quot;&gt;&lt;a href=&quot;#高度等于屏高&quot; class=&quot;headerlink&quot; title=&quot;高度等于屏高&quot;&gt;&lt;/a&gt;高度等于屏高&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;设置body和html为100%后，里面的元素就可以用百分比控制了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;‘’’HTML&lt;br&gt;        body,html{&lt;br&gt;            height:100%;&lt;br&gt;        }&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; #container{
+    width: 100%;
+    height: 100%;
+    /*padding-bottom: 100%;*/
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;‘’’&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;js设置&lt;br&gt;‘’’JavaScript&lt;pre&gt;&lt;code&gt; //改变div的高度
+$(&amp;quot;#container&amp;quot;).height($(window).height());
+//改变div的宽度
+$(&amp;quot;#container&amp;quot;).width($(window).width());
+&lt;/code&gt;&lt;/pre&gt;‘’’&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;持续更新。。。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;CSS高度&quot;&gt;&lt;a href=&quot;#CSS高度&quot; class=&quot;headerlink&quot; title=&quot;CSS高度&quot;&gt;&lt;/a&gt;CSS高度&lt;/h2&gt;&lt;h3 id=&quot;高度等于宽度&quot;&gt;&lt;a href=&quot;#高度等于宽度&quot; class=&quot;headerlink&quot; title=&quot;高
+    
+    </summary>
+    
+    
+      <category term="CSS" scheme="http://jacean.github.io/tags/CSS/"/>
+    
+      <category term="web" scheme="http://jacean.github.io/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JSONP跨域</title>
+    <link href="http://jacean.github.io/2016/04/02/JSONP%E8%B7%A8%E5%9F%9F/"/>
+    <id>http://jacean.github.io/2016/04/02/JSONP跨域/</id>
+    <published>2016-04-02T13:16:01.000Z</published>
+    <updated>2016-04-02T13:27:06.589Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;JSONP跨域&quot;&gt;&lt;a href=&quot;#JSONP跨域&quot; class=&quot;headerlink&quot; title=&quot;JSONP跨域&quot;&gt;&lt;/a&gt;JSONP跨域&lt;/h2&gt;&lt;p&gt;最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。&lt;br&gt;说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。&lt;br&gt;JSONP进行跨域的办法是利用&lt;script&gt;标签不受来源限制。当然，&lt;img&gt;等的来源也是不受限制的。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;p&gt;在请求页面声明一个函数作为回调函数，&lt;/p&gt;
+&lt;p&gt;‘’’JavaScript&lt;br&gt;function returnJsonp(data){&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;alert(data.value);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;}&lt;br&gt;‘’’&lt;/p&gt;
+&lt;p&gt;然后添加远程调用&lt;/p&gt;
+&lt;p&gt;‘’’HTML&lt;br&gt;    &lt;srcipt src=&quot;xxx://remote.js&quot;&gt;&lt;/script&gt;&lt;br&gt;‘’’&lt;br&gt;当然，远程调用的文件里必须有这个回调函数的使用，回调函数的参数就是要传递的json数据。&lt;br&gt;同时，注意引用标签应该在回调函数声明之后，以保证回调函数的定义。&lt;/p&gt;
+&lt;p&gt;‘’’JavaScript&lt;br&gt;//xxx://remote.js&lt;br&gt;returnJsonp({“value”:”我是要传过去的值”});&lt;br&gt;‘’’&lt;br&gt;原理很清晰。其实就是引用的远程文件利用自己的数据调用回调函数，我们可以自定义回调函数的处理。&lt;br&gt;所以，只要远程文件能够生成对回调函数的引用，并将json数据传入参数，就大功可成。&lt;br&gt;回调函数在远程服务器端并不一定需要知晓，也就是是可以由客户端指定的，只是这样就需要服务器端解析ｕｒｌ了，传递过来的ｕｒｌ也自然不能只是一个简单的ｊｓ文件。而应该是能解析服务器的语言。&lt;br&gt;如果远程是ｐｈｐ的话，在添加远程ｕｒｌ的时候，记得在最后&lt;em&gt;&amp;amp;callback=returnJsonp&lt;/em&gt;,然后服务器端只需要$_GET[‘callback’],就能获得回调函数的名字，然后拼接出一个js的回调函数的调用就可以了。&lt;/p&gt;
+&lt;p&gt;‘’’PHP&lt;br&gt;echo “&lt;script&gt;“.$_GET[‘callback’].”(“.$data.”)”.”&lt;/script&gt;“;&lt;br&gt;‘’’&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;有一点要注意，利用JSONP的原理，传过来的并不一定非是JSON数据，也可以是其他对象，在使用中应灵活运用。比如微信传过来的Object对象。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;JQuery使用JSONP&quot;&gt;&lt;a href=&quot;#JQuery使用JSONP&quot; class=&quot;headerlink&quot; title=&quot;JQuery使用JSONP&quot;&gt;&lt;/a&gt;JQuery使用JSONP&lt;/h2&gt;&lt;p&gt;在dataType处指定类型为jsonp，提供success的回调函数。其他的方式，比如JQuery.get,JQuery.getJSON等，都是一样的指定类型和回调函数就可。&lt;br&gt;‘’’JavaScript&lt;/p&gt;
+&lt;p&gt;$.ajax({&lt;br&gt;        url:src,&lt;br&gt;        dataType:’jsonp’,&lt;br&gt;        data:’’,&lt;br&gt;        jsonp:’callback’,//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)&lt;br&gt;        //jsonpCallback:”returnJsonp”,//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写”?”，jQuery会自动为你处理数据&lt;br&gt;        success:function(result) {&lt;br&gt;            //result就是Json数据&lt;br&gt;        },&lt;br&gt;        timeout:3000&lt;br&gt;    });&lt;br&gt;‘’’&lt;/p&gt;
+&lt;h2 id=&quot;附录JSON语法&quot;&gt;&lt;a href=&quot;#附录JSON语法&quot; class=&quot;headerlink&quot; title=&quot;附录JSON语法&quot;&gt;&lt;/a&gt;附录JSON语法&lt;/h2&gt;&lt;p&gt;json和xml一样，是轻量级的数据交换格式。方便书写和理解。&lt;br&gt;JSON 语法是 JavaScript 对象表示语法的子集。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据在键值对中&lt;/li&gt;
+&lt;li&gt;数据由逗号分隔&lt;/li&gt;
+&lt;li&gt;花括号保存对象&lt;/li&gt;
+&lt;li&gt;方括号保存数组&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;简单说就有对象和数组两种结构。实例如下：&lt;/p&gt;
+&lt;p&gt;‘’’JavaScript&lt;br&gt;{&lt;br&gt;    “people”:[&lt;br&gt;        {“firstName”:”Brett”,”lastName”:”McLaughlin”,”email”:”aaaa”},&lt;br&gt;        {“firstName”:”Jason”,”lastName”:”Hunter”,”email”:”bbbb”},&lt;br&gt;        {“firstName”:”Elliotte”,”lastName”:”Harold”,”email”:”cccc”}&lt;br&gt;    ]&lt;br&gt;}&lt;br&gt;‘’’&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;JSONP跨域&quot;&gt;&lt;a href=&quot;#JSONP跨域&quot; class=&quot;headerlink&quot; title=&quot;JSONP跨域&quot;&gt;&lt;/a&gt;JSONP跨域&lt;/h2&gt;&lt;p&gt;最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。&lt;br&gt;说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。&lt;br&gt;JSONP进行跨域的办法是利用&lt;script&gt;标签不受来源限制。当然，&lt;img&gt;等的来源也是不受限制的。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="web" scheme="http://jacean.github.io/tags/web/"/>
+    
+      <category term="jsonp" scheme="http://jacean.github.io/tags/jsonp/"/>
+    
+  </entry>
   
   <entry>
     <title>TCP爱情故事——爱情有尽头</title>
@@ -524,9 +617,9 @@
     </summary>
     
     
-      <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
-    
       <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
+    
+      <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
     
       <category term="sae" scheme="http://jacean.github.io/tags/sae/"/>
     
@@ -564,9 +657,9 @@
     </summary>
     
     
-      <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
-    
       <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
+    
+      <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
     
       <category term="sae" scheme="http://jacean.github.io/tags/sae/"/>
     
@@ -593,9 +686,9 @@
     </summary>
     
     
-      <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
-    
       <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
+    
+      <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
     
       <category term="SAE" scheme="http://jacean.github.io/tags/SAE/"/>
     
@@ -636,10 +729,25 @@
     <link href="http://jacean.github.io/2016/03/23/JavaScript%E9%97%AD%E5%8C%85/"/>
     <id>http://jacean.github.io/2016/03/23/JavaScript闭包/</id>
     <published>2016-03-23T03:59:07.000Z</published>
-    <updated>2016-03-23T13:31:20.136Z</updated>
+    <updated>2016-04-02T13:15:24.908Z</updated>
     
     <content type="html">&lt;p&gt;在那次面.NET却问前端的面试，被问到了js的闭包。虽然这个经常听到，但是具体是什么样的还真不太清楚，所以就直接说了不知道。&lt;br&gt;吃一堑长一智，今天就好好来学习下js的闭包。万一再碰到这种奇葩咋办。&lt;br&gt;闭包，函数可以使用函数之外定义的变量，具体说，闭包中的函数可以‘记忆’它创建时候的环境。&lt;br&gt;一个闭包就是一个使用了外部变量的函数。&lt;br&gt;参考文章&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;闭包&lt;/a&gt;,例子借用此文，加注个人看法。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;init&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; name=&lt;span class=&quot;string&quot;&gt;&quot;jacean&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;display&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    display();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;init();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Update-16-04-04&quot;&gt;&lt;a href=&quot;#Update-16-04-04&quot; class=&quot;headerlink&quot; title=&quot;Update 16.04.04&quot;&gt;&lt;/a&gt;Update 16.04.04&lt;/h3&gt;&lt;p&gt;项目运用闭包。&lt;br&gt;在js给html的元素添加事件的时候，需要指定对象。一般直接指定就ok。但是当循环指定的时候，你的函数指定了，但是里面涉及到循环的变量却并没有固定，它还会随着循环一直变化，在你调用的时候发现根本不好使了。&lt;br&gt;这时候就需要闭包了。&lt;br&gt;下边是进行微信开发时，为了给每一个ｍａｒｋｅｒ添加点击事件而写的代码。&lt;br&gt;在循环中使用注释代码，那么在触发事件的时候，不会有执行，跟踪调试就会发现，原来此时的ｌａｂｅｌ是label[label.length],这么一个不存在的对象，那么自然也无法执行了。究其原因，就是因为事件绑定的时候只是给了事件函数，但是在触发调用的时候里面的值以及变了，变成了循环最后的值，这才导致整个事件执行失败。&lt;br&gt;解决办法就是在绑定函数的时候，把变量给固化在函数里，这样循环也不会影响函数内变量的值，这就需要用到闭包。&lt;/p&gt;
+&lt;p&gt;‘’’JavaScript&lt;/p&gt;
+&lt;p&gt;//闭包函数&lt;br&gt;function markerChangeVisible(marker,map){&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;return function(){
+    marker.setMap(map);
+    if(marker.getVisible()){
+        marker.setVisible(false);
+    }else{
+        marker.setVisible(true);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; }&lt;/p&gt;
+&lt;p&gt;for(var i=0;i&amp;lt;makers.length;i++){&lt;br&gt;        var m=makers[i];&lt;br&gt;        var lable=labels[i];&lt;br&gt;        //闭包&lt;br&gt;        qq.maps.event.addListener(m,”click”,markerChangeVisible(lable,map));&lt;br&gt;        //qq.maps.event.addListener(m,”click”,function(){&lt;br&gt;        //    //alert(m.getTitle());&lt;br&gt;        //    if (label.getVisible()) {&lt;br&gt;        //        label.setVisible(false);&lt;br&gt;        //    } else {&lt;br&gt;        //        label.setVisible(true);&lt;br&gt;        //    }&lt;br&gt;        //});&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;‘’’&lt;/p&gt;
+&lt;h3 id=&quot;原理浅读&quot;&gt;&lt;a href=&quot;#原理浅读&quot; class=&quot;headerlink&quot; title=&quot;原理浅读&quot;&gt;&lt;/a&gt;原理浅读&lt;/h3&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;init&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; name=&lt;span class=&quot;string&quot;&gt;&quot;jacean&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;display&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    display();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;init();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;输出：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;jacean&lt;/p&gt;
@@ -767,88 +875,6 @@
       <category term="c" scheme="http://jacean.github.io/tags/c/"/>
     
       <category term="算法" scheme="http://jacean.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vim写markdown在浏览器实时预览</title>
-    <link href="http://jacean.github.io/2016/03/17/vim%E5%86%99markdown%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%9E%E6%97%B6%E9%A2%84%E8%A7%88/"/>
-    <id>http://jacean.github.io/2016/03/17/vim写markdown在浏览器实时预览/</id>
-    <published>2016-03-16T16:24:38.000Z</published>
-    <updated>2016-03-16T16:28:41.181Z</updated>
-    
-    <content type="html">&lt;p&gt;用了Hexo后，自然就不得不用markdown，而Ubuntu下不用Vim我不开心，于是就发现了&lt;em&gt;vim-instant-markdown&lt;/em&gt;。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;vim-instant-markdown（&lt;a href=&quot;https://github.com/suan/vim-instant-markdown&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/suan/vim-instant-markdown&lt;/a&gt; ） 的安装相比其他插件较为特殊，它由 ruby 开发，所以你的 vim 必须集成 ruby 解释器（见“1 源码安装编辑器 vim ”），并且安装 pygments.rb、redcarpet、instant-markdown-d 三个依赖库：&lt;br&gt;gem install pygments.rb&lt;br&gt;gem install redcarpet&lt;/p&gt;
-&lt;h1 id=&quot;若系统提示无-npm-命令，你需要先执行-zypper-–no-refresh-install-nodejs&quot;&gt;&lt;a href=&quot;#若系统提示无-npm-命令，你需要先执行-zypper-–no-refresh-install-nodejs&quot; class=&quot;headerlink&quot; title=&quot;若系统提示无 npm 命令，你需要先执行 zypper –no-refresh install nodejs&quot;&gt;&lt;/a&gt;若系统提示无 npm 命令，你需要先执行 zypper –no-refresh install nodejs&lt;/h1&gt;&lt;p&gt;npm -g install instant-markdown-d&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;此文不全。。。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;用了Hexo后，自然就不得不用markdown，而Ubuntu下不用Vim我不开心，于是就发现了&lt;em&gt;vim-instant-markdown&lt;/em&gt;。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;vim-instant-markdown（&lt;a href=&quot;https://
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://jacean.github.io/tags/Hexo/"/>
-    
-      <category term="Vim" scheme="http://jacean.github.io/tags/Vim/"/>
-    
-      <category term="markdown" scheme="http://jacean.github.io/tags/markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu配置hexo和gitpage</title>
-    <link href="http://jacean.github.io/2016/03/17/ubuntu%E9%85%8D%E7%BD%AEhexo%E5%92%8Cgitpage/"/>
-    <id>http://jacean.github.io/2016/03/17/ubuntu配置hexo和gitpage/</id>
-    <published>2016-03-16T16:10:11.000Z</published>
-    <updated>2016-03-16T16:23:41.809Z</updated>
-    
-    <content type="html">&lt;p&gt;部署参考&lt;a href=&quot;https://hexo.io/zh-cn/docs/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方文档&lt;/a&gt;和&lt;a href=&quot;http://www.jianshu.com/p/465830080ea9&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;潘柏信 HEXO+Github,搭建属于自己的博客&lt;/a&gt;&lt;br&gt;按照官方文档一步步来没问题。最终完成很快的。&lt;/p&gt;
-&lt;p&gt;有几个和文档不同的地方记下来。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;ol&gt;
-&lt;li&gt;source下缺少_drafts&lt;blockquote&gt;
-&lt;p&gt;安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。&lt;br&gt;$ hexo init &lt;folder&gt;&lt;br&gt;$ cd &lt;folder&gt;&lt;br&gt;$ npm install&lt;br&gt;新建完成后，指定文件夹的目录如下：&lt;br&gt;.&lt;br&gt;├── _config.yml&lt;br&gt;├── package.json&lt;br&gt;├── scaffolds&lt;br&gt;├── source&lt;br&gt;| ├── _drafts&lt;br&gt;| └── _posts&lt;br&gt;└── themes&lt;/folder&gt;&lt;/folder&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;我的在source下缺少_drafts，自己新建个文件夹补上就成。需要的话在config里将drafts设为true。草稿。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;最后部署到github有点磕掺&lt;br&gt;在github新建仓库：jacean.github.io&lt;br&gt;你没有看错，仓库名就是这个，jacean换成自己的git用户名。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# Deployment&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## Docs: https://hexo.io/docs/deployment.html&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;deploy:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;type: git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;repository: https://github.com/jacean/jacean.github.io.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;branch: master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;一定要写成这样，而且，注意，冒号之后有一个空格，没有空格的话就识别不出来，颜色也不对。我在这个问题上坑了好一会。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;安装主题&lt;br&gt;&lt;a href=&quot;https://hexo.io/themes/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://hexo.io/themes/&lt;/a&gt;&lt;br&gt;在这里找到喜欢的主题，点击名称进入作者的github，然后有命令提示一般。&lt;blockquote&gt;
-&lt;p&gt;git clone &lt;a href=&quot;https://github.com/MOxFIVE/hexo-theme-yelee.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/MOxFIVE/hexo-theme-yelee.git&lt;/a&gt; themes/yelee&lt;br&gt;Change theme field in Hexo root’s _config.yml file. 修改 Hexo 根目录对应配置文件。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;theme: yelee&lt;br&gt;Update 更新&lt;/p&gt;
-&lt;p&gt;cd themes/yelee&lt;br&gt;git pull&lt;/p&gt;
-&lt;/blockquote&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;部署参考&lt;a href=&quot;https://hexo.io/zh-cn/docs/index.html&quot;&gt;官方文档&lt;/a&gt;和&lt;a href=&quot;http://www.jianshu.com/p/465830080ea9&quot;&gt;潘柏信 HEXO+Github,搭建属于自己的博客&lt;/a&gt;&lt;br&gt;按照官方文档一步步来没问题。最终完成很快的。&lt;/p&gt;
-&lt;p&gt;有几个和文档不同的地方记下来。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://jacean.github.io/tags/Hexo/"/>
-    
-      <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
-    
-      <category term="GitPage" scheme="http://jacean.github.io/tags/GitPage/"/>
     
   </entry>
   
