@@ -302,35 +302,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="CSS高度"><a href="#CSS高度" class="headerlink" title="CSS高度"></a>CSS高度</h2><h3 id="高度等于宽度"><a href="#高度等于宽度" class="headerlink" title="高度等于宽度"></a>高度等于宽度</h3><ol>
-<li>用js自然很简单了</li>
-</ol>
-<p>‘’’JavaScript<br>$(“#ss”).attr(“height”,$(“#ss”).attr(“width”));<br>‘’’</p>
-<ol>
-<li>利用padding撑开<br>padding是依靠宽度来定大小的，百分比完全依赖于宽度</li>
-</ol>
-<p>‘’’HTML</p>
-<p> #container{<br>            width: 100%;<br>            height: 0;<br>            padding-bottom: 100%;<br>        }</p>
-<p>‘’’</p>
-<h3 id="高度等于屏高"><a href="#高度等于屏高" class="headerlink" title="高度等于屏高"></a>高度等于屏高</h3><ol>
-<li>设置body和html为100%后，里面的元素就可以用百分比控制了</li>
-</ol>
-<p>‘’’HTML<br>        body,html{<br>            height:100%;<br>        }</p>
-<pre><code> #container{
-    width: 100%;
-    height: 100%;
-    /*padding-bottom: 100%;*/
-}
-</code></pre><p>‘’’</p>
-<ol>
-<li>js设置<br>‘’’JavaScript<pre><code> //改变div的高度
-$(&quot;#container&quot;).height($(window).height());
-//改变div的宽度
-$(&quot;#container&quot;).width($(window).width());
-</code></pre>‘’’</li>
-</ol>
-<p>持续更新。。。</p>
-
+              <p>做前端开发总会有一些小技巧需要用到，虽然简单，但是也很容易忘记。所以从现在开始就在这记录下一些感觉比较好玩的小tips。<br>
+          
       
     </div>
     
@@ -343,6 +316,10 @@ $(&quot;#container&quot;).width($(window).width());
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/02/CSS设置DOM宽高的一些小tips/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-04-02T13:33:09.554Z</updated>
+  <updated>2016-04-02T13:40:52.889Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -20,12 +20,13 @@
     <link href="http://jacean.github.io/2016/04/02/CSS%E8%AE%BE%E7%BD%AEDOM%E5%AE%BD%E9%AB%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8Ftips/"/>
     <id>http://jacean.github.io/2016/04/02/CSS设置DOM宽高的一些小tips/</id>
     <published>2016-04-02T13:29:36.000Z</published>
-    <updated>2016-04-02T13:33:09.554Z</updated>
+    <updated>2016-04-02T13:40:52.889Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;CSS高度&quot;&gt;&lt;a href=&quot;#CSS高度&quot; class=&quot;headerlink&quot; title=&quot;CSS高度&quot;&gt;&lt;/a&gt;CSS高度&lt;/h2&gt;&lt;h3 id=&quot;高度等于宽度&quot;&gt;&lt;a href=&quot;#高度等于宽度&quot; class=&quot;headerlink&quot; title=&quot;高度等于宽度&quot;&gt;&lt;/a&gt;高度等于宽度&lt;/h3&gt;&lt;ol&gt;
+    <content type="html">&lt;p&gt;做前端开发总会有一些小技巧需要用到，虽然简单，但是也很容易忘记。所以从现在开始就在这记录下一些感觉比较好玩的小tips。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;高度等于宽度&quot;&gt;&lt;a href=&quot;#高度等于宽度&quot; class=&quot;headerlink&quot; title=&quot;高度等于宽度&quot;&gt;&lt;/a&gt;高度等于宽度&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;用js自然很简单了&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;‘’’JavaScript&lt;br&gt;$(“#ss”).attr(“height”,$(“#ss”).attr(“width”));&lt;br&gt;‘’’&lt;/p&gt;
+&lt;p&gt;‘’’JavaScript&lt;br&gt;    $(“#ss”).attr(“height”,$(“#ss”).attr(“width”));&lt;br&gt;‘’’&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;利用padding撑开&lt;br&gt;padding是依靠宽度来定大小的，百分比完全依赖于宽度&lt;/li&gt;
 &lt;/ol&gt;
@@ -54,7 +55,7 @@ $(&amp;quot;#container&amp;quot;).width($(window).width());
     
     <summary type="html">
     
-      &lt;h2 id=&quot;CSS高度&quot;&gt;&lt;a href=&quot;#CSS高度&quot; class=&quot;headerlink&quot; title=&quot;CSS高度&quot;&gt;&lt;/a&gt;CSS高度&lt;/h2&gt;&lt;h3 id=&quot;高度等于宽度&quot;&gt;&lt;a href=&quot;#高度等于宽度&quot; class=&quot;headerlink&quot; title=&quot;高
+      &lt;p&gt;做前端开发总会有一些小技巧需要用到，虽然简单，但是也很容易忘记。所以从现在开始就在这记录下一些感觉比较好玩的小tips。&lt;br&gt;
     
     </summary>
     
