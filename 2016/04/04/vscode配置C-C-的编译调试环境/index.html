@@ -3,39 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Ubuntu安装Eclipse | Jacean say Hello</title>
+  <title>vscode配置C/C++的编译调试环境 | Jacean say Hello</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参考文章
-
-首先到http://www.oracle.com/technetwork/java/javase/downloads/下载jdk，我下载的是最新版jdk-8u20-linux-i586.tar.gz，下载完成使用命令
-
-sudo tar zxvf jdk-8u20-linux-i586.tar.gz
-
-
-然后将解压好的jdk1.8.0_20文件夹复制到/usr/lib/jvm目录里">
+  <meta name="description" content="传说中的编辑器有两个，vim和emacs，一个是编辑器之神，一个是神的编辑器。然后又有众多小神，是两极多强格局。然后，软爹说，要有我，于是vscode从天而降，带着继承自vs强大的智能，体积却极其轻简，同时支持插件，而且流畅至极，一脚踏进了编辑器之战。于是，感觉要变天了。用着轻量的编辑器，却又想把编辑器打造成IDE，，，于是开始了Debug插件的配置。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu安装Eclipse">
-<meta property="og:url" content="http://jacean.github.io/2016/03/16/Ubuntu安装Eclipse/index.html">
+<meta property="og:title" content="vscode配置C/C++的编译调试环境">
+<meta property="og:url" content="http://jacean.github.io/2016/04/04/vscode配置C-C-的编译调试环境/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
-<meta property="og:description" content="参考文章
-
-首先到http://www.oracle.com/technetwork/java/javase/downloads/下载jdk，我下载的是最新版jdk-8u20-linux-i586.tar.gz，下载完成使用命令
-
-sudo tar zxvf jdk-8u20-linux-i586.tar.gz
-
-
-然后将解压好的jdk1.8.0_20文件夹复制到/usr/lib/jvm目录里">
-<meta property="og:updated_time" content="2016-03-16T16:33:27.375Z">
+<meta property="og:description" content="传说中的编辑器有两个，vim和emacs，一个是编辑器之神，一个是神的编辑器。然后又有众多小神，是两极多强格局。然后，软爹说，要有我，于是vscode从天而降，带着继承自vs强大的智能，体积却极其轻简，同时支持插件，而且流畅至极，一脚踏进了编辑器之战。于是，感觉要变天了。用着轻量的编辑器，却又想把编辑器打造成IDE，，，于是开始了Debug插件的配置。">
+<meta property="og:image" content="http://7xrtyi.com1.z0.glb.clouddn.com/vscode-c-debug.jpg">
+<meta property="og:image" content="http://7xrtyi.com1.z0.glb.clouddn.com/cs-code-debug-2.jpg">
+<meta property="og:updated_time" content="2016-04-04T16:35:35.638Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu安装Eclipse">
-<meta name="twitter:description" content="参考文章
-
-首先到http://www.oracle.com/technetwork/java/javase/downloads/下载jdk，我下载的是最新版jdk-8u20-linux-i586.tar.gz，下载完成使用命令
-
-sudo tar zxvf jdk-8u20-linux-i586.tar.gz
-
-
-然后将解压好的jdk1.8.0_20文件夹复制到/usr/lib/jvm目录里">
+<meta name="twitter:title" content="vscode配置C/C++的编译调试环境">
+<meta name="twitter:description" content="传说中的编辑器有两个，vim和emacs，一个是编辑器之神，一个是神的编辑器。然后又有众多小神，是两极多强格局。然后，软爹说，要有我，于是vscode从天而降，带着继承自vs强大的智能，体积却极其轻简，同时支持插件，而且流畅至极，一脚踏进了编辑器之战。于是，感觉要变天了。用着轻量的编辑器，却又想把编辑器打造成IDE，，，于是开始了Debug插件的配置。">
+<meta name="twitter:image" content="http://7xrtyi.com1.z0.glb.clouddn.com/vscode-c-debug.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
   
@@ -290,11 +272,11 @@ sudo tar zxvf jdk-8u20-linux-i586.tar.gz
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Ubuntu安装Eclipse" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-vscode配置C-C-的编译调试环境" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/16/Ubuntu安装Eclipse/" class="article-date">
-      <time datetime="2016-03-16T15:44:19.000Z" itemprop="datePublished">2016-03-16</time>
+      <a href="/2016/04/04/vscode配置C-C-的编译调试环境/" class="article-date">
+      <time datetime="2016-04-04T15:11:08.000Z" itemprop="datePublished">2016-04-04</time>
 </a>
     </div>
   
@@ -307,7 +289,7 @@ sudo tar zxvf jdk-8u20-linux-i586.tar.gz
         
   
     <h1 class="article-title" itemprop="name">
-      Ubuntu安装Eclipse
+      vscode配置C/C++的编译调试环境
     </h1>
   
 
@@ -318,7 +300,7 @@ sudo tar zxvf jdk-8u20-linux-i586.tar.gz
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Eclipse/">Eclipse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vscode/">vscode</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -328,50 +310,55 @@ sudo tar zxvf jdk-8u20-linux-i586.tar.gz
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="http://www.jb51.net/article/55131.htm" target="_blank" rel="external">参考文章</a></p>
-<ol>
-<li><p>首先到<a href="http://www.oracle.com/technetwork/java/javase/downloads/下载jdk，我下载的是最新版jdk-8u20-linux-i586.tar.gz，下载完成使用命令" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/下载jdk，我下载的是最新版jdk-8u20-linux-i586.tar.gz，下载完成使用命令</a></p>
+        <p>传说中的编辑器有两个，vim和emacs，一个是编辑器之神，一个是神的编辑器。然后又有众多小神，是两极多强格局。<br>然后，软爹说，要有我，于是vscode从天而降，带着继承自vs强大的智能，体积却极其轻简，同时支持插件，而且流畅至极，一脚踏进了编辑器之战。<br>于是，感觉要变天了。<br>用着轻量的编辑器，却又想把编辑器打造成IDE，，，于是开始了Debug插件的配置。<br><a id="more"></a></p>
+<h2 id="安装DEBUG"><a href="#安装DEBUG" class="headerlink" title="安装DEBUG"></a>安装DEBUG</h2><p>本来有一款C/C++的插件，是利用微软的CLI的，但是Ubuntu15.10不在支持之列，在尝试无果之后只能放弃，万幸还有Debug.<br>ctrl-o，呼出命令行，输入</p>
 <blockquote>
-<p>sudo tar zxvf jdk-8u20-linux-i586.tar.gz</p>
+<p>ext install debug</p>
 </blockquote>
-</li>
-<li><p>然后将解压好的jdk1.8.0_20文件夹复制到/usr/lib/jvm目录里</p>
+<p>回车就可安装debug插件了。也可以在<a href="https://marketplace.visualstudio.com/items?itemName=webfreak.debug" target="_blank" rel="external">vscodemarket</a>里自己找.</p>
+<h2 id="调试，配置launch-json"><a href="#调试，配置launch-json" class="headerlink" title="调试，配置launch.json"></a>调试，配置launch.json</h2><p>插件安装好后，打开C项目，选中调试栏的齿轮设置，在弹出的下拉列表里选择debug，会自动生成一分launch.json,但是还不能直接用的，需要改改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Debug&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;gdb&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;target&quot;: &quot;./bin/executable&quot;,</span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;workspaceRoot&#125;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其他的不多说了，主要就说下target，这个是gdb调试的目标，所以就应该是编译后的文件对吧。<br>那好，比如我有hello.c，那么在终端,首先切换到项目根目录，方便解释，然后执行如下，</p>
 <blockquote>
-<p>sudo cp -r ~/jdk1.8.0_20/ /usr/lib/jvm/</p>
+<p>gcc -g hello.c -o hello</p>
 </blockquote>
-</li>
-<li><p>配置环境变量 </p>
+<p>会生成编译后的hello文件，要调试的话就把gdb的targe指向这个文件，需要修改如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Debug&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;gdb&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;target&quot;: &quot;hello&quot;,</span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;workspaceRoot&#125;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这时候在vscode里，点击绿色小三角，或是F5，就可以进行调试了。<br>可以在vscode的控制台里看到输出。如果需要输入，那么在最下面的命令输入里输入就好，不过那个只有单行显示，cry…<br>第一步至此完成了，可以用debug来调试了。</p>
+<h2 id="编译，配置tasks-json"><a href="#编译，配置tasks-json" class="headerlink" title="编译，配置tasks.json"></a>编译，配置tasks.json</h2><p>如果每次都需要在外面编译后再来手动调试，无疑很烦，最好是在F5的时候先编译再执行调试，对吧。<br>vscode支持定义预处理任务，ctrl+shift-p,输入</p>
 <blockquote>
-<p>sudo gedit ~/.profile</p>
+<p>configure task runner</p>
+</blockquote>
+<p>会自动生成一分tasks.json，里面有许多例子。咱们就只改改第一个就好，其他的先删掉。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// Available variables which can be used inside of strings.</span><br><span class="line">// $&#123;workspaceRoot&#125;: the root folder of the team        # /home/jacean/workspace/C/</span><br><span class="line">// $&#123;file&#125;: the current opened file                     # /home/jacean/workspace/C/hello.c</span><br><span class="line">// $&#123;fileBasename&#125;: the current opened file&apos;s basename  # hello.c</span><br><span class="line">// $&#123;fileDirname&#125;: the current opened file&apos;s dirname    # /home/jacean/workspace/C/</span><br><span class="line">// $&#123;fileExtname&#125;: the current opened file&apos;s extension  #.c</span><br><span class="line">// $&#123;cwd&#125;: the current working directory of the spawned process</span><br><span class="line"></span><br><span class="line">// A task runner that calls the Typescript compiler (tsc) and</span><br><span class="line">// Compiles a HelloWorld.ts program</span><br><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.1.0&quot;,</span><br><span class="line">    &quot;command&quot;: &quot;tsc&quot;,</span><br><span class="line">    &quot;isShellCommand&quot;: true,</span><br><span class="line">    &quot;showOutput&quot;: &quot;silent&quot;,</span><br><span class="line">    &quot;args&quot;: [&quot;HelloWorld.ts&quot;],</span><br><span class="line">    &quot;problemMatcher&quot;: &quot;$tsc&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最开始是一些替换变量，假设我的文件hello.c的完全路径是</p>
+<blockquote>
+<p>/home/jacean/workspace/C/hello.c</p>
+</blockquote>
+<p>那么，那些变量对应的依次就是代码里#之后的,是项目空间路径，文件名，文件去除前缀，文件扩展名，文件所在目录，最后一个是衍生进程的目录(不太清楚).<br>这是预执行，那就是要执行那句编译命令了，所以修改如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.1.0&quot;,</span><br><span class="line">    &quot;command&quot;: &quot;gcc&quot;,</span><br><span class="line">    &quot;args&quot;: [&quot;-g&quot;, &quot;hello.c&quot;, &quot;-o&quot;, &quot;hello&quot;],</span><br><span class="line">    &quot;problemMatcher&quot;: &#123;</span><br><span class="line">        &quot;owner&quot;: &quot;cpp&quot;,</span><br><span class="line">        &quot;fileLocation&quot;: [&quot;relative&quot;, &quot;$&#123;workspaceRoot&#125;&quot;],</span><br><span class="line">        &quot;pattern&quot;: &#123;</span><br><span class="line">            &quot;regexp&quot;: &quot;^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$&quot;,</span><br><span class="line">            &quot;file&quot;: 1,</span><br><span class="line">            &quot;line&quot;: 2,</span><br><span class="line">            &quot;column&quot;: 3,</span><br><span class="line">            &quot;severity&quot;: 4,</span><br><span class="line">            &quot;message&quot;: 5</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个在官方说明里有，可以自己找找。然后直接F5，正常调试了。要是不信就删掉hello，然后重新来一次吧。<br>至此，就实现了一步编译调试。<br><img src="http://7xrtyi.com1.z0.glb.clouddn.com/vscode-c-debug.jpg" alt="调试展示"></p>
+<p>但是，每次都只针对一个文件，换个文件不是又要改，不能容忍，所以继续往下看。</p>
+<h2 id="自动编译当前打开文件并启动调试"><a href="#自动编译当前打开文件并启动调试" class="headerlink" title="自动编译当前打开文件并启动调试"></a>自动编译当前打开文件并启动调试</h2><p>这时候就需要那几个替换变量，把需要改变的用变量来替换。修改后如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">//launch.json</span><br><span class="line">&#123;</span><br><span class="line">	&quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">	&quot;configurations&quot;: [</span><br><span class="line">		&#123;</span><br><span class="line">			&quot;name&quot;: &quot;Debug&quot;,</span><br><span class="line">			&quot;type&quot;: &quot;gdb&quot;,</span><br><span class="line">			&quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">			&quot;target&quot;: &quot;$&#123;file&#125;.o&quot;,</span><br><span class="line">			&quot;cwd&quot;: &quot;$&#123;workspaceRoot&#125;&quot;,</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;gcc&quot;</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//tasks.json</span><br><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.1.0&quot;,</span><br><span class="line">    &quot;command&quot;: &quot;gcc&quot;,</span><br><span class="line">    &quot;args&quot;: [&quot;-g&quot;, &quot;$&#123;file&#125;&quot;, &quot;-o&quot;, &quot;$&#123;file&#125;.o&quot;],</span><br><span class="line">    &quot;problemMatcher&quot;: &#123;</span><br><span class="line">        &quot;owner&quot;: &quot;cpp&quot;,</span><br><span class="line">        &quot;fileLocation&quot;: [&quot;relative&quot;, &quot;$&#123;workspaceRoot&#125;&quot;],</span><br><span class="line">        &quot;pattern&quot;: &#123;</span><br><span class="line">            &quot;regexp&quot;: &quot;^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$&quot;,</span><br><span class="line">            &quot;file&quot;: 1,</span><br><span class="line">            &quot;line&quot;: 2,</span><br><span class="line">            &quot;column&quot;: 3,</span><br><span class="line">            &quot;severity&quot;: 4,</span><br><span class="line">            &quot;message&quot;: 5</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>表骂我为什么要在后面加个o，因为我不知道怎么去除后缀。。。</p>
+<blockquote>
+<p>basename hello.c .c</p>
+</blockquote>
+<p>要是能这样我就这样了，就是不会，所以只能变丑点，生成hello.c.o了。不过，反正编译对象人家又不看你长啥样，只要心灵美就行了不是。<br>然后，选中任意一个.c文件，F5或是绿三角，就会看到如愿以偿的可以调试了。虽然多出了个丑丑的.c.o。<br><img src="http://7xrtyi.com1.z0.glb.clouddn.com/cs-code-debug-2.jpg" alt="多出的.c.o"></p>
+<h2 id="教训"><a href="#教训" class="headerlink" title="教训"></a>教训</h2><ol>
+<li>如果gcc后面的参数没有-g，那就不会生成可以调试的文件了，一定要有，否则F5会报错的。详情请参阅gcc命令。<blockquote>
+<p>Debug adapter process has terminated unexpectedly</p>
 </blockquote>
 </li>
 </ol>
-<a id="more"></a>
-<p>在末尾加上：</p>
-<blockquote>
-<p>export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_20</p>
-</blockquote>
-<p>然后保存关闭，使用source更新下<br>source ~/.profile<br>使用env命令察看JAVA_HOME的值<br>env<br>如果显示JAVA_HOME=/usr/lib/jvm/jdk1.8.0_20，说明配置成功。</p>
 <ol>
-<li><p>修改系统默认的jdk，如下</p>
-<blockquote>
-<p>sudo update-alternatives –install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_20/bin/java 300<br>sudo update-alternatives –install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_20/bin/javac 300<br>sudo update-alternatives –config java<br>sudo update-alternatives –config javac</p>
-</blockquote>
-</li>
-<li><p>查看java版本信息，<br>终端输入 java -version<br>看到如下信息，就说明修改Ok: </p>
-<blockquote>
-<p>java version “1.8.0_20”<br>Java(TM) SE Runtime Environment (build 1.8.0_20-b26)<br>Java HotSpot(TM) Client VM (build 25.20-b23, mixed mode)</p>
-</blockquote>
-</li>
-<li><p>ubuntu下安装配置eclipse<br>去官网<a href="http://developer.android.com/sdk/index.html下载了eclipse包adt-bundle-linux-x86-20140702.zip，下载后解压到你想放的文件夹中就可以了。" target="_blank" rel="external">http://developer.android.com/sdk/index.html下载了eclipse包adt-bundle-linux-x86-20140702.zip，下载后解压到你想放的文件夹中就可以了。</a><br>解压命令 unzip adt-bundle-linux-x86-20140702.zip<br>我放在/home/kingqi/ADT目录下</p>
-</li>
-<li><p>将eclipse执行文件符号链接到/usr/local/bin。</p>
-<blockquote>
-<p>cd /usr/local/bin<br>sudo ln -s /home/kingqi/ADT/adt-bundle-linux-x86-20140702/eclipse/eclipse</p>
+<li>最坑爹的，坑了我大半天时间的，就是权限问题。我的vscode文件夹在/opt/下，所以即使是配置好了其他的，调试也是报错<blockquote>
+<p>Debug adapter process has terminated unexpectedly</p>
 </blockquote>
 </li>
 </ol>
-<p>ok，大功告成，打开终端，输入eclipse就可以启动了。<br>好吧，完全是转载了，出处在最前，我就再加一句。。。版本号按自己下载的来。<br>下载eclipse的时候，选择国内的镜像提供商下载速度快，尤其是教育网，直接用大连东软的就特别快，10多M。</p>
+<p>最后实在无奈，快要放弃的时候想起来这是Ubuntu，可能和权限有关，于是把文件夹拷出来，放到home/jacean下，运行，然后再配，就好了，欲哭无泪啊！！！</p>
 
       
     </div>
@@ -380,13 +367,13 @@ sudo tar zxvf jdk-8u20-linux-i586.tar.gz
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/16/Ubuntu安装Eclipse/">Ubuntu安装Eclipse</a></p>
+        <p><span>本文标题:</span><a href="/2016/04/04/vscode配置C-C-的编译调试环境/">vscode配置C/C++的编译调试环境</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
-        <p><span>发布时间:</span>2016年03月16日 - 23时44分</p>
-        <p><span>最后更新:</span>2016年03月17日 - 00时33分</p>
+        <p><span>发布时间:</span>2016年04月04日 - 23时11分</p>
+        <p><span>最后更新:</span>2016年04月05日 - 00时35分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/16/Ubuntu安装Eclipse/" title="Ubuntu安装Eclipse">http://jacean.github.io/2016/03/16/Ubuntu安装Eclipse/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/03/16/Ubuntu安装Eclipse/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/04/04/vscode配置C-C-的编译调试环境/" title="vscode配置C/C++的编译调试环境">http://jacean.github.io/2016/04/04/vscode配置C-C-的编译调试环境/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/04/04/vscode配置C-C-的编译调试环境/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -399,16 +386,10 @@ sudo tar zxvf jdk-8u20-linux-i586.tar.gz
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/16/vim安装addons插件管理后Warning-Ignoring-unknown-addons-winmanager/">
-                    vim安装addons插件管理后Warning:Ignoring_unknown_addons:_winmanager
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/16/windows远程ubuntu的virtualbox中的windows虚拟机/">
-                    windows远程ubuntu的virtualbox中的windows虚拟机
+                <a href="/2016/04/04/Ubuntu安装xampp并配置xdebug利用vscode调试php/">
+                    Ubuntu安装xampp并配置xdebug利用vscode调试php
                 </a>
             </div>
         
@@ -419,7 +400,7 @@ sudo tar zxvf jdk-8u20-linux-i586.tar.gz
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装DEBUG"><span class="toc-number">1.</span> <span class="toc-text">安装DEBUG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调试，配置launch-json"><span class="toc-number">2.</span> <span class="toc-text">调试，配置launch.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译，配置tasks-json"><span class="toc-number">3.</span> <span class="toc-text">编译，配置tasks.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动编译当前打开文件并启动调试"><span class="toc-number">4.</span> <span class="toc-text">自动编译当前打开文件并启动调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#教训"><span class="toc-number">5.</span> <span class="toc-text">教训</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -481,7 +462,7 @@ sudo tar zxvf jdk-8u20-linux-i586.tar.gz
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/16/Ubuntu安装Eclipse/" data-title="Ubuntu安装Eclipse" data-url="http://jacean.github.io/2016/03/16/Ubuntu安装Eclipse/"></div>
+    <div class="ds-thread" data-thread-key="2016/04/04/vscode配置C-C-的编译调试环境/" data-title="vscode配置C/C++的编译调试环境" data-url="http://jacean.github.io/2016/04/04/vscode配置C-C-的编译调试环境/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -505,15 +486,13 @@ sudo tar zxvf jdk-8u20-linux-i586.tar.gz
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/16/vim安装addons插件管理后Warning-Ignoring-unknown-addons-winmanager/" title="上一篇: vim安装addons插件管理后Warning:Ignoring_unknown_addons:_winmanager">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/16/windows远程ubuntu的virtualbox中的windows虚拟机/" title="下一篇: windows远程ubuntu的virtualbox中的windows虚拟机">
+            <a href="/2016/04/04/Ubuntu安装xampp并配置xdebug利用vscode调试php/" title="下一篇: Ubuntu安装xampp并配置xdebug利用vscode调试php">
                 <i class="fa fa-angle-right"></i>
             </a>
         
