@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-04-02T13:44:12.890Z</updated>
+  <updated>2016-04-04T08:15:17.378Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -14,6 +14,105 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu安装xampp并配置xdebug利用vscode调试php</title>
+    <link href="http://jacean.github.io/2016/04/04/Ubuntu%E5%AE%89%E8%A3%85xampp%E5%B9%B6%E9%85%8D%E7%BD%AExdebug%E5%88%A9%E7%94%A8vscode%E8%B0%83%E8%AF%95php/"/>
+    <id>http://jacean.github.io/2016/04/04/Ubuntu安装xampp并配置xdebug利用vscode调试php/</id>
+    <published>2016-04-04T08:02:54.000Z</published>
+    <updated>2016-04-04T08:15:17.378Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;安装XAMPP&quot;&gt;&lt;a href=&quot;#安装XAMPP&quot; class=&quot;headerlink&quot; title=&quot;安装XAMPP&quot;&gt;&lt;/a&gt;安装XAMPP&lt;/h2&gt;&lt;p&gt;去xampp官网下载对应版本，ubuntu会下载.run文件。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo mv xampp-linux-x64-5.6.19-0-installer.run  /opt/&lt;/p&gt;
+&lt;p&gt;cd /opt/&lt;/p&gt;
+&lt;p&gt;sudo -s&lt;/p&gt;
+&lt;p&gt;chmod 755 xampp-linux-x64-5.6.19-0-installer.run &lt;/p&gt;
+&lt;p&gt;./xampp-linux-x64-5.6.19-0-installer.run &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;依次执行上面命令，就会打开xampp的安装窗口，安装就好。&lt;/p&gt;
+&lt;h2 id=&quot;vscode安装插件&quot;&gt;&lt;a href=&quot;#vscode安装插件&quot; class=&quot;headerlink&quot; title=&quot;vscode安装插件&quot;&gt;&lt;/a&gt;vscode安装插件&lt;/h2&gt;&lt;p&gt;ctrl-p调出控制，输入&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ext install php-debug.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;安装完毕，然后需要配置xdebug。&lt;/p&gt;
+&lt;h2 id=&quot;配置xdebug&quot;&gt;&lt;a href=&quot;#配置xdebug&quot; class=&quot;headerlink&quot; title=&quot;配置xdebug&quot;&gt;&lt;/a&gt;配置xdebug&lt;/h2&gt;&lt;p&gt;首先去xdebug官网下载source，然后执行如下命令解压：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;tar -zxf xdebug-2.4.0.tgz&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;执行phpize&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cd xdebug-2.4.0/&lt;/p&gt;
+&lt;p&gt;/opt/lampp/bin/phpize&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;显示如下，&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Configuring for:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PHP Api Version:         20131106&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Zend Module Api No:      20131226&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Zend Extension Api No:   220131226&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Cannot find autoconf. Please check your autoconf installation and the&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$PHP_AUTOCONF environment variable. Then, rerun this script.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;从提示看出我是缺了东西了，那就装上，执行命令如下&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo apt-get install autoconf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;再次执行&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; /opt/lampp/bin/phpize&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Configuring for:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PHP Api Version:         20131106&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Zend Module Api No:      20131226&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Zend Extension Api No:   220131226&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;现在可以看出是正常了，可以继续了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; ./configure –enable-xdebug –with-php-config=/opt/lampp/bin/php-config&lt;/p&gt;
+&lt;p&gt;sudo make&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;执行后显示&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;xxxxxxxxxxxxxx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;----------------------------------------------------------------------&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Build complete.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Don&amp;apos;t forget to run &amp;apos;make test&amp;apos;.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;那我就试一试。。。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;make test&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Build complete.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Don&amp;apos;t forget to run &amp;apos;make test&amp;apos;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;=====================================================================&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PHP         : /opt/lampp/bin/php &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PHP_SAPI    : cli&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PHP_VERSION : 5.6.19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ZEND_VERSION: 2.6.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PHP_OS      : Linux - Linux jacean-Ubuntu 4.2.0-34-generic #39-Ubuntu SMP Thu Mar 10 22:13:01 UTC 2016 x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;INI actual  : /home/jacean/文档/xdebug-2.4.0/tmp-php.ini&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;More .INIs  :  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;CWD         : /home/jacean/文档/xdebug-2.4.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Extra dirs  : &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;VALGRIND    : Not used&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;=====================================================================&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TIME START 2016-04-04 08:30:01&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;=====================================================================&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;No tests were run.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后安装&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo make install&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Installing shared extensions:     /opt/lampp/lib/php/extensions/no-debug-non-zts-20131226/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  +----------------------------------------------------------------------+&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |                                                                      |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |   INSTALLATION INSTRUCTIONS                                          |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |   =========================                                          |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |                                                                      |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |   See http://xdebug.org/install.php#configure-php for instructions   |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |   on how to enable Xdebug for PHP.                                   |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |                                                                      |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |   Documentation is available online as well:                         |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |   - A list of all settings:  http://xdebug.org/docs-settings.php     |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |   - A list of all functions: http://xdebug.org/docs-functions.php    |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |   - Profiling instructions:  http://xdebug.org/docs-profiling2.php   |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |   - Remote debugging:        http://xdebug.org/docs-debugger.php     |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |                                                                      |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |                                                                      |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |   NOTE: Please disregard the message                                 |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |       You should add &amp;quot;extension=xdebug.so&amp;quot; to php.ini                |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |   that is emitted by the PECL installer. This does not work for      |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |   Xdebug.                                                            |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  |                                                                      |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  +----------------------------------------------------------------------+&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;接下来就是配置php.ini，&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo gvim /opt/lampp/etc/php.ini&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;末尾添加&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[Xdebug]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;zend_extension=/opt/lampp/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xdebug.profiler_enable=on&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xdebug.trace_output_dir=&amp;quot;../xdebug&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xdebug.profile_output_dir=&amp;quot;../xdebug&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xdebug.remote_enable = 1        //这两行远程是配合vscode的&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xdebug.remote_autostart = 1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后重启ｘａｍｐｐ，在phpinfo页面就可以看到有关ｘｄｅｂｕｇ的信息了。&lt;/p&gt;
+&lt;p&gt;xampp默认的网站根目录是htdocs，因为/opt/lamp/htdocs的操作是需要root权限的，很不方便，所以就把根目录改一下。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;mkdir ~/workspace/WEB&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;然后修改httpd.conf,在/opt/lamp/etc下。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo gvim httpd.conf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;修改&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# DocumentRoot &amp;quot;/opt/lampp/htdocs&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# &amp;lt; Directory &amp;quot;/opt/lampp/htdocs&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;DocumentRoot &amp;quot;/home/jacean/workspace/WEB&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt; Directory &amp;quot;/home/jacean/workspace/WEB&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;em&gt;我在&amp;lt;&amp;gt;之间加了一个空格，是为了避免markdown格式显示，应该删掉。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;然后，在WEB目录下新建index.php，保存。&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$a=&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$b=&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$c=$a-$b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$d=$c+$b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;strong&amp;gt;hello world!&amp;lt;/strong&amp;gt;&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后加断点，比如我加到$c那一行。&lt;br&gt;启动调试监听，&lt;br&gt;重启xampp，进入localhost。可以看到vscode自动弹出并标识在断点处，此时可以查看变量等等常用调试操作。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoblog-img-vscode-php-debug.jpg&quot; alt=&quot;php_debug&quot;&gt;&lt;/p&gt;
+&lt;p&gt;至此，大功告成！！！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;安装XAMPP&quot;&gt;&lt;a href=&quot;#安装XAMPP&quot; class=&quot;headerlink&quot; title=&quot;安装XAMPP&quot;&gt;&lt;/a&gt;安装XAMPP&lt;/h2&gt;&lt;p&gt;去xampp官网下载对应版本，ubuntu会下载.run文件。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;
+    
+    </summary>
+    
+    
+      <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
+    
+      <category term="php" scheme="http://jacean.github.io/tags/php/"/>
+    
+      <category term="vscode" scheme="http://jacean.github.io/tags/vscode/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS设置DOM宽高的一些小tips</title>
@@ -606,9 +705,9 @@
     </summary>
     
     
-      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
-    
       <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
+    
+      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
     
       <category term="sae" scheme="http://jacean.github.io/tags/sae/"/>
     
@@ -646,9 +745,9 @@
     </summary>
     
     
-      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
-    
       <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
+    
+      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
     
       <category term="sae" scheme="http://jacean.github.io/tags/sae/"/>
     
@@ -675,9 +774,9 @@
     </summary>
     
     
-      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
-    
       <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
+    
+      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
     
       <category term="SAE" scheme="http://jacean.github.io/tags/SAE/"/>
     
@@ -827,43 +926,6 @@
       <category term="C" scheme="http://jacean.github.io/tags/C/"/>
     
       <category term="数据结构" scheme="http://jacean.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网易2016校招研发工程师笔试题</title>
-    <link href="http://jacean.github.io/2016/03/17/%E7%BD%91%E6%98%932016%E6%A0%A1%E6%8B%9B%E7%A0%94%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%AC%94%E8%AF%95%E9%A2%98/"/>
-    <id>http://jacean.github.io/2016/03/17/网易2016校招研发工程师笔试题/</id>
-    <published>2016-03-17T04:45:56.000Z</published>
-    <updated>2016-03-22T22:45:15.754Z</updated>
-    
-    <content type="html">&lt;p&gt;在牛客网做网易2016校招研发工程师的题，记录如下。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[编程题]小易的升级之路&lt;br&gt;小易经常沉迷于网络游戏.有一次,他在玩一个打怪升级的游戏,他的角色的初始能力值为 a.在接下来的一段时间内,他将会依次遇见n个怪物,每个怪物的防御力为b1,b2,b3…bn. 如果遇到的怪物防御力bi小于等于小易的当前能力值c,那么他就能轻松打败怪物,并 且使得自己的能力值增加bi;如果bi大于c,那他也能打败怪物,但他的能力值只能增加bi 与c的最大公约数.那么问题来了,在一系列的锻炼后,小易的最终能力值为多少?&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;输入描述:&lt;/em&gt;&lt;br&gt;对于每组数据,第一行是两个整数n(1≤n&amp;lt;100000)表示怪物的数量和a表示小易的初始能力值.&lt;br&gt;第二行n个整数,b1,b2…bn(1≤bi≤n)表示每个怪物的防御力&lt;br&gt;&lt;em&gt;输出描述:&lt;/em&gt;&lt;br&gt;对于每组数据,输出一行.每行仅包含一个整数,表示小易的最终能力值&lt;br&gt;输入例子:&lt;br&gt;3 50&lt;br&gt;50 105 200&lt;br&gt;5 20&lt;br&gt;30 20 15 40 100&lt;br&gt;输出例子:&lt;br&gt;110&lt;br&gt;205&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;解答如下，重点是求取公约数。&lt;/p&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;gcd&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b)&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; c=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;(b)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;c=b;b=a%b;a=c;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; count;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; value;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;(&lt;span class=&quot;built_in&quot;&gt;scanf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%d %d&quot;&lt;/span&gt;,&amp;amp;count,&amp;amp;value)!=EOF)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,x;i&amp;lt;count;i++)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;scanf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%d&quot;&lt;/span&gt;,&amp;amp;x);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        value&amp;gt;=x?value+=x : value+=gcd(value,x);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%d\n&quot;&lt;/span&gt;,value);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在牛客网做网易2016校招研发工程师的题，记录如下。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[编程题]小易的升级之路&lt;br&gt;小易经常沉迷于网络游戏.有一次,他在玩一个打怪升级的游戏,他的角色的初始能力值为 a.在接下来的一段时间内,他将会依次遇见n个怪物,每个怪物的防御力为b1,b2,b3…bn. 如果遇到的怪物防御力bi小于等于小易的当前能力值c,那么他就能轻松打败怪物,并 且使得自己的能力值增加bi;如果bi大于c,那他也能打败怪物,但他的能力值只能增加bi 与c的最大公约数.那么问题来了,在一系列的锻炼后,小易的最终能力值为多少?&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="http://jacean.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="c" scheme="http://jacean.github.io/tags/c/"/>
-    
-      <category term="算法" scheme="http://jacean.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
