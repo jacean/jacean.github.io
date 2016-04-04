@@ -24,7 +24,7 @@ sudo -s
 chmod 755 xampp-linux-x64-5.6.19-0-installer.run 
 ./xampp-linux-x64-5.6.19-0-installer.ru">
 <meta property="og:image" content="http://7xrtyi.com1.z0.glb.clouddn.com/hexoblog-img-vscode-php-debug.jpg">
-<meta property="og:updated_time" content="2016-04-04T08:15:17.378Z">
+<meta property="og:updated_time" content="2016-04-04T08:22:27.881Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu安装xampp并配置xdebug利用vscode调试php">
 <meta name="twitter:description" content="安装XAMPP去xampp官网下载对应版本，ubuntu会下载.run文件。
@@ -335,7 +335,7 @@ chmod 755 xampp-linux-x64-5.6.19-0-installer.run
 <p>chmod 755 xampp-linux-x64-5.6.19-0-installer.run </p>
 <p>./xampp-linux-x64-5.6.19-0-installer.run </p>
 </blockquote>
-<p>依次执行上面命令，就会打开xampp的安装窗口，安装就好。</p>
+<p>依次执行上面命令，就会打开xampp的安装窗口，安装就好。<br><a id="more"></a></p>
 <h2 id="vscode安装插件"><a href="#vscode安装插件" class="headerlink" title="vscode安装插件"></a>vscode安装插件</h2><p>ctrl-p调出控制，输入</p>
 <blockquote>
 <p>ext install php-debug.</p>
@@ -385,7 +385,7 @@ chmod 755 xampp-linux-x64-5.6.19-0-installer.run
 <p>末尾添加</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[Xdebug]</span><br><span class="line">zend_extension=/opt/lampp/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so</span><br><span class="line">xdebug.profiler_enable=on</span><br><span class="line">xdebug.trace_output_dir=&quot;../xdebug&quot;</span><br><span class="line">xdebug.profile_output_dir=&quot;../xdebug&quot;</span><br><span class="line">xdebug.remote_enable = 1        //这两行远程是配合vscode的</span><br><span class="line">xdebug.remote_autostart = 1</span><br></pre></td></tr></table></figure>
 <p>然后重启ｘａｍｐｐ，在phpinfo页面就可以看到有关ｘｄｅｂｕｇ的信息了。</p>
-<p>xampp默认的网站根目录是htdocs，因为/opt/lamp/htdocs的操作是需要root权限的，很不方便，所以就把根目录改一下。</p>
+<h2 id="启动调试"><a href="#启动调试" class="headerlink" title="启动调试"></a>启动调试</h2><p>xampp默认的网站根目录是htdocs，因为/opt/lamp/htdocs的操作是需要root权限的，很不方便，所以就把根目录改一下。</p>
 <blockquote>
 <p>mkdir ~/workspace/WEB</p>
 </blockquote>
@@ -398,7 +398,7 @@ chmod 755 xampp-linux-x64-5.6.19-0-installer.run
 <p><em>我在&lt;&gt;之间加了一个空格，是为了避免markdown格式显示，应该删掉。</em></p>
 <p>然后，在WEB目录下新建index.php，保存。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$a=<span class="number">1</span>;</span><br><span class="line">$b=<span class="number">2</span>;</span><br><span class="line">$c=$a-$b;</span><br><span class="line">$d=$c+$b;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;strong&gt;hello world!&lt;/strong&gt;'</span>;</span><br></pre></td></tr></table></figure>
-<p>然后加断点，比如我加到$c那一行。<br>启动调试监听，<br>重启xampp，进入localhost。可以看到vscode自动弹出并标识在断点处，此时可以查看变量等等常用调试操作。<br><img src="http://7xrtyi.com1.z0.glb.clouddn.com/hexoblog-img-vscode-php-debug.jpg" alt="php_debug"></p>
+<p>然后加断点，比如我加到$c那一行。<br>记得在ｄｅｂｕｇ栏中选择设置齿轮，在下拉中选中php debug，会自动生成lanch.json文件，<br>然后再点击绿三角运行。<br>启动调试监听，<br>重启xampp，进入localhost。可以看到vscode自动弹出并标识在断点处，此时可以查看变量等等常用调试操作。<br><img src="http://7xrtyi.com1.z0.glb.clouddn.com/hexoblog-img-vscode-php-debug.jpg" alt="php_debug"></p>
 <p>至此，大功告成！！！</p>
 
       
@@ -411,7 +411,7 @@ chmod 755 xampp-linux-x64-5.6.19-0-installer.run
         <p><span>本文标题:</span><a href="/2016/04/04/Ubuntu安装xampp并配置xdebug利用vscode调试php/">Ubuntu安装xampp并配置xdebug利用vscode调试php</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年04月04日 - 16时02分</p>
-        <p><span>最后更新:</span>2016年04月04日 - 16时15分</p>
+        <p><span>最后更新:</span>2016年04月04日 - 16时22分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/04/Ubuntu安装xampp并配置xdebug利用vscode调试php/" title="Ubuntu安装xampp并配置xdebug利用vscode调试php">http://jacean.github.io/2016/04/04/Ubuntu安装xampp并配置xdebug利用vscode调试php/</a>
             <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/04/04/Ubuntu安装xampp并配置xdebug利用vscode调试php/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -441,7 +441,7 @@ chmod 755 xampp-linux-x64-5.6.19-0-installer.run
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装XAMPP"><span class="toc-number">1.</span> <span class="toc-text">安装XAMPP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode安装插件"><span class="toc-number">2.</span> <span class="toc-text">vscode安装插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置xdebug"><span class="toc-number">3.</span> <span class="toc-text">配置xdebug</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装XAMPP"><span class="toc-number">1.</span> <span class="toc-text">安装XAMPP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode安装插件"><span class="toc-number">2.</span> <span class="toc-text">vscode安装插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置xdebug"><span class="toc-number">3.</span> <span class="toc-text">配置xdebug</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动调试"><span class="toc-number">4.</span> <span class="toc-text">启动调试</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {

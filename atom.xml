@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-04-04T08:15:17.378Z</updated>
+  <updated>2016-04-04T08:22:27.881Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jacean.github.io/2016/04/04/Ubuntu%E5%AE%89%E8%A3%85xampp%E5%B9%B6%E9%85%8D%E7%BD%AExdebug%E5%88%A9%E7%94%A8vscode%E8%B0%83%E8%AF%95php/"/>
     <id>http://jacean.github.io/2016/04/04/Ubuntu安装xampp并配置xdebug利用vscode调试php/</id>
     <published>2016-04-04T08:02:54.000Z</published>
-    <updated>2016-04-04T08:15:17.378Z</updated>
+    <updated>2016-04-04T08:22:27.881Z</updated>
     
     <content type="html">&lt;h2 id=&quot;安装XAMPP&quot;&gt;&lt;a href=&quot;#安装XAMPP&quot; class=&quot;headerlink&quot; title=&quot;安装XAMPP&quot;&gt;&lt;/a&gt;安装XAMPP&lt;/h2&gt;&lt;p&gt;去xampp官网下载对应版本，ubuntu会下载.run文件。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -30,7 +30,7 @@
 &lt;p&gt;chmod 755 xampp-linux-x64-5.6.19-0-installer.run &lt;/p&gt;
 &lt;p&gt;./xampp-linux-x64-5.6.19-0-installer.run &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;依次执行上面命令，就会打开xampp的安装窗口，安装就好。&lt;/p&gt;
+&lt;p&gt;依次执行上面命令，就会打开xampp的安装窗口，安装就好。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;vscode安装插件&quot;&gt;&lt;a href=&quot;#vscode安装插件&quot; class=&quot;headerlink&quot; title=&quot;vscode安装插件&quot;&gt;&lt;/a&gt;vscode安装插件&lt;/h2&gt;&lt;p&gt;ctrl-p调出控制，输入&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;ext install php-debug.&lt;/p&gt;
@@ -80,7 +80,7 @@
 &lt;p&gt;末尾添加&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[Xdebug]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;zend_extension=/opt/lampp/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xdebug.profiler_enable=on&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xdebug.trace_output_dir=&amp;quot;../xdebug&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xdebug.profile_output_dir=&amp;quot;../xdebug&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xdebug.remote_enable = 1        //这两行远程是配合vscode的&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xdebug.remote_autostart = 1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;然后重启ｘａｍｐｐ，在phpinfo页面就可以看到有关ｘｄｅｂｕｇ的信息了。&lt;/p&gt;
-&lt;p&gt;xampp默认的网站根目录是htdocs，因为/opt/lamp/htdocs的操作是需要root权限的，很不方便，所以就把根目录改一下。&lt;/p&gt;
+&lt;h2 id=&quot;启动调试&quot;&gt;&lt;a href=&quot;#启动调试&quot; class=&quot;headerlink&quot; title=&quot;启动调试&quot;&gt;&lt;/a&gt;启动调试&lt;/h2&gt;&lt;p&gt;xampp默认的网站根目录是htdocs，因为/opt/lamp/htdocs的操作是需要root权限的，很不方便，所以就把根目录改一下。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;mkdir ~/workspace/WEB&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -93,7 +93,7 @@
 &lt;p&gt;&lt;em&gt;我在&amp;lt;&amp;gt;之间加了一个空格，是为了避免markdown格式显示，应该删掉。&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;然后，在WEB目录下新建index.php，保存。&lt;/p&gt;
 &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$a=&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$b=&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$c=$a-$b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$d=$c+$b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;strong&amp;gt;hello world!&amp;lt;/strong&amp;gt;&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后加断点，比如我加到$c那一行。&lt;br&gt;启动调试监听，&lt;br&gt;重启xampp，进入localhost。可以看到vscode自动弹出并标识在断点处，此时可以查看变量等等常用调试操作。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoblog-img-vscode-php-debug.jpg&quot; alt=&quot;php_debug&quot;&gt;&lt;/p&gt;
+&lt;p&gt;然后加断点，比如我加到$c那一行。&lt;br&gt;记得在ｄｅｂｕｇ栏中选择设置齿轮，在下拉中选中php debug，会自动生成lanch.json文件，&lt;br&gt;然后再点击绿三角运行。&lt;br&gt;启动调试监听，&lt;br&gt;重启xampp，进入localhost。可以看到vscode自动弹出并标识在断点处，此时可以查看变量等等常用调试操作。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoblog-img-vscode-php-debug.jpg&quot; alt=&quot;php_debug&quot;&gt;&lt;/p&gt;
 &lt;p&gt;至此，大功告成！！！&lt;/p&gt;
 </content>
     
@@ -101,7 +101,13 @@
     
       &lt;h2 id=&quot;安装XAMPP&quot;&gt;&lt;a href=&quot;#安装XAMPP&quot; class=&quot;headerlink&quot; title=&quot;安装XAMPP&quot;&gt;&lt;/a&gt;安装XAMPP&lt;/h2&gt;&lt;p&gt;去xampp官网下载对应版本，ubuntu会下载.run文件。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;
+&lt;p&gt;sudo mv xampp-linux-x64-5.6.19-0-installer.run  /opt/&lt;/p&gt;
+&lt;p&gt;cd /opt/&lt;/p&gt;
+&lt;p&gt;sudo -s&lt;/p&gt;
+&lt;p&gt;chmod 755 xampp-linux-x64-5.6.19-0-installer.run &lt;/p&gt;
+&lt;p&gt;./xampp-linux-x64-5.6.19-0-installer.run &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;依次执行上面命令，就会打开xampp的安装窗口，安装就好。&lt;br&gt;
     
     </summary>
     
