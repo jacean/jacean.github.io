@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-04-04T16:35:35.638Z</updated>
+  <updated>2016-04-04T16:37:25.090Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://jacean.github.io/2016/04/04/vscode%E9%85%8D%E7%BD%AEC-C-%E7%9A%84%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83/"/>
     <id>http://jacean.github.io/2016/04/04/vscode配置C-C-的编译调试环境/</id>
     <published>2016-04-04T15:11:08.000Z</published>
-    <updated>2016-04-04T16:35:35.638Z</updated>
+    <updated>2016-04-04T16:37:25.090Z</updated>
     
     <content type="html">&lt;p&gt;传说中的编辑器有两个，vim和emacs，一个是编辑器之神，一个是神的编辑器。然后又有众多小神，是两极多强格局。&lt;br&gt;然后，软爹说，要有我，于是vscode从天而降，带着继承自vs强大的智能，体积却极其轻简，同时支持插件，而且流畅至极，一脚踏进了编辑器之战。&lt;br&gt;于是，感觉要变天了。&lt;br&gt;用着轻量的编辑器，却又想把编辑器打造成IDE，，，于是开始了Debug插件的配置。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;安装DEBUG&quot;&gt;&lt;a href=&quot;#安装DEBUG&quot; class=&quot;headerlink&quot; title=&quot;安装DEBUG&quot;&gt;&lt;/a&gt;安装DEBUG&lt;/h2&gt;&lt;p&gt;本来有一款C/C++的插件，是利用微软的CLI的，但是Ubuntu15.10不在支持之列，在尝试无果之后只能放弃，万幸还有Debug.&lt;br&gt;ctrl-o，呼出命令行，输入&lt;/p&gt;
+&lt;h2 id=&quot;安装DEBUG&quot;&gt;&lt;a href=&quot;#安装DEBUG&quot; class=&quot;headerlink&quot; title=&quot;安装DEBUG&quot;&gt;&lt;/a&gt;安装DEBUG&lt;/h2&gt;&lt;p&gt;本来有一款C/C++的插件，是利用微软的CLI的，但是Ubuntu15.10不在支持之列，在尝试无果之后只能放弃，万幸还有Debug.&lt;br&gt;ctrl-p，呼出命令行，输入&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;ext install debug&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -91,7 +91,7 @@
     <link href="http://jacean.github.io/2016/04/04/Ubuntu%E5%AE%89%E8%A3%85xampp%E5%B9%B6%E9%85%8D%E7%BD%AExdebug%E5%88%A9%E7%94%A8vscode%E8%B0%83%E8%AF%95php/"/>
     <id>http://jacean.github.io/2016/04/04/Ubuntu安装xampp并配置xdebug利用vscode调试php/</id>
     <published>2016-04-04T08:02:54.000Z</published>
-    <updated>2016-04-04T14:57:02.492Z</updated>
+    <updated>2016-04-08T10:18:52.358Z</updated>
     
     <content type="html">&lt;h2 id=&quot;安装XAMPP&quot;&gt;&lt;a href=&quot;#安装XAMPP&quot; class=&quot;headerlink&quot; title=&quot;安装XAMPP&quot;&gt;&lt;/a&gt;安装XAMPP&lt;/h2&gt;&lt;p&gt;去xampp官网下载对应版本，ubuntu会下载.run文件。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -168,6 +168,38 @@
 &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$a=&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$b=&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$c=$a-$b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$d=$c+$b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;strong&amp;gt;hello world!&amp;lt;/strong&amp;gt;&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;然后加断点，比如我加到$c那一行。&lt;br&gt;记得在ｄｅｂｕｇ栏中选择设置齿轮，在下拉中选中php debug，会自动生成lanch.json文件，&lt;br&gt;然后再点击绿三角运行。&lt;br&gt;启动调试监听，&lt;br&gt;重启xampp，进入localhost。可以看到vscode自动弹出并标识在断点处，此时可以查看变量等等常用调试操作。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoblog-img-vscode-php-debug.jpg&quot; alt=&quot;php_debug&quot;&gt;&lt;/p&gt;
 &lt;p&gt;至此，大功告成！！！&lt;/p&gt;
+&lt;h2 id=&quot;xampp启动&quot;&gt;&lt;a href=&quot;#xampp启动&quot; class=&quot;headerlink&quot; title=&quot;xampp启动&quot;&gt;&lt;/a&gt;xampp启动&lt;/h2&gt;&lt;p&gt;要启动xampp桌面程序，可以在命令行输入&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cd /opt/lampp&lt;br&gt;sudo ./manager-linux-x64.run&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;直接命令行启动&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;lampp start&lt;br&gt;lampp stop&lt;br&gt;lampp restart&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;只启动和停止Apache：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/opt/lampp/lampp startapache(stopapache)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;只启动和停止MySQL：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/opt/lampp/lampp startmysql(stopmysql)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;只启动和停止ProFTPD服务器：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/opt/lampp/lampp startftp(stopftp)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;启动和停止Apache的SSL支持：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/opt/lampp/lampp startssl(stopssl)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;取消自启动：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ln –s /opt/lampp/lampp K01lampp&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;卸载XAMPP:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;rm –rf /opt/lampp&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
     
     <summary type="html">
