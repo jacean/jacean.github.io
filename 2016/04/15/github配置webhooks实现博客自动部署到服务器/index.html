@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://jacean.github.io/2016/04/15/github配置webhooks实现博客自动部署到服务器/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
 <meta property="og:description" content="最近买了腾讯云的服务器,就想着把博客迁移到腾讯云,毕竟github在国内的访问速度有限而且百度也不搜索.但是,总不能每次push到github,还需要跑到服务器去pull吧,那可真是呵呵了就.索性,github提供了webhooks来自定义git相关的执行动作,所以就试试咯~">
-<meta property="og:updated_time" content="2016-04-15T15:43:22.012Z">
+<meta property="og:updated_time" content="2016-04-15T15:55:19.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github配置webhooks实现博客自动部署到服务器">
 <meta name="twitter:description" content="最近买了腾讯云的服务器,就想着把博客迁移到腾讯云,毕竟github在国内的访问速度有限而且百度也不搜索.但是,总不能每次push到github,还需要跑到服务器去pull吧,那可真是呵呵了就.索性,github提供了webhooks来自定义git相关的执行动作,所以就试试咯~">
@@ -307,7 +307,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>最近买了腾讯云的服务器,就想着把博客迁移到腾讯云,毕竟github在国内的访问速度有限而且百度也不搜索.<br>但是,总不能每次push到github,还需要跑到服务器去pull吧,那可真是呵呵了就.<br>索性,github提供了webhooks来自定义git相关的执行动作,所以就试试咯~<br><a id="more"></a><br>首先在本地新建hook文件,以便后期github检测到改变动作后来执行,让服务器同步更新.</p>
+        <p>最近买了腾讯云的服务器,就想着把博客迁移到腾讯云,毕竟github在国内的访问速度有限而且百度也不搜索.<br>但是,总不能每次push到github,还需要跑到服务器去pull吧,那可真是呵呵了就.<br>索性,github提供了webhooks来自定义git相关的执行动作,所以就试试咯~<br><a id="more"></a><br>首先在本地新建hook文件,以便后期github检测到改变动作后来执行,让服务器同步更新.<br>这个文件可以是各种类型.比如,php.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">"Content-Type: text/html;charset=utf-8"</span>); </span><br><span class="line">error_reporting(<span class="number">7</span>);</span><br><span class="line">date_default_timezone_set(<span class="string">'UTC'</span>);</span><br><span class="line">define(<span class="string">"WWW_ROOT"</span>, <span class="string">"C:\\xampp\\htdocs\\jacean.github.io"</span>);</span><br><span class="line">define(<span class="string">"LOG_FILE"</span>, WWW_ROOT.<span class="string">"\\git-hook.log"</span>);</span><br><span class="line">$output=exec(WWW_ROOT.<span class="string">"\\githook.bat"</span>);</span><br><span class="line"><span class="keyword">echo</span> $output;</span><br><span class="line">file_put_contents(LOG_FILE, $output, FILE_APPEND);</span><br></pre></td></tr></table></figure>
 <p>然后在github,你的项目中,设置,webhooks&amp;servies,add webhooks.</p>
 <p>添加后,github会自动ping一下,如果正确能连上的话,会给你一个小绿对勾在url的前面.</p>
 
@@ -321,7 +322,7 @@
         <p><span>本文标题:</span><a href="/2016/04/15/github配置webhooks实现博客自动部署到服务器/">github配置webhooks实现博客自动部署到服务器</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年04月15日 - 20时26分</p>
-        <p><span>最后更新:</span>2016年04月15日 - 23时43分</p>
+        <p><span>最后更新:</span>2016年04月15日 - 23时55分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/15/github配置webhooks实现博客自动部署到服务器/" title="github配置webhooks实现博客自动部署到服务器">http://jacean.github.io/2016/04/15/github配置webhooks实现博客自动部署到服务器/</a>
             <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/04/15/github配置webhooks实现博客自动部署到服务器/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
