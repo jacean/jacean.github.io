@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://jacean.github.io/2016/04/15/github配置webhooks实现博客自动部署到服务器/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
 <meta property="og:description" content="最近买了腾讯云的服务器,就想着把博客迁移到腾讯云,毕竟github在国内的访问速度有限而且百度也不搜索.但是,总不能每次push到github,还需要跑到服务器去pull吧,那可真是呵呵了就.索性,github提供了webhooks来自定义git相关的执行动作,所以就试试咯~">
-<meta property="og:updated_time" content="2016-04-16T02:36:42.056Z">
+<meta property="og:updated_time" content="2016-04-16T03:59:46.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github配置webhooks实现博客自动部署到服务器">
 <meta name="twitter:description" content="最近买了腾讯云的服务器,就想着把博客迁移到腾讯云,毕竟github在国内的访问速度有限而且百度也不搜索.但是,总不能每次push到github,还需要跑到服务器去pull吧,那可真是呵呵了就.索性,github提供了webhooks来自定义git相关的执行动作,所以就试试咯~">
@@ -308,9 +308,19 @@
       
           
         <p>最近买了腾讯云的服务器,就想着把博客迁移到腾讯云,毕竟github在国内的访问速度有限而且百度也不搜索.<br>但是,总不能每次push到github,还需要跑到服务器去pull吧,那可真是呵呵了就.<br>索性,github提供了webhooks来自定义git相关的执行动作,所以就试试咯~<br><a id="more"></a><br>首先在本地新建hook文件,以便后期github检测到改变动作后来执行,让服务器同步更新.<br>这个文件可以是各种类型.比如,php.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">"Content-Type: text/html;charset=utf-8"</span>); </span><br><span class="line">error_reporting(<span class="number">7</span>);</span><br><span class="line">date_default_timezone_set(<span class="string">'UTC'</span>);</span><br><span class="line">define(<span class="string">"WWW_ROOT"</span>, <span class="string">"C:\\xampp\\htdocs\\jacean.github.io"</span>);</span><br><span class="line">define(<span class="string">"LOG_FILE"</span>, WWW_ROOT.<span class="string">"\\git-hook.log"</span>);</span><br><span class="line">$output=exec(WWW_ROOT.<span class="string">"\\githook.bat"</span>);</span><br><span class="line"><span class="keyword">echo</span> $output;</span><br><span class="line">file_put_contents(LOG_FILE, $output, FILE_APPEND);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">"Content-Type: text/html; charset=gb2312"</span>);</span><br><span class="line">error_reporting(<span class="number">7</span>);</span><br><span class="line">define(<span class="string">"WWW_ROOT"</span>, <span class="string">"C:\\xampp\\htdocs\\jacean.github.io"</span>);</span><br><span class="line">define(<span class="string">"LOG_FILE"</span>, WWW_ROOT.<span class="string">"\\git-hook.log"</span>);</span><br><span class="line">exec(WWW_ROOT.<span class="string">"\\githook.bat"</span>,$output,$ret);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"output:"</span>;</span><br><span class="line">print_r($output);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"ret:"</span>.$ret;</span><br><span class="line">$log = sprintf(<span class="string">"[%s] %s %s\n"</span>, date(<span class="string">'Y-m-d H:i:s'</span>, time()), $output,$ret);</span><br><span class="line">file_put_contents(LOG_FILE, $log, FILE_APPEND);</span><br></pre></td></tr></table></figure>
+<p>githook.bat就可以写你的操作了.<br>比如,我的就是只有简单的一句,暂时:</p>
+<blockquote>
+<p>git pull origin master</p>
+</blockquote>
 <p>然后在github,你的项目中,设置,webhooks&amp;servies,add webhooks.</p>
-<p>添加后,github会自动ping一下,如果正确能连上的话,会给你一个小绿对勾在url的前面.</p>
+<blockquote>
+<p>Payload URL:<a href="http://www.xxx.xxx/githook.php" target="_blank" rel="external">http://www.xxx.xxx/githook.php</a></p>
+</blockquote>
+<p>其他的基本默认就好.<br>添加后,github会自动ping一下,如果正确能连上的话,会给你一个小绿对勾在url的前面.</p>
+<p>如果一切正常的话这样是好了,但是,你提交一次后发现并没有什么用.<br>然而本地执行bat是好的,你再手动打开githook.php,能看到输出返回了一个1.即ret的值是1.<br>这个情况去查一下官方说明,就知道是权限问题了,原谅我刚开始没有想到这个,搞得进了误区,以为是多大事.</p>
+<p>打开服务,找到apache.如果没有的话,去xampp的apache下,有个install_apacheservice的bat,在关闭apache后执行,会看到在服务列表里多了apache.<br>然后属性apache,找到登陆,设置账户,这个账户得是有权限读写网站目录的账户,最高的就是administrator了.设置好后确定.<br>然后重启apache.</p>
+<p>再次直接访问githook.php,发现ret=0了.想来是大功告成.<br>然后再提交一次试试,看看有木有效果吧~~~</p>
 <p>参考:<br><a href="http://linroid.com/2015/01/21/using-github-webhook-to-deploy-my-blog/" target="_blank" rel="external">利用Github的Webhook部署博客</a></p>
 
       
@@ -323,7 +333,7 @@
         <p><span>本文标题:</span><a href="/2016/04/15/github配置webhooks实现博客自动部署到服务器/">github配置webhooks实现博客自动部署到服务器</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年04月15日 - 20时26分</p>
-        <p><span>最后更新:</span>2016年04月16日 - 10时36分</p>
+        <p><span>最后更新:</span>2016年04月16日 - 11时59分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/15/github配置webhooks实现博客自动部署到服务器/" title="github配置webhooks实现博客自动部署到服务器">http://jacean.github.io/2016/04/15/github配置webhooks实现博客自动部署到服务器/</a>
             <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/04/15/github配置webhooks实现博客自动部署到服务器/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
