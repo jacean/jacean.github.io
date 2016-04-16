@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-04-16T04:13:20.073Z</updated>
+  <updated>2016-04-16T04:48:57.358Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -16,11 +16,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hello World</title>
+    <link href="http://jacean.github.io/2016/04/16/hello-world/"/>
+    <id>http://jacean.github.io/2016/04/16/hello-world/</id>
+    <published>2016-04-16T04:48:57.414Z</published>
+    <updated>2016-04-16T04:48:57.358Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="博客建设" scheme="http://jacean.github.io/categories/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/"/>
+    
+    
+      <category term="Hexo" scheme="http://jacean.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>github配置webhooks实现博客自动部署到服务器</title>
     <link href="http://jacean.github.io/2016/04/15/github%E9%85%8D%E7%BD%AEwebhooks%E5%AE%9E%E7%8E%B0%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>http://jacean.github.io/2016/04/15/github配置webhooks实现博客自动部署到服务器/</id>
     <published>2016-04-15T12:26:44.000Z</published>
-    <updated>2016-04-16T04:13:20.073Z</updated>
+    <updated>2016-04-16T04:47:28.702Z</updated>
     
     <content type="html">&lt;p&gt;最近买了腾讯云的服务器,就想着把博客迁移到腾讯云,毕竟github在国内的访问速度有限而且百度也不搜索.&lt;br&gt;但是,总不能每次push到github,还需要跑到服务器去pull吧,那可真是呵呵了就.&lt;br&gt;索性,github提供了webhooks来自定义git相关的执行动作,所以就试试咯~&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;服务器建立hook文件&quot;&gt;&lt;a href=&quot;#服务器建立hook文件&quot; class=&quot;headerlink&quot; title=&quot;服务器建立hook文件&quot;&gt;&lt;/a&gt;服务器建立hook文件&lt;/h3&gt;&lt;p&gt;首先在本地新建hook文件,以便后期github检测到改变动作后来执行,让服务器同步更新.&lt;br&gt;这个文件可以是各种类型.比如,php.&lt;br&gt;新建php文件githook.php,内容如下,然后放在网站根目录,记得不要添加到git追踪里.&lt;/p&gt;
@@ -47,6 +78,8 @@
     
     </summary>
     
+      <category term="博客建设" scheme="http://jacean.github.io/categories/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/"/>
+    
     
       <category term="Github" scheme="http://jacean.github.io/tags/Github/"/>
     
@@ -59,7 +92,7 @@
     <link href="http://jacean.github.io/2016/04/04/vscode%E9%85%8D%E7%BD%AEC-C-%E7%9A%84%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83/"/>
     <id>http://jacean.github.io/2016/04/04/vscode配置C-C-的编译调试环境/</id>
     <published>2016-04-04T15:11:08.000Z</published>
-    <updated>2016-04-04T16:37:25.090Z</updated>
+    <updated>2016-04-16T04:57:08.252Z</updated>
     
     <content type="html">&lt;p&gt;传说中的编辑器有两个，vim和emacs，一个是编辑器之神，一个是神的编辑器。然后又有众多小神，是两极多强格局。&lt;br&gt;然后，软爹说，要有我，于是vscode从天而降，带着继承自vs强大的智能，体积却极其轻简，同时支持插件，而且流畅至极，一脚踏进了编辑器之战。&lt;br&gt;于是，感觉要变天了。&lt;br&gt;用着轻量的编辑器，却又想把编辑器打造成IDE，，，于是开始了Debug插件的配置。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;安装DEBUG&quot;&gt;&lt;a href=&quot;#安装DEBUG&quot; class=&quot;headerlink&quot; title=&quot;安装DEBUG&quot;&gt;&lt;/a&gt;安装DEBUG&lt;/h2&gt;&lt;p&gt;本来有一款C/C++的插件，是利用微软的CLI的，但是Ubuntu15.10不在支持之列，在尝试无果之后只能放弃，万幸还有Debug.&lt;br&gt;ctrl-p，呼出命令行，输入&lt;/p&gt;
@@ -118,6 +151,8 @@
     
     </summary>
     
+      <category term="Linux" scheme="http://jacean.github.io/categories/Linux/"/>
+    
     
       <category term="vscode" scheme="http://jacean.github.io/tags/vscode/"/>
     
@@ -130,7 +165,7 @@
     <link href="http://jacean.github.io/2016/04/04/Ubuntu%E5%AE%89%E8%A3%85xampp%E5%B9%B6%E9%85%8D%E7%BD%AExdebug%E5%88%A9%E7%94%A8vscode%E8%B0%83%E8%AF%95php/"/>
     <id>http://jacean.github.io/2016/04/04/Ubuntu安装xampp并配置xdebug利用vscode调试php/</id>
     <published>2016-04-04T08:02:54.000Z</published>
-    <updated>2016-04-08T10:18:52.358Z</updated>
+    <updated>2016-04-16T04:55:27.740Z</updated>
     
     <content type="html">&lt;h2 id=&quot;安装XAMPP&quot;&gt;&lt;a href=&quot;#安装XAMPP&quot; class=&quot;headerlink&quot; title=&quot;安装XAMPP&quot;&gt;&lt;/a&gt;安装XAMPP&lt;/h2&gt;&lt;p&gt;去xampp官网下载对应版本，ubuntu会下载.run文件。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -255,6 +290,10 @@
     
     </summary>
     
+      <category term="后端" scheme="http://jacean.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="Linux" scheme="http://jacean.github.io/categories/%E5%90%8E%E7%AB%AF/Linux/"/>
+    
     
       <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
     
@@ -269,7 +308,7 @@
     <link href="http://jacean.github.io/2016/04/02/CSS%E8%AE%BE%E7%BD%AEDOM%E5%AE%BD%E9%AB%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8Ftips/"/>
     <id>http://jacean.github.io/2016/04/02/CSS设置DOM宽高的一些小tips/</id>
     <published>2016-04-02T13:29:36.000Z</published>
-    <updated>2016-04-02T13:44:12.890Z</updated>
+    <updated>2016-04-16T04:43:43.242Z</updated>
     
     <content type="html">&lt;p&gt;做前端开发总会有一些小技巧需要用到，虽然简单，但是也很容易忘记。所以从现在开始就在这记录下一些感觉比较好玩的小tips。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;高度等于宽度&quot;&gt;&lt;a href=&quot;#高度等于宽度&quot; class=&quot;headerlink&quot; title=&quot;高度等于宽度&quot;&gt;&lt;/a&gt;高度等于宽度&lt;/h3&gt;&lt;ol&gt;
@@ -297,6 +336,8 @@
     
     </summary>
     
+      <category term="前端" scheme="http://jacean.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
     
       <category term="CSS" scheme="http://jacean.github.io/tags/CSS/"/>
     
@@ -309,7 +350,7 @@
     <link href="http://jacean.github.io/2016/04/02/JSONP%E8%B7%A8%E5%9F%9F/"/>
     <id>http://jacean.github.io/2016/04/02/JSONP跨域/</id>
     <published>2016-04-02T13:16:01.000Z</published>
-    <updated>2016-04-02T13:49:09.018Z</updated>
+    <updated>2016-04-16T04:52:30.699Z</updated>
     
     <content type="html">&lt;h2 id=&quot;JSONP跨域&quot;&gt;&lt;a href=&quot;#JSONP跨域&quot; class=&quot;headerlink&quot; title=&quot;JSONP跨域&quot;&gt;&lt;/a&gt;JSONP跨域&lt;/h2&gt;&lt;p&gt;最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。&lt;br&gt;说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。&lt;br&gt;JSONP进行跨域的办法是利用&amp;lt; script&amp;gt;标签不受来源限制。当然，&amp;lt; img&amp;gt;等的来源也是不受限制的。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;p&gt;在请求页面声明一个函数作为回调函数，&lt;/p&gt;
@@ -339,6 +380,8 @@
     
     </summary>
     
+      <category term="前端" scheme="http://jacean.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
     
       <category term="web" scheme="http://jacean.github.io/tags/web/"/>
     
@@ -351,7 +394,7 @@
     <link href="http://jacean.github.io/2016/03/28/TCP%E7%88%B1%E6%83%85%E6%95%85%E4%BA%8B%E2%80%94%E2%80%94%E7%88%B1%E6%83%85%E6%9C%89%E5%B0%BD%E5%A4%B4/"/>
     <id>http://jacean.github.io/2016/03/28/TCP爱情故事——爱情有尽头/</id>
     <published>2016-03-28T11:26:27.000Z</published>
-    <updated>2016-03-28T12:33:56.399Z</updated>
+    <updated>2016-04-16T04:54:30.435Z</updated>
     
     <content type="html">&lt;p&gt;小T和小P过上了幸福的生活。就这样，过了xxx天。&lt;br&gt;因为一些原因(番外)，小T决定还是和小P分手。唉，真是可惜啊。&lt;br&gt;分手呢，是4条短信，也就是传说中的&lt;em&gt;四次挥手&lt;/em&gt;。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;原本呢，小T和小P是恋人，他们在恋爱期(ESTABLISHED)，但是，对吧，所以，继续咯。&lt;br&gt;小T在一番决心之后，终于还是发出了第一条短信。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -387,6 +430,8 @@
     
     </summary>
     
+      <category term="网络" scheme="http://jacean.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
+    
     
       <category term="TCP" scheme="http://jacean.github.io/tags/TCP/"/>
     
@@ -397,7 +442,7 @@
     <link href="http://jacean.github.io/2016/03/28/TCP%E7%88%B1%E6%83%85%E6%95%85%E4%BA%8B%E2%80%94%E2%80%94%E6%88%91%E4%BB%AC%E6%81%8B%E7%88%B1%E4%BA%86/"/>
     <id>http://jacean.github.io/2016/03/28/TCP爱情故事——我们恋爱了/</id>
     <published>2016-03-28T10:44:57.000Z</published>
-    <updated>2016-03-28T12:42:01.003Z</updated>
+    <updated>2016-04-16T04:54:41.451Z</updated>
     
     <content type="html">&lt;p&gt;谈恋爱是两。。个。。人。。相互喜欢，然后表白，我喜欢你，你喜欢我，大家就开开心心的在一起了。&lt;br&gt;在这里，我来谈一谈被称为&lt;strong&gt;TCP爱情&lt;/strong&gt;的小故事,&lt;br&gt;这场爱情因为3条短信成就，也就是大家盛传的&lt;em&gt;三次握手&lt;/em&gt;。&lt;br&gt;主人公是小T和小P。一个大方勇敢的姑娘，一个腼腆有才的少年。现在他们都是单身狗状态(CLOSED).&lt;br&gt;然后结局是小T和小P在一起了，他们connect了，简称TCP。&lt;br&gt;故事开始了。。。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;话说春天到了，小P看着人家小情侣成双成对的心里很是羡慕，然后就一直想啊，想啊，要是他 也有对象多好，小P有点害羞，不好意思去跟女孩说话，所以想着要是有人跟他表白该多好，只要看对眼就好啊。不管这想法有多天真，总之，小P是进入了发春状态(执行了LISTEN原语，进入Listen状态),渴望被爱。&lt;/p&gt;
 &lt;p&gt;小T这个姑娘啊，很不错，现在是单身。有一次莫名的邂逅(番外)之后，小T对小P有了莫名的思念，然后渐渐的，越来越关注小P，终于，发现自己喜欢上了虽然有些腼腆，但是可爱干净的小P。在一番纠结之后，小T终于还是决定，我要跟小P表白，我要跟他在一起。于是，勇敢找到小P的电话，发了条短信(执行了CONNECT原语)。&lt;/p&gt;
@@ -435,6 +480,8 @@
     
     </summary>
     
+      <category term="网络" scheme="http://jacean.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
+    
     
       <category term="TCP" scheme="http://jacean.github.io/tags/TCP/"/>
     
@@ -445,7 +492,7 @@
     <link href="http://jacean.github.io/2016/03/26/Linux%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/"/>
     <id>http://jacean.github.io/2016/03/26/Linux文件权限/</id>
     <published>2016-03-26T04:01:38.000Z</published>
-    <updated>2016-03-26T04:02:53.142Z</updated>
+    <updated>2016-04-16T04:52:53.427Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Linux文件权限&quot;&gt;&lt;a href=&quot;#Linux文件权限&quot; class=&quot;headerlink&quot; title=&quot;Linux文件权限&quot;&gt;&lt;/a&gt;Linux文件权限&lt;/h2&gt;&lt;p&gt;Linux文件权限的表示是10个字符。如下：&lt;/p&gt;
 &lt;blockquote&gt;
@@ -508,6 +555,8 @@
     
     </summary>
     
+      <category term="Linux" scheme="http://jacean.github.io/categories/Linux/"/>
+    
     
       <category term="Linux" scheme="http://jacean.github.io/tags/Linux/"/>
     
@@ -518,7 +567,7 @@
     <link href="http://jacean.github.io/2016/03/25/HTTP%E4%BC%9A%E8%AF%9D/"/>
     <id>http://jacean.github.io/2016/03/25/HTTP会话/</id>
     <published>2016-03-24T16:09:37.000Z</published>
-    <updated>2016-03-24T16:18:43.820Z</updated>
+    <updated>2016-04-16T04:51:37.958Z</updated>
     
     <content type="html">&lt;p&gt;在多次HTTP连接间维护用户与同一用户发出的不同请求之间关联的情况称为维护一个会话（session）。&lt;/p&gt;
 &lt;ul&gt;
@@ -545,6 +594,8 @@
     
     </summary>
     
+      <category term="网络" scheme="http://jacean.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
+    
     
       <category term="HTTP" scheme="http://jacean.github.io/tags/HTTP/"/>
     
@@ -555,7 +606,7 @@
     <link href="http://jacean.github.io/2016/03/24/HTTP%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/"/>
     <id>http://jacean.github.io/2016/03/24/HTTP协议学习/</id>
     <published>2016-03-24T15:05:54.000Z</published>
-    <updated>2016-03-26T04:06:33.407Z</updated>
+    <updated>2016-04-16T04:51:50.070Z</updated>
     
     <content type="html">&lt;p&gt;HTTP,HyperText Transfer Protocol,超文本传输协议。&lt;br&gt;HTTP设计最初的目的是为了提供一种发布和接收HTML页面的方法。通过HTTP或HTTPS协议请求的资源由统一资源标识符来标识。&lt;br&gt;1999年，RFC2616发布了HTTP1.1，这个当前广泛使用的版本。&lt;br&gt;2014年，提交HTTP/2,2015年5月以RFC7540正式发表，取代HTTP 1.1成为HTTP的实现标准。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;协议概述&quot;&gt;&lt;a href=&quot;#协议概述&quot; class=&quot;headerlink&quot; title=&quot;协议概述&quot;&gt;&lt;/a&gt;协议概述&lt;/h2&gt;&lt;blockquote&gt;
@@ -664,6 +715,8 @@
     
     </summary>
     
+      <category term="网络" scheme="http://jacean.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
+    
     
       <category term="HTTP" scheme="http://jacean.github.io/tags/HTTP/"/>
     
@@ -674,7 +727,7 @@
     <link href="http://jacean.github.io/2016/03/24/wordpress-for-sae%E9%85%8D%E7%BD%AE/"/>
     <id>http://jacean.github.io/2016/03/24/wordpress-for-sae配置/</id>
     <published>2016-03-24T14:41:53.000Z</published>
-    <updated>2016-03-24T14:51:46.027Z</updated>
+    <updated>2016-04-16T04:57:29.104Z</updated>
     
     <content type="html">&lt;p&gt;wordpress是一个很不错的博客系统，现在的各种支持也很好，能够很方便的建立一个不错的博客。&lt;br&gt;依托于新浪云，建立wordpress for sae，而且是最新版的wordpress，需要自己动手改一下，而不仅仅是使用wordpressforsae的模板。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -700,6 +753,8 @@
     
     </summary>
     
+      <category term="博客建设" scheme="http://jacean.github.io/categories/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/"/>
+    
     
       <category term="sae" scheme="http://jacean.github.io/tags/sae/"/>
     
@@ -712,7 +767,7 @@
     <link href="http://jacean.github.io/2016/03/24/Eclipse%E5%8F%82%E6%95%B0%E6%98%AFarg0/"/>
     <id>http://jacean.github.io/2016/03/24/Eclipse参数是arg0/</id>
     <published>2016-03-24T14:27:07.000Z</published>
-    <updated>2016-03-24T14:37:06.267Z</updated>
+    <updated>2016-04-16T04:44:52.334Z</updated>
     
     <content type="html">&lt;p&gt;Eclipse是一个很好的IDE，IDE能够帮助开发者快速编辑代码调试代码，这里就有代码补全的作用。代码补全，不仅仅是补全，还要能够根据函数本来的面目提供一定的指引，比如函数参数。&lt;br&gt;如果函数参数是arg0，arg1，那谁看都得懵逼不是，但是如果是postion，count，name之类的有语义的就大不一样了，很容易帮助开发者理解参数含义和使用对象。Eclipse就是可以这样的。&lt;br&gt;但是，有的人由于一些不恰当操作，会发现自己的Eclipse函数自动补全后，参数还真是arg0，arg1，这可就愁死人了。&lt;br&gt;我也遇到了，所以解决了。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;这是因为缺少源码文件，导致eclipse无法分析。需要下载source for android sdk。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_eclipse-7.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;打开eclipse，定位到一个函数上，ctrl点击，出现绑定源代码文件的窗口，选择sources文件夹就好。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_eclipse-8.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;应用后&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_eclipse-10.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;get!&lt;/p&gt;
 </content>
@@ -722,6 +777,8 @@
       &lt;p&gt;Eclipse是一个很好的IDE，IDE能够帮助开发者快速编辑代码调试代码，这里就有代码补全的作用。代码补全，不仅仅是补全，还要能够根据函数本来的面目提供一定的指引，比如函数参数。&lt;br&gt;如果函数参数是arg0，arg1，那谁看都得懵逼不是，但是如果是postion，count，name之类的有语义的就大不一样了，很容易帮助开发者理解参数含义和使用对象。Eclipse就是可以这样的。&lt;br&gt;但是，有的人由于一些不恰当操作，会发现自己的Eclipse函数自动补全后，参数还真是arg0，arg1，这可就愁死人了。&lt;br&gt;我也遇到了，所以解决了。&lt;br&gt;
     
     </summary>
+    
+      <category term="移动" scheme="http://jacean.github.io/categories/%E7%A7%BB%E5%8A%A8/"/>
     
     
       <category term="Eclipse" scheme="http://jacean.github.io/tags/Eclipse/"/>
@@ -733,7 +790,7 @@
     <link href="http://jacean.github.io/2016/03/24/Android%E5%AE%89%E8%A3%85%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3/"/>
     <id>http://jacean.github.io/2016/03/24/Android安装参考文档/</id>
     <published>2016-03-24T14:21:01.000Z</published>
-    <updated>2016-03-24T14:26:40.847Z</updated>
+    <updated>2016-04-16T04:42:44.634Z</updated>
     
     <content type="html">&lt;p&gt;不管是开发什么产品，用什么语言开发，帮助文档总是必须的，开发android也当然是必须的。&lt;br&gt;有时候，装Eclipse配置android后，会发现没有文档，这个时候就需要自己重新搞一搞了。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;如果发现sdk目录下没有docs的话，可以在sdkmanager里下载。&lt;br&gt;注意，documention只在最新的版本下有,不要因为自己用哪个版本就去哪找，真的找不到。。。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_android-1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;下载后再本地浏览，切换版本就好。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_android-2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;OK!&lt;/p&gt;
@@ -745,6 +802,8 @@
     
     </summary>
     
+      <category term="移动" scheme="http://jacean.github.io/categories/%E7%A7%BB%E5%8A%A8/"/>
+    
     
       <category term="Android" scheme="http://jacean.github.io/tags/Android/"/>
     
@@ -755,7 +814,7 @@
     <link href="http://jacean.github.io/2016/03/24/Eclipse%E6%89%93%E5%BC%80genymotion%E6%A8%A1%E6%8B%9F%E5%99%A8%E7%9A%84sd%E5%8D%A1/"/>
     <id>http://jacean.github.io/2016/03/24/Eclipse打开genymotion模拟器的sd卡/</id>
     <published>2016-03-24T11:32:11.000Z</published>
-    <updated>2016-03-24T14:09:28.815Z</updated>
+    <updated>2016-04-16T04:45:05.494Z</updated>
     
     <content type="html">&lt;p&gt;开发Android的时候，除了真机调试外，一个流畅的Android虚拟机可以提高开发体验，避免很多时候因为等待虚拟机而造成的烦躁。&lt;br&gt;genymotion模拟器是传说中最流畅的Android模拟器，想要开发Android必不可少的利器。&lt;br&gt;安装完genymotion后，在开发过程中，势必与模拟器中的文件要进行交互，怎么打开并使用模拟器中的SD卡，且见下文分晓。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -775,6 +834,8 @@
     
     </summary>
     
+      <category term="移动" scheme="http://jacean.github.io/categories/%E7%A7%BB%E5%8A%A8/"/>
+    
     
       <category term="Android" scheme="http://jacean.github.io/tags/Android/"/>
     
@@ -789,7 +850,7 @@
     <link href="http://jacean.github.io/2016/03/24/Ubuntu%E7%8A%B6%E6%80%81%E6%A0%8F%E6%98%BE%E7%A4%BA%E7%BD%91%E9%80%9FCPU/"/>
     <id>http://jacean.github.io/2016/03/24/Ubuntu状态栏显示网速CPU/</id>
     <published>2016-03-24T10:30:04.000Z</published>
-    <updated>2016-03-24T10:43:13.287Z</updated>
+    <updated>2016-04-16T04:56:17.664Z</updated>
     
     <content type="html">&lt;p&gt;作为系统操作的重要操作参数，网速和CPU占用等等，一直使用者所关心的。尤其是在需要下载或是上传文件的时候，对网速的关注可能会超出自己的想象，一直想要监视着网速。&lt;br&gt;所以，就找找能够在ubuntu状态栏上显示网速的插件程序。&lt;br&gt;&lt;a href=&quot;http://tieba.baidu.com/p/3005287033&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考文章找到了indicator-sysmonitor&lt;/a&gt;.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;下载indicator-sysmonitor&quot;&gt;&lt;a href=&quot;#下载indicator-sysmonitor&quot; class=&quot;headerlink&quot; title=&quot;下载indicator-sysmonitor&quot;&gt;&lt;/a&gt;下载indicator-sysmonitor&lt;/h3&gt;&lt;p&gt;这个软件需要一些依赖包，终端执行&lt;/p&gt;
@@ -822,6 +883,8 @@
     
     </summary>
     
+      <category term="Linux" scheme="http://jacean.github.io/categories/Linux/"/>
+    
     
       <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
     
@@ -832,7 +895,7 @@
     <link href="http://jacean.github.io/2016/03/24/PHPExcel%E6%93%8D%E4%BD%9Csae%E7%9A%84storage%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6/"/>
     <id>http://jacean.github.io/2016/03/24/PHPExcel操作sae的storage上的文件/</id>
     <published>2016-03-24T04:38:33.000Z</published>
-    <updated>2016-03-24T04:48:06.954Z</updated>
+    <updated>2016-04-16T04:53:34.379Z</updated>
     
     <content type="html">&lt;p&gt;在用PHPexcel操作excel的时候，在本地是好使的，但是把代码部署到sae就不好使了。会遇到文件操作被拒绝的问题。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sae-2.png&quot; alt=&quot;文件操作被拒绝&quot;&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;这个原因就是sae上的应用文件是不允许改动的。sae提供的文件方案是使用storage，所以可以把文件存储在storage来进行操作。&lt;br&gt;具体解决可以如下：&lt;br&gt;我在sae应用里新建一个domain域files（这个名字必须是小写字母或数字，如果是大写字母的话虽然可以在Cyberduck上新建成功，在domain管理里看到，但是是无效的domain）。在这个files下新建文件夹Files，然后把要操作的excel上传。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sae-3.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sae-4.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;如上。&lt;br&gt;我对excel的操作代码如下：&lt;/p&gt;
@@ -854,6 +917,8 @@
     
     </summary>
     
+      <category term="后端" scheme="http://jacean.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
     
       <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
     
@@ -868,7 +933,7 @@
     <link href="http://jacean.github.io/2016/03/24/PHPExcel%E4%B8%8A%E4%BC%A0sae%E9%81%87%E5%88%B0-1-fail-to-get-xml-content/"/>
     <id>http://jacean.github.io/2016/03/24/PHPExcel上传sae遇到-1-fail-to-get-xml-content/</id>
     <published>2016-03-24T04:26:25.000Z</published>
-    <updated>2016-03-24T04:35:53.216Z</updated>
+    <updated>2016-04-16T04:53:45.483Z</updated>
     
     <content type="html">&lt;p&gt;在用PHPExcel1.8.0来处理excel时，本地测试时好使的，但是要把代码部署到SAE，在上传代码的时候就会遇到这个问题。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -894,6 +959,8 @@
     
     </summary>
     
+      <category term="后端" scheme="http://jacean.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
     
       <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
     
@@ -908,7 +975,7 @@
     <link href="http://jacean.github.io/2016/03/24/PHPExcel%E8%BF%BD%E5%8A%A0%E4%B8%80%E8%A1%8C/"/>
     <id>http://jacean.github.io/2016/03/24/PHPExcel追加一行/</id>
     <published>2016-03-24T04:12:57.000Z</published>
-    <updated>2016-03-24T04:25:35.235Z</updated>
+    <updated>2016-04-16T04:53:57.111Z</updated>
     
     <content type="html">&lt;p&gt;有项目需要用PHP操作excel，于是就找到了PHPExcel这个库，简单的使用了下。写入还是很方便的，但是我在追加一行的时候遇到了问题，总是会出现追加后只有追加的那一行，而原本的就没有了。&lt;br&gt;把好使的代码记下。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/** Include PHPExcel */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;require_once&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;Classes/PHPExcel.php&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;require_once&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;Classes/PHPExcel/IOFactory.php&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel = PHPExcel_IOFactory::load(&lt;span class=&quot;string&quot;&gt;&quot;myfile.xlsx&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;setActiveSheetIndex(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$row = $objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;getHighestRow()+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//echo $row;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;.$row, $_POST[&lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;.$row, $_POST[&lt;span class=&quot;string&quot;&gt;&#39;email&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;C&#39;&lt;/span&gt;.$row, $_POST[&lt;span class=&quot;string&quot;&gt;&#39;phone&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;D&#39;&lt;/span&gt;.$row, $_POST[&lt;span class=&quot;string&quot;&gt;&#39;city&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;E&#39;&lt;/span&gt;.$row, $_POST[&lt;span class=&quot;string&quot;&gt;&#39;kid1&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;F&#39;&lt;/span&gt;.$row, $_POST[&lt;span class=&quot;string&quot;&gt;&#39;kid2&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objWriter = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; PHPExcel_Writer_Excel2007($objPHPExcel);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objWriter-&amp;gt;save(&lt;span class=&quot;string&quot;&gt;&#39;myfile.xlsx&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -922,6 +989,8 @@
       &lt;p&gt;有项目需要用PHP操作excel，于是就找到了PHPExcel这个库，简单的使用了下。写入还是很方便的，但是我在追加一行的时候遇到了问题，总是会出现追加后只有追加的那一行，而原本的就没有了。&lt;br&gt;把好使的代码记下。&lt;br&gt;
     
     </summary>
+    
+      <category term="后端" scheme="http://jacean.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
     
     
       <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
@@ -937,7 +1006,7 @@
     <link href="http://jacean.github.io/2016/03/23/%E8%87%AA%E6%97%8B%E9%94%81%E5%92%8C%E4%BA%92%E6%96%A5%E9%94%81/"/>
     <id>http://jacean.github.io/2016/03/23/自旋锁和互斥锁/</id>
     <published>2016-03-23T15:31:48.000Z</published>
-    <updated>2016-03-23T15:50:38.320Z</updated>
+    <updated>2016-04-16T04:59:22.997Z</updated>
     
     <content type="html">&lt;p&gt;为了解决对共享资源的互斥使用，出现了一些锁机制。比如，自旋锁和互斥锁。&lt;br&gt;自旋锁和互斥锁很类似，在任何时刻，最多只能有一个保持者，也就说，在任何时刻最多只能有一个执行单元获得锁。但是两者在调度机制上略有不同。对于互斥锁，如果资源已经被占用，资源申请者只能进入睡眠状态。但是自旋锁不会引起调用者睡眠，如果自旋锁已经被别的执行单元保持，调用者就一直循环在那里看是否该自旋锁的保持者已经释放了锁，”自旋”一词就是因此而得名。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;自旋锁，曾经有个经典的例子来比喻自旋锁：A，B两个人合租一套房子，共用一个厕所，那么这个厕所就是共享资源，且在任一时刻最多只能有一个人在使用。当厕所闲置时，谁来了都可以使用，当A使用时，就会关上厕所门，而B也要使用，但是急啊，就得在门外焦急地等待，急得团团转，是为“自旋”。&lt;br&gt;百度百科：&lt;/p&gt;
@@ -957,67 +1026,10 @@
     
     </summary>
     
+      <category term="Linux" scheme="http://jacean.github.io/categories/Linux/"/>
+    
     
       <category term="操作系统" scheme="http://jacean.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript闭包</title>
-    <link href="http://jacean.github.io/2016/03/23/JavaScript%E9%97%AD%E5%8C%85/"/>
-    <id>http://jacean.github.io/2016/03/23/JavaScript闭包/</id>
-    <published>2016-03-23T03:59:07.000Z</published>
-    <updated>2016-04-02T13:15:24.908Z</updated>
-    
-    <content type="html">&lt;p&gt;在那次面.NET却问前端的面试，被问到了js的闭包。虽然这个经常听到，但是具体是什么样的还真不太清楚，所以就直接说了不知道。&lt;br&gt;吃一堑长一智，今天就好好来学习下js的闭包。万一再碰到这种奇葩咋办。&lt;br&gt;闭包，函数可以使用函数之外定义的变量，具体说，闭包中的函数可以‘记忆’它创建时候的环境。&lt;br&gt;一个闭包就是一个使用了外部变量的函数。&lt;br&gt;参考文章&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;闭包&lt;/a&gt;,例子借用此文，加注个人看法。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Update-16-04-04&quot;&gt;&lt;a href=&quot;#Update-16-04-04&quot; class=&quot;headerlink&quot; title=&quot;Update 16.04.04&quot;&gt;&lt;/a&gt;Update 16.04.04&lt;/h3&gt;&lt;p&gt;项目运用闭包。&lt;br&gt;在js给html的元素添加事件的时候，需要指定对象。一般直接指定就ok。但是当循环指定的时候，你的函数指定了，但是里面涉及到循环的变量却并没有固定，它还会随着循环一直变化，在你调用的时候发现根本不好使了。&lt;br&gt;这时候就需要闭包了。&lt;br&gt;下边是进行微信开发时，为了给每一个ｍａｒｋｅｒ添加点击事件而写的代码。&lt;br&gt;在循环中使用注释代码，那么在触发事件的时候，不会有执行，跟踪调试就会发现，原来此时的ｌａｂｅｌ是label[label.length],这么一个不存在的对象，那么自然也无法执行了。究其原因，就是因为事件绑定的时候只是给了事件函数，但是在触发调用的时候里面的值以及变了，变成了循环最后的值，这才导致整个事件执行失败。&lt;br&gt;解决办法就是在绑定函数的时候，把变量给固化在函数里，这样循环也不会影响函数内变量的值，这就需要用到闭包。&lt;/p&gt;
-&lt;p&gt;‘’’JavaScript&lt;/p&gt;
-&lt;p&gt;//闭包函数&lt;br&gt;function markerChangeVisible(marker,map){&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;return function(){
-    marker.setMap(map);
-    if(marker.getVisible()){
-        marker.setVisible(false);
-    }else{
-        marker.setVisible(true);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; }&lt;/p&gt;
-&lt;p&gt;for(var i=0;i&amp;lt;makers.length;i++){&lt;br&gt;        var m=makers[i];&lt;br&gt;        var lable=labels[i];&lt;br&gt;        //闭包&lt;br&gt;        qq.maps.event.addListener(m,”click”,markerChangeVisible(lable,map));&lt;br&gt;        //qq.maps.event.addListener(m,”click”,function(){&lt;br&gt;        //    //alert(m.getTitle());&lt;br&gt;        //    if (label.getVisible()) {&lt;br&gt;        //        label.setVisible(false);&lt;br&gt;        //    } else {&lt;br&gt;        //        label.setVisible(true);&lt;br&gt;        //    }&lt;br&gt;        //});&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;‘’’&lt;/p&gt;
-&lt;h3 id=&quot;原理浅读&quot;&gt;&lt;a href=&quot;#原理浅读&quot; class=&quot;headerlink&quot; title=&quot;原理浅读&quot;&gt;&lt;/a&gt;原理浅读&lt;/h3&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;init&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; name=&lt;span class=&quot;string&quot;&gt;&quot;jacean&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;display&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    display();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;init();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;输出：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;jacean&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这个例子中，name并没有在display中定义，但是却使用了外部的name。这实质上就是init函数组成了一个闭包。闭包是一种特殊的对象。它由两部分构成：函数，以及创建该函数的环境。环境由闭包创建时在作用域中的任何局部变量组成。在我们的例子中，init() 是一个闭包，由 display 函数和闭包创建时存在的 “jacean” 字符串形成。&lt;br&gt;如果&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;init&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; name=&lt;span class=&quot;string&quot;&gt;&quot;jacean&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;display&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;   display();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; fun=init();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fun();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;这样的话就会看到输出同样的结果。在fun函数创建的时候，init了一个闭包，闭包里包含name参数和函数display，这就是创建时的环境。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;makeAdder&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;x&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;y&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; x + y;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; add5 = makeAdder(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; add10 = makeAdder(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(add5(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;));  &lt;span class=&quot;comment&quot;&gt;// 7&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(add10(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)); &lt;span class=&quot;comment&quot;&gt;// 12&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
-&lt;p&gt;在这个示例中，我们定义了 makeAdder(x) 函数：带有一个参数 x 并返回一个新的函数。返回的函数带有一个参数 y，并返回 x 和 y 的和。&lt;br&gt;从本质上讲，makeAdder 是一个函数工厂 — 创建将指定的值和它的参数求和的函数，在上面的示例中，我们使用函数工厂创建了两个新函数 — 一个将其参数和 5 求和，另一个和 10 求和。&lt;br&gt;add5 和 add10 都是闭包。它们共享相同的函数定义，但是保存了不同的环境。在 add5 的环境中，x 为 5。而在 add10 中，x 则为 10。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这个例子中可以看出，在声明add5和add10的时候，makeAdder已经利用参数5和10分别创建了两个实例闭包，虽然是同一个函数定义，但是却因为参数不同保存了不同的环境，在内部函数执行的时候，使用的参数也不同。&lt;/p&gt;
-&lt;p&gt;可以看出，闭包是允许将函数与其所操作的某些数据环境关联起来，根据不同的需要环境执行不同的操作。而这个操作区别并不在函数定义之内，完全尤其所在环境决定，有使用者轻易支配，避免了对环境复杂的分析转化，很有用。&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;function makeSizer(size) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  return function() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    document.body.style.fontSize = size + &#39;px&#39;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var size12 = makeSizer(12);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var size14 = makeSizer(14);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var size16 = makeSizer(16);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;document.getElementById(&#39;size-12&#39;).onclick = size12;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;document.getElementById(&#39;size-14&#39;).onclick = size14;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;document.getElementById(&#39;size-16&#39;).onclick = size16;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;a href=&quot;#&quot; id=&quot;size-12&quot;&amp;gt;12&amp;lt;/a&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;a href=&quot;#&quot; id=&quot;size-14&quot;&amp;gt;14&amp;lt;/a&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;a href=&quot;#&quot; id=&quot;size-16&quot;&amp;gt;16&amp;lt;/a&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;可以看出，这样避免了事件响应时执行函数不同而需要重新声明的麻烦。onclik需要一个方法，这个方法是不能有参数的对吧，所以你不能通过给一个普通函数传递参数的方法实现3次不同的调用，但通过闭包返回函数，确实做到了这一步。这的确是很大的简化。&lt;/p&gt;
-&lt;p&gt;有一个常见错误是在循环中创建闭包。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;showHelp&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;help&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&quot;string&quot;&gt;&#39;help&#39;&lt;/span&gt;).innerHTML = help;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;setupHelp&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; helpText = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;id&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;email&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;help&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;Your e-mail address&#39;&lt;/span&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;id&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;help&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;Your full name&#39;&lt;/span&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;id&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;age&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;help&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;Your age (you must be over 16)&#39;&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; helpText.length; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; item = helpText[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementById(item.id).onfocus = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      showHelp(item.help);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setupHelp();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;虽然乍看起来没有错误，但是执行起来并不会有期望的效果。&lt;br&gt;在onfoucs的回调被执行的时候，循环早已完成，此时item已经指向了最后一项，所以结果是3个点击显示的都是最后一个。&lt;br&gt;原因就在于赋给onfoucs的是匿名函数而不是闭包对象，匿名函数共享同一个环境item，而item在循环中可变，并没有固定值在匿名函数中。&lt;br&gt;可以通过使onfocus指向一个新的闭包对象，通过闭包对象记忆创建环境的特征，把item固化。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;showHelp&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;help&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&quot;string&quot;&gt;&#39;help&#39;&lt;/span&gt;).innerHTML = help;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;makeHelpCallback&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;help&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    showHelp(help);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;setupHelp&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; helpText = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;id&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;email&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;help&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;Your e-mail address&#39;&lt;/span&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;id&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;help&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;Your full name&#39;&lt;/span&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;id&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;age&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;help&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;Your age (you must be over 16)&#39;&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; helpText.length; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; item = helpText[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementById(item.id).onfocus = makeHelpCallback(item.help);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setupHelp();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这段代码可以如我们所期望的那样工作。所有的回调不再共享同一个环境， makeHelpCallback 函数为每一个回调创建一个新的环境。在这些环境中，help 指向 helpText 数组中对应的字符串。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;以上，闭包可以看做是固化函数创建时环境的一种手段，可以有效的简化因为不同参数需求而又不能有参数设定的地方,又能够有效避免可变量对参数的影响。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在那次面.NET却问前端的面试，被问到了js的闭包。虽然这个经常听到，但是具体是什么样的还真不太清楚，所以就直接说了不知道。&lt;br&gt;吃一堑长一智，今天就好好来学习下js的闭包。万一再碰到这种奇葩咋办。&lt;br&gt;闭包，函数可以使用函数之外定义的变量，具体说，闭包中的函数可以‘记忆’它创建时候的环境。&lt;br&gt;一个闭包就是一个使用了外部变量的函数。&lt;br&gt;参考文章&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures&quot;&gt;闭包&lt;/a&gt;,例子借用此文，加注个人看法。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://jacean.github.io/tags/JavaScript/"/>
     
   </entry>
   
