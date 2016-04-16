@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://jacean.github.io/2016/04/15/github配置webhooks实现博客自动部署到服务器/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
 <meta property="og:description" content="最近买了腾讯云的服务器,就想着把博客迁移到腾讯云,毕竟github在国内的访问速度有限而且百度也不搜索.但是,总不能每次push到github,还需要跑到服务器去pull吧,那可真是呵呵了就.索性,github提供了webhooks来自定义git相关的执行动作,所以就试试咯~">
-<meta property="og:updated_time" content="2016-04-16T04:47:28.702Z">
+<meta property="og:updated_time" content="2016-04-16T05:51:28.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github配置webhooks实现博客自动部署到服务器">
 <meta name="twitter:description" content="最近买了腾讯云的服务器,就想着把博客迁移到腾讯云,毕竟github在国内的访问速度有限而且百度也不搜索.但是,总不能每次push到github,还需要跑到服务器去pull吧,那可真是呵呵了就.索性,github提供了webhooks来自定义git相关的执行动作,所以就试试咯~">
@@ -318,6 +318,10 @@
 <blockquote>
 <p>git pull origin master</p>
 </blockquote>
+<p>update:<br>直接git pull的话有时候会提示本地修改将被覆盖,导致不能正确更新,所以重写如下:</p>
+<blockquote>
+<p>git fetch –all<br>git reset –hard origin/master </p>
+</blockquote>
 <h3 id="github设置webhooks关联"><a href="#github设置webhooks关联" class="headerlink" title="github设置webhooks关联"></a>github设置webhooks关联</h3><p>然后在github,你的项目中,设置,webhooks&amp;servies,add webhooks.</p>
 <blockquote>
 <p>Payload URL:<a href="http://www.xxx.xxx/githook.php" target="_blank" rel="external">http://www.xxx.xxx/githook.php</a></p>
@@ -339,7 +343,7 @@
         <p><span>本文标题:</span><a href="/2016/04/15/github配置webhooks实现博客自动部署到服务器/">github配置webhooks实现博客自动部署到服务器</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年04月15日 - 20时26分</p>
-        <p><span>最后更新:</span>2016年04月16日 - 12时47分</p>
+        <p><span>最后更新:</span>2016年04月16日 - 13时51分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/15/github配置webhooks实现博客自动部署到服务器/" title="github配置webhooks实现博客自动部署到服务器">http://jacean.github.io/2016/04/15/github配置webhooks实现博客自动部署到服务器/</a>
             <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/04/15/github配置webhooks实现博客自动部署到服务器/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
