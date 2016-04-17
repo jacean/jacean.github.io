@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>onenote笔记导出成markdown发布到Hexo | Jacean say Hello</title>
+  <title>泛解析结合虚拟主机实现多域名访问不同端口或路径 | Jacean say Hello</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先说明一点，就是我并没有找到可以直接由onenote笔记转换成markdown的方式。许多方法都是通过迂回策略，也就是先将onenote导出word，再把word转换成HTML，然后再转成markdown。虽然有些麻烦，但还是挺好用的。需要用到unoconv和pandoc。原文ubuntu 下将 word 文件转换为 markdown">
+  <meta name="description" content="Jacean 的博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="onenote笔记导出成markdown发布到Hexo">
-<meta property="og:url" content="http://jacean.github.io/2016/03/15/onenote笔记导出成markdown发布到Hexo/index.html">
+<meta property="og:title" content="泛解析结合虚拟主机实现多域名访问不同端口或路径">
+<meta property="og:url" content="http://jacean.github.io/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-2/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
-<meta property="og:description" content="首先说明一点，就是我并没有找到可以直接由onenote笔记转换成markdown的方式。许多方法都是通过迂回策略，也就是先将onenote导出word，再把word转换成HTML，然后再转成markdown。虽然有些麻烦，但还是挺好用的。需要用到unoconv和pandoc。原文ubuntu 下将 word 文件转换为 markdown">
-<meta property="og:updated_time" content="2016-04-16T04:53:19.351Z">
+<meta property="og:description" content="Jacean 的博客">
+<meta property="og:updated_time" content="2016-04-17T16:12:54.796Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="onenote笔记导出成markdown发布到Hexo">
-<meta name="twitter:description" content="首先说明一点，就是我并没有找到可以直接由onenote笔记转换成markdown的方式。许多方法都是通过迂回策略，也就是先将onenote导出word，再把word转换成HTML，然后再转成markdown。虽然有些麻烦，但还是挺好用的。需要用到unoconv和pandoc。原文ubuntu 下将 word 文件转换为 markdown">
+<meta name="twitter:title" content="泛解析结合虚拟主机实现多域名访问不同端口或路径">
+<meta name="twitter:description" content="Jacean 的博客">
   
     <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
   
@@ -269,11 +269,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-onenote笔记导出成markdown发布到Hexo" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-泛解析结合虚拟主机实现多域名访问不同端口或路径-2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/15/onenote笔记导出成markdown发布到Hexo/" class="article-date">
-      <time datetime="2016-03-15T08:32:17.000Z" itemprop="datePublished">2016-03-15</time>
+      <a href="/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-2/" class="article-date">
+      <time datetime="2016-04-17T16:12:54.000Z" itemprop="datePublished">2016-04-18</time>
 </a>
     </div>
   
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      onenote笔记导出成markdown发布到Hexo
+      泛解析结合虚拟主机实现多域名访问不同端口或路径
     </h1>
   
 
@@ -294,16 +294,8 @@
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/博客建设/">博客建设</a>
-    </div>
-
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OneNote/">OneNote</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -311,12 +303,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>首先说明一点，就是我并没有找到可以直接由onenote笔记转换成markdown的方式。许多方法都是通过迂回策略，也就是先将onenote导出word，再把word转换成HTML，然后再转成markdown。<br>虽然有些麻烦，但还是挺好用的。需要用到unoconv和pandoc。原文<a href="http://wenzhixin.net.cn/2014/01/03/convert_word_to_markdown" target="_blank" rel="external">ubuntu 下将 word 文件转换为 markdown</a><br><a id="more"></a></p>
-<blockquote>
-<p>主要介绍如何将 word 文件转换为 markdown 文件。<br>第一步：安装 unoconv 和 pandoc<br><em>sudo apt-get install unoconv pandoc</em><br>第二步：将 word 文件转换 html<br><em>unoconv -f html -o file.html file.docx</em><br>-f html：指定我们要转为 html 格式（format）<br>-o file.html：表示输出（output）的文件名为 file.html<br>file.docx：表示要转换的文件为 file.docx<br>第三步：将 html 转换为 markdown<br><em>pandoc -f html -t markdown -o file.md file.html</em><br>-f html：指定我们要从什么文件（from）转换<br>-t markdown：指定我们要转为 markdown 格式（to）<br>-o file.md：表示输出（output）的文件名为 file.md<br>file.docx：表示要转换的文件为 file.html<br>第四步：将图片拷贝到 images 中<br>转换出来后会有很多图片，需要将图片拷贝到 images 文件夹中， 然后在替换 md 中的 ![]( 为 ![(images/ 即可。</p>
-</blockquote>
-<p>但是我转换后并没有出现image，具体看代码，发现转换后的html里引用的文件都成了直接的编码表示。所以可以在网页中另存为图片了。</p>
-
+        
       
     </div>
     
@@ -324,13 +311,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/15/onenote笔记导出成markdown发布到Hexo/">onenote笔记导出成markdown发布到Hexo</a></p>
+        <p><span>本文标题:</span><a href="/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-2/">泛解析结合虚拟主机实现多域名访问不同端口或路径</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
-        <p><span>发布时间:</span>2016年03月15日 - 16时32分</p>
-        <p><span>最后更新:</span>2016年04月16日 - 12时53分</p>
+        <p><span>发布时间:</span>2016年04月18日 - 00时12分</p>
+        <p><span>最后更新:</span>2016年04月18日 - 00时12分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/15/onenote笔记导出成markdown发布到Hexo/" title="onenote笔记导出成markdown发布到Hexo">http://jacean.github.io/2016/03/15/onenote笔记导出成markdown发布到Hexo/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/03/15/onenote笔记导出成markdown发布到Hexo/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-2/" title="泛解析结合虚拟主机实现多域名访问不同端口或路径">http://jacean.github.io/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-2/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -343,16 +330,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/15/浏览器首页被hao-qquu8-com-tn-……篡改/">
-                    浏览器首页被hao.qquu8.com/tn=……篡改
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/15/C-设置ListView行高/">
-                    C#设置ListView行高
+                <a href="/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-1/">
+                    泛解析结合虚拟主机实现多域名访问不同端口或路径
                 </a>
             </div>
         
@@ -425,7 +406,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/15/onenote笔记导出成markdown发布到Hexo/" data-title="onenote笔记导出成markdown发布到Hexo" data-url="http://jacean.github.io/2016/03/15/onenote笔记导出成markdown发布到Hexo/"></div>
+    <div class="ds-thread" data-thread-key="2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-2/" data-title="泛解析结合虚拟主机实现多域名访问不同端口或路径" data-url="http://jacean.github.io/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-2/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -449,15 +430,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/15/浏览器首页被hao-qquu8-com-tn-……篡改/" title="上一篇: 浏览器首页被hao.qquu8.com/tn=……篡改">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/15/C-设置ListView行高/" title="下一篇: C#设置ListView行高">
+            <a href="/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-1/" title="下一篇: 泛解析结合虚拟主机实现多域名访问不同端口或路径">
                 <i class="fa fa-angle-right"></i>
             </a>
         
