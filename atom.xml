@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-04-16T04:48:57.358Z</updated>
+  <updated>2016-04-17T16:03:30.897Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -14,6 +14,123 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>泛解析结合虚拟主机实现多域名访问不同端口或路径</title>
+    <link href="http://jacean.github.io/2016/04/17/%E6%B3%9B%E8%A7%A3%E6%9E%90%E7%BB%93%E5%90%88%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E7%AB%AF%E5%8F%A3%E6%88%96%E8%B7%AF%E5%BE%84/"/>
+    <id>http://jacean.github.io/2016/04/17/泛解析结合虚拟主机实现多域名访问不同端口或路径/</id>
+    <published>2016-04-17T14:30:32.000Z</published>
+    <updated>2016-04-17T16:03:30.897Z</updated>
+    
+    <content type="html">&lt;p&gt;自从买了腾讯云,就有种把自己的一切都转移过来的冲动,也开始这样做了.&lt;br&gt;然后买了域名&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;jacean.cn&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在腾讯域名云解析等了好久不见成功,就转到dnspod去解析,结果还是等了好久不成功,最后在腾讯域名注册页面发现还有个资格认证,就赶紧填资料,然后上传,等验证成功后马上就解析成功了.噢耶.&lt;br&gt;于是就赶紧配置主机咯.主机是用的xampp,apache80端口,然后访问域名就直接到80,继续访问.&lt;br&gt;但是这样,只访问一个网站,实在是太浪费了,所以我要一个域名访问一个IP的不同路径和不同端口,于是就有了这篇文章.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;先看看我最开始的解析设置吧.&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/dns-proxy-1.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;可以看到,我设置了www解析和直接解析.暂时域名背景如此,继续.&lt;/p&gt;
+&lt;h2 id=&quot;代理80访问转至tomcat的8080&quot;&gt;&lt;a href=&quot;#代理80访问转至tomcat的8080&quot; class=&quot;headerlink&quot; title=&quot;代理80访问转至tomcat的8080&quot;&gt;&lt;/a&gt;代理80访问转至tomcat的8080&lt;/h2&gt;&lt;p&gt;这是我最开始做的,因为jsp的解析需要tomcat,而apache80后,tomcat是8080,我又不能让我的域名每次访问时再加端口,多麻烦.于是就想到了代理.看下面的&lt;br&gt;文件是c:\xampp\apache\conf\extra\httpd-vhosts.conf&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;virtualhost *:80=&quot;&quot;&gt;&lt;br&gt;    ServerName jacean.cn&lt;br&gt;    ProxyPass /jsp/ &lt;a href=&quot;http://www.jacean.cn:8080/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jacean.cn:8080/&lt;/a&gt;&lt;br&gt;    ProxyPassReverse /jsp/ &lt;a href=&quot;http://www.jacean.cn:8080/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jacean.cn:8080/&lt;/a&gt;&lt;br&gt;&lt;/virtualhost&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;这样设置后,重启apache,访问&lt;em&gt;jacean.cn/jsp/&lt;/em&gt;,就可以转动我的8080端口,也就是tomcat监听的端口,去进行jsp解析.没有问题.&lt;br&gt;也还好啦.不过,这样做的结果是只能解析这一个.当我在加入其他的,比如&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;virtualhost *:80=&quot;&quot;&gt;&lt;br&gt;    ServerName jacean.cn&lt;br&gt;    ProxyPass /git/ &lt;a href=&quot;http://www.jacean.cn/gitstack/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jacean.cn/gitstack/&lt;/a&gt;&lt;br&gt;    ProxyPassReverse /git/ &lt;a href=&quot;http://www.jacean.cn/gitstack/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jacean.cn/gitstack/&lt;/a&gt;&lt;br&gt;&lt;/virtualhost&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;时就不好使了,只能解析第一个.&lt;br&gt;这样肯定就不开心了不是,我想要大家一起玩,不能你玩了我就不能玩了啊.&lt;br&gt;尤其是当我要把我的博客也搬到这里来时&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;virtualhost *:80=&quot;&quot;&gt;&lt;br&gt;    DocumentRoot “C:/xampp/htdocs/jacean.github.io”&lt;br&gt;    ServerName jacean.cn&lt;br&gt;&lt;/virtualhost&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;于是我就另寻它路.找到了泛解析.&lt;/p&gt;
+&lt;h2 id=&quot;泛解析实现一个域名多个子域名&quot;&gt;&lt;a href=&quot;#泛解析实现一个域名多个子域名&quot; class=&quot;headerlink&quot; title=&quot;泛解析实现一个域名多个子域名&quot;&gt;&lt;/a&gt;泛解析实现一个域名多个子域名&lt;/h2&gt;&lt;p&gt;且看新的域名解析配置&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/dns-proxy-2.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;可以看到,比之前多了一个星号(*)的解析字段.&lt;br&gt;什么是泛域名,咱再说一说.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;www：解析后的域名为 www.jacean.cn&lt;br&gt;@：直接解析主域名 jacean.cn&lt;br&gt;&lt;em&gt;：泛解析，匹配其他所有域名 &lt;/em&gt;.jacean.cn&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注册域名,是注册一个#.#,比如我的就是jacean.cn,还有jacean.com,或者jacean.com.cn,这都算是域名,就是没有前缀.&lt;br&gt;当解析字段是www时,就是解析www.jacean.cn,访问其他的比如a.jacean.cn是不行的,会访问不到.而@解析就是直接解析主域名,也就是直接输入jacean.cn是可以访问的.&lt;br&gt;当设置了&lt;em&gt;*后,那就是泛解析了.泛解析是一种避免输入错误的措施,是将&lt;/em&gt;.#.com全部解析到主机.比如a.jacean.cn,b.jacean.cn都是解析到jacean.cn我的主机.但是,确确实实这是不一样的域名了.&lt;br&gt;而我们就可以利用这种区别,去实现多域名绑定,让apache实现不同的网站服务.&lt;/p&gt;
+&lt;h2 id=&quot;apache配置虚拟主机多域名&quot;&gt;&lt;a href=&quot;#apache配置虚拟主机多域名&quot; class=&quot;headerlink&quot; title=&quot;apache配置虚拟主机多域名&quot;&gt;&lt;/a&gt;apache配置虚拟主机多域名&lt;/h2&gt;&lt;p&gt;现在直接上配置&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;VirtualHost *:80&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    DocumentRoot &amp;quot;C:/xampp/htdocs/jacean.github.io&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ServerName blog.jacean.cn&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;VirtualHost *:80&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    DocumentRoot &amp;quot;C:/xampp/htdocs/jaceanwx&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ServerName wx.jacean.cn&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;VirtualHost *:80&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ServerName jsp.jacean.cn&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ProxyPass / http://www.jacean.cn:8080/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ProxyPassReverse / http://www.jacean.cn:8080/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;VirtualHost *:80&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ServerName git.jacean.cn&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ProxyPass / http://www.jacean.cn:8088/gitstack/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ProxyPassReverse / http://www.jacean.cn:8088/gitstack/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;是不是看起来很爽.一下子感觉自己有了好多域名,可以随意挥霍了.&lt;br&gt;前两个都是同一端口下,只是做了根目录的改变.这样做的好处是,如果你的网站是使用的相对路径的话,保证你的相对路径好使.&lt;br&gt;比如我的blog里有很多是直接/xxx根路径下的,当我用了&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;virtualhost *:80=&quot;&quot;&gt;&lt;br&gt;    ServerName jacean.cn&lt;br&gt;    ProxyPass /blog/ &lt;a href=&quot;http://www.jacean.cn/jacean.github.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jacean.cn/jacean.github.io&lt;/a&gt;&lt;br&gt;    ProxyPassReverse /blog/ &lt;a href=&quot;http://www.jacean.cn/jacean.github.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jacean.cn/jacean.github.io&lt;/a&gt;&lt;br&gt;&lt;/virtualhost&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;后,访问是可以访问到主页的,但是相对于根目录的一些图片啊引用啥的,就访问不到了,整个页面全乱了.&lt;br&gt;本来是在jacean.github.io/下面的东西,会直接在documentroot下找.&lt;br&gt;反向代理是把比如jacean/blog/index.php转向到jacean/jacean.github.io/index.php,这样是对的,但是在页面内容加载的时候,里面的内容并没有经过这个代理,因为根路径依然是/,而不是/blog/.&lt;br&gt;所以最后采用的是如上配置文件里的前两个所用的方案.&lt;/p&gt;
+&lt;p&gt;后面两个需要转移端口的,直接做了反向代理,这个因为是根路径的转移,所以也不会产生上面所述的问题.&lt;/p&gt;
+&lt;p&gt;有一点不好的是,gtistack的网站模式不寻常啊,,,这样git.jacean.cn访问之后,地址栏的连接会变成有端口的那种,很难看,不像jsp.jacean.cn不会.我没有解决方案,有看到我博客的可以给我评论帮我解决下哦.&lt;/p&gt;
+&lt;p&gt;注意一点就是,&lt;strong&gt;如果没有找到匹配的就会默认使用第一个&lt;/strong&gt;,我默认的就是我的博客.&lt;br&gt;所以我现在有了&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;blog.jacean.cn    博客&lt;br&gt;wx.jacean.cn        微信开发&lt;br&gt;git.jacean.cn       git服务器&lt;br&gt;jsp.jacean.cn       jsp网站解析&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;恭喜恭喜,不客气不客气&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;自从买了腾讯云,就有种把自己的一切都转移过来的冲动,也开始这样做了.&lt;br&gt;然后买了域名&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;jacean.cn&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在腾讯域名云解析等了好久不见成功,就转到dnspod去解析,结果还是等了好久不成功,最后在腾讯域名注册页面发现还有个资格认证,就赶紧填资料,然后上传,等验证成功后马上就解析成功了.噢耶.&lt;br&gt;于是就赶紧配置主机咯.主机是用的xampp,apache80端口,然后访问域名就直接到80,继续访问.&lt;br&gt;但是这样,只访问一个网站,实在是太浪费了,所以我要一个域名访问一个IP的不同路径和不同端口,于是就有了这篇文章.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="后端" scheme="http://jacean.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="apache" scheme="http://jacean.github.io/tags/apache/"/>
+    
+      <category term="泛解析" scheme="http://jacean.github.io/tags/%E6%B3%9B%E8%A7%A3%E6%9E%90/"/>
+    
+      <category term="虚拟主机" scheme="http://jacean.github.io/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/"/>
+    
+      <category term="tomcat" scheme="http://jacean.github.io/tags/tomcat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git缓存密码实现https直接提交</title>
+    <link href="http://jacean.github.io/2016/04/17/git%E7%BC%93%E5%AD%98%E5%AF%86%E7%A0%81%E5%AE%9E%E7%8E%B0https%E7%9B%B4%E6%8E%A5%E6%8F%90%E4%BA%A4/"/>
+    <id>http://jacean.github.io/2016/04/17/git缓存密码实现https直接提交/</id>
+    <published>2016-04-17T04:47:01.000Z</published>
+    <updated>2016-04-17T04:59:54.114Z</updated>
+    
+    <content type="html">&lt;p&gt;git是版本控制的利器,配置ssh后,通过ssh可以很方便不需要输入密码就轻松提交.&lt;br&gt;但是,如果没有配置ssh,或是其他原因需要用https的话,就需要不断输入密码,搞得很麻烦.所以可以试着缓存下密码来进行自动push.&lt;br&gt;Ubuntu和windows都可以一句命令实现.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;Ubuntu下:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git config credential.helper store&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;windows下:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git config –global credential.helper wincred&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这样就可以记住密码,自动提交了.&lt;br&gt;第一次输入用户密码,以后就不用了.&lt;/p&gt;
+&lt;p&gt;还有一件事,我在弄的时候不小心把windows下的用在了ubuntu上,就会有提示:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git：’credential-wincred’ 不是一个 git 命令。参见 ‘git –help’。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所以就记得&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git config –global –unset credential.helper wincred&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;来取消设置哦.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;git是版本控制的利器,配置ssh后,通过ssh可以很方便不需要输入密码就轻松提交.&lt;br&gt;但是,如果没有配置ssh,或是其他原因需要用https的话,就需要不断输入密码,搞得很麻烦.所以可以试着缓存下密码来进行自动push.&lt;br&gt;Ubuntu和windows都可以一句命令实现.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://jacean.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://jacean.github.io/tags/Linux/"/>
+    
+      <category term="windows" scheme="http://jacean.github.io/tags/windows/"/>
+    
+      <category term="git" scheme="http://jacean.github.io/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -971,69 +1088,6 @@
       <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
     
       <category term="sae" scheme="http://jacean.github.io/tags/sae/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHPExcel追加一行</title>
-    <link href="http://jacean.github.io/2016/03/24/PHPExcel%E8%BF%BD%E5%8A%A0%E4%B8%80%E8%A1%8C/"/>
-    <id>http://jacean.github.io/2016/03/24/PHPExcel追加一行/</id>
-    <published>2016-03-24T04:12:57.000Z</published>
-    <updated>2016-04-16T04:53:57.111Z</updated>
-    
-    <content type="html">&lt;p&gt;有项目需要用PHP操作excel，于是就找到了PHPExcel这个库，简单的使用了下。写入还是很方便的，但是我在追加一行的时候遇到了问题，总是会出现追加后只有追加的那一行，而原本的就没有了。&lt;br&gt;把好使的代码记下。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/** Include PHPExcel */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;require_once&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;Classes/PHPExcel.php&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;require_once&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;Classes/PHPExcel/IOFactory.php&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel = PHPExcel_IOFactory::load(&lt;span class=&quot;string&quot;&gt;&quot;myfile.xlsx&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;setActiveSheetIndex(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$row = $objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;getHighestRow()+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//echo $row;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;.$row, $_POST[&lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;.$row, $_POST[&lt;span class=&quot;string&quot;&gt;&#39;email&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;C&#39;&lt;/span&gt;.$row, $_POST[&lt;span class=&quot;string&quot;&gt;&#39;phone&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;D&#39;&lt;/span&gt;.$row, $_POST[&lt;span class=&quot;string&quot;&gt;&#39;city&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;E&#39;&lt;/span&gt;.$row, $_POST[&lt;span class=&quot;string&quot;&gt;&#39;kid1&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;F&#39;&lt;/span&gt;.$row, $_POST[&lt;span class=&quot;string&quot;&gt;&#39;kid2&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objWriter = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; PHPExcel_Writer_Excel2007($objPHPExcel);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objWriter-&amp;gt;save(&lt;span class=&quot;string&quot;&gt;&#39;myfile.xlsx&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这样是好使的。&lt;br&gt;来份错误的。&lt;/p&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$php_writer=newPHPExcel_Writer_Excel2007();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$php_excel_obj=$php_writer-&amp;gt;getPHPExcel($file_name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$current_sheet=$php_excel_obj-&amp;gt;getSheet(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$all_column=$current_sheet-&amp;gt;getHighestColumn();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$all_row=$current_sheet-&amp;gt;getHighestDataRow();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$letter=&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;C&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;D&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;E&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$data=&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;($_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputName&#39;&lt;/span&gt;],$_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputClass&#39;&lt;/span&gt;],$_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputEmail&#39;&lt;/span&gt;],$_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputJob&#39;&lt;/span&gt;],$_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputTel&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objReader=PHPExcel_IOFactory::createReader(&lt;span class=&quot;string&quot;&gt;&quot;Excel2007&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$info=$objReader-&amp;gt;listWorksheetInfo($file_name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$row=$info[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;][&lt;span class=&quot;string&quot;&gt;&#39;totalRows&#39;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$all_row=$row;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$x=$all_row+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;($i=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;$i&amp;lt;count($data);$i++)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$current_sheet-&amp;gt;setCellValue(&lt;span class=&quot;string&quot;&gt;&quot;$letter[$i]$x&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;$data[$i]&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$write=newPHPExcel_Writer_Excel2007($php_excel_obj);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;header(&lt;span class=&quot;string&quot;&gt;&quot;Pragma:public&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;header(&lt;span class=&quot;string&quot;&gt;&quot;Expires:0&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;header(&lt;span class=&quot;string&quot;&gt;&quot;Cache-Control:must-revalidate,post-check=0,pre-check=0&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;header(&lt;span class=&quot;string&quot;&gt;&quot;Content-Type:application/force-download&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;header(&lt;span class=&quot;string&quot;&gt;&quot;Content-Type:application/vnd.ms-execl&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;header(&lt;span class=&quot;string&quot;&gt;&quot;Content-Type:application/octet-stream&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;header(&lt;span class=&quot;string&quot;&gt;&quot;Content-Type:application/download&quot;&lt;/span&gt;);;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;header(&lt;span class=&quot;string&quot;&gt;&#39;Content-Disposition:attachment;filename=&quot;testdata.xls&quot;&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;header(&lt;span class=&quot;string&quot;&gt;&quot;Content-Transfer-Encoding:binary&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$write-&amp;gt;save($file_name);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这个最后的结果就是只会写入最新的，而原有的不见了。即使读进去再写也不好使。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;有项目需要用PHP操作excel，于是就找到了PHPExcel这个库，简单的使用了下。写入还是很方便的，但是我在追加一行的时候遇到了问题，总是会出现追加后只有追加的那一行，而原本的就没有了。&lt;br&gt;把好使的代码记下。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://jacean.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
-    
-      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
-    
-      <category term="SAE" scheme="http://jacean.github.io/tags/SAE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自旋锁和互斥锁</title>
-    <link href="http://jacean.github.io/2016/03/23/%E8%87%AA%E6%97%8B%E9%94%81%E5%92%8C%E4%BA%92%E6%96%A5%E9%94%81/"/>
-    <id>http://jacean.github.io/2016/03/23/自旋锁和互斥锁/</id>
-    <published>2016-03-23T15:31:48.000Z</published>
-    <updated>2016-04-16T04:59:22.997Z</updated>
-    
-    <content type="html">&lt;p&gt;为了解决对共享资源的互斥使用，出现了一些锁机制。比如，自旋锁和互斥锁。&lt;br&gt;自旋锁和互斥锁很类似，在任何时刻，最多只能有一个保持者，也就说，在任何时刻最多只能有一个执行单元获得锁。但是两者在调度机制上略有不同。对于互斥锁，如果资源已经被占用，资源申请者只能进入睡眠状态。但是自旋锁不会引起调用者睡眠，如果自旋锁已经被别的执行单元保持，调用者就一直循环在那里看是否该自旋锁的保持者已经释放了锁，”自旋”一词就是因此而得名。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;自旋锁，曾经有个经典的例子来比喻自旋锁：A，B两个人合租一套房子，共用一个厕所，那么这个厕所就是共享资源，且在任一时刻最多只能有一个人在使用。当厕所闲置时，谁来了都可以使用，当A使用时，就会关上厕所门，而B也要使用，但是急啊，就得在门外焦急地等待，急得团团转，是为“自旋”。&lt;br&gt;百度百科：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;跟互斥锁一样，一个执行单元要想访问被自旋锁保护的共享资源，必须先得到锁，在访问完共享资源后，必须释放锁。如果在获取自旋锁时，没有任何执行单元保持该锁，那么将立即得到锁；如果在获取自旋锁时锁已经有保持者，那么获取锁操作将自旋在那里，直到该自旋锁的保持者释放了锁。由此我们可以看出，自旋锁是一种比较低级的保护数据结构或代码片段的原始方式，这种锁可能存在两个问题：&lt;br&gt;死锁。试图递归地获得自旋锁必然会引起死锁：递归程序的持有实例在第二个实例循环，以试图获得相同自旋锁时，不会释放此自旋锁。在递归程序中使用自旋锁应遵守下列策略：递归程序决不能在持有自旋锁时调用它自己，也决不能在递归调用时试图获得相同的自旋锁。此外如果一个进程已经将资源锁定，那么，即使其它申请这个资源的进程不停地疯狂“自旋”,也无法获得资源，从而进入死循环。&lt;br&gt;过多占用cpu资源。如果不加限制，由于申请者一直在循环等待，因此自旋锁在锁定的时候,如果不成功,不会睡眠,会持续的尝试,单cpu的时候自旋锁会让其它process动不了. 因此，一般自旋锁实现会有一个参数限定最多持续尝试次数. 超出后, 自旋锁放弃当前time slice. 等下一次机会&lt;br&gt;由此可见，自旋锁比较适用于锁使用者保持锁时间比较短的情况。正是由于自旋锁使用者一般保持锁时间非常短，因此选择自旋而不是睡眠是非常必要的，自旋锁的效率远高于互斥锁。信号量和读写信号量适合于保持时间较长的情况，它们会导致调用者睡眠，因此只能在进程上下文使用，而自旋锁适合于保持时间非常短的情况，它可以在任何上下文使用。如果被保护的共享资源只在进程上下文访问，使用信号量保护该共享资源非常合适，如果对共享资源的访问时间非常短，自旋锁也可以。但是如果被保护的共享资源需要在中断上下文访问（包括底半部即中断处理句柄和顶半部即软中断），就必须使用自旋锁。自旋锁保持期间是抢占失效的，而信号量和读写信号量保持期间是可以被抢占的。自旋锁只有在内核可抢占或SMP（多处理器）的情况下才真正需要，在单CPU且不可抢占的内核下，自旋锁的所有操作都是空操作。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/swordmanwk/article/details/6819457&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;自旋锁(spin lock)与互斥量(mutex)的比较——多核编程学习笔记2&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;自旋锁是一种非阻塞锁，也就是说，如果某线程需要获取自旋锁，但该锁已经被其他线程占用时，该线程不会被挂起，而是在不断的消耗CPU的时间，不停的试图获取自旋锁。&lt;br&gt;互斥量是阻塞锁，当某线程无法获取互斥量时，该线程会被直接挂起，该线程不再消耗CPU时间，当其他线程释放互斥量后，操作系统会激活那个被挂起的线程，让其投入运行。&lt;br&gt;两种锁适用于不同场景：&lt;br&gt;如果是多核处理器，如果预计线程等待锁的时间很短，短到比线程两次上下文切换时间要少的情况下，使用自旋锁是划算的。&lt;br&gt;如果是多核处理器，如果预计线程等待锁的时间较长，至少比两次线程上下文切换的时间要长，建议使用互斥量。&lt;br&gt;如果是单核处理器，一般建议不要使用自旋锁。因为，在同一时间只有一个线程是处在运行状态，那如果运行线程发现无法获取锁，只能等待解锁，但因为自身不挂起，所以那个获取到锁的线程没有办法进入运行状态，只能等到运行线程把操作系统分给它的时间片用完，才能有机会被调度。这种情况下使用自旋锁的代价很高。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;自旋锁实际上是忙等锁(一直刷新等待),也可能导致系统死锁(递归调用)。&lt;br&gt;互斥锁实际的效率还是可以让人接受的，加锁的时间大概100ns左右，而实际上互斥锁的一种可能的实现是先自旋一段时间，当自旋的时间超过阀值之后再将线程投入睡眠中，因此在并发运算中使用互斥锁（每次占用锁的时间很短）的效果可能不亚于使用自旋锁。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;为了解决对共享资源的互斥使用，出现了一些锁机制。比如，自旋锁和互斥锁。&lt;br&gt;自旋锁和互斥锁很类似，在任何时刻，最多只能有一个保持者，也就说，在任何时刻最多只能有一个执行单元获得锁。但是两者在调度机制上略有不同。对于互斥锁，如果资源已经被占用，资源申请者只能进入睡眠状态。但是自旋锁不会引起调用者睡眠，如果自旋锁已经被别的执行单元保持，调用者就一直循环在那里看是否该自旋锁的保持者已经释放了锁，”自旋”一词就是因此而得名。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://jacean.github.io/categories/Linux/"/>
-    
-    
-      <category term="操作系统" scheme="http://jacean.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
