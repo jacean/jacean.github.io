@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>git配置ssh后提交仍需要密码 | Jacean say Hello</title>
+  <title>泛解析结合虚拟主机实现多域名访问不同端口或路径 | Jacean say Hello</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每次在配置git环境的时候，都会有配置ssh秘钥的步骤，然后根据资料的提示确实配置成功了。但是，每次提交的时候仍然需要输入密码，总觉得自己配置ssh哪里可能出了问题，今天才知道原来是提交的姿势不对。既然配置了ssh秘钥，那么在提交的时候也自然是要以ssh方式提交了。以前一直默认是https。所以，错咯，改吧。">
+  <meta name="description" content="Jacean 的博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git配置ssh后提交仍需要密码">
-<meta property="og:url" content="http://jacean.github.io/2016/03/11/git配置ssh后提交仍需要密码/index.html">
+<meta property="og:title" content="泛解析结合虚拟主机实现多域名访问不同端口或路径">
+<meta property="og:url" content="http://jacean.github.io/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-1/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
-<meta property="og:description" content="每次在配置git环境的时候，都会有配置ssh秘钥的步骤，然后根据资料的提示确实配置成功了。但是，每次提交的时候仍然需要输入密码，总觉得自己配置ssh哪里可能出了问题，今天才知道原来是提交的姿势不对。既然配置了ssh秘钥，那么在提交的时候也自然是要以ssh方式提交了。以前一直默认是https。所以，错咯，改吧。">
-<meta property="og:updated_time" content="2016-04-16T04:48:02.706Z">
+<meta property="og:description" content="Jacean 的博客">
+<meta property="og:updated_time" content="2016-04-17T16:07:21.999Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git配置ssh后提交仍需要密码">
-<meta name="twitter:description" content="每次在配置git环境的时候，都会有配置ssh秘钥的步骤，然后根据资料的提示确实配置成功了。但是，每次提交的时候仍然需要输入密码，总觉得自己配置ssh哪里可能出了问题，今天才知道原来是提交的姿势不对。既然配置了ssh秘钥，那么在提交的时候也自然是要以ssh方式提交了。以前一直默认是https。所以，错咯，改吧。">
+<meta name="twitter:title" content="泛解析结合虚拟主机实现多域名访问不同端口或路径">
+<meta name="twitter:description" content="Jacean 的博客">
   
     <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
   
@@ -269,11 +269,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-git配置ssh后提交仍需要密码" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-泛解析结合虚拟主机实现多域名访问不同端口或路径-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/11/git配置ssh后提交仍需要密码/" class="article-date">
-      <time datetime="2016-03-11T10:14:13.000Z" itemprop="datePublished">2016-03-11</time>
+      <a href="/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-1/" class="article-date">
+      <time datetime="2016-04-17T16:07:21.000Z" itemprop="datePublished">2016-04-18</time>
 </a>
     </div>
   
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      git配置ssh后提交仍需要密码
+      泛解析结合虚拟主机实现多域名访问不同端口或路径
     </h1>
   
 
@@ -294,16 +294,8 @@
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/博客建设/">博客建设</a>
-    </div>
-
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -311,15 +303,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>每次在配置git环境的时候，都会有配置ssh秘钥的步骤，然后根据资料的提示确实配置成功了。但是，每次提交的时候仍然需要输入密码，总觉得自己配置ssh哪里可能出了问题，今天才知道原来是提交的姿势不对。<br>既然配置了ssh秘钥，那么在提交的时候也自然是要以ssh方式提交了。以前一直默认是https。所以，错咯，改吧。<br><a id="more"></a></p>
-<h2 id="Hexo博客ssh免密码提交"><a href="#Hexo博客ssh免密码提交" class="headerlink" title="Hexo博客ssh免密码提交"></a>Hexo博客ssh免密码提交</h2><p>  首先我找到了.deploy_git/.git/config，然后发现里面的远程链接是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[branch &quot;master&quot;]</span><br><span class="line">    remote = https://github.com/jacean/jacean.github.io.git</span><br><span class="line">    merge = refs/heads/master</span><br></pre></td></tr></table></figure>
-<p>  所以我就把它改成了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[branch &quot;master&quot;]</span><br><span class="line">    remote = git@github.com:jacean/jacean.github.io.git</span><br><span class="line">    merge = refs/heads/master</span><br></pre></td></tr></table></figure>
-<p>  然后提交，刷新，发现还是不对。这可咋办，后来继续找，想起在设置和gitpage关联的时候在 _ config.yml里设置过git仓库。点开，发现里面果然也是https，于是赶紧改过来如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:jacean/jacean.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>然后提交，果然好了，不用再输，密码了哈哈。<br>至于具体是哪个起作用的，把.git下的config改成https后还是不需要密码，所以，在Hex中主要是看的Hexo的设置。<br>但是，在其他项目中，因为我们直接是用的git，所以要想走git的ssh，还是需要把.git/config的远程连接改为ssh的模式。</p>
-
+        
       
     </div>
     
@@ -327,13 +311,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/11/git配置ssh后提交仍需要密码/">git配置ssh后提交仍需要密码</a></p>
+        <p><span>本文标题:</span><a href="/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-1/">泛解析结合虚拟主机实现多域名访问不同端口或路径</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
-        <p><span>发布时间:</span>2016年03月11日 - 18时14分</p>
-        <p><span>最后更新:</span>2016年04月16日 - 12时48分</p>
+        <p><span>发布时间:</span>2016年04月18日 - 00时07分</p>
+        <p><span>最后更新:</span>2016年04月18日 - 00时07分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/11/git配置ssh后提交仍需要密码/" title="git配置ssh后提交仍需要密码">http://jacean.github.io/2016/03/11/git配置ssh后提交仍需要密码/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/03/11/git配置ssh后提交仍需要密码/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-1/" title="泛解析结合虚拟主机实现多域名访问不同端口或路径">http://jacean.github.io/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-1/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -346,16 +330,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/12/Hexo自定义页面禁用主题/">
-                    Hexo自定义页面禁用主题
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/11/HelloHexo/">
-                    Hello My HexoBlog
+                <a href="/2016/04/17/泛解析结合虚拟主机实现多域名访问不同端口或路径/">
+                    泛解析结合虚拟主机实现多域名访问不同端口或路径
                 </a>
             </div>
         
@@ -366,7 +344,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo博客ssh免密码提交"><span class="toc-number">1.</span> <span class="toc-text">Hexo博客ssh免密码提交</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -428,7 +406,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/11/git配置ssh后提交仍需要密码/" data-title="git配置ssh后提交仍需要密码" data-url="http://jacean.github.io/2016/03/11/git配置ssh后提交仍需要密码/"></div>
+    <div class="ds-thread" data-thread-key="2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-1/" data-title="泛解析结合虚拟主机实现多域名访问不同端口或路径" data-url="http://jacean.github.io/2016/04/18/泛解析结合虚拟主机实现多域名访问不同端口或路径-1/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -452,15 +430,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/12/Hexo自定义页面禁用主题/" title="上一篇: Hexo自定义页面禁用主题">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/11/HelloHexo/" title="下一篇: Hello My HexoBlog">
+            <a href="/2016/04/17/泛解析结合虚拟主机实现多域名访问不同端口或路径/" title="下一篇: 泛解析结合虚拟主机实现多域名访问不同端口或路径">
                 <i class="fa fa-angle-right"></i>
             </a>
         
