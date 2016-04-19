@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-04-19T15:17:30.583Z</updated>
+  <updated>2016-04-19T15:22:33.253Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jacean.github.io/2016/04/19/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91-php%E4%BD%BF%E7%94%A8ajax%E8%AE%A4%E8%AF%81%E7%AD%BE%E5%90%8D/"/>
     <id>http://jacean.github.io/2016/04/19/微信开发-php使用ajax认证签名/</id>
     <published>2016-04-19T13:49:28.000Z</published>
-    <updated>2016-04-19T15:17:30.583Z</updated>
+    <updated>2016-04-19T15:22:33.253Z</updated>
     
     <content type="html">&lt;p&gt;微信现在很火,基于微信接口开发各种自家功能产品的公司很多.&lt;br&gt;老板也要开发微信,所以我也得干微信.&lt;br&gt;微信开发,首先得认证签名让微信提供接口给你.微信公众开发平台的官网有提供sample,有php,java,node和python.我用的php.&lt;br&gt;先提坑,用微信提供的例子来进行验证,本页面是好用的,但是那个jssdk不能通过ajax直接调用,我没注意结果坑惨我了.&lt;br&gt;一直报&lt;/p&gt;
 &lt;blockquote&gt;
@@ -39,7 +39,9 @@
 &lt;p&gt;config:invalid signature&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;然后,慌里慌张的去看appid对没对,安全域名写好没,数字和字符串转换有问题没,都没有.那到底是什么啊…&lt;br&gt;我就真没辙了,毕竟别人是有成功的,只能是我姿势不对,还不知道哪里不对,感人.&lt;br&gt;所以,之后的一系列工作都只能另寻他路,各种踩坑.&lt;br&gt;踩着踩着,实在受不了了,我要再战一次!!!&lt;br&gt;好吧,我还是输了.&lt;br&gt;所以我就认真思考了,谷歌不行,试试百度吧.&lt;br&gt;于是,我就发现有好多人也是这问题,但是提供解决的方法的没几个,真是gg,可能是问题的原因太多了吧.不过,这不重要,对我来说重要的是发现了这个&lt;br&gt;&lt;a href=&quot;https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;微信js接口签名校验工具&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/wx-api.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;我发现了之前忽视的一点,那就是url.&lt;br&gt;于是,赶紧去查了查相关资料,发现了url是其中重要的一环,是用来生成签名的一部分元素.&lt;br&gt;但是,必须要注意的是,在生成签名的时候,url必须是你认证微信接口的那个页面的url.&lt;br&gt;关于url必须注意以下几点:&lt;/p&gt;
+&lt;p&gt;我发现了之前忽视的一点,那就是url.&lt;br&gt;在这里插播一下我之后正确的签名验证,给来个大样子先,控制台输出:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Object &amp;#123;appId: &amp;quot;wxf1c8b315ae8ee763&amp;quot;, timestamp: 1461074261, nonceStr: &amp;quot;VdThPEGqgU4RsAtX&amp;quot;, signature: &amp;quot;097f1f4dbbd5c9e3f51bc64ca013701ed2e1d7b5&amp;quot;, url: &amp;quot;http://wx.jacean.cn/asj/wxapi/part_gps.html&amp;quot;…&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;appId:&amp;quot;wxf1c8b315ae8ee763&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;jsapiTicket:&amp;quot;kgt8ON7yVITDhtdwci0qeS90XOQl1ZXOLYVWCn6BaGPDfqy39W34CAL6JW3wFg2gq1H9ZZqzKwh91NJA2Lwh3Q&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;nonceStr:&amp;quot;VdThPEGqgU4RsAtX&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;signature:&amp;quot;097f1f4dbbd5c9e3f51bc64ca013701ed2e1d7b5&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;timestamp:1461074261&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;url:&amp;quot;http://wx.jacean.cn/asj/wxapi/part_gps.html&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;于是,赶紧去查了查相关资料,发现了url是其中重要的一环,是用来生成签名的一部分元素.&lt;br&gt;但是,必须要注意的是,在生成签名的时候,url必须是你认证微信接口的那个页面的url.&lt;br&gt;关于url必须注意以下几点:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;url必须动态获取&lt;/li&gt;
 &lt;li&gt;url不能有#号的出现,比如一些网站自动后边加#wechat,必须把这些去掉&lt;/li&gt;

@@ -16,7 +16,7 @@ config:invalid si">
 
 config:invalid si">
 <meta property="og:image" content="http://7xrtyi.com1.z0.glb.clouddn.com/wx-api.jpg">
-<meta property="og:updated_time" content="2016-04-19T15:17:30.583Z">
+<meta property="og:updated_time" content="2016-04-19T15:22:33.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信开发--php使用ajax认证签名">
 <meta name="twitter:description" content="微信现在很火,基于微信接口开发各种自家功能产品的公司很多.老板也要开发微信,所以我也得干微信.微信开发,首先得认证签名让微信提供接口给你.微信公众开发平台的官网有提供sample,有php,java,node和python.我用的php.先提坑,用微信提供的例子来进行验证,本页面是好用的,但是那个jssdk不能通过ajax直接调用,我没注意结果坑惨我了.一直报
@@ -336,7 +336,9 @@ config:invalid si">
 <p>config:invalid signature</p>
 </blockquote>
 <p>然后,慌里慌张的去看appid对没对,安全域名写好没,数字和字符串转换有问题没,都没有.那到底是什么啊…<br>我就真没辙了,毕竟别人是有成功的,只能是我姿势不对,还不知道哪里不对,感人.<br>所以,之后的一系列工作都只能另寻他路,各种踩坑.<br>踩着踩着,实在受不了了,我要再战一次!!!<br>好吧,我还是输了.<br>所以我就认真思考了,谷歌不行,试试百度吧.<br>于是,我就发现有好多人也是这问题,但是提供解决的方法的没几个,真是gg,可能是问题的原因太多了吧.不过,这不重要,对我来说重要的是发现了这个<br><a href="https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign" target="_blank" rel="external">微信js接口签名校验工具</a><br><img src="http://7xrtyi.com1.z0.glb.clouddn.com/wx-api.jpg" alt=""></p>
-<p>我发现了之前忽视的一点,那就是url.<br>于是,赶紧去查了查相关资料,发现了url是其中重要的一环,是用来生成签名的一部分元素.<br>但是,必须要注意的是,在生成签名的时候,url必须是你认证微信接口的那个页面的url.<br>关于url必须注意以下几点:</p>
+<p>我发现了之前忽视的一点,那就是url.<br>在这里插播一下我之后正确的签名验证,给来个大样子先,控制台输出:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Object &#123;appId: &quot;wxf1c8b315ae8ee763&quot;, timestamp: 1461074261, nonceStr: &quot;VdThPEGqgU4RsAtX&quot;, signature: &quot;097f1f4dbbd5c9e3f51bc64ca013701ed2e1d7b5&quot;, url: &quot;http://wx.jacean.cn/asj/wxapi/part_gps.html&quot;…&#125;</span><br><span class="line"></span><br><span class="line">appId:&quot;wxf1c8b315ae8ee763&quot;</span><br><span class="line">jsapiTicket:&quot;kgt8ON7yVITDhtdwci0qeS90XOQl1ZXOLYVWCn6BaGPDfqy39W34CAL6JW3wFg2gq1H9ZZqzKwh91NJA2Lwh3Q&quot;</span><br><span class="line">nonceStr:&quot;VdThPEGqgU4RsAtX&quot;</span><br><span class="line">signature:&quot;097f1f4dbbd5c9e3f51bc64ca013701ed2e1d7b5&quot;</span><br><span class="line">timestamp:1461074261</span><br><span class="line">url:&quot;http://wx.jacean.cn/asj/wxapi/part_gps.html&quot;</span><br></pre></td></tr></table></figure>
+<p>于是,赶紧去查了查相关资料,发现了url是其中重要的一环,是用来生成签名的一部分元素.<br>但是,必须要注意的是,在生成签名的时候,url必须是你认证微信接口的那个页面的url.<br>关于url必须注意以下几点:</p>
 <ol>
 <li>url必须动态获取</li>
 <li>url不能有#号的出现,比如一些网站自动后边加#wechat,必须把这些去掉</li>
@@ -371,7 +373,7 @@ config:invalid si">
         <p><span>本文标题:</span><a href="/2016/04/19/微信开发-php使用ajax认证签名/">微信开发--php使用ajax认证签名</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年04月19日 - 21时49分</p>
-        <p><span>最后更新:</span>2016年04月19日 - 23时17分</p>
+        <p><span>最后更新:</span>2016年04月19日 - 23时22分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/19/微信开发-php使用ajax认证签名/" title="微信开发--php使用ajax认证签名">http://jacean.github.io/2016/04/19/微信开发-php使用ajax认证签名/</a>
             <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/04/19/微信开发-php使用ajax认证签名/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
