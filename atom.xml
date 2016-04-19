@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-04-19T15:22:33.253Z</updated>
+  <updated>2016-04-19T16:24:43.142Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -14,6 +14,108 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信开发--iframe中使用微信api</title>
+    <link href="http://jacean.github.io/2016/04/20/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91-iframe%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%BE%AE%E4%BF%A1api/"/>
+    <id>http://jacean.github.io/2016/04/20/微信开发-iframe中使用微信api/</id>
+    <published>2016-04-19T16:04:08.000Z</published>
+    <updated>2016-04-19T16:24:43.142Z</updated>
+    
+    <content type="html">&lt;p&gt;虽然题目是iframe中使用微信api,但是我得声明一点&lt;br&gt;&lt;strong&gt;微信api是不能在iframe中进行签名认证的&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这算自相矛盾,但是,开发就是要在矛盾中找到解决方案.所以,您接着往下看吧.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;微信限制了api的调用,不能在iframe中进行api的签名认证,只能在主页面中使用.&lt;/p&gt;
+&lt;p&gt;所以解决方法就是在父页面实现微信api的签名认证,然后iframe里利用&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;window.parent.wx.xxx;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;window.top.wx.xxx;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这样的方法来实现iframe使用微信api.&lt;/p&gt;
+&lt;p&gt;然后看一个实际的应用场景.&lt;/p&gt;
+&lt;p&gt;微信提供了认证的几种方式,比如php,java,node,python.&lt;br&gt;但是,假设我的主项目是jsp的,我要用微信api,然而我只有或是只会只能用php的验证方法,而我又想在iframe中使用微信api,我不能让一个jsp页面同时有php的存在,那该怎么办?&lt;/p&gt;
+&lt;p&gt;我的方法就是,把认证签名的父页面,摆脱后台限制.&lt;/p&gt;
+&lt;p&gt;我现在有php的验证是吧,那我就用ajax和php后台把签名数据要过来,然后js去验证就好了.&lt;br&gt;这样主页面就只剩下纯html和js.这时候,主项目爱是java是java,python是python,都随意了,微信api随便用.&lt;/p&gt;
+&lt;p&gt;根据我之前的(ajax实现php验证微信的博客)[&lt;a href=&quot;http://blog.jacean.cn/2016/04/19/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91-php%E4%BD%BF%E7%94%A8ajax%E8%AE%A4%E8%AF%81%E7%AD%BE%E5%90%8D/],我可以在主页面是引入脚本&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.jacean.cn/2016/04/19/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91-php%E4%BD%BF%E7%94%A8ajax%E8%AE%A4%E8%AF%81%E7%AD%BE%E5%90%8D/],我可以在主页面是引入脚本&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script src=&amp;quot;include_wxsignature.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这样,这个页面就已经实现了微信api的认证,并没有需要后台代码.&lt;/p&gt;
+&lt;p&gt;然后在iframe里&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//开始录音&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function startRecord() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    c = 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    timedCount();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    window.top.wx.startRecord();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    onVoiceRecordEnd();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//停止录音接口&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function stopRecord() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    window.top.wx.stopRecord(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        success: function(res) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            localId = res.localId;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            stopCount();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            document.getElementById(&amp;apos;localid&amp;apos;).innerHTML = localId;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这样下来,对父页面的限制就没有了,因为需要的签名认证,纯js已经实现了.&lt;br&gt;既没有干涉主项目,又实现了功能需求.&lt;/p&gt;
+&lt;p&gt;在这个场景下最好的当然是利用jsp验证,一步到位.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;虽然题目是iframe中使用微信api,但是我得声明一点&lt;br&gt;&lt;strong&gt;微信api是不能在iframe中进行签名认证的&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这算自相矛盾,但是,开发就是要在矛盾中找到解决方案.所以,您接着往下看吧.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="微信开发" scheme="http://jacean.github.io/categories/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="微信开发" scheme="http://jacean.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="iframe" scheme="http://jacean.github.io/tags/iframe/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微信开发--页面互相调用传值</title>
+    <link href="http://jacean.github.io/2016/04/19/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91-%E9%A1%B5%E9%9D%A2%E4%BA%92%E7%9B%B8%E8%B0%83%E7%94%A8%E4%BC%A0%E5%80%BC/"/>
+    <id>http://jacean.github.io/2016/04/19/微信开发-页面互相调用传值/</id>
+    <published>2016-04-19T15:26:51.000Z</published>
+    <updated>2016-04-19T16:46:54.205Z</updated>
+    
+    <content type="html">&lt;p&gt;微信开发,也就是开发一套在微信浏览器上跑的网页,所以还算是web,但是是限制后的web.会有很多限制,就像阉割了一样,用的时候会很难受.&lt;br&gt;比如说,window.open(),window.close(),window.opener(),这些页面窗口开关和互相调用传值的就直接被砍掉或是没法用了.&lt;br&gt;而我的工作,是需要在当前页面调用微信api实现操作,然后返回值,但是当前页面的数据不能丢,当前页面得继续保持活动,这样的话,微信就呵呵了.&lt;br&gt;且听我微信页面传值的一番苦斗吧.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;微信浏览器限制&quot;&gt;&lt;a href=&quot;#微信浏览器限制&quot; class=&quot;headerlink&quot; title=&quot;微信浏览器限制&quot;&gt;&lt;/a&gt;微信浏览器限制&lt;/h2&gt;&lt;p&gt;首先来说明一下自己开发中感觉到的微信浏览器的一下限制.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;window.opener()不可用.微信浏览器是单页面的.也就是说,你用window.open()打开一个页面后,opener()就已经被关闭了,是没有办法通过window.opener()与之前的页面或窗口进行交互.&lt;/li&gt;
+&lt;li&gt;window.close()不可用,直接使用控制台会输出提示,&lt;blockquote&gt;
+&lt;p&gt;Scripts may close only the windows that were opened by it” (脚本只能关闭它所打开的窗口)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;也不能使用形如&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var a=window.open(&amp;quot;www.jacean.cn&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a.close();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;会提示不能这样用.因为微信是单页面的,之前的opener已经被关闭了,那么也就没谁能关闭这个页面了.&lt;br&gt;不过,微信实现了关闭当前网页窗口接口&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;wx.closeWindow();&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用这个接口,微信会关闭网页窗口,但因为是单页面,所以就会直接回到对话界面.也不能让我们开心使用.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;微信api不能在iframe中使用.凡是调用微信api的,那么签名认证必须得是在主页面,内嵌iframe是不可以进行签名认证的.&lt;br&gt;但是,在主页面认证后,可以通过window.parent.function()或window.top.function()来执行父页面的函数,微信api自然也可以.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;所以,在微信浏览器中,能够传值的网页也就是同时存活的网页,就只有iframe和其父页面了.&lt;/p&gt;
+&lt;h2 id=&quot;微信页面传值&quot;&gt;&lt;a href=&quot;#微信页面传值&quot; class=&quot;headerlink&quot; title=&quot;微信页面传值&quot;&gt;&lt;/a&gt;微信页面传值&lt;/h2&gt;&lt;p&gt;上面的坑是我踩过的,看到的人可记得不要再踩了.&lt;br&gt;然后看我的传值方法吧.&lt;/p&gt;
+&lt;h3 id=&quot;iframe父子互相调用&quot;&gt;&lt;a href=&quot;#iframe父子互相调用&quot; class=&quot;headerlink&quot; title=&quot;iframe父子互相调用&quot;&gt;&lt;/a&gt;iframe父子互相调用&lt;/h3&gt;&lt;p&gt;且看演示如下:&lt;/p&gt;
+&lt;h4 id=&quot;子调父&quot;&gt;&lt;a href=&quot;#子调父&quot; class=&quot;headerlink&quot; title=&quot;子调父&quot;&gt;&lt;/a&gt;子调父&lt;/h4&gt;&lt;p&gt;我这里用的是window.top,如果是一层嵌套那么window.parent足够了,多的话可以用top.&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//父&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function closemedia(status,result)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            if(status==&amp;quot;ok&amp;quot;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                if(result instanceof Array)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#123;//上传图片&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    alert(result[0]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;else&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#123;//录音和文件上传属于此类&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    alert(result);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;else if(status==&amp;quot;error&amp;quot;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert(&amp;quot;error&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;else&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert(&amp;quot;cancel&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//子&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function cancelVoice() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            status = &amp;quot;cancel&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            result = &amp;quot;&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            window.top.closemedia();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;可以利用这种办法实现结果回传.&lt;/p&gt;
+&lt;h4 id=&quot;父调子&quot;&gt;&lt;a href=&quot;#父调子&quot; class=&quot;headerlink&quot; title=&quot;父调子&quot;&gt;&lt;/a&gt;父调子&lt;/h4&gt;&lt;p&gt;父页面通过contentWindow来调用子页面的内容.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//父
+$(&amp;apos;#iframeid&amp;apos;)[0].contentWindow.stopRecord();
+
+............
+
+//开始录音
+function startRecord() {
+    c = 0;
+    timedCount();
+    window.top.wx.startRecord();
+    onVoiceRecordEnd();
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以看到,子调父,父调子还是很灵活的.&lt;/p&gt;
+&lt;h3 id=&quot;值的中转站&quot;&gt;&lt;a href=&quot;#值的中转站&quot; class=&quot;headerlink&quot; title=&quot;值的中转站&quot;&gt;&lt;/a&gt;值的中转站&lt;/h3&gt;&lt;p&gt;逻辑上被调用的页面把结果写下来,然后关闭,逻辑上的主页面再扫描结果,把值读取到.中间通过唯一的UID来进行标识认领.&lt;br&gt;其实也相当于是进行post或get再呼叫一次,看需求是什么来用.&lt;br&gt;这个的不足是可能会造成主页面的当前数据丢失.&lt;br&gt;这个就不放代码了,大家都是用过的.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;微信开发,也就是开发一套在微信浏览器上跑的网页,所以还算是web,但是是限制后的web.会有很多限制,就像阉割了一样,用的时候会很难受.&lt;br&gt;比如说,window.open(),window.close(),window.opener(),这些页面窗口开关和互相调用传值的就直接被砍掉或是没法用了.&lt;br&gt;而我的工作,是需要在当前页面调用微信api实现操作,然后返回值,但是当前页面的数据不能丢,当前页面得继续保持活动,这样的话,微信就呵呵了.&lt;br&gt;且听我微信页面传值的一番苦斗吧.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="微信开发" scheme="http://jacean.github.io/categories/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="微信开发" scheme="http://jacean.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>微信开发--php使用ajax认证签名</title>
@@ -1024,89 +1126,6 @@
       <category term="Eclipse" scheme="http://jacean.github.io/tags/Eclipse/"/>
     
       <category term="genymotion" scheme="http://jacean.github.io/tags/genymotion/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu状态栏显示网速CPU</title>
-    <link href="http://jacean.github.io/2016/03/24/Ubuntu%E7%8A%B6%E6%80%81%E6%A0%8F%E6%98%BE%E7%A4%BA%E7%BD%91%E9%80%9FCPU/"/>
-    <id>http://jacean.github.io/2016/03/24/Ubuntu状态栏显示网速CPU/</id>
-    <published>2016-03-24T10:30:04.000Z</published>
-    <updated>2016-04-16T04:56:17.664Z</updated>
-    
-    <content type="html">&lt;p&gt;作为系统操作的重要操作参数，网速和CPU占用等等，一直使用者所关心的。尤其是在需要下载或是上传文件的时候，对网速的关注可能会超出自己的想象，一直想要监视着网速。&lt;br&gt;所以，就找找能够在ubuntu状态栏上显示网速的插件程序。&lt;br&gt;&lt;a href=&quot;http://tieba.baidu.com/p/3005287033&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考文章找到了indicator-sysmonitor&lt;/a&gt;.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;下载indicator-sysmonitor&quot;&gt;&lt;a href=&quot;#下载indicator-sysmonitor&quot; class=&quot;headerlink&quot; title=&quot;下载indicator-sysmonitor&quot;&gt;&lt;/a&gt;下载indicator-sysmonitor&lt;/h3&gt;&lt;p&gt;这个软件需要一些依赖包，终端执行&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;sudo apt-get install python python-psutil python-appindicator&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;然后下载indicator-sysmonitor的deb包。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;wget -c &lt;a href=&quot;https://launchpad.net/indicator-sysmonitor/trunk/4.0/+download/indicator-sysmonitor_0.4.3_all.deb&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://launchpad.net/indicator-sysmonitor/trunk/4.0/+download/indicator-sysmonitor_0.4.3_all.deb&lt;/a&gt;&lt;br&gt;sudo dpkg -i indicator-sysmonitor_0.4.3_all.deb&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;安装完毕。&lt;/p&gt;
-&lt;h3 id=&quot;更改显示图标&quot;&gt;&lt;a href=&quot;#更改显示图标&quot; class=&quot;headerlink&quot; title=&quot;更改显示图标&quot;&gt;&lt;/a&gt;更改显示图标&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;由于软件默认显示图标是 sysmonitor.svg，而在 Ubuntu 14.04 64位系统中没有这个图标，这导致图标显示错误，很不美观。于是要把软件默认使用的图标改成一个存在的图标，当然也可以自己动手制作一个图标。但是系统中已经有很多图标了，找个好点的直接用上就行！&lt;br&gt;系统图标存放在：/usr/share/icons/Humanity/apps/ XX目录下（XX 为：128 16 192 22 24 32 48 64 中任一个，对应同一图标的不同尺寸，同一图标并不是每个尺寸都有）。打开/usr/share/icons/Humanity/apps/32 ，发现application-community.svg 还不错，所以我就用这个图标了！当然用其他的或者自己制作也是可以的！&lt;br&gt;找到喜欢的图标后，记下图标的文件名（不包括后缀），这里是 application-community，下面开始进行替换。终端执行命令：&lt;br&gt;sudo gedit /usr/bin/indicator-sysmonitor&lt;br&gt;将 724 行的 sysmonitor 改为刚才记下的 application-community&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;更改完毕后保存就行，然后运行indicator-sysmonitor，就可以在状态栏看到关于CPU和MEM信息。&lt;/p&gt;
-&lt;h3 id=&quot;自动启动&quot;&gt;&lt;a href=&quot;#自动启动&quot; class=&quot;headerlink&quot; title=&quot;自动启动&quot;&gt;&lt;/a&gt;自动启动&lt;/h3&gt;&lt;p&gt;首先建立一个目录来存放启动文件。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;mkdir ~/.config/autostart&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;然后，鼠标右键点击标题栏上的图标，弹出菜单，选择首选项。打钩&lt;em&gt;Run on startup&lt;/em&gt;,然后切换至Advanced，在sensor里选中net，然后点击添加，在输出栏里更改显示格式就好。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;cpu: {cpu} mem: {mem}net:{net}&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;启动程序&quot;&gt;&lt;a href=&quot;#启动程序&quot; class=&quot;headerlink&quot; title=&quot;启动程序&quot;&gt;&lt;/a&gt;启动程序&lt;/h3&gt;&lt;p&gt;如果在终端启动程序的话，当关闭终端后程序也就自动关闭了，所以可以在dash里搜索sysmonitor，然后点击启动就好。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;作为系统操作的重要操作参数，网速和CPU占用等等，一直使用者所关心的。尤其是在需要下载或是上传文件的时候，对网速的关注可能会超出自己的想象，一直想要监视着网速。&lt;br&gt;所以，就找找能够在ubuntu状态栏上显示网速的插件程序。&lt;br&gt;&lt;a href=&quot;http://tieba.baidu.com/p/3005287033&quot;&gt;参考文章找到了indicator-sysmonitor&lt;/a&gt;.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://jacean.github.io/categories/Linux/"/>
-    
-    
-      <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHPExcel操作sae的storage上的文件</title>
-    <link href="http://jacean.github.io/2016/03/24/PHPExcel%E6%93%8D%E4%BD%9Csae%E7%9A%84storage%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6/"/>
-    <id>http://jacean.github.io/2016/03/24/PHPExcel操作sae的storage上的文件/</id>
-    <published>2016-03-24T04:38:33.000Z</published>
-    <updated>2016-04-16T04:53:34.379Z</updated>
-    
-    <content type="html">&lt;p&gt;在用PHPexcel操作excel的时候，在本地是好使的，但是把代码部署到sae就不好使了。会遇到文件操作被拒绝的问题。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sae-2.png&quot; alt=&quot;文件操作被拒绝&quot;&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;这个原因就是sae上的应用文件是不允许改动的。sae提供的文件方案是使用storage，所以可以把文件存储在storage来进行操作。&lt;br&gt;具体解决可以如下：&lt;br&gt;我在sae应用里新建一个domain域files（这个名字必须是小写字母或数字，如果是大写字母的话虽然可以在Cyberduck上新建成功，在domain管理里看到，但是是无效的domain）。在这个files下新建文件夹Files，然后把要操作的excel上传。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sae-3.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sae-4.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;如上。&lt;br&gt;我对excel的操作代码如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$file_name=&lt;span class=&quot;string&quot;&gt;&quot;Files/info.xls&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel=PHPExcel_IOFactory::load($file_name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;setActiveSheetIndex(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$row=$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;getHighestRow()+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;.$row,$_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputName&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;.$row,$_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputClass&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;C&#39;&lt;/span&gt;.$row,$_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputEmail&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;D&#39;&lt;/span&gt;.$row,$_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputJob&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;E&#39;&lt;/span&gt;.$row,$_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputTel&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objWriter=newPHPExcel_Writer_Excel5($objPHPExcel);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objWriter-&amp;gt;save($file_name);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;执行的是在info.xls的末尾添加一行。&lt;br&gt;修改之后的代码如下;&lt;/p&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$file_name=&lt;span class=&quot;string&quot;&gt;&#39;saestor://files/Files/info.xls&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel=PHPExcel_IOFactory::load($file_name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;setActiveSheetIndex(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$row=$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;getHighestRow()+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;.$row,$_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputName&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;.$row,$_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputClass&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;C&#39;&lt;/span&gt;.$row,$_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputEmail&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;D&#39;&lt;/span&gt;.$row,$_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputJob&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;SetCellValue(&lt;span class=&quot;string&quot;&gt;&#39;E&#39;&lt;/span&gt;.$row,$_POST[&lt;span class=&quot;string&quot;&gt;&#39;inputTel&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objWriter=newPHPExcel_Writer_Excel5($objPHPExcel);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objWriter-&amp;gt;save($file_name);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;可以看到，修改的只是文件路径。然后操作就完全没有问题了。&lt;br&gt;问题解决了，接下来我要扯扯怎么找到的办法。&lt;br&gt;刚开始说要用storage，好，我就去sae官网看storage文档，结果，说的什么鬼，没有收获。&lt;br&gt;毕竟我要找的重点是storage文件的存储路径，文档里说的是整个元素级的处理。&lt;br&gt;只有一句：&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sae-5.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;这个还是在介绍文档里说的。&lt;br&gt;既然如此，我就先上传文件来试试呗。域和文件结构已建好。&lt;a href=&quot;http://cloudbbs.org/forum.php?mod=viewthread&amp;amp;tid=23708&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;代码参考&lt;/a&gt;里的7楼作者回答。&lt;br&gt;上传文件代码如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;metacharset=&lt;span class=&quot;string&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;formaction=&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;method=&lt;span class=&quot;string&quot;&gt;&quot;post&quot;&lt;/span&gt;enctype=&lt;span class=&quot;string&quot;&gt;&quot;multipart/form-data&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;inputtype=&lt;span class=&quot;string&quot;&gt;&quot;file&quot;&lt;/span&gt;name=&lt;span class=&quot;string&quot;&gt;&quot;file&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;inputtype=&lt;span class=&quot;string&quot;&gt;&quot;submit&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;($_FILES[&lt;span class=&quot;string&quot;&gt;&#39;file&#39;&lt;/span&gt;]!=&lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$storage=newSaeStorage();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$domain=&lt;span class=&quot;string&quot;&gt;&#39;files&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$dest=&lt;span class=&quot;string&quot;&gt;&#39;Files/&#39;&lt;/span&gt;.$_FILES[&lt;span class=&quot;string&quot;&gt;&#39;file&#39;&lt;/span&gt;][&lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$src=$_FILES[&lt;span class=&quot;string&quot;&gt;&quot;file&quot;&lt;/span&gt;][&lt;span class=&quot;string&quot;&gt;&quot;tmp_name&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$storage-&amp;gt;upload($domain,$dest,$src);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$url=$storage-&amp;gt;getUrl($domain,$dest);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;&quot;网址：$url&amp;lt;br/&amp;gt;&amp;lt;imgsrc=&#39;$url&#39;/&amp;gt;&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;可以看到返回的地址是：&lt;a href=&quot;http://dutcircle-files.stor.sinaapp.com/Files/实验.png&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://dutcircle-files.stor.sinaapp.com/Files/实验.png&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sae-6.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;在应用管理里也可以看到文件是已经上传好了的。&lt;br&gt;再尝试打开下：&lt;/p&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;metacharset=&lt;span class=&quot;string&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;formaction=&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;method=&lt;span class=&quot;string&quot;&gt;&quot;post&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;inputtype=&lt;span class=&quot;string&quot;&gt;&quot;text&quot;&lt;/span&gt;name=&lt;span class=&quot;string&quot;&gt;&quot;text&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;inputtype=&lt;span class=&quot;string&quot;&gt;&quot;submit&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;($_POST[&lt;span class=&quot;string&quot;&gt;&#39;text&#39;&lt;/span&gt;]!=&lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$storage=newSaeStorage();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$domain=&lt;span class=&quot;string&quot;&gt;&#39;files&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$dest=&lt;span class=&quot;string&quot;&gt;&#39;Files/&#39;&lt;/span&gt;.$_POST[&lt;span class=&quot;string&quot;&gt;&#39;text&#39;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$url=$storage-&amp;gt;getUrl($domain,$dest);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;&quot;网址：$url&amp;lt;br/&amp;gt;&amp;lt;imgsrc=&#39;$url&#39;/&amp;gt;&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;可以看到，可以通过这个url来获取文件。&lt;br&gt;但是，直接把这个url用来操作excel，&lt;/p&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$objExcel=newPHPExcel();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$storage=newSaeStorage();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$domain=&lt;span class=&quot;string&quot;&gt;&#39;files&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$dest=&lt;span class=&quot;string&quot;&gt;&#39;Files/info.xls&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$url=$storage-&amp;gt;getUrl($domain,$dest);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$file_name=$url;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//http://dutcircle-files.stor.sinaapp.com/Files/info.xls&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$file_name=&lt;span class=&quot;string&quot;&gt;&#39;saestor://files/Files/info.xls&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$objPHPExcel=PHPExcel_IOFactory::load($file_name);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;是不对的，会报错，找不到这个文件。&lt;br&gt;所以得换个&lt;a href=&quot;http://saebbs.com/forum.php?mod=viewthread&amp;amp;tid=9456&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;方法&lt;/a&gt;&lt;br&gt;虽然提的问题和我不一样，但人家已经解决了我的问题。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sae-7.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;修改代码，至此，大功告成。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在用PHPexcel操作excel的时候，在本地是好使的，但是把代码部署到sae就不好使了。会遇到文件操作被拒绝的问题。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_sae-2.png&quot; alt=&quot;文件操作被拒绝&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://jacean.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="PHPExcel" scheme="http://jacean.github.io/tags/PHPExcel/"/>
-    
-      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
-    
-      <category term="sae" scheme="http://jacean.github.io/tags/sae/"/>
     
   </entry>
   
