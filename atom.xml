@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-05-07T13:58:51.739Z</updated>
+  <updated>2016-05-07T14:01:17.221Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -20,17 +20,17 @@
     <link href="http://jacean.github.io/2016/05/07/mysql%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E5%92%8C%E8%AF%AD%E5%8F%A5/"/>
     <id>http://jacean.github.io/2016/05/07/mysql常用配置和语句/</id>
     <published>2016-05-07T13:53:30.000Z</published>
-    <updated>2016-05-07T13:58:51.739Z</updated>
+    <updated>2016-05-07T14:01:17.221Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;mysql常用配置和操作&quot;&gt;&lt;a href=&quot;#mysql常用配置和操作&quot; class=&quot;headerlink&quot; title=&quot;mysql常用配置和操作&quot;&gt;&lt;/a&gt;mysql常用配置和操作&lt;/h1&gt;&lt;h2 id=&quot;安装初始&quot;&gt;&lt;a href=&quot;#安装初始&quot; class=&quot;headerlink&quot; title=&quot;安装初始&quot;&gt;&lt;/a&gt;安装初始&lt;/h2&gt;&lt;p&gt;其实现在很多新接触开发的都不会自己单独去安装mysql，而是采用xampp等集成包。不过这也没关系。mysql的配置又不会变。&lt;br&gt;当安装完毕之后，在phpMyAdmin中，将右边栏的滚动条拉到最后，可以看到这么一句警告&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;安装初始&quot;&gt;&lt;a href=&quot;#安装初始&quot; class=&quot;headerlink&quot; title=&quot;安装初始&quot;&gt;&lt;/a&gt;安装初始&lt;/h2&gt;&lt;p&gt;其实现在很多新接触开发的都不会自己单独去安装mysql，而是采用xampp等集成包。不过这也没关系。mysql的配置又不会变。&lt;br&gt;当安装完毕之后，在phpMyAdmin中，将右边栏的滚动条拉到最后，可以看到这么一句警告&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;您配置文件中的设置（空密码的 root）是 MySQL 的默认管理员帐号。您的 MySQL 服务器正在使用这个默认设置运行，这样容易被入侵，我们强烈建议您立即给‘root’用户设置一个密码来修复这个安全漏洞。&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;mysql登录语句&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;mysql -h 服务器主机地址(IP/domain) -u 用户名 -p密码&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;mysql很明确的告诉我们，现在mysql的root账户是没有密码的，很容易被入侵，比如像这样&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;PS C:\Users\wanja&amp;gt; mysql -h localhost -u root&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Welcome to the MySQL monitor.  Commands end with ; or \g.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Your MySQL connection id is 12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Server version: 5.6.21 MySQL Community Server (GPL)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Oracle is a registered trademark of Oracle Corporation and/or its&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;affiliates. Other names may be trademarks of their respective&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;owners.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Type &amp;apos;help;&amp;apos; or &amp;apos;\h&amp;apos; for help. Type &amp;apos;\c&amp;apos; to clear the current input statement.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;不需要密码就可以直接登陆了。&lt;/p&gt;
@@ -168,13 +168,9 @@ YEAR，1字节，YYYY
     
     <summary type="html">
     
-      &lt;h1 id=&quot;mysql常用配置和操作&quot;&gt;&lt;a href=&quot;#mysql常用配置和操作&quot; class=&quot;headerlink&quot; title=&quot;mysql常用配置和操作&quot;&gt;&lt;/a&gt;mysql常用配置和操作&lt;/h1&gt;&lt;h2 id=&quot;安装初始&quot;&gt;&lt;a href=&quot;#安装初始&quot; class=&quot;headerlink&quot; title=&quot;安装初始&quot;&gt;&lt;/a&gt;安装初始&lt;/h2&gt;&lt;p&gt;其实现在很多新接触开发的都不会自己单独去安装mysql，而是采用xampp等集成包。不过这也没关系。mysql的配置又不会变。&lt;br&gt;当安装完毕之后，在phpMyAdmin中，将右边栏的滚动条拉到最后，可以看到这么一句警告&lt;/p&gt;
+      &lt;h2 id=&quot;安装初始&quot;&gt;&lt;a href=&quot;#安装初始&quot; class=&quot;headerlink&quot; title=&quot;安装初始&quot;&gt;&lt;/a&gt;安装初始&lt;/h2&gt;&lt;p&gt;其实现在很多新接触开发的都不会自己单独去安装mysql，而是采用xampp等集成包。不过这也没关系。mysql的配置又不会变。&lt;br&gt;当安装完毕之后，在phpMyAdmin中，将右边栏的滚动条拉到最后，可以看到这么一句警告&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;您配置文件中的设置（空密码的 root）是 MySQL 的默认管理员帐号。您的 MySQL 服务器正在使用这个默认设置运行，这样容易被入侵，我们强烈建议您立即给‘root’用户设置一个密码来修复这个安全漏洞。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;mysql登录语句&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;mysql -h 服务器主机地址(IP/domain) -u 用户名 -p密码&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>

@@ -5,23 +5,23 @@
   
   <title>mysql常用配置和语句 | Jacean say Hello</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mysql常用配置和操作安装初始其实现在很多新接触开发的都不会自己单独去安装mysql，而是采用xampp等集成包。不过这也没关系。mysql的配置又不会变。当安装完毕之后，在phpMyAdmin中，将右边栏的滚动条拉到最后，可以看到这么一句警告
+  <meta name="description" content="安装初始其实现在很多新接触开发的都不会自己单独去安装mysql，而是采用xampp等集成包。不过这也没关系。mysql的配置又不会变。当安装完毕之后，在phpMyAdmin中，将右边栏的滚动条拉到最后，可以看到这么一句警告
 
-您配置文件中的设置（空密码的 root）是 MySQL 的默认管理员帐号。您的 MySQL 服务器正在使用这个默认设置运行，这样容易被入侵，我们强烈建">
+您配置文件中的设置（空密码的 root）是 MySQL 的默认管理员帐号。您的 MySQL 服务器正在使用这个默认设置运行，这样容易被入侵，我们强烈建议您立即给‘root’用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql常用配置和语句">
 <meta property="og:url" content="http://jacean.github.io/2016/05/07/mysql常用配置和语句/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
-<meta property="og:description" content="mysql常用配置和操作安装初始其实现在很多新接触开发的都不会自己单独去安装mysql，而是采用xampp等集成包。不过这也没关系。mysql的配置又不会变。当安装完毕之后，在phpMyAdmin中，将右边栏的滚动条拉到最后，可以看到这么一句警告
+<meta property="og:description" content="安装初始其实现在很多新接触开发的都不会自己单独去安装mysql，而是采用xampp等集成包。不过这也没关系。mysql的配置又不会变。当安装完毕之后，在phpMyAdmin中，将右边栏的滚动条拉到最后，可以看到这么一句警告
 
-您配置文件中的设置（空密码的 root）是 MySQL 的默认管理员帐号。您的 MySQL 服务器正在使用这个默认设置运行，这样容易被入侵，我们强烈建">
+您配置文件中的设置（空密码的 root）是 MySQL 的默认管理员帐号。您的 MySQL 服务器正在使用这个默认设置运行，这样容易被入侵，我们强烈建议您立即给‘root’用">
 <meta property="og:image" content="http://7xrtyi.com1.z0.glb.clouddn.com/mysql-engine.png">
-<meta property="og:updated_time" content="2016-05-07T13:58:51.739Z">
+<meta property="og:updated_time" content="2016-05-07T14:01:17.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql常用配置和语句">
-<meta name="twitter:description" content="mysql常用配置和操作安装初始其实现在很多新接触开发的都不会自己单独去安装mysql，而是采用xampp等集成包。不过这也没关系。mysql的配置又不会变。当安装完毕之后，在phpMyAdmin中，将右边栏的滚动条拉到最后，可以看到这么一句警告
+<meta name="twitter:description" content="安装初始其实现在很多新接触开发的都不会自己单独去安装mysql，而是采用xampp等集成包。不过这也没关系。mysql的配置又不会变。当安装完毕之后，在phpMyAdmin中，将右边栏的滚动条拉到最后，可以看到这么一句警告
 
-您配置文件中的设置（空密码的 root）是 MySQL 的默认管理员帐号。您的 MySQL 服务器正在使用这个默认设置运行，这样容易被入侵，我们强烈建">
+您配置文件中的设置（空密码的 root）是 MySQL 的默认管理员帐号。您的 MySQL 服务器正在使用这个默认设置运行，这样容易被入侵，我们强烈建议您立即给‘root’用">
 <meta name="twitter:image" content="http://7xrtyi.com1.z0.glb.clouddn.com/mysql-engine.png">
   
     <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
@@ -319,15 +319,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="mysql常用配置和操作"><a href="#mysql常用配置和操作" class="headerlink" title="mysql常用配置和操作"></a>mysql常用配置和操作</h1><h2 id="安装初始"><a href="#安装初始" class="headerlink" title="安装初始"></a>安装初始</h2><p>其实现在很多新接触开发的都不会自己单独去安装mysql，而是采用xampp等集成包。不过这也没关系。mysql的配置又不会变。<br>当安装完毕之后，在phpMyAdmin中，将右边栏的滚动条拉到最后，可以看到这么一句警告</p>
+        <h2 id="安装初始"><a href="#安装初始" class="headerlink" title="安装初始"></a>安装初始</h2><p>其实现在很多新接触开发的都不会自己单独去安装mysql，而是采用xampp等集成包。不过这也没关系。mysql的配置又不会变。<br>当安装完毕之后，在phpMyAdmin中，将右边栏的滚动条拉到最后，可以看到这么一句警告</p>
 <blockquote>
 <p>您配置文件中的设置（空密码的 root）是 MySQL 的默认管理员帐号。您的 MySQL 服务器正在使用这个默认设置运行，这样容易被入侵，我们强烈建议您立即给‘root’用户设置一个密码来修复这个安全漏洞。</p>
 </blockquote>
+<a id="more"></a>
 <p>mysql登录语句</p>
 <blockquote>
 <p>mysql -h 服务器主机地址(IP/domain) -u 用户名 -p密码</p>
 </blockquote>
-<a id="more"></a>
 <p>mysql很明确的告诉我们，现在mysql的root账户是没有密码的，很容易被入侵，比如像这样</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\wanja&gt; mysql -h localhost -u root</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 12</span><br><span class="line">Server version: 5.6.21 MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.</span><br></pre></td></tr></table></figure>
 <p>不需要密码就可以直接登陆了。</p>
@@ -472,7 +472,7 @@ YEAR，1字节，YYYY
         <p><span>本文标题:</span><a href="/2016/05/07/mysql常用配置和语句/">mysql常用配置和语句</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年05月07日 - 21时53分</p>
-        <p><span>最后更新:</span>2016年05月07日 - 21时58分</p>
+        <p><span>最后更新:</span>2016年05月07日 - 22时01分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/05/07/mysql常用配置和语句/" title="mysql常用配置和语句">http://jacean.github.io/2016/05/07/mysql常用配置和语句/</a>
             <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/05/07/mysql常用配置和语句/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -502,7 +502,7 @@ YEAR，1字节，YYYY
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql常用配置和操作"><span class="toc-number">1.</span> <span class="toc-text">mysql常用配置和操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装初始"><span class="toc-number">1.1.</span> <span class="toc-text">安装初始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置密码"><span class="toc-number">1.2.</span> <span class="toc-text">设置密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程登录"><span class="toc-number">1.3.</span> <span class="toc-text">远程登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql数据列类型"><span class="toc-number">1.4.</span> <span class="toc-text">mysql数据列类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据字段属性"><span class="toc-number">1.5.</span> <span class="toc-text">数据字段属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据表类型"><span class="toc-number">1.6.</span> <span class="toc-text">数据表类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据表的字符集"><span class="toc-number">1.7.</span> <span class="toc-text">数据表的字符集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql索引"><span class="toc-number">1.8.</span> <span class="toc-text">mysql索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#主键索引-PRIMARY-KEY"><span class="toc-number">1.8.1.</span> <span class="toc-text">主键索引 PRIMARY KEY</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#唯一索引-UNIQUE"><span class="toc-number">1.8.2.</span> <span class="toc-text">唯一索引 UNIQUE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常规索引-INDEX"><span class="toc-number">1.8.3.</span> <span class="toc-text">常规索引 INDEX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全文索引-FULLTEXT"><span class="toc-number">1.8.4.</span> <span class="toc-text">全文索引 FULLTEXT</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用mysql语句"><span class="toc-number">1.9.</span> <span class="toc-text">常用mysql语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建删除数据库"><span class="toc-number">1.9.1.</span> <span class="toc-text">创建删除数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询数据库"><span class="toc-number">1.9.2.</span> <span class="toc-text">查询数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建表"><span class="toc-number">1.9.3.</span> <span class="toc-text">创建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改表"><span class="toc-number">1.9.4.</span> <span class="toc-text">修改表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除表"><span class="toc-number">1.9.5.</span> <span class="toc-text">删除表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询数据库中的表"><span class="toc-number">1.9.6.</span> <span class="toc-text">查询数据库中的表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看表结构"><span class="toc-number">1.9.7.</span> <span class="toc-text">查看表结构</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装初始"><span class="toc-number">1.</span> <span class="toc-text">安装初始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置密码"><span class="toc-number">2.</span> <span class="toc-text">设置密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程登录"><span class="toc-number">3.</span> <span class="toc-text">远程登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql数据列类型"><span class="toc-number">4.</span> <span class="toc-text">mysql数据列类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据字段属性"><span class="toc-number">5.</span> <span class="toc-text">数据字段属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据表类型"><span class="toc-number">6.</span> <span class="toc-text">数据表类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据表的字符集"><span class="toc-number">7.</span> <span class="toc-text">数据表的字符集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql索引"><span class="toc-number">8.</span> <span class="toc-text">mysql索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#主键索引-PRIMARY-KEY"><span class="toc-number">8.1.</span> <span class="toc-text">主键索引 PRIMARY KEY</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#唯一索引-UNIQUE"><span class="toc-number">8.2.</span> <span class="toc-text">唯一索引 UNIQUE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常规索引-INDEX"><span class="toc-number">8.3.</span> <span class="toc-text">常规索引 INDEX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全文索引-FULLTEXT"><span class="toc-number">8.4.</span> <span class="toc-text">全文索引 FULLTEXT</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用mysql语句"><span class="toc-number">9.</span> <span class="toc-text">常用mysql语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建删除数据库"><span class="toc-number">9.1.</span> <span class="toc-text">创建删除数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询数据库"><span class="toc-number">9.2.</span> <span class="toc-text">查询数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建表"><span class="toc-number">9.3.</span> <span class="toc-text">创建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改表"><span class="toc-number">9.4.</span> <span class="toc-text">修改表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除表"><span class="toc-number">9.5.</span> <span class="toc-text">删除表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询数据库中的表"><span class="toc-number">9.6.</span> <span class="toc-text">查询数据库中的表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看表结构"><span class="toc-number">9.7.</span> <span class="toc-text">查看表结构</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
