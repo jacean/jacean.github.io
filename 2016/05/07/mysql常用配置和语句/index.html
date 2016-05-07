@@ -16,7 +16,7 @@
 
 您配置文件中的设置（空密码的 root）是 MySQL 的默认管理员帐号。您的 MySQL 服务器正在使用这个默认设置运行，这样容易被入侵，我们强烈建">
 <meta property="og:image" content="http://7xrtyi.com1.z0.glb.clouddn.com/mysql-engine.png">
-<meta property="og:updated_time" content="2016-05-07T13:56:11.283Z">
+<meta property="og:updated_time" content="2016-05-07T13:58:51.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql常用配置和语句">
 <meta name="twitter:description" content="mysql常用配置和操作安装初始其实现在很多新接触开发的都不会自己单独去安装mysql，而是采用xampp等集成包。不过这也没关系。mysql的配置又不会变。当安装完毕之后，在phpMyAdmin中，将右边栏的滚动条拉到最后，可以看到这么一句警告
@@ -327,6 +327,7 @@
 <blockquote>
 <p>mysql -h 服务器主机地址(IP/domain) -u 用户名 -p密码</p>
 </blockquote>
+<a id="more"></a>
 <p>mysql很明确的告诉我们，现在mysql的root账户是没有密码的，很容易被入侵，比如像这样</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\wanja&gt; mysql -h localhost -u root</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 12</span><br><span class="line">Server version: 5.6.21 MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.</span><br></pre></td></tr></table></figure>
 <p>不需要密码就可以直接登陆了。</p>
@@ -471,7 +472,7 @@ YEAR，1字节，YYYY
         <p><span>本文标题:</span><a href="/2016/05/07/mysql常用配置和语句/">mysql常用配置和语句</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年05月07日 - 21时53分</p>
-        <p><span>最后更新:</span>2016年05月07日 - 21时56分</p>
+        <p><span>最后更新:</span>2016年05月07日 - 21时58分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/05/07/mysql常用配置和语句/" title="mysql常用配置和语句">http://jacean.github.io/2016/05/07/mysql常用配置和语句/</a>
             <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/05/07/mysql常用配置和语句/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
