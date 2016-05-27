@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-05-07T14:29:47.244Z</updated>
+  <updated>2016-05-27T09:53:07.051Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -14,6 +14,201 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>npm常用命令</title>
+    <link href="http://jacean.github.io/2016/05/27/npm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://jacean.github.io/2016/05/27/npm常用命令/</id>
+    <published>2016-05-27T09:50:35.000Z</published>
+    <updated>2016-05-27T09:53:07.051Z</updated>
+    
+    <content type="html">&lt;p&gt;开始练手gulp的时候就用上了npm，这是促进nodejs繁荣的包管理器，记录下它的一些常用命令以便查阅。&lt;br&gt;node package manager&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm help		万能金钥匙&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install xxx 安装模块&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install xxx -g 将模块安装到全局环境中&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm ls 查看安装的模块及依赖&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm ls -g 查看全局安装的模块及依赖&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm uninstall xxx  (-g) 卸载模块&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm cache clean 清理缓存&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;p&gt;npm安装有两种方式&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;命令行单个安装&lt;br&gt;安装的话针对当前项目和全局也分两种安装，之后的安装路径不同，作用域不同。&lt;ol&gt;
+&lt;li&gt;本地安装，package会被下载到当前所在目录，也只能在当前目录下使用。&lt;blockquote&gt;
+&lt;p&gt;npm install pkg&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;全局安装，package会被下载到到特定的系统目录下，安装的package能够在所有目录下使用。&lt;blockquote&gt;
+&lt;p&gt;npm install -g pkg&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;package.json安装&lt;br&gt;如果我们的项目依赖了很多package，可以将项目依赖的包都在package.json这个文件里声明，然后&lt;blockquote&gt;
+&lt;p&gt;npm install&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;查看&quot;&gt;&lt;a href=&quot;#查看&quot; class=&quot;headerlink&quot; title=&quot;查看&quot;&gt;&lt;/a&gt;查看&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;查看当前目录安装了哪些package&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm ls&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看全局安装的模块及依赖&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm ls -g&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看特定package的信息&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm ls pkg&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看详细信息&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm info pkg&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;开始练手gulp的时候就用上了npm，这是促进nodejs繁荣的包管理器，记录下它的一些常用命令以便查阅。&lt;br&gt;node package manager&lt;br&gt;
+    
+    </summary>
+    
+      <category term="web" scheme="http://jacean.github.io/categories/web/"/>
+    
+    
+      <category term="npm" scheme="http://jacean.github.io/tags/npm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bootstrapTable的使用</title>
+    <link href="http://jacean.github.io/2016/05/27/bootstrapTable%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://jacean.github.io/2016/05/27/bootstrapTable的使用/</id>
+    <published>2016-05-27T06:48:58.000Z</published>
+    <updated>2016-05-27T09:49:11.309Z</updated>
+    
+    <content type="html">&lt;p&gt;bootstrap是一个很好的前端框架,因为不是专门做前端的,所以一直就有bootstrap来实现页面.&lt;br&gt;基于bootstrap开发的插件组件也很多,这里要说的bootstrapTable就是其中很优秀的一款.&lt;/p&gt;
+&lt;h2 id=&quot;引入&quot;&gt;&lt;a href=&quot;#引入&quot; class=&quot;headerlink&quot; title=&quot;引入&quot;&gt;&lt;/a&gt;引入&lt;/h2&gt;&lt;p&gt;不需要自己改动源码,然后又不想研究的我一般都直接是用cdn引入.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- Latest compiled and minified CSS --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;lt;!-- Latest compiled and minified JavaScript --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;lt;script src=&amp;quot;//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;lt;!-- Latest compiled and minified Locales --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;lt;script src=&amp;quot;//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/locale/bootstrap-table-zh-CN.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;lt;!--导出引入--&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/extensions/export/bootstrap-table-export.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;lt;script src=&amp;quot;//rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;使用&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;/h2&gt;&lt;p&gt;基本的使用在bootstraptable的官网和github上都有介绍,以及JSFiddle的在线调试等.&lt;br&gt;&lt;a href=&quot;http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文档&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://bootstrap-table.wenzhixin.net.cn/zh-cn/examples/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;例子&lt;/a&gt;&lt;br&gt;可以很容易上手使用,不过给出的例子都是固定的html和css,不方便动态处理,所以我这里就主要说下使用js对table的各种操作.&lt;br&gt;谷歌bootstraptable,这篇&lt;a href=&quot;http://www.cnblogs.com/landeanfen/p/4976838.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JS组件系列——表格组件神器：bootstrap table&lt;/a&gt;的系列之作应该是最全也最细致的中文博客了,我也是学习这篇博客来用的,所以会看到很多这位博主的代码和结构,原博主如有要求可联系我删除.&lt;/p&gt;
+&lt;p&gt;table的初始化需要设置数据来源,列字段,分页方式等等,这些都可以利用js来完成.&lt;br&gt;不过在使用js完成前,要先&lt;strong&gt;仔细研读bootstraptable的文档&lt;/strong&gt;,熟悉了解要使用的属性或方法的值要求.&lt;br&gt;还有一点,我的数据都是利用ajax来获取的,所以这里的代码都是用提供的默认ajax获取数据的,暂时并没有用到自定义ajax.&lt;/p&gt;
+&lt;h3 id=&quot;容器&quot;&gt;&lt;a href=&quot;#容器&quot; class=&quot;headerlink&quot; title=&quot;容器&quot;&gt;&lt;/a&gt;容器&lt;/h3&gt;&lt;p&gt;table的数据显示在table里,所以前端必须有一个&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;table&amp;gt;&amp;lt;/table&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;标签来充当容器以承载数据.&lt;/p&gt;
+&lt;h3 id=&quot;初始化&quot;&gt;&lt;a href=&quot;#初始化&quot; class=&quot;headerlink&quot; title=&quot;初始化&quot;&gt;&lt;/a&gt;初始化&lt;/h3&gt;&lt;h4 id=&quot;字段&quot;&gt;&lt;a href=&quot;#字段&quot; class=&quot;headerlink&quot; title=&quot;字段&quot;&gt;&lt;/a&gt;字段&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;columns    -    Array    []    列配置项,详情请查看 列参数 表格.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如上文档里所述,columns对应的是值数组,所以可声明数组来指定字段.&lt;br&gt;注意数组的成员应该指出field和title.field用来绑定数据字段,title用来做字段的显示名称.&lt;br&gt;bootstraptable有一个特殊字段,该字段可以实现对数据行的单选或多选,所以在有需求的情况下显示指定这个字段的使用与否.&lt;br&gt;我定义的字段数组如下:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var fieldsarray = Array(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        checkbox: true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            field: &amp;apos;ID&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            title: &amp;apos;ID&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            field: &amp;apos;ly&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            title: &amp;apos;留言&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$(&amp;apos;#table&amp;apos;).bootstrapTable(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   columns: fieldsarray&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;数据&quot;&gt;&lt;a href=&quot;#数据&quot; class=&quot;headerlink&quot; title=&quot;数据&quot;&gt;&lt;/a&gt;数据&lt;/h4&gt;&lt;p&gt;数据可以在html中指定,也可以指定json数据或文件.我使用ajax从后台获取json数据.&lt;br&gt;所以我的初始化就是&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&amp;apos;#table&amp;apos;).bootstrapTable(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            url: &amp;apos;info_getdata.php&amp;apos;,         //请求后台的URL（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            method: &amp;apos;get&amp;apos;,                      //请求方式（*）            &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            queryParams: oTableInit.queryParams,//传递参数（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//查询的参数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;oTableInit.queryParams = function (params) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var temp = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        limit: params.limit,   //页面大小,这个不用自己手动改的,在启用分页之后,不显示指定页面大小会使用默认大小,然后在查看数据时可以通过选择来调整这个值,这是自动处理的&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        offset: params.offset,  //页码,这个和上面的一样,不用自己手动改.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        dt: $(&amp;quot;#dt&amp;quot;).val(),         //我用来查询的数据表名称&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        search: $(&amp;quot;#search&amp;quot;).val()  //我用来指定分页方式的,客户端或服务端,后边会讲到&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return temp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;注意一点,这里的method是get而不是post,我就是刚开始一直使用post然后跪了好久,在issue中看到提供的答案基本都是get就换了一下,结果立马好使了.不太清楚为什么post不行,或是我用的姿势不对.&lt;br&gt;在查询参数这个字段,对应的是一个实现固定接口的函数.文档描述如下&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;queryParams	data-query-params	Function	function(params) &amp;#123;return params;&amp;#125;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;如果 queryParamsType = &amp;apos;limit&amp;apos; ,返回参数必须包含limit, offset, search, sort, order 否则, 需要包含: pageSize, pageNumber, searchText, sortName,sortOrder. 返回false将会终止请求&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;所以这里实现了其对应接口,并将必须数据返回.然后bootstraptable就会利用url,method,以及queryParams来使用ajax向后台要取数据.&lt;br&gt;我的后台处理就是利用这几个来获取数据的,具体根据分页方式来做.&lt;/p&gt;
+&lt;h4 id=&quot;分页&quot;&gt;&lt;a href=&quot;#分页&quot; class=&quot;headerlink&quot; title=&quot;分页&quot;&gt;&lt;/a&gt;分页&lt;/h4&gt;&lt;p&gt;分页有两种,一种是客户端分页,一种是服务端分页.显而易见,客户端分页就是把数据一次性获取,然后在浏览器端利用内存分页,服务端分页就是分批次向服务端要取数据,每次只要一部分.&lt;br&gt;前述查询参数就是为服务端分页所准备的.&lt;br&gt;服务端根据页面大小和偏移量来截取部分数据返回,要注意的是limit和offset就是这个数据部分的起始和结束,bootstraptable已经计算好了.最简单的数据查询的服务端是这样&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//if search==server服务端分页&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $query = &amp;quot;select * from `&amp;quot;.$dt.&amp;quot;` limit &amp;quot;.$offset.&amp;quot;, &amp;quot;.$limit.&amp;quot;&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//if search==client客户端分页&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $query = &amp;quot;select * from `&amp;quot;.$dt.&amp;quot;`&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//后台完整PHP&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$conn = new mysqlQuery();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$offset = $_GET[&amp;quot;offset&amp;quot;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$limit = $_GET[&amp;quot;limit&amp;quot;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$dt = $_GET[&amp;quot;dt&amp;quot;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$type = $_GET[&amp;quot;search&amp;quot;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$results = array();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if ($type == &amp;quot;server&amp;quot;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $query = &amp;quot;select * from `&amp;quot;.$dt.&amp;quot;` limit &amp;quot;.$offset.&amp;quot;, &amp;quot;.$limit.&amp;quot;&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $statement = $conn-&amp;gt;dbh-&amp;gt;query($query);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    while ($row = $statement-&amp;gt;fetch(PDO::FETCH_ASSOC)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $results[] = $row;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $fenye = &amp;quot;SELECT count(`ID`) num FROM `&amp;quot;.$dt.&amp;quot;` WHERE 1&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $statement = $conn-&amp;gt;dbh-&amp;gt;query($fenye);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $rownum = $statement-&amp;gt;fetch(PDO::FETCH_ASSOC);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $total = $rownum[&amp;quot;num&amp;quot;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $response = array(&amp;apos;total&amp;apos; =&amp;gt; $total, &amp;apos;rows&amp;apos; =&amp;gt; $results);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if($type==&amp;quot;client&amp;quot;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $query = &amp;quot;select * from `&amp;quot;.$dt.&amp;quot;`&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $statement = $conn-&amp;gt;dbh-&amp;gt;query($query);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    while ($row = $statement-&amp;gt;fetch(PDO::FETCH_ASSOC)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $results[] = $row;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $response =$results;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;echo json_encode($response);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$conn-&amp;gt;close();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;服务端返回的应该是json格式,这样bootstraptable才能处理.&lt;/p&gt;
+&lt;p&gt;仔细看PHP代码,可以看到服务端分页和客户端分页返回的json数据是不一样的.&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//服务端&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $response = array(&amp;apos;total&amp;apos; =&amp;gt; $total, &amp;apos;rows&amp;apos; =&amp;gt; $results);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//客户端&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $response =$results;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;当设置为服务端分页的时候,应当返回的是总行数和要显示的行集合.&lt;br&gt;为客户端分页的时候,只需要返回行集合就可.&lt;/p&gt;
+&lt;p&gt;分页方式的设置方式&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&amp;apos;#table&amp;apos;).bootstrapTable(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            pagination: true,                   //是否显示分页（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            sidePagination: &amp;quot;client&amp;quot;,           //分页方式：client客户端分页，server服务端分页（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            pageNumber: 1,                       //初始化加载第一页，默认第一页&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            pageSize: 10,                       //每页的记录行数（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            search: true,                       //是否显示表格搜索，此搜索只能在已有数据内搜索,所以其只对获取了全部数据的客户端分页有意义,而服务端分页没啥用处.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            strictSearch: false,                 //全匹配搜索&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;重要的两个字段就是pagination和sidePagination,指定是否分页和分页方式.&lt;br&gt;客户端分页的缺点自然是若数据量过大,获取数据耗时过长以及对内存的占用,而服务端是每次的轻量级交互则没有这点.&lt;br&gt;不过,在bootstraptable中使用客户端分页会有效益加成,因为数据全部都在,可以做其他的全局操作,比如搜索或是导出.这两个功能对客户端分页的支持很好,但是服务端就不行了.搜索已然鸡肋了,但是导出就会出先各种bug,比如导出方式和数据等等,总之用bootstraptable的export插件就是不好用了,不过这也可能是我使用的姿势不对吧.&lt;/p&gt;
+&lt;p&gt;提供两种初始化方法,只是分页方式字段稍有不同,其余基本不变就可.&lt;br&gt;初始化函数最终如下&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;57&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;58&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;59&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;60&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;61&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;62&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;63&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;65&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;66&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;67&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;68&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;69&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;70&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;71&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;72&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;73&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;74&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;75&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;76&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;77&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;78&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;79&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;80&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;81&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;82&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;83&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//初始化Table&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var TableInit = function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var oTableInit = new Object();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var fieldsarray = Array(&amp;#123;&amp;#125;);        //字段数组&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      oTableInit.clientInit = function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&amp;apos;#table&amp;apos;).bootstrapTable(&amp;apos;destroy&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&amp;apos;#table&amp;apos;).bootstrapTable(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            /************** 参数 ****************/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            url: &amp;apos;info_getdata.php&amp;apos;,         //请求后台的URL（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            method: &amp;apos;get&amp;apos;,                      //请求方式（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            // ajax:&amp;quot;ajaxRequest&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            toolbar: &amp;apos;#toolbar&amp;apos;,                //工具按钮用哪个容器&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            striped: true,                      //是否显示行间隔色&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            pagination: true,                   //是否显示分页（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            sortable: false,                     //是否启用排序&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            sortOrder: &amp;quot;asc&amp;quot;,                   //排序方式&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            queryParams: oTableInit.queryParams,//传递参数（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            sidePagination: &amp;quot;client&amp;quot;,           //分页方式：client客户端分页，server服务端分页（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            pageNumber: 1,                       //初始化加载第一页，默认第一页&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            pageSize: 10,                       //每页的记录行数（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            strictSearch: false,                 //全匹配搜索&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            showRefresh: true,                  //是否显示刷新按钮         &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            clickToSelect: true,                //是否启用点击选中行&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            uniqueId: &amp;quot;ID&amp;quot;,                     //每一行的唯一标识，一般为主键列&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            showToggle: true,                    //是否显示详细视图和列表视图的切换按钮&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            cardView: false,                    //是否显示详细视图&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            detailView: false,                   //是否显示父子表&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            showExport: true,                     //是否显示导出&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            //exportDataType: &amp;quot;all&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            showColumns: true,                  //是否显示所有的列&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            columns: fieldsarray,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            /***************** 事件 *****************/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            onClickRow: function (row, $element) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                // alert($element);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            onLoadError: function (data) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert(data);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    oTableInit.serverInit = function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&amp;apos;#table&amp;apos;).bootstrapTable(&amp;apos;destroy&amp;apos;);      //先销毁旧的重新初始化&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&amp;apos;#table&amp;apos;).bootstrapTable(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            url: &amp;apos;info_getdata.php&amp;apos;,         //请求后台的URL（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            method: &amp;apos;get&amp;apos;,                      //请求方式（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            queryParams: oTableInit.queryParams,//传递参数（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            sidePagination: &amp;quot;server&amp;quot;,           //分页方式：client客户端分页，server服务端分页（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            pageNumber: 1,                       //初始化加载第一页，默认第一页&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            pageSize: 10,                       //每页的记录行数（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            detailView: false,                   //是否显示父子表&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            showExport: false,                     //是否显示导出&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            showColumns: true,                  //是否显示所有的列&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            columns: fieldsarray&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     //得到查询的参数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    oTableInit.queryParams = function (params) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var temp = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            limit: params.limit,   //页面大小&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            offset: params.offset,  //页码&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            dt: $(&amp;quot;#dt&amp;quot;).val(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            search: $(&amp;quot;#search&amp;quot;).val()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return temp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return oTableInit;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在表格参数中,当名称对应类型是Function的时候,这类就是可以自定义方法的.比如customSort,rowStyle,rowAttributes,根据文档提供的参数和返回值,可以对表格的做出更优秀的展示.&lt;/p&gt;
+&lt;p&gt;注意下bootstraptable的事件使用.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Option 事件&lt;br&gt;jQuery 事件&lt;br&gt;参数&lt;br&gt;描述&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;仔细研读这些,可以利用事件对整个交互响应做出更好的体验.&lt;/p&gt;
+&lt;h4 id=&quot;动态指定显示列&quot;&gt;&lt;a href=&quot;#动态指定显示列&quot; class=&quot;headerlink&quot; title=&quot;动态指定显示列&quot;&gt;&lt;/a&gt;动态指定显示列&lt;/h4&gt;&lt;p&gt;因为我是从不同的表里获取数据,其字段也有不同之处,所以每次查询的时候都需要根据表重新指定字段,采用bootstrapTable的方法来指定刷新.&lt;br&gt;$(“#dt”)是我的表名.我选取了全部的字段,在查每个不同的表时隐藏掉自己没有的字段.这办法是土了点,但是因为要指定标题所以只好这样了.&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;function setColumns(params) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    //此方法不存在了&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    // $(&amp;quot;#table&amp;quot;).bootstrapTable(&amp;apos;showAllColumns&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    /************* 设置列动态显示变化 ******************/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    switch ($(&amp;quot;#dt&amp;quot;).val()) &amp;#123;       &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        case &amp;apos;fx_zn&amp;apos;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            $(&amp;quot;#table&amp;quot;).bootstrapTable(&amp;apos;hideColumn&amp;apos;, &amp;apos;zp&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            $(&amp;quot;#table&amp;quot;).bootstrapTable(&amp;apos;hideColumn&amp;apos;, &amp;apos;fj&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        case &amp;apos;jn_per&amp;apos;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            $(&amp;quot;#table&amp;quot;).bootstrapTable(&amp;apos;hideColumn&amp;apos;, &amp;apos;dw&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            $(&amp;quot;#table&amp;quot;).bootstrapTable(&amp;apos;hideColumn&amp;apos;, &amp;apos;fwb&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        default:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&amp;quot;#table&amp;quot;).bootstrapTable(&amp;apos;refresh&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在这里看一下bootstraptable的方法.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用方法的语法：$(‘#table’).bootstrapTable(‘method’, parameter);。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在文档里可以看到其方法列表,仔细研读方法参数和描述来合理使用方法.&lt;/p&gt;
+&lt;h4 id=&quot;控件绑定&quot;&gt;&lt;a href=&quot;#控件绑定&quot; class=&quot;headerlink&quot; title=&quot;控件绑定&quot;&gt;&lt;/a&gt;控件绑定&lt;/h4&gt;&lt;p&gt;这套初始化逻辑都是用的那位博主的,感觉还好.&lt;br&gt;在控件初始化中,将table事件和控件事件绑定.&lt;br&gt;比如我有切换客户端分页和服务端分页的select,选择查询不同表的select,以及服务端分页时手动的导出.&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var ControlInit = function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var oInit = new Object();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var postdata = &amp;#123;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    oInit.Init = function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        // 初始化控件事件  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        //根据不同表隐藏显示不同字段列      &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&amp;quot;#dt&amp;quot;).change(function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            setColumns();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        //根据查询方式不同选择不同的初始化方式,忽略search这个名字,本来不是用来干这个的,忘了改了,type&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&amp;quot;#search&amp;quot;).change(function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            if ($(&amp;quot;#search&amp;quot;).val() == &amp;quot;client&amp;quot;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                var oTable = new TableInit();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                oTable.clientInit();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                //工具条变化&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                $(&amp;quot;#clientexport&amp;quot;).show();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                $(&amp;quot;#serverexport&amp;quot;).hide();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125; else &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                var oTable = new TableInit();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                oTable.serverInit();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                //工具条变化&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                $(&amp;quot;#clientexport&amp;quot;).hide();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                $(&amp;quot;#serverexport&amp;quot;).show();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            setColumns();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            $(&amp;quot;#table&amp;quot;).bootstrapTable(&amp;apos;refresh&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&amp;quot;#serverexport&amp;quot;).click(function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            window.open(&amp;quot;info_export.php?dt=&amp;quot; + $(&amp;quot;#dt&amp;quot;).val());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return oInit;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&quot;工具条&quot;&gt;&lt;a href=&quot;#工具条&quot; class=&quot;headerlink&quot; title=&quot;工具条&quot;&gt;&lt;/a&gt;工具条&lt;/h4&gt;&lt;p&gt;根据分页方式的不同,工具条内容变化,控制方式在上一小节的控件事件绑定中&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;div id=&amp;quot;toolbar&amp;quot; class=&amp;quot;btn-group&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;!--bootstrapTable的导出功能客户端分页使用--&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;select id=&amp;quot;clientexport&amp;quot; class=&amp;quot;form-control&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;option value=&amp;quot;&amp;quot;&amp;gt;导出当前页&amp;lt;/option&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;option value=&amp;quot;all&amp;quot;&amp;gt;导出全部&amp;lt;/option&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;option value=&amp;quot;selected&amp;quot;&amp;gt;导出选中项&amp;lt;/option&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/select&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;!--bootstrap导出end--&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;button id=&amp;quot;serverexport&amp;quot; type=&amp;quot;button&amp;quot; class=&amp;quot;btn btn-primary&amp;quot; style=&amp;quot;display:none;&amp;quot;&amp;gt;导出Excel&amp;lt;/button&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&quot;初始化表格&quot;&gt;&lt;a href=&quot;#初始化表格&quot; class=&quot;headerlink&quot; title=&quot;初始化表格&quot;&gt;&lt;/a&gt;初始化表格&lt;/h4&gt;&lt;p&gt;在页面加载时执行初始化操作,把以上设置应用到表格上.&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    //1.初始化Table,采用客户端初始化，在页面设计中配套默认全部获取.我在控件初始化时做了这一步,所以这一段可以咔嚓的.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var oTable = new TableInit();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    oTable.clientInit();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    //2.初始化Button的点击事件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var oControlInit = new ControlInit();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    oControlInit.Init();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    // 绑定选择导出类型,这个可在扩展export的例子中找到,介绍的很详细&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&amp;apos;#toolbar&amp;apos;).find(&amp;apos;select&amp;apos;).change(function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&amp;apos;#table&amp;apos;).bootstrapTable(&amp;apos;refreshOptions&amp;apos;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            exportDataType: $(this).val()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    setColumns();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;暂且记录到此,bootstraptable还有很多好玩的可以玩,之后用到再补充.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;bootstrap是一个很好的前端框架,因为不是专门做前端的,所以一直就有bootstrap来实现页面.&lt;br&gt;基于bootstrap开发的插件组件也很多,这里要说的bootstrapTable就是其中很优秀的一款.&lt;/p&gt;
+&lt;h2 id=&quot;引入&quot;&gt;&lt;a href=&quot;#引入
+    
+    </summary>
+    
+      <category term="前端" scheme="http://jacean.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="bootstrap" scheme="http://jacean.github.io/tags/bootstrap/"/>
+    
+      <category term="html" scheme="http://jacean.github.io/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML使用input上传文件类型限制</title>
+    <link href="http://jacean.github.io/2016/05/27/HTML%E4%BD%BF%E7%94%A8input%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E9%99%90%E5%88%B6/"/>
+    <id>http://jacean.github.io/2016/05/27/HTML使用input上传文件类型限制/</id>
+    <published>2016-05-27T06:39:41.000Z</published>
+    <updated>2016-05-27T06:48:25.855Z</updated>
+    
+    <content type="html">&lt;p&gt;在上传文件的时候,我们经常会有特定的文件需求,比如只要word,或是excel,jpeg等等,这个是可以在前端的input来直接进行限制的.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;在stackoverflow上找到的答案&lt;a href=&quot;http://stackoverflow.com/questions/11832930/html-input-file-accept-attribute-file-type-csv&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML Input=“file” Accept Attribute File Type (CSV)&lt;/a&gt;.&lt;br&gt;对各种文件的input限制详细描述:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Valid Accept Types:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;For CSV files (.csv), use: &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;input type=&amp;quot;file&amp;quot; accept=&amp;quot;.csv&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;For Excel Files 97-2003 (.xls), use: &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;input type=&amp;quot;file&amp;quot; accept=&amp;quot;application/vnd.ms-excel&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;For Excel Files 2007+ (.xlsx), use: &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;input type=&amp;quot;file&amp;quot; accept=&amp;quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;For Text Files (.txt) use: &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;input type=&amp;quot;file&amp;quot; accept=&amp;quot;text/plain&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;For Image Files (.png/.jpg/etc), use: &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;input type=&amp;quot;file&amp;quot; accept=&amp;quot;image/*&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;For HTML Files (.htm,.html), use:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;input type=&amp;quot;file&amp;quot; accept=&amp;quot;text/html&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;For Video Files (.avi, .mpg, .mpeg, .mp4), use:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;input type=&amp;quot;file&amp;quot; accept=&amp;quot;video/*&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;For Audio Files (.mp3, .wav, etc), use:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;input type=&amp;quot;file&amp;quot; accept=&amp;quot;audio/*&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;For PDF Files, use:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;input type=&amp;quot;file&amp;quot; accept=&amp;quot;.pdf&amp;quot; /&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NOTE:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;If you are trying to display Excel CSV files (.csv), do NOT use:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;text/csv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;application/csv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;text/comma-separated-values (works in Opera only).&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;If you are trying to display a particular file type (for example, a WAV or PDF), then this will almost always work...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &amp;lt;input type=&amp;quot;file&amp;quot; accept=&amp;quot;.FILETYPE&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在上传文件的时候,我们经常会有特定的文件需求,比如只要word,或是excel,jpeg等等,这个是可以在前端的input来直接进行限制的.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://jacean.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="HTML" scheme="http://jacean.github.io/tags/HTML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ajax提交含文件表单</title>
+    <link href="http://jacean.github.io/2016/05/27/ajax%E6%8F%90%E4%BA%A4%E5%90%AB%E6%96%87%E4%BB%B6%E8%A1%A8%E5%8D%95/"/>
+    <id>http://jacean.github.io/2016/05/27/ajax提交含文件表单/</id>
+    <published>2016-05-27T06:17:34.000Z</published>
+    <updated>2016-05-27T06:37:54.849Z</updated>
+    
+    <content type="html">&lt;p&gt;使用ajax和后台交换数据是web开发中常用的手段,jquery也提供了很方便的使用方法.如$.ajax()等.&lt;br&gt;但是,交换的数据经常是表单,当表单中有文件的时候,普通的ajax手段就不好使了.这时候,可以使用formdata来进行文件的ajax.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;在使用ajax和后台传递数据的时候,因为要上传文件,所以在后台php处用了$_FILES[“file”],但是提示错误”未定义index下标”,一想才记起ajax是不能传递文件信息的.&lt;br&gt;无效代码如下:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$.ajax(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            cache: true,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            type: &amp;quot;POST&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            url:&amp;apos;infowrite.php&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            data:$(&amp;apos;#infoform&amp;apos;).serialize(),// 你的formid&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            async: false,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            error: function(request) &amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            success: function(data) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            dataType: &amp;quot;json&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;决定采用formdata,先对表单进行处理,创建FormData对象.&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var fd = new FormData(document.getElementById(&amp;quot;fileinfo&amp;quot;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$.ajax(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            cache: true,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            type: &amp;quot;POST&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            url:&amp;apos;infowrite.php&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            data:fd,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            async: false,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            processData: false,  // 告诉jQuery不要去处理发送的数据&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            error: function(request) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            success: function(data) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            dataType: &amp;quot;json&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这样改正之后,在后台页面就可以接收file信息,使用$_FILES这个全局数组了.&lt;/p&gt;
+&lt;p&gt;除了将从form创建formdata外,也可以先创建空formdata,然后使用append等手动添加字段.&lt;br&gt;更多对formdata的使用,还是参见官方文档比较靠谱,我就不乱说了.&lt;br&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/Guide/Using_FormData_Objects&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用FormData对象&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用ajax和后台交换数据是web开发中常用的手段,jquery也提供了很方便的使用方法.如$.ajax()等.&lt;br&gt;但是,交换的数据经常是表单,当表单中有文件的时候,普通的ajax手段就不好使了.这时候,可以使用formdata来进行文件的ajax.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://jacean.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="ajax" scheme="http://jacean.github.io/tags/ajax/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gulp入门和基本配置</title>
+    <link href="http://jacean.github.io/2016/05/20/gulp%E5%85%A5%E9%97%A8%E5%92%8C%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/"/>
+    <id>http://jacean.github.io/2016/05/20/gulp入门和基本配置/</id>
+    <published>2016-05-20T12:25:55.000Z</published>
+    <updated>2016-05-20T12:25:55.194Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>PDO在mysql中的应用</title>
@@ -73,9 +268,9 @@
       <category term="后端" scheme="http://jacean.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="mysql" scheme="http://jacean.github.io/tags/mysql/"/>
-    
       <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
+    
+      <category term="mysql" scheme="http://jacean.github.io/tags/mysql/"/>
     
       <category term="PDO" scheme="http://jacean.github.io/tags/PDO/"/>
     
@@ -417,9 +612,9 @@ function startRecord() {
     
       <category term="php" scheme="http://jacean.github.io/tags/php/"/>
     
-      <category term="微信开发" scheme="http://jacean.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/"/>
-    
       <category term="ajax" scheme="http://jacean.github.io/tags/ajax/"/>
+    
+      <category term="微信开发" scheme="http://jacean.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -1001,304 +1196,6 @@ function startRecord() {
     
     
       <category term="TCP" scheme="http://jacean.github.io/tags/TCP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux文件权限</title>
-    <link href="http://jacean.github.io/2016/03/26/Linux%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/"/>
-    <id>http://jacean.github.io/2016/03/26/Linux文件权限/</id>
-    <published>2016-03-26T04:01:38.000Z</published>
-    <updated>2016-04-16T04:52:53.427Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Linux文件权限&quot;&gt;&lt;a href=&quot;#Linux文件权限&quot; class=&quot;headerlink&quot; title=&quot;Linux文件权限&quot;&gt;&lt;/a&gt;Linux文件权限&lt;/h2&gt;&lt;p&gt;Linux文件权限的表示是10个字符。如下：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;-rw-rw-r-x: 文件所有者与同组用户对文件具有读写的权限，而其他用户仅具有读取和执行的权限。&lt;br&gt;drwx–x–x: 目录所有者具有读写与进入目录的权限,其他用户近能进入该目录，却无法读取任何数据。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;两种权限对象&quot;&gt;&lt;a href=&quot;#两种权限对象&quot; class=&quot;headerlink&quot; title=&quot;两种权限对象&quot;&gt;&lt;/a&gt;两种权限对象&lt;/h3&gt;&lt;p&gt;第一个字符，标识权限对象是文件还是目录。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;‘-‘，表示文件&lt;/li&gt;
-&lt;li&gt;‘d’，表示是目录&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;三种用户类型&quot;&gt;&lt;a href=&quot;#三种用户类型&quot; class=&quot;headerlink&quot; title=&quot;三种用户类型&quot;&gt;&lt;/a&gt;三种用户类型&lt;/h3&gt;&lt;p&gt;第2-10的字符，表示3组权限。依次是：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;所有者，创建文件的用户&lt;/li&gt;
-&lt;li&gt;用户组，用户所在用户组的成员&lt;/li&gt;
-&lt;li&gt;其他用户，系统内的其他所有用户&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;三种用户权限&quot;&gt;&lt;a href=&quot;#三种用户权限&quot; class=&quot;headerlink&quot; title=&quot;三种用户权限&quot;&gt;&lt;/a&gt;三种用户权限&lt;/h3&gt;&lt;p&gt;每一组权限都有3个字母组成，分别代表读、写和执行。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;r，read,对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权&lt;/li&gt;
-&lt;li&gt;w，write,对文件而言，具有新增、修改文件内容的权限；对目录来说，具有删除、移动目录内文件的权限。&lt;/li&gt;
-&lt;li&gt;x，execute,对文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;数字表示权限&quot;&gt;&lt;a href=&quot;#数字表示权限&quot; class=&quot;headerlink&quot; title=&quot;数字表示权限&quot;&gt;&lt;/a&gt;数字表示权限&lt;/h3&gt;&lt;p&gt;除了字符，还有数字也可以用来表示权限，3组权限9个字母只用3个数字。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;0，对应-，表示没有权限。即&lt;em&gt;000&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;1，对应x，表示执行权限。即&lt;em&gt;001&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;2，对应w，表示写权限。即&lt;em&gt;010&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;4，对应r，表示读权限.即&lt;em&gt;100&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这样表示的原因是，将rwx对应的3位，如果有就是1，没有就是0，这样的二进制表示。如上所示。&lt;br&gt;而这样，只需要0-7的3个数字就可以把3个字母的权限完整的表示出来。&lt;br&gt;开头的例子，其权限数字表示第一个就是665，第二个就是711.&lt;/p&gt;
-&lt;h3 id=&quot;改变权限&quot;&gt;&lt;a href=&quot;#改变权限&quot; class=&quot;headerlink&quot; title=&quot;改变权限&quot;&gt;&lt;/a&gt;改变权限&lt;/h3&gt;&lt;p&gt;使用chmod和数字改变文件或目录的访问权限。比如修改文件&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;chmod 664 a.txt&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;即是改变a.txt的权限为-rw-rw-1–.很明显，权限全开就是777，全闭就是000.&lt;br&gt;改变目录的权限如下：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;chmod 777 /home/user         仅把/home/user目录的权限设置为rwxrwxrw&lt;/li&gt;
-&lt;li&gt;chmod -R 777 /home/user        表示将整个/home/user目录与其中的文件和子目录的权限都设置为rwxrwxrwx&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;修改拥有者&quot;&gt;&lt;a href=&quot;#修改拥有者&quot; class=&quot;headerlink&quot; title=&quot;修改拥有者&quot;&gt;&lt;/a&gt;修改拥有者&lt;/h3&gt;&lt;p&gt;change owner，简称chown。语法如下：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;chown [-R] 账号名称      文件/目录&lt;/li&gt;
-&lt;li&gt;chown [-R] 账号名称:组群  文件/目录&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;修改组群&quot;&gt;&lt;a href=&quot;#修改组群&quot; class=&quot;headerlink&quot; title=&quot;修改组群&quot;&gt;&lt;/a&gt;修改组群&lt;/h3&gt;&lt;p&gt;change group，简称chgrp。语法如下：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;chgrp  组群  文件名/目录 &lt;/p&gt;
-&lt;/blockquote&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Linux文件权限&quot;&gt;&lt;a href=&quot;#Linux文件权限&quot; class=&quot;headerlink&quot; title=&quot;Linux文件权限&quot;&gt;&lt;/a&gt;Linux文件权限&lt;/h2&gt;&lt;p&gt;Linux文件权限的表示是10个字符。如下：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;-rw-rw-r-x: 文件所有者与同组用户对文件具有读写的权限，而其他用户仅具有读取和执行的权限。&lt;br&gt;drwx–x–x: 目录所有者具有读写与进入目录的权限,其他用户近能进入该目录，却无法读取任何数据。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://jacean.github.io/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="http://jacean.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP会话</title>
-    <link href="http://jacean.github.io/2016/03/25/HTTP%E4%BC%9A%E8%AF%9D/"/>
-    <id>http://jacean.github.io/2016/03/25/HTTP会话/</id>
-    <published>2016-03-24T16:09:37.000Z</published>
-    <updated>2016-04-16T04:51:37.958Z</updated>
-    
-    <content type="html">&lt;p&gt;在多次HTTP连接间维护用户与同一用户发出的不同请求之间关联的情况称为维护一个会话（session）。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;会话能够把用户与同一用户发出的不同请求之间关联起来。不同用户的会话应当是相互独立的。&lt;/li&gt;
-&lt;li&gt;会话一旦建立就应当一直存在，直到用户空闲时间超过了某一个时间界限，容器才应当释放该会话资源。&lt;/li&gt;
-&lt;li&gt;在会话的存活期间，用户可能给服务器发送了很多请求，该用户的这些请求信息都可以存储在会话中。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-会话的四个过程：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;建立tcp连接&lt;/li&gt;
-&lt;li&gt;发出请求文档&lt;/li&gt;
-&lt;li&gt;发出响应文档&lt;/li&gt;
-&lt;li&gt;释放tcp连接&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在多次HTTP连接间维护用户与同一用户发出的不同请求之间关联的情况称为维护一个会话（session）。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;会话能够把用户与同一用户发出的不同请求之间关联起来。不同用户的会话应当是相互独立的。&lt;/li&gt;
-&lt;li&gt;会话一旦建立就应当一直存在，直到用户空闲时间超过了某一个时间界限，容器才应当释放该会话资源。&lt;/li&gt;
-&lt;li&gt;在会话的存活期间，用户可能给服务器发送了很多请求，该用户的这些请求信息都可以存储在会话中。
-    
-    </summary>
-    
-      <category term="网络" scheme="http://jacean.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="HTTP" scheme="http://jacean.github.io/tags/HTTP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP协议学习</title>
-    <link href="http://jacean.github.io/2016/03/24/HTTP%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://jacean.github.io/2016/03/24/HTTP协议学习/</id>
-    <published>2016-03-24T15:05:54.000Z</published>
-    <updated>2016-04-16T04:51:50.070Z</updated>
-    
-    <content type="html">&lt;p&gt;HTTP,HyperText Transfer Protocol,超文本传输协议。&lt;br&gt;HTTP设计最初的目的是为了提供一种发布和接收HTML页面的方法。通过HTTP或HTTPS协议请求的资源由统一资源标识符来标识。&lt;br&gt;1999年，RFC2616发布了HTTP1.1，这个当前广泛使用的版本。&lt;br&gt;2014年，提交HTTP/2,2015年5月以RFC7540正式发表，取代HTTP 1.1成为HTTP的实现标准。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;协议概述&quot;&gt;&lt;a href=&quot;#协议概述&quot; class=&quot;headerlink&quot; title=&quot;协议概述&quot;&gt;&lt;/a&gt;协议概述&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;HTTP是一个客户端终端(用户)和服务器端(网站)请求和应答的标准(TCP).通过使用Web浏览器、网络爬虫或者其它的工具，客户端发起一个HTTP请求到服务器上指定端口（默认端口为80）。我们称这个客户端为用户代理程序（user agent）。应答的服务器上存储着一些资源，比如HTML文件和图像。我们称这个应答服务器为源服务器（origin server）。在用户代理和源服务器中间可能存在多个“中间层”，比如代理服务器、网关或者隧道（tunnel）。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;user agent —&amp;gt;&amp;gt;&amp;gt;origin server&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;HTTP协议假定其下层协议提供可靠的传输，因此，任何能够提供这种保证的协议都可以被其使用。所以，&lt;br&gt;TCP/IP协议族使用TCP作为其传输层。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;TCP提供的是点对点的可靠传输，UDP则是广播型的不可靠连接。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;通常，由HTTP客户端发起一个请求，创建一个到服务器指定端口（默认是80端口）的TCP连接。HTTP服务器则在那个端口监听客户端的请求。一旦收到请求，服务器会向客户端返回一个状态，比如”HTTP/1.1 200 OK”，以及返回的内容，如请求的文件、错误消息、或者其它信息。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;客户端—&amp;gt;&amp;gt;&amp;gt;发起请求—&amp;gt;&amp;gt;&amp;gt;创建TCP连接—&amp;gt;&amp;gt;&amp;gt;服务器端监听请求—&amp;gt;&amp;gt;&amp;gt;返回状态&lt;/p&gt;
-&lt;h2 id=&quot;请求信息&quot;&gt;&lt;a href=&quot;#请求信息&quot; class=&quot;headerlink&quot; title=&quot;请求信息&quot;&gt;&lt;/a&gt;请求信息&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;请求行&lt;/li&gt;
-&lt;li&gt;请求头&lt;/li&gt;
-&lt;li&gt;空行&lt;/li&gt;
-&lt;li&gt;其他消息体&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;请求方法&quot;&gt;&lt;a href=&quot;#请求方法&quot; class=&quot;headerlink&quot; title=&quot;请求方法&quot;&gt;&lt;/a&gt;请求方法&lt;/h2&gt;&lt;p&gt;HTTP/1.1协议中共定义了八种方法（也叫“动作”）来以不同方式操作指定的资源：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;OPTIONS：这个方法可使服务器传回该资源所支持的所有HTTP请求方法。用’&lt;em&gt;‘来代替资源名称，向Web服务器发送OPTIONS请求，可以&lt;/em&gt;测试*服务器功能是否正常运作。&lt;/li&gt;
-&lt;li&gt;HEAD：与GET方法一样，都是向服务器发出指定资源的请求。只不过服务器将不传回资源的本文部分。它的好处在于，使用这个方法可以在不必传输全部内容的情况下，就可以获取其中“关于该资源的信息”（元信息或称元数据）。&lt;/li&gt;
-&lt;li&gt;GET：向指定的资源发出“显示”请求。使用GET方法应该只用在&lt;em&gt;读取数据&lt;/em&gt;，而不应当被用于产生“副作用”的操作中，例如在Web Application中。其中一个原因是GET可能会被网络蜘蛛等随意访问。参见安全方法&lt;/li&gt;
-&lt;li&gt;POST：向指定资源提交数据，请求服务器进行处理（例如提交表单或者上传文件）。数据被包含在请求本文中。这个请求可能会创建新的资源或修改现有资源，或二者皆有。&lt;/li&gt;
-&lt;li&gt;PUT：向指定资源位置上传其最新内容。&lt;/li&gt;
-&lt;li&gt;DELETE：请求服务器删除Request-URI所标识的资源。&lt;/li&gt;
-&lt;li&gt;TRACE：回显服务器收到的请求，主要用于测试或诊断。&lt;/li&gt;
-&lt;li&gt;CONNECT：HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。通常用于SSL加密服务器的链接（经由非加密的HTTP代理服务器）。&lt;blockquote&gt;
-&lt;p&gt;HTTP服务器至少应该实现GET和HEAD方法，其他方法都是可选的。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;安全方法:GET和HEAD，除了获取资源信息外，这些请求不应当再有其他意义。被认为是安全的。&lt;br&gt;副作用:幂等，非幂等。假如在不考虑诸如错误或者过期等问题的情况下，若干次请求的副作用与单次请求相同或者根本没有副作用，那么这些请求方法就能够被视作“幂等”的。&lt;/p&gt;
-&lt;h2 id=&quot;HTTPS&quot;&gt;&lt;a href=&quot;#HTTPS&quot; class=&quot;headerlink&quot; title=&quot;HTTPS&quot;&gt;&lt;/a&gt;HTTPS&lt;/h2&gt;&lt;p&gt;目前有两种方法来创建安全超文本协议连接：HTTPS URI方案和HTTP 1.1请求头（由 RFC 2817 引入）。由于浏览器对后者几乎没有任何支持，因此HTTPS URI方案仍是创建安全超文本协议连接的主要手段。安全超文本连接协议使用&lt;a href=&quot;https://代替http://&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://代替http://&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;版本&quot;&gt;&lt;a href=&quot;#版本&quot; class=&quot;headerlink&quot; title=&quot;版本&quot;&gt;&lt;/a&gt;版本&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;0.9，只接受GET一种请求方法，没有在通讯中指定版本号，不支持请求头。&lt;/li&gt;
-&lt;li&gt;HTTP/1.0，第一个在通讯中指定版本号的HTTP协议，仍被广泛采用，特别是在代理服务器中。&lt;/li&gt;
-&lt;li&gt;HTTP/1.1，持久连接被默认采用，并能很好的配合代理服务器工作。支持以管道方式同时发送多个请求。相较于HTTP/1.0，区别如下：&lt;ul&gt;
-&lt;li&gt;缓存处理&lt;/li&gt;
-&lt;li&gt;带宽优化及网络连接的使用&lt;/li&gt;
-&lt;li&gt;错误通知的管理&lt;/li&gt;
-&lt;li&gt;消息在网络中发送&lt;/li&gt;
-&lt;li&gt;互联网地址的维护&lt;/li&gt;
-&lt;li&gt;安全性及完整性&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;HTTP/2，当前版本，于2015年5月作为互联网标准正式发布。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;状态码&quot;&gt;&lt;a href=&quot;#状态码&quot; class=&quot;headerlink&quot; title=&quot;状态码&quot;&gt;&lt;/a&gt;状态码&lt;/h2&gt;&lt;p&gt;所有HTTP响应的第一行都是状态行，依次是当前HTTP版本号，3位数字组成的状态代码，以及描述状态的短语，彼此由空格分隔。&lt;br&gt;状态代码的第一个数字代表当前响应的类型：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;1xx消息——请求已被服务器接收，继续处理（临时响应，1.0未定义任何1xx状态码）&lt;ul&gt;
-&lt;li&gt;100 Continue。客户端应当继续发送请求。&lt;/li&gt;
-&lt;li&gt;101 Switching Protocols。服务器已经理解了客户端的请求，并将通过Upgrade消息头通知客户端采用不同的协议来完成这个请求。&lt;/li&gt;
-&lt;li&gt;102 Processing。代表处理将被继续执行。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;2xx成功——请求已成功被服务器接收、理解、并接受&lt;ul&gt;
-&lt;li&gt;200 OK。请求已成功，请求所希望的响应头或数据体将随此响应返回。&lt;/li&gt;
-&lt;li&gt;201 Created。请求已经被实现，而且有一个新的资源已经依据请求的需要而创建，且其URI已经随Location头信息返回。假如需要的资源无法及时创建的话，应当返回’202 Accepted’。&lt;/li&gt;
-&lt;li&gt;202 Accepted。服务器已接受请求，但尚未处理。适用于异步操作。&lt;/li&gt;
-&lt;li&gt;203 Non-Authoritative Information。服务器已成功处理了请求，但返回的实体头部元信息不是在原始服务器上有效的确定集合，而是来自本地或者第三方的拷贝。&lt;/li&gt;
-&lt;li&gt;204 No Content。服务器成功处理了请求，但不需要返回任何实体内容，并且希望返回更新了的元信息。&lt;/li&gt;
-&lt;li&gt;205 Reset Content。服务器成功处理了请求，且没有返回任何内容。但是与204响应不同，返回此状态码的响应要求请求者重置文档视图。该响应主要是被用于接受用户输入后，立即重置表单，以便用户能够轻松地开始另一次输入。与204响应一样，该响应也被禁止包含任何消息体，且以消息头后的第一个空行结束。&lt;/li&gt;
-&lt;li&gt;206 Partial Content。服务器已经成功处理了部分GET请求。常用于断点续传等。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;3xx重定向——需要后续操作才能完成这一请求&lt;ul&gt;
-&lt;li&gt;300 Multiple Choices。被请求的资源有一系列可供选择的回馈信息，用户或浏览器能够自行选择一个首选的地址进行重定向。&lt;/li&gt;
-&lt;li&gt;301 Moved Permanently。被请求的资源已永久移动到新位置，并且将来任何对此资源的引用都应该使用本响应返回的若干个URI之一。&lt;/li&gt;
-&lt;li&gt;302 Found。请求的资源现在临时从不同的URI响应请求。只有在Cache-Control或Expires中进行了指定的情况下，这个响应才是可缓存的。&lt;/li&gt;
-&lt;li&gt;303 See Other。对应当前请求的响应可以在另一个URI上被找到，而且客户端应当采用GET的方式访问那个资源。303响应禁止被缓存。&lt;/li&gt;
-&lt;li&gt;304 Not Modified。如果客户端发送了一个带条件的GET请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，&lt;/li&gt;
-&lt;li&gt;305 Use Proxy.被请求的资源必须通过指定的代理才能被访问。&lt;/li&gt;
-&lt;li&gt;307 Temporary Redirect.请求的资源现在临时从不同的URI响应请求。由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;4xx请求错误——请求含有词法错误或者无法被执行&lt;ul&gt;
-&lt;li&gt;400 Bad Request.由于包含语法错误，当前请求无法被服务器理解。除非进行修改，否则客户端不应该重复提交这个请求。&lt;/li&gt;
-&lt;li&gt;401 Unauthorized.当前请求需要用户验证。&lt;/li&gt;
-&lt;li&gt;403 Forbidden.服务器已经理解请求，但是拒绝执行它。&lt;/li&gt;
-&lt;li&gt;404 Not Found.请求失败，请求所希望得到的资源未被在服务器上发现。&lt;/li&gt;
-&lt;li&gt;405 Method Not Allowed.请求行中指定的请求方法不能被用于请求相应的资源。&lt;/li&gt;
-&lt;li&gt;408 Request Timeout.请求超时。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;5xx服务器错误——服务器在处理某个正确请求时发生错误&lt;ul&gt;
-&lt;li&gt;500 Internal Server Error.服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。一般来说，这个问题都会在服务器的程序码出错时出现。&lt;/li&gt;
-&lt;li&gt;501 Not Implemented.服务器不支持当前请求所需要的某个功能。&lt;/li&gt;
-&lt;li&gt;502 Bad Gateway.作为网关或者代理工作的服务器尝试执行请求时，从上游服务器接收到无效的响应。&lt;/li&gt;
-&lt;li&gt;503 Service Unavailable.由于临时的服务器维护或者过载，服务器当前无法处理请求。&lt;/li&gt;
-&lt;li&gt;504 Gateway Timeout.作为网关或者代理工作的服务器尝试执行请求时超时。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;持续连接&quot;&gt;&lt;a href=&quot;#持续连接&quot; class=&quot;headerlink&quot; title=&quot;持续连接&quot;&gt;&lt;/a&gt;持续连接&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;在HTTP 0.9和1.0使用非持续连接，在非持续连接下，每个tcp只连接一个web对象，连接在每个请求-回应对后都会关闭，一个连接可被多个请求重复利用的保持连接机制被引入。这种连接持续化显著地减少了请求延迟，因为客户不用在首次请求后再次进行TCP交互确认创建连接。现在在HTTP 1.1使用持续连接，不必为每个web对象创建一个新的连接，一个连接可以传送多个对象。 HTTP1.1还进行了带宽优化，例如1.1引入了分块传输编码来允许流化传输持续连接上发送的内容，取代原先的buffer式传输。HTTP管道允许客户在上一个回应被收到前发送多重请求从而进一步减少了延迟时间。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;未完。。。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;HTTP,HyperText Transfer Protocol,超文本传输协议。&lt;br&gt;HTTP设计最初的目的是为了提供一种发布和接收HTML页面的方法。通过HTTP或HTTPS协议请求的资源由统一资源标识符来标识。&lt;br&gt;1999年，RFC2616发布了HTTP1.1，这个当前广泛使用的版本。&lt;br&gt;2014年，提交HTTP/2,2015年5月以RFC7540正式发表，取代HTTP 1.1成为HTTP的实现标准。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="网络" scheme="http://jacean.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="HTTP" scheme="http://jacean.github.io/tags/HTTP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>建立最新版的wordpress_for_sae</title>
-    <link href="http://jacean.github.io/2016/03/24/wordpress-for-sae%E9%85%8D%E7%BD%AE/"/>
-    <id>http://jacean.github.io/2016/03/24/wordpress-for-sae配置/</id>
-    <published>2016-03-24T14:41:53.000Z</published>
-    <updated>2016-04-16T04:57:29.104Z</updated>
-    
-    <content type="html">&lt;p&gt;wordpress是一个很不错的博客系统，现在的各种支持也很好，能够很方便的建立一个不错的博客。&lt;br&gt;依托于新浪云，建立wordpress for sae，而且是最新版的wordpress，需要自己动手改一下，而不仅仅是使用wordpressforsae的模板。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;在sae上新建自己的wordpress for sae，这会帮助我们初始化MySQL、在storage创建一个名为wordpress的domain、设置Memcache，方便之后的操作。&lt;/li&gt;
-&lt;li&gt;安装并配置启用wordpress&lt;/li&gt;
-&lt;li&gt;在wordpress官网下载最新版本的wordpress。解压，修改&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_wordpress-1.png&quot; alt=&quot;&quot;&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// ** MySQL 设置 - 具体信息来自您正在使用的主机 ** //&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/** WordPress数据库的名称 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;define(&lt;span class=&quot;string&quot;&gt;&#39;DB_NAME&#39;&lt;/span&gt;, SAE_MYSQL_DB);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/** MySQL数据库用户名 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;define(&lt;span class=&quot;string&quot;&gt;&#39;DB_USER&#39;&lt;/span&gt;, SAE_MYSQL_USER);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/** MySQL数据库密码 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;define(&lt;span class=&quot;string&quot;&gt;&#39;DB_PASSWORD&#39;&lt;/span&gt;, SAE_MYSQL_PASS);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/** MySQL主机 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;define(&lt;span class=&quot;string&quot;&gt;&#39;DB_HOST&#39;&lt;/span&gt;, SAE_MYSQL_HOST_M.&lt;span class=&quot;string&quot;&gt;&#39;:&#39;&lt;/span&gt;.SAE_MYSQL_PORT);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;这四处。可参照之前的wordpress for sae的此文件。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;重新压缩，保持格式&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_wordpress-2.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;即压缩目录里没有wordpress主目录，直接就是代码文件。&lt;/li&gt;
-&lt;li&gt;在sae的应用管理中代码管理，上传代码包。等待ok。就成功了。&lt;/li&gt;
-&lt;li&gt;这样之后会发现进不了仪表盘，直接输入xxx/wp-admin即可。会提示需要更新数据库，确认更新即可。&lt;/li&gt;
-&lt;li&gt;如果仪表盘是英文去设置改正就好。&lt;/li&gt;
-&lt;li&gt;插件虽然显示有安装，但实际不行，还是svn之后在本地安装插件在上传。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_wordpress-3.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;然后add，commit。ok。&lt;br&gt;安装主题也是同样的办法，因为没法直接在网站上操作sae的storage，只能在本地弄好之后提交，让文件覆盖。&lt;/li&gt;
-&lt;li&gt;如上，我安装了jetpack插件。需要wordpress账户，这是墙外的，翻墙注册链接同意就好。然后进入主页会有强力启动很多功能，启动吧。然后查看所有功能，启用markdown就ok。&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;wordpress是一个很不错的博客系统，现在的各种支持也很好，能够很方便的建立一个不错的博客。&lt;br&gt;依托于新浪云，建立wordpress for sae，而且是最新版的wordpress，需要自己动手改一下，而不仅仅是使用wordpressforsae的模板。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="博客建设" scheme="http://jacean.github.io/categories/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/"/>
-    
-    
-      <category term="sae" scheme="http://jacean.github.io/tags/sae/"/>
-    
-      <category term="wordpress" scheme="http://jacean.github.io/tags/wordpress/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Eclipse参数是arg0</title>
-    <link href="http://jacean.github.io/2016/03/24/Eclipse%E5%8F%82%E6%95%B0%E6%98%AFarg0/"/>
-    <id>http://jacean.github.io/2016/03/24/Eclipse参数是arg0/</id>
-    <published>2016-03-24T14:27:07.000Z</published>
-    <updated>2016-04-16T04:44:52.334Z</updated>
-    
-    <content type="html">&lt;p&gt;Eclipse是一个很好的IDE，IDE能够帮助开发者快速编辑代码调试代码，这里就有代码补全的作用。代码补全，不仅仅是补全，还要能够根据函数本来的面目提供一定的指引，比如函数参数。&lt;br&gt;如果函数参数是arg0，arg1，那谁看都得懵逼不是，但是如果是postion，count，name之类的有语义的就大不一样了，很容易帮助开发者理解参数含义和使用对象。Eclipse就是可以这样的。&lt;br&gt;但是，有的人由于一些不恰当操作，会发现自己的Eclipse函数自动补全后，参数还真是arg0，arg1，这可就愁死人了。&lt;br&gt;我也遇到了，所以解决了。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;这是因为缺少源码文件，导致eclipse无法分析。需要下载source for android sdk。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_eclipse-7.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;打开eclipse，定位到一个函数上，ctrl点击，出现绑定源代码文件的窗口，选择sources文件夹就好。&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_eclipse-8.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;应用后&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_eclipse-10.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;get!&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Eclipse是一个很好的IDE，IDE能够帮助开发者快速编辑代码调试代码，这里就有代码补全的作用。代码补全，不仅仅是补全，还要能够根据函数本来的面目提供一定的指引，比如函数参数。&lt;br&gt;如果函数参数是arg0，arg1，那谁看都得懵逼不是，但是如果是postion，count，name之类的有语义的就大不一样了，很容易帮助开发者理解参数含义和使用对象。Eclipse就是可以这样的。&lt;br&gt;但是，有的人由于一些不恰当操作，会发现自己的Eclipse函数自动补全后，参数还真是arg0，arg1，这可就愁死人了。&lt;br&gt;我也遇到了，所以解决了。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="移动" scheme="http://jacean.github.io/categories/%E7%A7%BB%E5%8A%A8/"/>
-    
-    
-      <category term="Eclipse" scheme="http://jacean.github.io/tags/Eclipse/"/>
     
   </entry>
   

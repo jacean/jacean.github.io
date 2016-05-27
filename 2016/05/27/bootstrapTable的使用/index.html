@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>bootstrapTable的使用 | Jacean say Hello</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="bootstrap是一个很好的前端框架,因为不是专门做前端的,所以一直就有bootstrap来实现页面.基于bootstrap开发的插件组件也很多,这里要说的bootstrapTable就是其中很优秀的一款.
+引入不需要自己改动源码,然后又不想研究的我一般都直接是用cdn引入.
+12345678910111213&amp;lt;!-- Latest compiled and minified CSS --">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bootstrapTable的使用">
+<meta property="og:url" content="http://jacean.github.io/2016/05/27/bootstrapTable的使用/index.html">
+<meta property="og:site_name" content="Jacean say Hello">
+<meta property="og:description" content="bootstrap是一个很好的前端框架,因为不是专门做前端的,所以一直就有bootstrap来实现页面.基于bootstrap开发的插件组件也很多,这里要说的bootstrapTable就是其中很优秀的一款.
+引入不需要自己改动源码,然后又不想研究的我一般都直接是用cdn引入.
+12345678910111213&amp;lt;!-- Latest compiled and minified CSS --">
+<meta property="og:updated_time" content="2016-05-27T09:49:11.309Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bootstrapTable的使用">
+<meta name="twitter:description" content="bootstrap是一个很好的前端框架,因为不是专门做前端的,所以一直就有bootstrap来实现页面.基于bootstrap开发的插件组件也很多,这里要说的bootstrapTable就是其中很优秀的一款.
+引入不需要自己改动源码,然后又不想研究的我一般都直接是用cdn引入.
+12345678910111213&amp;lt;!-- Latest compiled and minified CSS --">
+  
+    <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
+  
+  
+    <!--<link rel="icon" href="/favicon.png">-->
+	<link rel="icon" href="http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+      <link href="//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+ <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png">-->
+<link rel="apple-touch-icon" href="http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+
+
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+
+
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+
+
+</head>
+
+<body>
+  <div id="container">
+
+  <div id="left" class="left-col"> 
+
+    
+
+
+<div id="overlay" class="overlay"></div>
+
+
+
+<div class="intrude-less">
+
+
+<!--<header class="panel-cover panel-cover--collapsed">-->
+ <header id="header" class="inner">
+
+   
+        <a href="/" class="profilepic">
+            <!--<img src="/img/avatar.png" class="animated zoomIn">-->
+		<img src="http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_avatar.png" class="animated zoomIn">
+
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Jacean Wan</a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+			 
+ 		<li><a href="/">Home</a></li>
+            
+                        
+			 
+ 		<li><a href="/archives/">Archives</a></li>
+            
+                        
+			 
+ 		<li><a href="/tags/">Tags</a></li>
+            
+                        
+			 
+ 		<li><a href="/about/">About</a></li>
+            
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="jacean:jaceanwan@gmail.com" title="Email"></a></li>
+                            
+                                <li id="新浪微博"><a class="新浪微博" target="_blank" href="http://weibo.com/3919664458/profile?topnav=1&wvr=6&is_all=1" title="新浪微博"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/jacean" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+
+			</ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 11.67px;">Android</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/C/" style="font-size: 18.33px;">C#</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a> <a href="/tags/DocX/" style="font-size: 11.67px;">DocX</a> <a href="/tags/Eclipse/" style="font-size: 13.33px;">Eclipse</a> <a href="/tags/GitPage/" style="font-size: 10px;">GitPage</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 11.67px;">HTTP</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/ListView/" style="font-size: 11.67px;">ListView</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/OneNote/" style="font-size: 10px;">OneNote</a> <a href="/tags/Other/" style="font-size: 10px;">Other</a> <a href="/tags/PDO/" style="font-size: 10px;">PDO</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/PHPExcel/" style="font-size: 13.33px;">PHPExcel</a> <a href="/tags/SAE/" style="font-size: 10px;">SAE</a> <a href="/tags/SQL-Server/" style="font-size: 10px;">SQL Server</a> <a href="/tags/Shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/TCP/" style="font-size: 11.67px;">TCP</a> <a href="/tags/Ubuntu/" style="font-size: 20px;">Ubuntu</a> <a href="/tags/Vim/" style="font-size: 13.33px;">Vim</a> <a href="/tags/VirtualBox/" style="font-size: 11.67px;">VirtualBox</a> <a href="/tags/ajax/" style="font-size: 11.67px;">ajax</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/c-c/" style="font-size: 10px;">c/c++</a> <a href="/tags/genymotion/" style="font-size: 10px;">genymotion</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iframe/" style="font-size: 10px;">iframe</a> <a href="/tags/jsonp/" style="font-size: 10px;">jsonp</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/php/" style="font-size: 11.67px;">php</a> <a href="/tags/sae/" style="font-size: 13.33px;">sae</a> <a href="/tags/swiftype/" style="font-size: 10px;">swiftype</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vscode/" style="font-size: 11.67px;">vscode</a> <a href="/tags/web/" style="font-size: 11.67px;">web</a> <a href="/tags/webhooks/" style="font-size: 10px;">webhooks</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/windows/" style="font-size: 15px;">windows</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/yelee/" style="font-size: 11.67px;">yelee</a> <a href="/tags/七牛云/" style="font-size: 10px;">七牛云</a> <a href="/tags/双系统/" style="font-size: 10px;">双系统</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/微信开发/" style="font-size: 13.33px;">微信开发</a> <a href="/tags/操作系统/" style="font-size: 10px;">操作系统</a> <a href="/tags/数据结构/" style="font-size: 11.67px;">数据结构</a> <a href="/tags/泛解析/" style="font-size: 10px;">泛解析</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/自定义控件/" style="font-size: 11.67px;">自定义控件</a> <a href="/tags/虚拟主机/" style="font-size: 10px;">虚拟主机</a> <a href="/tags/虚拟机/" style="font-size: 10px;">虚拟机</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://leoyoung07.github.io/">Leoyoung07</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">我可是要成为独当一面的程序员的男人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+
+
+
+
+  </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Jacean Wan</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Jacean Wan</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Archives</a></li>
+                
+                    <li><a href="/tags/">Tags</a></li>
+                
+                    <li><a href="/about/">About</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="jacean:jaceanwan@gmail.com" title="Email"></a></li>
+                            
+                                <li id="新浪微博"><a class="新浪微博" target="_blank" href="http://weibo.com/3919664458/profile?topnav=1&wvr=6&is_all=1" title="新浪微博"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/jacean" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-bootstrapTable的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/27/bootstrapTable的使用/" class="article-date">
+      <time datetime="2016-05-27T06:48:58.000Z" itemprop="datePublished">2016-05-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      bootstrapTable的使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap/">bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>bootstrap是一个很好的前端框架,因为不是专门做前端的,所以一直就有bootstrap来实现页面.<br>基于bootstrap开发的插件组件也很多,这里要说的bootstrapTable就是其中很优秀的一款.</p>
+<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>不需要自己改动源码,然后又不想研究的我一般都直接是用cdn引入.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Latest compiled and minified CSS --&gt;</span><br><span class="line">   &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css&quot;&gt;</span><br><span class="line"></span><br><span class="line">   &lt;!-- Latest compiled and minified JavaScript --&gt;</span><br><span class="line">   &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">   &lt;!-- Latest compiled and minified Locales --&gt;</span><br><span class="line">   &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/locale/bootstrap-table-zh-CN.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   &lt;!--导出引入--&gt;</span><br><span class="line">   &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/extensions/export/bootstrap-table-export.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">   &lt;script src=&quot;//rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>基本的使用在bootstraptable的官网和github上都有介绍,以及JSFiddle的在线调试等.<br><a href="http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/" target="_blank" rel="external">文档</a><br><a href="http://bootstrap-table.wenzhixin.net.cn/zh-cn/examples/" target="_blank" rel="external">例子</a><br>可以很容易上手使用,不过给出的例子都是固定的html和css,不方便动态处理,所以我这里就主要说下使用js对table的各种操作.<br>谷歌bootstraptable,这篇<a href="http://www.cnblogs.com/landeanfen/p/4976838.html" target="_blank" rel="external">JS组件系列——表格组件神器：bootstrap table</a>的系列之作应该是最全也最细致的中文博客了,我也是学习这篇博客来用的,所以会看到很多这位博主的代码和结构,原博主如有要求可联系我删除.</p>
+<p>table的初始化需要设置数据来源,列字段,分页方式等等,这些都可以利用js来完成.<br>不过在使用js完成前,要先<strong>仔细研读bootstraptable的文档</strong>,熟悉了解要使用的属性或方法的值要求.<br>还有一点,我的数据都是利用ajax来获取的,所以这里的代码都是用提供的默认ajax获取数据的,暂时并没有用到自定义ajax.</p>
+<h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><p>table的数据显示在table里,所以前端必须有一个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;&lt;/table&gt;</span><br></pre></td></tr></table></figure></p>
+<p>标签来充当容器以承载数据.</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><h4 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h4><blockquote>
+<p>columns    -    Array    []    列配置项,详情请查看 列参数 表格.</p>
+</blockquote>
+<p>如上文档里所述,columns对应的是值数组,所以可声明数组来指定字段.<br>注意数组的成员应该指出field和title.field用来绑定数据字段,title用来做字段的显示名称.<br>bootstraptable有一个特殊字段,该字段可以实现对数据行的单选或多选,所以在有需求的情况下显示指定这个字段的使用与否.<br>我定义的字段数组如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var fieldsarray = Array(&#123;</span><br><span class="line">        checkbox: true</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">            field: &apos;ID&apos;,</span><br><span class="line">            title: &apos;ID&apos;</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            ...</span><br><span class="line">            ...</span><br><span class="line">            ...</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            field: &apos;ly&apos;,</span><br><span class="line">            title: &apos;留言&apos;</span><br><span class="line">        &#125;);</span><br><span class="line">       </span><br><span class="line">$(&apos;#table&apos;).bootstrapTable(&#123;</span><br><span class="line">   columns: fieldsarray</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><p>数据可以在html中指定,也可以指定json数据或文件.我使用ajax从后台获取json数据.<br>所以我的初始化就是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#table&apos;).bootstrapTable(&#123;</span><br><span class="line">            url: &apos;info_getdata.php&apos;,         //请求后台的URL（*）</span><br><span class="line">            method: &apos;get&apos;,                      //请求方式（*）            </span><br><span class="line">            queryParams: oTableInit.queryParams,//传递参数（*）</span><br><span class="line">            &#125;)</span><br><span class="line">         </span><br><span class="line">...</span><br><span class="line">            </span><br><span class="line">//查询的参数</span><br><span class="line">oTableInit.queryParams = function (params) &#123;</span><br><span class="line">    var temp = &#123;</span><br><span class="line">        limit: params.limit,   //页面大小,这个不用自己手动改的,在启用分页之后,不显示指定页面大小会使用默认大小,然后在查看数据时可以通过选择来调整这个值,这是自动处理的</span><br><span class="line">        offset: params.offset,  //页码,这个和上面的一样,不用自己手动改.</span><br><span class="line">        </span><br><span class="line">        dt: $(&quot;#dt&quot;).val(),         //我用来查询的数据表名称</span><br><span class="line">        search: $(&quot;#search&quot;).val()  //我用来指定分页方式的,客户端或服务端,后边会讲到</span><br><span class="line">    &#125;;</span><br><span class="line">    return temp;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>注意一点,这里的method是get而不是post,我就是刚开始一直使用post然后跪了好久,在issue中看到提供的答案基本都是get就换了一下,结果立马好使了.不太清楚为什么post不行,或是我用的姿势不对.<br>在查询参数这个字段,对应的是一个实现固定接口的函数.文档描述如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">queryParams	data-query-params	Function	function(params) &#123;return params;&#125;	</span><br><span class="line">请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 </span><br><span class="line">如果 queryParamsType = &apos;limit&apos; ,返回参数必须包含limit, offset, search, sort, order 否则, 需要包含: pageSize, pageNumber, searchText, sortName,sortOrder. 返回false将会终止请求</span><br></pre></td></tr></table></figure>
+<p>所以这里实现了其对应接口,并将必须数据返回.然后bootstraptable就会利用url,method,以及queryParams来使用ajax向后台要取数据.<br>我的后台处理就是利用这几个来获取数据的,具体根据分页方式来做.</p>
+<h4 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h4><p>分页有两种,一种是客户端分页,一种是服务端分页.显而易见,客户端分页就是把数据一次性获取,然后在浏览器端利用内存分页,服务端分页就是分批次向服务端要取数据,每次只要一部分.<br>前述查询参数就是为服务端分页所准备的.<br>服务端根据页面大小和偏移量来截取部分数据返回,要注意的是limit和offset就是这个数据部分的起始和结束,bootstraptable已经计算好了.最简单的数据查询的服务端是这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">//if search==server服务端分页</span><br><span class="line">    $query = &quot;select * from `&quot;.$dt.&quot;` limit &quot;.$offset.&quot;, &quot;.$limit.&quot;&quot;;</span><br><span class="line"></span><br><span class="line">//if search==client客户端分页</span><br><span class="line">    $query = &quot;select * from `&quot;.$dt.&quot;`&quot;;</span><br><span class="line">    </span><br><span class="line">//后台完整PHP</span><br><span class="line">$conn = new mysqlQuery();</span><br><span class="line"></span><br><span class="line">$offset = $_GET[&quot;offset&quot;];</span><br><span class="line">$limit = $_GET[&quot;limit&quot;];</span><br><span class="line">$dt = $_GET[&quot;dt&quot;];</span><br><span class="line">$type = $_GET[&quot;search&quot;];</span><br><span class="line">$results = array();</span><br><span class="line">if ($type == &quot;server&quot;) &#123;</span><br><span class="line">    $query = &quot;select * from `&quot;.$dt.&quot;` limit &quot;.$offset.&quot;, &quot;.$limit.&quot;&quot;;</span><br><span class="line">    $statement = $conn-&gt;dbh-&gt;query($query);</span><br><span class="line"></span><br><span class="line">    while ($row = $statement-&gt;fetch(PDO::FETCH_ASSOC)) &#123;</span><br><span class="line">        $results[] = $row;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $fenye = &quot;SELECT count(`ID`) num FROM `&quot;.$dt.&quot;` WHERE 1&quot;;</span><br><span class="line">    $statement = $conn-&gt;dbh-&gt;query($fenye);</span><br><span class="line">    $rownum = $statement-&gt;fetch(PDO::FETCH_ASSOC);</span><br><span class="line">    $total = $rownum[&quot;num&quot;];</span><br><span class="line">    $response = array(&apos;total&apos; =&gt; $total, &apos;rows&apos; =&gt; $results);</span><br><span class="line">&#125;</span><br><span class="line">if($type==&quot;client&quot;)&#123;</span><br><span class="line">    $query = &quot;select * from `&quot;.$dt.&quot;`&quot;;</span><br><span class="line">    $statement = $conn-&gt;dbh-&gt;query($query);</span><br><span class="line"></span><br><span class="line">    while ($row = $statement-&gt;fetch(PDO::FETCH_ASSOC)) &#123;</span><br><span class="line">        $results[] = $row;</span><br><span class="line">    &#125;</span><br><span class="line">    $response =$results;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">echo json_encode($response);</span><br><span class="line">$conn-&gt;close();</span><br></pre></td></tr></table></figure></p>
+<p>服务端返回的应该是json格式,这样bootstraptable才能处理.</p>
+<p>仔细看PHP代码,可以看到服务端分页和客户端分页返回的json数据是不一样的.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//服务端</span><br><span class="line">    $response = array(&apos;total&apos; =&gt; $total, &apos;rows&apos; =&gt; $results);</span><br><span class="line">//客户端</span><br><span class="line">    $response =$results;</span><br></pre></td></tr></table></figure></p>
+<p>当设置为服务端分页的时候,应当返回的是总行数和要显示的行集合.<br>为客户端分页的时候,只需要返回行集合就可.</p>
+<p>分页方式的设置方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#table&apos;).bootstrapTable(&#123;</span><br><span class="line">            pagination: true,                   //是否显示分页（*）</span><br><span class="line">            sidePagination: &quot;client&quot;,           //分页方式：client客户端分页，server服务端分页（*）</span><br><span class="line">            pageNumber: 1,                       //初始化加载第一页，默认第一页</span><br><span class="line">            pageSize: 10,                       //每页的记录行数（*）</span><br><span class="line">            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）</span><br><span class="line">            search: true,                       //是否显示表格搜索，此搜索只能在已有数据内搜索,所以其只对获取了全部数据的客户端分页有意义,而服务端分页没啥用处.</span><br><span class="line">            strictSearch: false,                 //全匹配搜索</span><br><span class="line">            &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>重要的两个字段就是pagination和sidePagination,指定是否分页和分页方式.<br>客户端分页的缺点自然是若数据量过大,获取数据耗时过长以及对内存的占用,而服务端是每次的轻量级交互则没有这点.<br>不过,在bootstraptable中使用客户端分页会有效益加成,因为数据全部都在,可以做其他的全局操作,比如搜索或是导出.这两个功能对客户端分页的支持很好,但是服务端就不行了.搜索已然鸡肋了,但是导出就会出先各种bug,比如导出方式和数据等等,总之用bootstraptable的export插件就是不好用了,不过这也可能是我使用的姿势不对吧.</p>
+<p>提供两种初始化方法,只是分页方式字段稍有不同,其余基本不变就可.<br>初始化函数最终如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">//初始化Table</span><br><span class="line">var TableInit = function () &#123;</span><br><span class="line">    var oTableInit = new Object();</span><br><span class="line">    var fieldsarray = Array(&#123;&#125;);        //字段数组</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">      oTableInit.clientInit = function () &#123;</span><br><span class="line">        $(&apos;#table&apos;).bootstrapTable(&apos;destroy&apos;);</span><br><span class="line"></span><br><span class="line">        $(&apos;#table&apos;).bootstrapTable(&#123;</span><br><span class="line">            /************** 参数 ****************/</span><br><span class="line">            url: &apos;info_getdata.php&apos;,         //请求后台的URL（*）</span><br><span class="line">            method: &apos;get&apos;,                      //请求方式（*）</span><br><span class="line">            // ajax:&quot;ajaxRequest&quot;,</span><br><span class="line">            toolbar: &apos;#toolbar&apos;,                //工具按钮用哪个容器</span><br><span class="line">            striped: true,                      //是否显示行间隔色</span><br><span class="line">            cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）</span><br><span class="line">            pagination: true,                   //是否显示分页（*）</span><br><span class="line">            sortable: false,                     //是否启用排序</span><br><span class="line">            sortOrder: &quot;asc&quot;,                   //排序方式</span><br><span class="line">            queryParams: oTableInit.queryParams,//传递参数（*）</span><br><span class="line">            sidePagination: &quot;client&quot;,           //分页方式：client客户端分页，server服务端分页（*）</span><br><span class="line">            pageNumber: 1,                       //初始化加载第一页，默认第一页</span><br><span class="line">            pageSize: 10,                       //每页的记录行数（*）</span><br><span class="line">            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）</span><br><span class="line">            search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大</span><br><span class="line">            strictSearch: false,                 //全匹配搜索</span><br><span class="line">            showRefresh: true,                  //是否显示刷新按钮         </span><br><span class="line">            clickToSelect: true,                //是否启用点击选中行</span><br><span class="line">            height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度</span><br><span class="line">            uniqueId: &quot;ID&quot;,                     //每一行的唯一标识，一般为主键列</span><br><span class="line">            showToggle: true,                    //是否显示详细视图和列表视图的切换按钮</span><br><span class="line">            cardView: false,                    //是否显示详细视图</span><br><span class="line">            detailView: false,                   //是否显示父子表</span><br><span class="line">            showExport: true,                     //是否显示导出</span><br><span class="line">            //exportDataType: &quot;all&quot;,</span><br><span class="line">            showColumns: true,                  //是否显示所有的列</span><br><span class="line">            columns: fieldsarray,</span><br><span class="line"></span><br><span class="line">            /***************** 事件 *****************/</span><br><span class="line">            onClickRow: function (row, $element) &#123;</span><br><span class="line">                // alert($element);</span><br><span class="line">            &#125;,</span><br><span class="line">            onLoadError: function (data) &#123;</span><br><span class="line">                alert(data);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    oTableInit.serverInit = function () &#123;</span><br><span class="line">        $(&apos;#table&apos;).bootstrapTable(&apos;destroy&apos;);      //先销毁旧的重新初始化</span><br><span class="line">        $(&apos;#table&apos;).bootstrapTable(&#123;</span><br><span class="line">            url: &apos;info_getdata.php&apos;,         //请求后台的URL（*）</span><br><span class="line">            method: &apos;get&apos;,                      //请求方式（*）</span><br><span class="line">            queryParams: oTableInit.queryParams,//传递参数（*）</span><br><span class="line">            ...</span><br><span class="line">            sidePagination: &quot;server&quot;,           //分页方式：client客户端分页，server服务端分页（*）</span><br><span class="line">            pageNumber: 1,                       //初始化加载第一页，默认第一页</span><br><span class="line">            pageSize: 10,                       //每页的记录行数（*）</span><br><span class="line">            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）</span><br><span class="line">            ...</span><br><span class="line">            detailView: false,                   //是否显示父子表</span><br><span class="line">            showExport: false,                     //是否显示导出</span><br><span class="line">            showColumns: true,                  //是否显示所有的列</span><br><span class="line">            columns: fieldsarray</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">     //得到查询的参数</span><br><span class="line">    oTableInit.queryParams = function (params) &#123;</span><br><span class="line">        var temp = &#123;</span><br><span class="line">            limit: params.limit,   //页面大小</span><br><span class="line">            offset: params.offset,  //页码</span><br><span class="line">            dt: $(&quot;#dt&quot;).val(),</span><br><span class="line">            search: $(&quot;#search&quot;).val()</span><br><span class="line">        &#125;;</span><br><span class="line">        return temp;</span><br><span class="line">    &#125;;</span><br><span class="line">     </span><br><span class="line">    return oTableInit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在表格参数中,当名称对应类型是Function的时候,这类就是可以自定义方法的.比如customSort,rowStyle,rowAttributes,根据文档提供的参数和返回值,可以对表格的做出更优秀的展示.</p>
+<p>注意下bootstraptable的事件使用.</p>
+<blockquote>
+<p>Option 事件<br>jQuery 事件<br>参数<br>描述</p>
+</blockquote>
+<p>仔细研读这些,可以利用事件对整个交互响应做出更好的体验.</p>
+<h4 id="动态指定显示列"><a href="#动态指定显示列" class="headerlink" title="动态指定显示列"></a>动态指定显示列</h4><p>因为我是从不同的表里获取数据,其字段也有不同之处,所以每次查询的时候都需要根据表重新指定字段,采用bootstrapTable的方法来指定刷新.<br>$(“#dt”)是我的表名.我选取了全部的字段,在查每个不同的表时隐藏掉自己没有的字段.这办法是土了点,但是因为要指定标题所以只好这样了.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function setColumns(params) &#123;</span><br><span class="line"></span><br><span class="line">    //此方法不存在了</span><br><span class="line">    // $(&quot;#table&quot;).bootstrapTable(&apos;showAllColumns&apos;);</span><br><span class="line"></span><br><span class="line">    /************* 设置列动态显示变化 ******************/</span><br><span class="line">    switch ($(&quot;#dt&quot;).val()) &#123;       </span><br><span class="line">        case &apos;fx_zn&apos;:</span><br><span class="line">            $(&quot;#table&quot;).bootstrapTable(&apos;hideColumn&apos;, &apos;zp&apos;);</span><br><span class="line">            ...</span><br><span class="line">            $(&quot;#table&quot;).bootstrapTable(&apos;hideColumn&apos;, &apos;fj&apos;);</span><br><span class="line">            break;</span><br><span class="line">        case &apos;jn_per&apos;:</span><br><span class="line">            $(&quot;#table&quot;).bootstrapTable(&apos;hideColumn&apos;, &apos;dw&apos;);</span><br><span class="line">            ...</span><br><span class="line">            $(&quot;#table&quot;).bootstrapTable(&apos;hideColumn&apos;, &apos;fwb&apos;);</span><br><span class="line">            break;</span><br><span class="line">        ...</span><br><span class="line">        default:</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    $(&quot;#table&quot;).bootstrapTable(&apos;refresh&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在这里看一下bootstraptable的方法.</p>
+<blockquote>
+<p>使用方法的语法：$(‘#table’).bootstrapTable(‘method’, parameter);。</p>
+</blockquote>
+<p>在文档里可以看到其方法列表,仔细研读方法参数和描述来合理使用方法.</p>
+<h4 id="控件绑定"><a href="#控件绑定" class="headerlink" title="控件绑定"></a>控件绑定</h4><p>这套初始化逻辑都是用的那位博主的,感觉还好.<br>在控件初始化中,将table事件和控件事件绑定.<br>比如我有切换客户端分页和服务端分页的select,选择查询不同表的select,以及服务端分页时手动的导出.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">var ControlInit = function () &#123;</span><br><span class="line">    var oInit = new Object();</span><br><span class="line">    var postdata = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    oInit.Init = function () &#123;</span><br><span class="line">        // 初始化控件事件  </span><br><span class="line">        //根据不同表隐藏显示不同字段列      </span><br><span class="line">        $(&quot;#dt&quot;).change(function () &#123;</span><br><span class="line">            setColumns();</span><br><span class="line">        &#125;);</span><br><span class="line">        //根据查询方式不同选择不同的初始化方式,忽略search这个名字,本来不是用来干这个的,忘了改了,type</span><br><span class="line">        $(&quot;#search&quot;).change(function () &#123;</span><br><span class="line">            if ($(&quot;#search&quot;).val() == &quot;client&quot;) &#123;</span><br><span class="line">                var oTable = new TableInit();</span><br><span class="line">                oTable.clientInit();</span><br><span class="line">                </span><br><span class="line">                //工具条变化</span><br><span class="line">                $(&quot;#clientexport&quot;).show();</span><br><span class="line">                $(&quot;#serverexport&quot;).hide();</span><br><span class="line">                </span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                var oTable = new TableInit();</span><br><span class="line">                oTable.serverInit();</span><br><span class="line">                </span><br><span class="line">                //工具条变化</span><br><span class="line">                $(&quot;#clientexport&quot;).hide();</span><br><span class="line">                $(&quot;#serverexport&quot;).show();</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            setColumns();</span><br><span class="line">            $(&quot;#table&quot;).bootstrapTable(&apos;refresh&apos;);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        $(&quot;#serverexport&quot;).click(function () &#123;</span><br><span class="line">            window.open(&quot;info_export.php?dt=&quot; + $(&quot;#dt&quot;).val());</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    return oInit;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="工具条"><a href="#工具条" class="headerlink" title="工具条"></a>工具条</h4><p>根据分页方式的不同,工具条内容变化,控制方式在上一小节的控件事件绑定中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;toolbar&quot; class=&quot;btn-group&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--bootstrapTable的导出功能客户端分页使用--&gt;</span><br><span class="line">    &lt;select id=&quot;clientexport&quot; class=&quot;form-control&quot;&gt;</span><br><span class="line">        &lt;option value=&quot;&quot;&gt;导出当前页&lt;/option&gt;</span><br><span class="line">        &lt;option value=&quot;all&quot;&gt;导出全部&lt;/option&gt;</span><br><span class="line">        &lt;option value=&quot;selected&quot;&gt;导出选中项&lt;/option&gt;</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line">    &lt;!--bootstrap导出end--&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;button id=&quot;serverexport&quot; type=&quot;button&quot; class=&quot;btn btn-primary&quot; style=&quot;display:none;&quot;&gt;导出Excel&lt;/button&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="初始化表格"><a href="#初始化表格" class="headerlink" title="初始化表格"></a>初始化表格</h4><p>在页面加载时执行初始化操作,把以上设置应用到表格上.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$(function () &#123;</span><br><span class="line"></span><br><span class="line">    //1.初始化Table,采用客户端初始化，在页面设计中配套默认全部获取.我在控件初始化时做了这一步,所以这一段可以咔嚓的.</span><br><span class="line">    var oTable = new TableInit();</span><br><span class="line">    oTable.clientInit();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //2.初始化Button的点击事件</span><br><span class="line">    var oControlInit = new ControlInit();</span><br><span class="line">    oControlInit.Init();</span><br><span class="line">    </span><br><span class="line">    // 绑定选择导出类型,这个可在扩展export的例子中找到,介绍的很详细</span><br><span class="line">    $(&apos;#toolbar&apos;).find(&apos;select&apos;).change(function () &#123;</span><br><span class="line">        $(&apos;#table&apos;).bootstrapTable(&apos;refreshOptions&apos;, &#123;</span><br><span class="line">            exportDataType: $(this).val()</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    setColumns();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>暂且记录到此,bootstraptable还有很多好玩的可以玩,之后用到再补充.</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/05/27/bootstrapTable的使用/">bootstrapTable的使用</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
+        <p><span>发布时间:</span>2016年05月27日 - 14时48分</p>
+        <p><span>最后更新:</span>2016年05月27日 - 17时49分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/05/27/bootstrapTable的使用/" title="bootstrapTable的使用">http://jacean.github.io/2016/05/27/bootstrapTable的使用/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/05/27/bootstrapTable的使用/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/05/27/npm常用命令/">
+                    npm常用命令
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/05/27/HTML使用input上传文件类型限制/">
+                    HTML使用input上传文件类型限制
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引入"><span class="toc-number">1.</span> <span class="toc-text">引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#容器"><span class="toc-number">2.1.</span> <span class="toc-text">容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">2.2.</span> <span class="toc-text">初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字段"><span class="toc-number">2.2.1.</span> <span class="toc-text">字段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据"><span class="toc-number">2.2.2.</span> <span class="toc-text">数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分页"><span class="toc-number">2.2.3.</span> <span class="toc-text">分页</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#动态指定显示列"><span class="toc-number">2.2.4.</span> <span class="toc-text">动态指定显示列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#控件绑定"><span class="toc-number">2.2.5.</span> <span class="toc-text">控件绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#工具条"><span class="toc-number">2.2.6.</span> <span class="toc-text">工具条</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#初始化表格"><span class="toc-number">2.2.7.</span> <span class="toc-text">初始化表格</span></a></li></ol></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/05/27/bootstrapTable的使用/" data-title="bootstrapTable的使用" data-url="http://jacean.github.io/2016/05/27/bootstrapTable的使用/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jacean"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/05/27/npm常用命令/" title="上一篇: npm常用命令">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/05/27/HTML使用input上传文件类型限制/" title="下一篇: HTML使用input上传文件类型限制">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/npm常用命令/">npm常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/bootstrapTable的使用/">bootstrapTable的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/HTML使用input上传文件类型限制/">HTML使用input上传文件类型限制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/ajax提交含文件表单/">ajax提交含文件表单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/20/gulp入门和基本配置/">gulp入门和基本配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/07/PDO在mysql中的应用/">PDO在mysql中的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/07/mysql常用配置和语句/">mysql常用配置和语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/微信开发-iframe中使用微信api/">微信开发--iframe中使用微信api</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/19/微信开发-页面互相调用传值/">微信开发--页面互相调用传值</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/19/微信开发-php使用ajax认证签名/">微信开发--php使用ajax认证签名</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/17/泛解析结合虚拟主机实现多域名访问不同端口或路径/">泛解析结合虚拟主机实现多域名访问不同端口或路径</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/17/git缓存密码实现https直接提交/">git缓存密码实现https直接提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/16/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/15/github配置webhooks实现博客自动部署到服务器/">github配置webhooks实现博客自动部署到服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/vscode配置C-C-的编译调试环境/">vscode配置C/C++的编译调试环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/Ubuntu安装xampp并配置xdebug利用vscode调试php/">Ubuntu安装xampp并配置xdebug利用vscode调试php</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/02/CSS设置DOM宽高的一些小tips/">CSS设置DOM宽高的一些小tips</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/02/JSONP跨域/">JSONP跨域</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/28/TCP爱情故事——爱情有尽头/">TCP爱情故事——爱情有尽头</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/28/TCP爱情故事——我们恋爱了/">TCP爱情故事——我们恋爱了</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/Linux文件权限/">Linux文件权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/25/HTTP会话/">HTTP会话</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/HTTP协议学习/">HTTP协议学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/wordpress-for-sae配置/">建立最新版的wordpress_for_sae</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/Eclipse参数是arg0/">Eclipse参数是arg0</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/Android安装参考文档/">Android安装参考文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/Eclipse打开genymotion模拟器的sd卡/">Eclipse打开genymotion模拟器的sd卡</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/Ubuntu状态栏显示网速CPU/">Ubuntu状态栏显示网速CPU</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/PHPExcel操作sae的storage上的文件/">PHPExcel操作sae的storage上的文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/PHPExcel上传sae遇到-1-fail-to-get-xml-content/">PHPExcel上传sae遇到:-1:fail_to_get_xml_content</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/PHPExcel追加一行/">PHPExcel追加一行</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/23/自旋锁和互斥锁/">自旋锁和互斥锁</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/23/JavaScript闭包/">JavaScript闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/23/记我一天三场的面试or笔试/">记我一天三场的面试or笔试</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/华为2016研发工程师笔试题/">华为2016研发工程师笔试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/网易2016校招研发工程师笔试题/">网易2016校招研发工程师笔试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/vim写markdown在浏览器实时预览/">vim写markdown在浏览器实时预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/ubuntu配置hexo和gitpage/">ubuntu配置hexo和gitpage</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/Ubuntu无法访问双系统机子上的windows文件分区/">Ubuntu无法访问双系统机子上的windows文件分区</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Ubuntu15-10-VirtualBox出现virtualbox-kernel-driver-not-installed-rc-1908/">Ubuntu15.10_VirtualBox出现virtualbox_kernel_driver_not_installed_(rc=-1908)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/vim安装addons插件管理后Warning-Ignoring-unknown-addons-winmanager/">vim安装addons插件管理后Warning:Ignoring_unknown_addons:_winmanager</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Ubuntu安装Eclipse/">Ubuntu安装Eclipse</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/windows远程ubuntu的virtualbox中的windows虚拟机/">windows远程ubuntu的virtualbox中的windows虚拟机</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/ubuntu安装搜狗输入法不出现或是不显示输入法切换/">ubuntu安装搜狗输入法不出现或是不显示输入法切换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/win10安装ubuntu15-0双系统遇到-initramfs-unable-to-find-a-medium-containing-a-live-file/">win10安装ubuntu15.0双系统遇到(initramfs)unable_to_find_a_medium_containing_a_live_file</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/自定义shell实现hexo常用命令/">自定义shell实现hexo常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Vim操作/">Vim操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Shell入门/">Shell入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/windows下Ubuntu虚拟机安装/">windows下Ubuntu虚拟机安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/windows文件夹拒绝访问-特殊权限/">windows文件夹拒绝访问,特殊权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/浏览器首页被hao-qquu8-com-tn-……篡改/">浏览器首页被hao.qquu8.com/tn=……篡改</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/onenote笔记导出成markdown发布到Hexo/">onenote笔记导出成markdown发布到Hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/C-设置ListView行高/">C#设置ListView行高</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/C-利用反射-遍历获得一个类的所有属性名/">C#利用反射,遍历获得一个类的所有属性名</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/无法打开物理文件-操作系统错误-5-拒绝访问-SQL-Sever/">无法打开物理文件 操作系统错误 5:拒绝访问 SQL Sever</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/自定义含ListView控件获取listView的滚动条事件/">自定义含ListView控件获取listView的滚动条事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/DocX添加多级标题/">DocX添加多级标题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/DocX给word添加目录TOC/">DocX给word添加目录TOC</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/ComBox数据源绑定/">ComBox数据源绑定</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/winForm鼠标坐标/">winForm鼠标坐标</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/C-在拖放文件的同时检测shift键的状态/">C#在拖放文件的同时检测shift键的状态</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/CSharp自定义控件属性面板及选择资源设置/">CSharp自定义控件属性面板及选择资源设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/Hexo使用七牛云存储图片等文件/">Hexo使用七牛云存储图片等文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/Hexo使用yelee主题添加swiftype搜索/">Hexo使用yelee主题添加swiftype搜索</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/12/Hexo自定义页面禁用主题/">Hexo自定义页面禁用主题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/git配置ssh后提交仍需要密码/">git配置ssh后提交仍需要密码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/HelloHexo/">Hello My HexoBlog</a></li></ul>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 Jacean Wan
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+    <script src="//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+  </div>
+</body>
+</html>
