@@ -5,19 +5,16 @@
   
   <title>gulp入门和基本配置 | Jacean say Hello</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="gulpConfig前端项目使用gulp构建能带来很大的便利性，通过gulp的构建，我也进一步组织优化了项目的文件结构，以期形成一套前端开发模板结构，给开发和维护带来方便。此项目持续更新gulp的插件任务和项目结构优化。gulpConfig
-projectStruct:暂定项目结构如下。1234567891011121314151617181920212223|--dist/">
+  <meta name="description" content="gulpConfig前端项目使用gulp构建能带来很大的便利性，通过gulp的构建，我也进一步组织优化了项目的文件结构，以期形成一套前端开发模板结构，给开发和维护带来方便。此项目持续更新gulp的插件任务和项目结构优化。gulpConfig">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gulp入门和基本配置">
 <meta property="og:url" content="http://jacean.github.io/2016/05/20/gulp入门和基本配置/index.html">
 <meta property="og:site_name" content="Jacean say Hello">
-<meta property="og:description" content="gulpConfig前端项目使用gulp构建能带来很大的便利性，通过gulp的构建，我也进一步组织优化了项目的文件结构，以期形成一套前端开发模板结构，给开发和维护带来方便。此项目持续更新gulp的插件任务和项目结构优化。gulpConfig
-projectStruct:暂定项目结构如下。1234567891011121314151617181920212223|--dist/">
-<meta property="og:updated_time" content="2016-05-27T09:58:40.655Z">
+<meta property="og:description" content="gulpConfig前端项目使用gulp构建能带来很大的便利性，通过gulp的构建，我也进一步组织优化了项目的文件结构，以期形成一套前端开发模板结构，给开发和维护带来方便。此项目持续更新gulp的插件任务和项目结构优化。gulpConfig">
+<meta property="og:updated_time" content="2016-05-27T10:01:39.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gulp入门和基本配置">
-<meta name="twitter:description" content="gulpConfig前端项目使用gulp构建能带来很大的便利性，通过gulp的构建，我也进一步组织优化了项目的文件结构，以期形成一套前端开发模板结构，给开发和维护带来方便。此项目持续更新gulp的插件任务和项目结构优化。gulpConfig
-projectStruct:暂定项目结构如下。1234567891011121314151617181920212223|--dist/">
+<meta name="twitter:description" content="gulpConfig前端项目使用gulp构建能带来很大的便利性，通过gulp的构建，我也进一步组织优化了项目的文件结构，以期形成一套前端开发模板结构，给开发和维护带来方便。此项目持续更新gulp的插件任务和项目结构优化。gulpConfig">
   
     <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
   
@@ -314,7 +311,7 @@ projectStruct:暂定项目结构如下。1234567891011121314151617181920212223|-
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="gulpConfig"><a href="#gulpConfig" class="headerlink" title="gulpConfig"></a>gulpConfig</h1><p>前端项目使用gulp构建能带来很大的便利性，通过gulp的构建，我也进一步组织优化了项目的文件结构，以期形成一套前端开发模板结构，给开发和维护带来方便。<br>此项目持续更新gulp的插件任务和项目结构优化。<br><a href="git@github.com:jacean/gulpConfig.git">gulpConfig</a></p>
+        <h1 id="gulpConfig"><a href="#gulpConfig" class="headerlink" title="gulpConfig"></a>gulpConfig</h1><p>前端项目使用gulp构建能带来很大的便利性，通过gulp的构建，我也进一步组织优化了项目的文件结构，以期形成一套前端开发模板结构，给开发和维护带来方便。<br>此项目持续更新gulp的插件任务和项目结构优化。<br><a href="git@github.com:jacean/gulpConfig.git">gulpConfig</a><br><a id="more"></a></p>
 <h2 id="projectStruct"><a href="#projectStruct" class="headerlink" title="projectStruct:"></a>projectStruct:</h2><p>暂定项目结构如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">|--dist/                                项目编译后的目标文件</span><br><span class="line">    |--progectVersion/                      根据版本号编译不同版本</span><br><span class="line">        |--css/                                 所有css文件</span><br><span class="line">        |--image/                               所有图片文件</span><br><span class="line">        |--js/                                  所有js文件</span><br><span class="line">        |--view/                                所有html文件</span><br><span class="line">|--gulp/                                gulp任务执行所需</span><br><span class="line">    |--tasks/                               gulp针对特定类型的任务</span><br><span class="line">        |--less.js</span><br><span class="line">        |--...</span><br><span class="line">    |--util/                                通用工具模块</span><br><span class="line">        |--handleErrors.js                      错误处理</span><br><span class="line">        |--...</span><br><span class="line">    |--config.js                            gulp任务所需和路径配置</span><br><span class="line">|--node_modules/                        gulp模块文件夹</span><br><span class="line">|--src/                                 项目开发中的原始文件 </span><br><span class="line">    |--image/                               所有图片文件</span><br><span class="line">    |--less/                                所有less文件</span><br><span class="line">    |--js/                                  所有js文件</span><br><span class="line">    |--view/                                所有html文件</span><br><span class="line">|--gulpfile.js                          gulp入口js</span><br><span class="line">|--package.json                         gulp项目信息和包管理文件</span><br><span class="line">|--README.md                            readme</span><br></pre></td></tr></table></figure></p>
 <h2 id="gulpTask"><a href="#gulpTask" class="headerlink" title="gulpTask"></a>gulpTask</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">|--tasks/</span><br><span class="line">    |--clean.js                         清空编译目标文件夹</span><br><span class="line">    |--default.js                       默认任务，依次启动各个任务最后启动监视</span><br><span class="line">    |--html.js                          压缩html文件</span><br><span class="line">    |--imagemin.js                      图片压缩</span><br><span class="line">    |--less.js                          编译less</span><br><span class="line">    |--script.js                        压缩js</span><br><span class="line">    |--watch.js                         监视项目变动</span><br></pre></td></tr></table></figure>
 <h2 id="gulp部署"><a href="#gulp部署" class="headerlink" title="gulp部署"></a>gulp部署</h2><h3 id="安装全局gulp"><a href="#安装全局gulp" class="headerlink" title="安装全局gulp"></a>安装全局gulp</h3><blockquote>
@@ -394,7 +391,7 @@ projectStruct:暂定项目结构如下。1234567891011121314151617181920212223|-
         <p><span>本文标题:</span><a href="/2016/05/20/gulp入门和基本配置/">gulp入门和基本配置</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年05月20日 - 20时25分</p>
-        <p><span>最后更新:</span>2016年05月27日 - 17时58分</p>
+        <p><span>最后更新:</span>2016年05月27日 - 18时01分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/05/20/gulp入门和基本配置/" title="gulp入门和基本配置">http://jacean.github.io/2016/05/20/gulp入门和基本配置/</a>
             <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/05/20/gulp入门和基本配置/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
