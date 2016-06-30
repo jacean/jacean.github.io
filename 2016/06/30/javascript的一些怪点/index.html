@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Jacean say Hello">
 <meta property="og:description" content="null作为对象却不是实例1typeof null===&amp;apos;object&amp;apos;   -&amp;gt;true
 可以看到，null确实是一个对象，可它是一个完全没有意义的对象，没有任何属性和方法。我们还知道，所有对象都是Object的实例，那么null是吗？">
-<meta property="og:updated_time" content="2016-06-30T15:54:09.657Z">
+<meta property="og:updated_time" content="2016-06-30T16:12:22.569Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript的一些怪点">
 <meta name="twitter:description" content="null作为对象却不是实例1typeof null===&amp;apos;object&amp;apos;   -&amp;gt;true
@@ -320,16 +320,51 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">null instanceof Object   -&gt;false</span><br></pre></td></tr></table></figure>
 <p>可以看到，null不是Object的实例，没有值的它不能作为任何对象的实例。</p>
 <p>所以，<strong><em>尽管null是一个对象，但它并不被看作是对象的实例。</em></strong></p>
-<p>而null作为一个没有值得对象，用它来使用Object.create实例对象的时候，将覆盖对象的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p>function objectTest() {<br>    var o1 = {};<br>    var o6 = Object.create(Object.prototype);<br>    var o7 = Object.create(null);<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">调试后可以看到这样的结果在scope中</span><br></pre></td></tr></table></figure></p>
-<p> Local Return value:undefined<br>    o1:Object<br>        <strong>proto</strong>:Object<br>    o6:Object<br>        <strong>proto</strong>:Object<br>    o7:Object<br>        No Properties<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">可以看到O1、O6都是自带了```__proto__```属性的，O7是自定义null为prototype来创建对象，所以就没有此属性。</span><br><span class="line"></span><br><span class="line">## NaN作为数字却不能自等</span><br></pre></td></tr></table></figure></p>
-<p>//NaN的类型确确实实是number数字<br>typeof NaN===’number’<br>//true</p>
-<p>//NaN又确确实实不等于NaN<br>NaN==NaN<br>//false</p>
-<p>//要判断是不是NaN只能使用isNaN()方法<br>isNaN(NaN)<br>//true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 空数组是真值但却不等于true</span><br><span class="line"></span><br><span class="line">判断是不是真值，if一下。</span><br></pre></td></tr></table></figure></p>
-<p>if(new Array()){<br>    console.log(“[] is true”);<br>}else{<br>    console.log(“[] is false”);<br>}                       //[] is true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过if的判断可以看出来空数组[]是真值，但是</span><br></pre></td></tr></table></figure></p>
-<p>console.log([]==true);  //false<br>if ([]==true) {<br>    console.log(“[] is true”);<br>}else{<br>    console.log(“[] is false”);<br>}                       //false<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">也就是说作为真值的[]==false。</span><br><span class="line"></span><br><span class="line">有点懵圈，来梳理一下。</span><br><span class="line">我们知道，在js中，我们可以通过if的逻辑判断条件来区分真值/假值，所以可以得到6个假值，分别是：</span><br><span class="line">&gt; false,undefined,null,0,&quot;&quot;,NaN</span><br><span class="line"></span><br><span class="line">那么除此之外的就都是真值了。可以这样理解：</span><br><span class="line">在javascript中，所有非布尔值都有一个内置的布尔标志，在进行布尔比较的时候，js就会调用这个布尔标志。</span><br><span class="line">如上假值，在进行布尔比较的时候，会临时的转变成false。</span><br><span class="line"></span><br><span class="line">但是，并不是说真值就等于true。即在==和!=这类比较运算中，真值不一定等于true。</span><br><span class="line">比较运算最后都会转到number/string值的隐式转换。</span><br><span class="line">&gt; ECMA规范    ToPrimitive ( input [ , PreferredType ] )</span><br><span class="line">1. Assert: Type(O) is Object.</span><br><span class="line">2. Assert: Type(hint) is String and its value is either &quot;string&quot; or &quot;number&quot;.</span><br><span class="line">3. If hint is &quot;string&quot;, then</span><br><span class="line">    - Let methodNames be « &quot;toString&quot;, &quot;valueOf&quot; ».</span><br><span class="line">4. Else,</span><br><span class="line">    - Let methodNames be « &quot;valueOf&quot;, &quot;toString&quot; ».</span><br><span class="line">5. For each name in methodNames in List order, do</span><br><span class="line">    - Let method be ? Get(O, name).</span><br><span class="line">    - If IsCallable(method) is true, then</span><br><span class="line">        - Let result be ? Call(method, O).</span><br><span class="line">        - If Type(result) is not Object, return result.</span><br><span class="line">6. Throw a TypeError exception.</span><br><span class="line"></span><br><span class="line">- 当转换是趋向于string的，则执行toString-&gt;valueOf</span><br><span class="line">- 当转换时趋向于number的，则执行valueof-&gt;toString</span><br><span class="line"></span><br><span class="line">所以，根据逻辑顺序就有</span><br></pre></td></tr></table></figure></p>
-<pre><code>[]==true
-</code></pre><p>[]==ToNumber(true)      []==1<br>ToPrimitive([])==1      []==1<br>ToString([])==1         “”==1<br>ToNumber(“”)==1         0==1<br>                        false<br>```</p>
+<p>而null作为一个没有值得对象，用它来使用Object.create实例对象的时候，将覆盖对象的__proto__属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function objectTest() &#123;</span><br><span class="line">    var o1 = &#123;&#125;;   </span><br><span class="line">    var o6 = Object.create(Object.prototype);</span><br><span class="line">    var o7 = Object.create(null);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调试后可以看到这样的结果在scope中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Local Return value:undefined</span><br><span class="line">   o1:Object </span><br><span class="line">       __proto__:Object    </span><br><span class="line">   o6:Object</span><br><span class="line">       __proto__:Object</span><br><span class="line">   o7:Object</span><br><span class="line">       No Properties</span><br></pre></td></tr></table></figure></p>
+<p>可以看到O1、O6都是自带了__proto__属性的，O7是自定义null为prototype来创建对象，所以就没有此属性。</p>
+<h2 id="NaN作为数字却不能自等"><a href="#NaN作为数字却不能自等" class="headerlink" title="NaN作为数字却不能自等"></a>NaN作为数字却不能自等</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//NaN的类型确确实实是number数字</span><br><span class="line">typeof NaN===&apos;number&apos;</span><br><span class="line">//true</span><br><span class="line"></span><br><span class="line">//NaN又确确实实不等于NaN</span><br><span class="line">NaN==NaN</span><br><span class="line">//false</span><br><span class="line"></span><br><span class="line">//要判断是不是NaN只能使用isNaN()方法</span><br><span class="line">isNaN(NaN)</span><br><span class="line">//true</span><br></pre></td></tr></table></figure>
+<h2 id="空数组是真值但却不等于true"><a href="#空数组是真值但却不等于true" class="headerlink" title="空数组是真值但却不等于true"></a>空数组是真值但却不等于true</h2><p>判断是不是真值，if一下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(new Array())&#123;</span><br><span class="line">    console.log(&quot;[] is true&quot;);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    console.log(&quot;[] is false&quot;);</span><br><span class="line">&#125;                       //[] is true</span><br></pre></td></tr></table></figure></p>
+<p>通过if的判断可以看出来空数组[]是真值，但是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log([]==true);  //false</span><br><span class="line">if ([]==true) &#123;</span><br><span class="line">    console.log(&quot;[] is true&quot;);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    console.log(&quot;[] is false&quot;);</span><br><span class="line">&#125;                       //false</span><br></pre></td></tr></table></figure></p>
+<p>也就是说作为真值的[]==false。</p>
+<p>有点懵圈，来梳理一下。<br>我们知道，在js中，我们可以通过if的逻辑判断条件来区分真值/假值，所以可以得到6个假值，分别是：</p>
+<blockquote>
+<p>false,undefined,null,0,””,NaN</p>
+</blockquote>
+<p>那么除此之外的就都是真值了。可以这样理解：<br>在javascript中，所有非布尔值都有一个内置的布尔标志，在进行布尔比较的时候，js就会调用这个布尔标志。<br>如上假值，在进行布尔比较的时候，会临时的转变成false。</p>
+<p>但是，并不是说真值就等于true。即在==和!=这类比较运算中，真值不一定等于true。<br>比较运算最后都会转到number/string值的隐式转换。</p>
+<blockquote>
+<p>ECMA规范    ToPrimitive ( input [ , PreferredType ] )</p>
+<ol>
+<li>Assert: Type(O) is Object.</li>
+<li>Assert: Type(hint) is String and its value is either “string” or “number”.</li>
+<li>If hint is “string”, then<ul>
+<li>Let methodNames be « “toString”, “valueOf” ».</li>
+</ul>
+</li>
+<li>Else,<ul>
+<li>Let methodNames be « “valueOf”, “toString” ».</li>
+</ul>
+</li>
+<li>For each name in methodNames in List order, do<ul>
+<li>Let method be ? Get(O, name).</li>
+<li>If IsCallable(method) is true, then<ul>
+<li>Let result be ? Call(method, O).</li>
+<li>If Type(result) is not Object, return result.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Throw a TypeError exception.</li>
+</ol>
+</blockquote>
+<ul>
+<li>当转换是趋向于string的，则执行toString-&gt;valueOf</li>
+<li>当转换时趋向于number的，则执行valueof-&gt;toString</li>
+</ul>
+<p>所以，根据逻辑顺序就有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">                        []==true</span><br><span class="line">[]==ToNumber(true)      []==1</span><br><span class="line">ToPrimitive([])==1      []==1</span><br><span class="line">ToString([])==1         &quot;&quot;==1</span><br><span class="line">ToNumber(&quot;&quot;)==1         0==1</span><br><span class="line">                        false</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -341,7 +376,7 @@
         <p><span>本文标题:</span><a href="/2016/06/30/javascript的一些怪点/">javascript的一些怪点</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
         <p><span>发布时间:</span>2016年06月30日 - 23时53分</p>
-        <p><span>最后更新:</span>2016年06月30日 - 23时54分</p>
+        <p><span>最后更新:</span>2016年07月01日 - 00时12分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/06/30/javascript的一些怪点/" title="javascript的一些怪点">http://jacean.github.io/2016/06/30/javascript的一些怪点/</a>
             <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/06/30/javascript的一些怪点/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -377,7 +412,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#null作为对象却不是实例"><span class="toc-number">1.</span> <span class="toc-text">null作为对象却不是实例</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#null作为对象却不是实例"><span class="toc-number">1.</span> <span class="toc-text">null作为对象却不是实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NaN作为数字却不能自等"><span class="toc-number">2.</span> <span class="toc-text">NaN作为数字却不能自等</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空数组是真值但却不等于true"><span class="toc-number">3.</span> <span class="toc-text">空数组是真值但却不等于true</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
