@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ubuntu重建ESP引导 | Jacean say Hello</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="加固态的时候，把windows完全安装在了固态上，然后就把原来的C盘直接格式化，连带着旧的引导分区都给格式化没了，后来就没法启动Ubuntu。要恢复引导，不是简单的修复，从ESP分区里链接上ubuntu的efi启动就行，必须得重建ubuntu的ESP引导。实际环境是：
+
+ESP分区：1234- EFI/    - boot/                     //efi启动文件    - M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu重建ESP引导">
+<meta property="og:url" content="http://jacean.github.io/2016/06/30/ubuntu重建ESP引导/index.html">
+<meta property="og:site_name" content="Jacean say Hello">
+<meta property="og:description" content="加固态的时候，把windows完全安装在了固态上，然后就把原来的C盘直接格式化，连带着旧的引导分区都给格式化没了，后来就没法启动Ubuntu。要恢复引导，不是简单的修复，从ESP分区里链接上ubuntu的efi启动就行，必须得重建ubuntu的ESP引导。实际环境是：
+
+ESP分区：1234- EFI/    - boot/                     //efi启动文件    - M">
+<meta property="og:updated_time" content="2016-06-30T15:52:34.793Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu重建ESP引导">
+<meta name="twitter:description" content="加固态的时候，把windows完全安装在了固态上，然后就把原来的C盘直接格式化，连带着旧的引导分区都给格式化没了，后来就没法启动Ubuntu。要恢复引导，不是简单的修复，从ESP分区里链接上ubuntu的efi启动就行，必须得重建ubuntu的ESP引导。实际环境是：
+
+ESP分区：1234- EFI/    - boot/                     //efi启动文件    - M">
+  
+    <link rel="alternative" href="/atom.xml" title="Jacean say Hello" type="application/atom+xml">
+  
+  
+    <!--<link rel="icon" href="/favicon.png">-->
+	<link rel="icon" href="http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+      <link href="//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+ <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png">-->
+<link rel="apple-touch-icon" href="http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+
+
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+
+
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+
+
+</head>
+
+<body>
+  <div id="container">
+
+  <div id="left" class="left-col"> 
+
+    
+
+
+<div id="overlay" class="overlay"></div>
+
+
+
+<div class="intrude-less">
+
+
+<!--<header class="panel-cover panel-cover--collapsed">-->
+ <header id="header" class="inner">
+
+   
+        <a href="/" class="profilepic">
+            <!--<img src="/img/avatar.png" class="animated zoomIn">-->
+		<img src="http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_avatar.png" class="animated zoomIn">
+
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Jacean Wan</a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+			 
+ 		<li><a href="/">Home</a></li>
+            
+                        
+			 
+ 		<li><a href="/archives/">Archives</a></li>
+            
+                        
+			 
+ 		<li><a href="/tags/">Tags</a></li>
+            
+                        
+			 
+ 		<li><a href="/about/">About</a></li>
+            
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="jacean:jaceanwan@gmail.com" title="Email"></a></li>
+                            
+                                <li id="新浪微博"><a class="新浪微博" target="_blank" href="http://weibo.com/3919664458/profile?topnav=1&wvr=6&is_all=1" title="新浪微博"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/jacean" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+
+			</ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 11.67px;">Android</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/C/" style="font-size: 18.33px;">C#</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a> <a href="/tags/DocX/" style="font-size: 11.67px;">DocX</a> <a href="/tags/Eclipse/" style="font-size: 13.33px;">Eclipse</a> <a href="/tags/GitPage/" style="font-size: 10px;">GitPage</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 11.67px;">HTTP</a> <a href="/tags/Hexo/" style="font-size: 16.67px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/ListView/" style="font-size: 11.67px;">ListView</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/OneNote/" style="font-size: 10px;">OneNote</a> <a href="/tags/Other/" style="font-size: 10px;">Other</a> <a href="/tags/PDO/" style="font-size: 10px;">PDO</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/PHPExcel/" style="font-size: 13.33px;">PHPExcel</a> <a href="/tags/SAE/" style="font-size: 10px;">SAE</a> <a href="/tags/SQL-Server/" style="font-size: 10px;">SQL Server</a> <a href="/tags/Shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/TCP/" style="font-size: 11.67px;">TCP</a> <a href="/tags/UEFI/" style="font-size: 10px;">UEFI</a> <a href="/tags/Ubuntu/" style="font-size: 20px;">Ubuntu</a> <a href="/tags/Vim/" style="font-size: 13.33px;">Vim</a> <a href="/tags/VirtualBox/" style="font-size: 11.67px;">VirtualBox</a> <a href="/tags/proto/" style="font-size: 10px;">__proto__</a> <a href="/tags/ajax/" style="font-size: 11.67px;">ajax</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/c-c/" style="font-size: 10px;">c/c++</a> <a href="/tags/genymotion/" style="font-size: 10px;">genymotion</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iframe/" style="font-size: 10px;">iframe</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/jsonp/" style="font-size: 10px;">jsonp</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/php/" style="font-size: 11.67px;">php</a> <a href="/tags/sae/" style="font-size: 13.33px;">sae</a> <a href="/tags/swiftype/" style="font-size: 10px;">swiftype</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/vscode/" style="font-size: 11.67px;">vscode</a> <a href="/tags/web/" style="font-size: 11.67px;">web</a> <a href="/tags/webhooks/" style="font-size: 10px;">webhooks</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/windows/" style="font-size: 15px;">windows</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/yelee/" style="font-size: 11.67px;">yelee</a> <a href="/tags/七牛云/" style="font-size: 10px;">七牛云</a> <a href="/tags/双系统/" style="font-size: 10px;">双系统</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/封装/" style="font-size: 10px;">封装</a> <a href="/tags/引导/" style="font-size: 10px;">引导</a> <a href="/tags/微信开发/" style="font-size: 13.33px;">微信开发</a> <a href="/tags/操作系统/" style="font-size: 10px;">操作系统</a> <a href="/tags/数据结构/" style="font-size: 11.67px;">数据结构</a> <a href="/tags/泛解析/" style="font-size: 10px;">泛解析</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/自定义控件/" style="font-size: 11.67px;">自定义控件</a> <a href="/tags/虚拟主机/" style="font-size: 10px;">虚拟主机</a> <a href="/tags/虚拟机/" style="font-size: 10px;">虚拟机</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://leoyoung07.github.io/">Leoyoung07</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">我可是要成为独当一面的程序员的男人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+
+
+
+
+  </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Jacean Wan</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Jacean Wan</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Archives</a></li>
+                
+                    <li><a href="/tags/">Tags</a></li>
+                
+                    <li><a href="/about/">About</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="jacean:jaceanwan@gmail.com" title="Email"></a></li>
+                            
+                                <li id="新浪微博"><a class="新浪微博" target="_blank" href="http://weibo.com/3919664458/profile?topnav=1&wvr=6&is_all=1" title="新浪微博"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/jacean" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-ubuntu重建ESP引导" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/30/ubuntu重建ESP引导/" class="article-date">
+      <time datetime="2016-06-30T15:48:54.000Z" itemprop="datePublished">2016-06-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ubuntu重建ESP引导
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UEFI/">UEFI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/引导/">引导</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>加固态的时候，把windows完全安装在了固态上，然后就把原来的C盘直接格式化，连带着旧的引导分区都给格式化没了，后来就没法启动Ubuntu。<br>要恢复引导，不是简单的修复，从ESP分区里链接上ubuntu的efi启动就行，必须得重建ubuntu的ESP引导。实际环境是：</p>
+<blockquote>
+<p>ESP分区：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- EFI/</span><br><span class="line">    - boot/                     //efi启动文件</span><br><span class="line">    - Microsoft/                //各种字体图标的资源文件和boot内的启动efi文件</span><br><span class="line">    - (ubuntu/)                 //现在是没有的，目标是生成这个文件夹，只要有这个文件夹就一切好办</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>可以看到根本没有ubuntu的引导文件，所以网上说的<a href="http://tieba.baidu.com/p/3338849023" target="_blank" rel="external">refind</a>，easyUEFI等等是不行的。<br><a id="more"></a><br>要重建ubuntu的引导分区，那么就得先进入ubuntu，然后利用ubuntu自己的系统来重建。</p>
+<h2 id="grub命令进入ubuntu"><a href="#grub命令进入ubuntu" class="headerlink" title="grub命令进入ubuntu"></a>grub命令进入ubuntu</h2><p>但正是苦于没有引导进不去ubuntu，所以就需要手动慢慢的来找到入口，怎么找，用grub。<br>可以直接做一个grub的U盘，也可以把ubuntu的iso刻录到U盘里，利用其自带的grub来进行。以ubuntu的U盘镜像为例。<br>选择U盘启动，进入后按<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">先用ls看下自己的硬盘结构,找到自己的ubuntu分区,如果不确定的话可以用cat命令的补全来查看.</span><br><span class="line">我因为加了固态,所以有hd0,hd1,和hd2.先根据分区数量确定了hd2是机械盘,然后用```cat (hd2,_TAB```的补全,发现```msdos9```的格式是```ext*```,所以就确定了msdos9是我的ubuntu主分区.</span><br><span class="line">接着,就可以设置根文件夹了.</span><br></pre></td></tr></table></figure></p>
+<p>set root=(hd2,9)                            //指定/boot所在分区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">然后执行</span><br></pre></td></tr></table></figure></p>
+<p>linux /boot/vmli… ro root=/dev/sdb9       //设定内核和根分区,这里有提示出2个版本,一个是36,一个34,我选择了36.<br>                                            //sdb9的意思是我硬盘的第9个分区,sd是sata口接的,b是linux读取时顺序分配的标号,我的固态是sda,机械是sdb.<br>initrd /initrd…                           //补全后是initrd.img,init ramdisk,设定系统加载<br>boot            //自动重启<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">有省略号的地方进行tab补全就好.</span><br><span class="line"></span><br><span class="line">&gt; 我做的时候,有几次tab补全没用,后来是用u盘试装了下ubuntu,然后在里面的终端中这样</span><br></pre></td></tr></table></figure></p>
+<p>sudo mount /dev/sdb9 /mnt<br>sudo grup-install –boot-directory =/mnt/boot/dev/sda       //提示失败,具体原因忘了,好像是efi怎么了,然后我就退出重启,进入grup,重新试了下tab,就好使了，不知道什么原因<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">计算机重启后直接进入到ubuntu,这时执行</span><br></pre></td></tr></table></figure></p>
+<p>sudo grub-install -v<br>[sudo] jacean 的密码：<br>grub-install：信息： executing modprobe efivars 2&gt;/dev/null.<br>grub-install：信息： Looking for /sys/firmware/efi …<br>grub-install：信息： …found.<br>grub-install：信息： … but x86_64-efi platform not available.<br>grub-install：信息： … not found. Looking for /proc/device-tree …<br>grub-install：信息： … not found.<br>Installing for i386-pc platform.<br>grub-install：错误： install device isn’t specified.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">仍然报错.然后就想着用boot-repair.</span><br><span class="line">## 安装boot-repair</span><br></pre></td></tr></table></figure>
+<p>sudo add-apt-repository ppa:yannubuntu/boot-repair<br>sudo apt-get update<br>sudo apt-get install -y boot-repair</p>
+<p>sudo boot-repair<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bootrepair自己都提示要等好几分钟，所以就只能等了。</span><br><span class="line">注意这中间会有提示输入给出的终端命令来移除就得grub和重装新的grub，照着做完后点击弹出窗口的```前进```。</span><br></pre></td></tr></table></figure></p>
+<p>已成功修复启动。</p>
+<p>请纸录以下URL：<br><a href="http://paste.ubuntu.com/18152255/" target="_blank" rel="external">http://paste.ubuntu.com/18152255/</a></p>
+<p>如果您仍然遇到引导问题，请在此 URL 处留言：<br>boot.repair@gmail.com 或您最喜爱的论坛。</p>
+<p>现在您可以重新启动计算机。<br>别忘了在BIOS中设置从sdb (500GB)磁盘启动</p>
+<p>[操作系统正在使用中 - Ubuntu 15.10]的引导文件距磁盘头部太远，你的BIOS可能无法检测到它们。 您可以创建一个/boot分区然后重试 (EXT4, &gt;200MB, 磁盘起始位置). 这可以通过诸如 gParted 等工具来操作。 然后在 [引导修复]的[单独的/boot分区]中选择该分区。 (<a href="https://help.ubuntu.com/community/BootPartition" target="_blank" rel="external">https://help.ubuntu.com/community/BootPartition</a>)</p>
+<p>If your computer reboots directly into Windows, try to change the boot order in your BIOS.<br>If your BIOS does not allow to change the boot order, change the default boot entry of the Windows bootloader.<br>For example you can boot into Windows, then type the following command in an admin command prompt:<br>bcdedit /set {bootmgr} path \EFI\ubuntu\shimx64.efi<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">不用管这个，直接确认，然后重启。</span><br><span class="line">重启之后会发现启动项有很多个，不过ubuntu和ubuntu是存在的。还有我之前做的refind的尝试中的efi启动文件。进入windows用dg删掉之前多余的东西，把esp里的EFI文件夹恢复本来面貌。</span><br><span class="line">然后，进入ubuntu</span><br></pre></td></tr></table></figure></p>
+<p>sudo update-grub</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重新更新下grub，可以看到之前的废品已经没有了。但是，还有很多windows boot manager之类的启动项，重复又难看，为了保持清爽，可以</span><br></pre></td></tr></table></figure>
+<p>sudo gedit /boot/grub/grub.cfg<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在这个文件里面把不需要的注释掉,只留下想要的.</span><br><span class="line">但是,这又一个缺点就是,如文件开头所述</span><br></pre></td></tr></table></figure></p>
+<p>#</p>
+<h1 id="DO-NOT-EDIT-THIS-FILE"><a href="#DO-NOT-EDIT-THIS-FILE" class="headerlink" title="DO NOT EDIT THIS FILE"></a>DO NOT EDIT THIS FILE</h1><p>#</p>
+<h1 id="It-is-automatically-generated-by-grub-mkconfig-using-templates"><a href="#It-is-automatically-generated-by-grub-mkconfig-using-templates" class="headerlink" title="It is automatically generated by grub-mkconfig using templates"></a>It is automatically generated by grub-mkconfig using templates</h1><h1 id="from-etc-grub-d-and-settings-from-etc-default-grub"><a href="#from-etc-grub-d-and-settings-from-etc-default-grub" class="headerlink" title="from /etc/grub.d and settings from /etc/default/grub"></a>from /etc/grub.d and settings from /etc/default/grub</h1><p>#<br>```<br>这个文件是根据grub.d和grub这两个文件生成的,改动这个,如果执行grub update或是其他一些更新指令,都会让改动消失恢复默认.所以可酌情去修改grub文件和grub.d文件夹下的文件.可以设置默认启动项,设置前后景色,设置图标等等.</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/06/30/ubuntu重建ESP引导/">ubuntu重建ESP引导</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Jacean Wan 的个人博客">Jacean Wan</a></p>
+        <p><span>发布时间:</span>2016年06月30日 - 23时48分</p>
+        <p><span>最后更新:</span>2016年06月30日 - 23时52分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/06/30/ubuntu重建ESP引导/" title="ubuntu重建ESP引导">http://jacean.github.io/2016/06/30/ubuntu重建ESP引导/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://jacean.github.io/2016/06/30/ubuntu重建ESP引导/　　作者: Jacean Wan" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/06/30/javascript的一些怪点/">
+                    javascript的一些怪点
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/05/27/npm常用命令/">
+                    npm常用命令
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#grub命令进入ubuntu"><span class="toc-number">1.</span> <span class="toc-text">grub命令进入ubuntu</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DO-NOT-EDIT-THIS-FILE"><span class="toc-number"></span> <span class="toc-text">DO NOT EDIT THIS FILE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#It-is-automatically-generated-by-grub-mkconfig-using-templates"><span class="toc-number"></span> <span class="toc-text">It is automatically generated by grub-mkconfig using templates</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#from-etc-grub-d-and-settings-from-etc-default-grub"><span class="toc-number"></span> <span class="toc-text">from /etc/grub.d and settings from /etc/default/grub</span></a>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/06/30/ubuntu重建ESP引导/" data-title="ubuntu重建ESP引导" data-url="http://jacean.github.io/2016/06/30/ubuntu重建ESP引导/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jacean"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/06/30/javascript的一些怪点/" title="上一篇: javascript的一些怪点">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/05/27/npm常用命令/" title="下一篇: npm常用命令">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/06/30/javascript中模块封装/">javascript中模块封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/30/javascript中对象的直接属性和-proto-属性/">javascript中对象的直接属性和__proto__属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/30/javascript的一些怪点/">javascript的一些怪点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/30/ubuntu重建ESP引导/">ubuntu重建ESP引导</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/npm常用命令/">npm常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/bootstrapTable的使用/">bootstrapTable的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/HTML使用input上传文件类型限制/">HTML使用input上传文件类型限制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/ajax提交含文件表单/">ajax提交含文件表单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/20/gulp入门和基本配置/">gulp入门和基本配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/07/PDO在mysql中的应用/">PDO在mysql中的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/07/mysql常用配置和语句/">mysql常用配置和语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/微信开发-iframe中使用微信api/">微信开发--iframe中使用微信api</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/19/微信开发-页面互相调用传值/">微信开发--页面互相调用传值</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/19/微信开发-php使用ajax认证签名/">微信开发--php使用ajax认证签名</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/17/泛解析结合虚拟主机实现多域名访问不同端口或路径/">泛解析结合虚拟主机实现多域名访问不同端口或路径</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/17/git缓存密码实现https直接提交/">git缓存密码实现https直接提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/16/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/15/github配置webhooks实现博客自动部署到服务器/">github配置webhooks实现博客自动部署到服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/vscode配置C-C-的编译调试环境/">vscode配置C/C++的编译调试环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/Ubuntu安装xampp并配置xdebug利用vscode调试php/">Ubuntu安装xampp并配置xdebug利用vscode调试php</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/02/CSS设置DOM宽高的一些小tips/">CSS设置DOM宽高的一些小tips</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/02/JSONP跨域/">JSONP跨域</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/28/TCP爱情故事——爱情有尽头/">TCP爱情故事——爱情有尽头</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/28/TCP爱情故事——我们恋爱了/">TCP爱情故事——我们恋爱了</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/Linux文件权限/">Linux文件权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/25/HTTP会话/">HTTP会话</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/HTTP协议学习/">HTTP协议学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/wordpress-for-sae配置/">建立最新版的wordpress_for_sae</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/Eclipse参数是arg0/">Eclipse参数是arg0</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/Android安装参考文档/">Android安装参考文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/Eclipse打开genymotion模拟器的sd卡/">Eclipse打开genymotion模拟器的sd卡</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/Ubuntu状态栏显示网速CPU/">Ubuntu状态栏显示网速CPU</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/PHPExcel操作sae的storage上的文件/">PHPExcel操作sae的storage上的文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/PHPExcel上传sae遇到-1-fail-to-get-xml-content/">PHPExcel上传sae遇到:-1:fail_to_get_xml_content</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/24/PHPExcel追加一行/">PHPExcel追加一行</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/23/自旋锁和互斥锁/">自旋锁和互斥锁</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/23/JavaScript闭包/">JavaScript闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/23/记我一天三场的面试or笔试/">记我一天三场的面试or笔试</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/华为2016研发工程师笔试题/">华为2016研发工程师笔试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/网易2016校招研发工程师笔试题/">网易2016校招研发工程师笔试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/vim写markdown在浏览器实时预览/">vim写markdown在浏览器实时预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/ubuntu配置hexo和gitpage/">ubuntu配置hexo和gitpage</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/Ubuntu无法访问双系统机子上的windows文件分区/">Ubuntu无法访问双系统机子上的windows文件分区</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Ubuntu15-10-VirtualBox出现virtualbox-kernel-driver-not-installed-rc-1908/">Ubuntu15.10_VirtualBox出现virtualbox_kernel_driver_not_installed_(rc=-1908)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/vim安装addons插件管理后Warning-Ignoring-unknown-addons-winmanager/">vim安装addons插件管理后Warning:Ignoring_unknown_addons:_winmanager</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Ubuntu安装Eclipse/">Ubuntu安装Eclipse</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/windows远程ubuntu的virtualbox中的windows虚拟机/">windows远程ubuntu的virtualbox中的windows虚拟机</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/ubuntu安装搜狗输入法不出现或是不显示输入法切换/">ubuntu安装搜狗输入法不出现或是不显示输入法切换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/win10安装ubuntu15-0双系统遇到-initramfs-unable-to-find-a-medium-containing-a-live-file/">win10安装ubuntu15.0双系统遇到(initramfs)unable_to_find_a_medium_containing_a_live_file</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/自定义shell实现hexo常用命令/">自定义shell实现hexo常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Vim操作/">Vim操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Shell入门/">Shell入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/windows下Ubuntu虚拟机安装/">windows下Ubuntu虚拟机安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/windows文件夹拒绝访问-特殊权限/">windows文件夹拒绝访问,特殊权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/浏览器首页被hao-qquu8-com-tn-……篡改/">浏览器首页被hao.qquu8.com/tn=……篡改</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/onenote笔记导出成markdown发布到Hexo/">onenote笔记导出成markdown发布到Hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/C-设置ListView行高/">C#设置ListView行高</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/C-利用反射-遍历获得一个类的所有属性名/">C#利用反射,遍历获得一个类的所有属性名</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/无法打开物理文件-操作系统错误-5-拒绝访问-SQL-Sever/">无法打开物理文件 操作系统错误 5:拒绝访问 SQL Sever</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/自定义含ListView控件获取listView的滚动条事件/">自定义含ListView控件获取listView的滚动条事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/DocX添加多级标题/">DocX添加多级标题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/DocX给word添加目录TOC/">DocX给word添加目录TOC</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/ComBox数据源绑定/">ComBox数据源绑定</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/winForm鼠标坐标/">winForm鼠标坐标</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/C-在拖放文件的同时检测shift键的状态/">C#在拖放文件的同时检测shift键的状态</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/CSharp自定义控件属性面板及选择资源设置/">CSharp自定义控件属性面板及选择资源设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/Hexo使用七牛云存储图片等文件/">Hexo使用七牛云存储图片等文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/Hexo使用yelee主题添加swiftype搜索/">Hexo使用yelee主题添加swiftype搜索</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/12/Hexo自定义页面禁用主题/">Hexo自定义页面禁用主题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/git配置ssh后提交仍需要密码/">git配置ssh后提交仍需要密码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/HelloHexo/">Hello My HexoBlog</a></li></ul>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 Jacean Wan
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+    <script src="//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+  </div>
+</body>
+</html>

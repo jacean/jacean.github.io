@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-05-27T09:53:07.051Z</updated>
+  <updated>2016-06-30T15:56:53.901Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -14,6 +14,177 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>javascript中模块封装</title>
+    <link href="http://jacean.github.io/2016/06/30/javascript%E4%B8%AD%E6%A8%A1%E5%9D%97%E5%B0%81%E8%A3%85/"/>
+    <id>http://jacean.github.io/2016/06/30/javascript中模块封装/</id>
+    <published>2016-06-30T15:56:09.000Z</published>
+    <updated>2016-06-30T15:56:53.901Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;javascript中的模块封装&quot;&gt;&lt;a href=&quot;#javascript中的模块封装&quot; class=&quot;headerlink&quot; title=&quot;javascript中的模块封装&quot;&gt;&lt;/a&gt;javascript中的模块封装&lt;/h1&gt;&lt;p&gt;javascript假设一切都是正确的，给所有脚本同样的权限，脚本、变量之间可以互相覆盖，这就给开发带来了一定的意外。&lt;br&gt;这里我们通过引入两个存在干扰的脚本文件来一步步解决这个问题。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;引入干扰&quot;&gt;&lt;a href=&quot;#引入干扰&quot; class=&quot;headerlink&quot; title=&quot;引入干扰&quot;&gt;&lt;/a&gt;引入干扰&lt;/h2&gt;&lt;p&gt;在一个HTML页面中引入两个脚本文件script1.js和script2.js.&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//HTML&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script src=&amp;quot;script1.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script src=&amp;quot;script2.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    console.log(&amp;quot;a:&amp;quot;+ a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--------&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//script1.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var a = 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function init(params) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    console.log(&amp;quot;1-init:&amp;quot; + a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;window.onload = init;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;---------&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//script2.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var a=2;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function init(params) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    console.log(&amp;quot;2-init:&amp;quot;+a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;window.onload=init;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;实际上最后的结果是:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;a:2&lt;br&gt;2-init:2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;执行结果为后加载的script2.js。&lt;/p&gt;
+&lt;h2 id=&quot;模块封装&quot;&gt;&lt;a href=&quot;#模块封装&quot; class=&quot;headerlink&quot; title=&quot;模块封装&quot;&gt;&lt;/a&gt;模块封装&lt;/h2&gt;&lt;p&gt;这种情况下，为了代码的正确执行，我们就可以采取模块封装，人为加上命名空间。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//script1.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var script1 = function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var a = 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    function init(params) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        console.log(&amp;quot;1-init:&amp;quot; + a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        a:a,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        init:init&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;();            //不要忘了这个执行函数的括号&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;window.addEventListener(&amp;quot;load&amp;quot;,script1.init,false);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//script2.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var script2 = function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var a = 2;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    function init(params) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        console.log(&amp;quot;2-init:&amp;quot; + a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        a:a,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        init:init&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;();            //不要忘了这个执行函数的括号&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;window.addEventListener(&amp;quot;load&amp;quot;,script2.init,false);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这样的话，在命名上就避免了冲突，各个脚本之间互不干扰，各自执行。&lt;br&gt;上面的代码执行结果是：&lt;br&gt;&amp;gt;&lt;br&gt;index.html:15 Uncaught ReferenceError: a is not defined(anonymous function) @ index.html:15&lt;br&gt;script1.js:13 1-init:1&lt;br&gt;script2.js:13 2-init:2&lt;/p&gt;
+&lt;p&gt;a没有被定义，因为现在两个脚本的变量都在各自命名空间内部，所以，要使用的话得是明确指出是哪个，增强了目标性。&lt;/p&gt;
+&lt;p&gt;如上，这种封装之后，我们只需要通过return来暴露自己想要暴露的，而隐藏了自己不想公诸于众的东西，增加了安全性。&lt;/p&gt;
+&lt;p&gt;一定要注意这样做是用了函数执行自身的方法，即在函数声明之后加了括号，function(),来让函数立即执行，保证脚本变量确实是接收到了函数内部的返回值。&lt;/p&gt;
+&lt;p&gt;我这里使用的是return函数指针，而不是函数本身，这个可以根据自己喜好，比如写成这样：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var script2 = function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var a = 2;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        a:a,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        init:function (params) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            console.log(&amp;quot;2-init:&amp;quot; + a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;当然，有时候不需要暴露任何东西的时候，有一种更简单的写法。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;(function()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var a=1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    function init()&amp;#123;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;当然，即使这样我们也可以暴露一些东西，以全局变量的形式。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;(function(root)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    root.x=1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    root.a=function()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        alert(1);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)(this);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(x);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;javascript中的模块封装&quot;&gt;&lt;a href=&quot;#javascript中的模块封装&quot; class=&quot;headerlink&quot; title=&quot;javascript中的模块封装&quot;&gt;&lt;/a&gt;javascript中的模块封装&lt;/h1&gt;&lt;p&gt;javascript假设一切都是正确的，给所有脚本同样的权限，脚本、变量之间可以互相覆盖，这就给开发带来了一定的意外。&lt;br&gt;这里我们通过引入两个存在干扰的脚本文件来一步步解决这个问题。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://jacean.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="javascript" scheme="http://jacean.github.io/tags/javascript/"/>
+    
+      <category term="封装" scheme="http://jacean.github.io/tags/%E5%B0%81%E8%A3%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript中对象的直接属性和__proto__属性</title>
+    <link href="http://jacean.github.io/2016/06/30/javascript%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%9B%B4%E6%8E%A5%E5%B1%9E%E6%80%A7%E5%92%8C-proto-%E5%B1%9E%E6%80%A7/"/>
+    <id>http://jacean.github.io/2016/06/30/javascript中对象的直接属性和-proto-属性/</id>
+    <published>2016-06-30T15:54:30.000Z</published>
+    <updated>2016-06-30T15:55:44.538Z</updated>
+    
+    <content type="html">&lt;p&gt;先补充下&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;## 对象的内部原型( ```__proto__``` )和构造器的原型（prototype）。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;所有构造器/函数(包含自定义)的 ```__proto__``` 都是指向Function.prototype这样一个*空函数（```typeof Function.prototype===&amp;apos;function&amp;apos;``` -&amp;gt;true）*的，而Math和JSON这样以对象形式存在的，他们的```__proto__```是Object.prototype.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;继续深入有```Function.prototype.__proto__ === Object.prototype``` ,而 ```Object.prototype.__proto__ === null```。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;所有构造器的实例对象的 ```__proto__``` 都是指向其构造器的 ```prototype```。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!--more--&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;看下面这个例子，&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;function objectTest() {&lt;br&gt;    var o1 = {};&lt;br&gt;    var o6 = Object.create(Object.prototype);&lt;br&gt;    var o7 = Object.create(null);&lt;br&gt;}&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;调试后可以看到这样的结果在scope中&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt; Local Return value:undefined&lt;br&gt;    o1:Object&lt;br&gt;        &lt;strong&gt;proto&lt;/strong&gt;:Object&lt;br&gt;    o6:Object&lt;br&gt;        &lt;strong&gt;proto&lt;/strong&gt;:Object&lt;br&gt;    o7:Object&lt;br&gt;        No Properties&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;可以看到O1、O6都是自带了```__proto__```属性的，O7是自定义null为prototype来创建对象，所以就没有此属性。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;又```__proto__```是其构造器的prototype属性，故有，```o1.__proto__===Object.prototype   //true&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;详见&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/09/01/2664134.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JavaScript中&lt;strong&gt;proto&lt;/strong&gt;与prototype的关系&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;对象的直接属性和&quot;&gt;&lt;a href=&quot;#对象的直接属性和&quot; class=&quot;headerlink&quot; title=&quot;对象的直接属性和&quot;&gt;&lt;/a&gt;对象的直接属性和&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;修改构造器的prototype的属性或方法，其实例对象的```__proto__```依然恒等于构造器的prototype，两者指向同一个对象。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;在查找对象属性的时候，顺序是  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; 直接属性 -|-&amp;gt;  ```__proto__```属性,有则返回，无则深入。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;在修改对象属性的时候，顺序是&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; 直接属性 -|-|  ```__proto__```属性，只会修改直接属性，而不深入到```__proto__```这个继承自构造器的属性。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/h2&gt;&lt;p&gt;function Person(){&lt;br&gt;    this.name=”jacean”;&lt;br&gt;    this.age=12;&lt;br&gt;}&lt;br&gt;Person.prototype.sex=”male”;&lt;br&gt;Person.prototype.country=”Chinese”;&lt;/p&gt;
+&lt;p&gt;var p1=new Person();&lt;br&gt;var p2=new Person();&lt;/p&gt;
+&lt;p&gt;//初始状态下两个实例的属性是一样的&lt;br&gt;console.log(p1.name);   //jacean&lt;br&gt;console.log(p1.sex);    //male&lt;br&gt;console.log(p1.&lt;strong&gt;proto&lt;/strong&gt;.sex)   //male&lt;/p&gt;
+&lt;p&gt;console.log(p2.name);   //jacean&lt;br&gt;console.log(p2.sex);    //male&lt;br&gt;console.log(p2.&lt;strong&gt;proto&lt;/strong&gt;.sex)   //male&lt;/p&gt;
+&lt;p&gt;console.log(“……”);&lt;br&gt;p1.name=”bob”;&lt;br&gt;p1.sex=”famle”;&lt;br&gt;//更改了p1的直接属性name，因为p1没有sex的直接属性，所以在这里会给p1添加sex的直接属性，而不会深入到&lt;strong&gt;proto&lt;/strong&gt;去修改构造器的sex&lt;br&gt;//所以这里的sex修改并不会影响p2&lt;br&gt;console.log(p1.name);   //bob&lt;br&gt;console.log(p1.sex);    //famale&lt;br&gt;console.log(p1.&lt;strong&gt;proto&lt;/strong&gt;.sex)   //male&lt;/p&gt;
+&lt;p&gt;console.log(p2.name);   //jacean&lt;br&gt;console.log(p2.sex);    //male&lt;br&gt;console.log(p2.&lt;strong&gt;proto&lt;/strong&gt;.sex)   //male&lt;br&gt;console.log(“……”);&lt;/p&gt;
+&lt;p&gt;Person.prototype.sex=”nomale”;&lt;br&gt;//修改了构造器的sex属性，相对应的p1和p2的&lt;strong&gt;proto&lt;/strong&gt;.sex也会发生改变。&lt;br&gt;//p1因为有直接sex属性，所以p1.sex不受影响，而p2没有sex直接属性所以p2.sex是读取的构造器属性&lt;br&gt;console.log(p1.name);   //bob&lt;br&gt;console.log(p1.sex);    //famale&lt;br&gt;console.log(p1.&lt;strong&gt;proto&lt;/strong&gt;.sex)   //nomale&lt;/p&gt;
+&lt;p&gt;console.log(p2.name);   //jacean&lt;br&gt;console.log(p2.sex);    //nomale,p2是没有sex这个直接属性的，所以这里读到的还是其构造器的属性&lt;br&gt;console.log(p2.&lt;strong&gt;proto&lt;/strong&gt;.sex)   //nomale&lt;br&gt;console.log(“……”);&lt;br&gt;```&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;先补充下&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;spa
+    
+    </summary>
+    
+      <category term="前端" scheme="http://jacean.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="javascript" scheme="http://jacean.github.io/tags/javascript/"/>
+    
+      <category term="__proto__" scheme="http://jacean.github.io/tags/proto/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript的一些怪点</title>
+    <link href="http://jacean.github.io/2016/06/30/javascript%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%AA%E7%82%B9/"/>
+    <id>http://jacean.github.io/2016/06/30/javascript的一些怪点/</id>
+    <published>2016-06-30T15:53:10.000Z</published>
+    <updated>2016-06-30T15:54:09.657Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;null作为对象却不是实例&quot;&gt;&lt;a href=&quot;#null作为对象却不是实例&quot; class=&quot;headerlink&quot; title=&quot;null作为对象却不是实例&quot;&gt;&lt;/a&gt;null作为对象却不是实例&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;typeof null===&amp;apos;object&amp;apos;   -&amp;gt;true&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;可以看到，null确实是一个对象，可它是一个完全没有意义的对象，没有任何属性和方法。&lt;br&gt;我们还知道，&lt;em&gt;所有对象都是Object的实例&lt;/em&gt;，那么null是吗？&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;null instanceof Object   -&amp;gt;false&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;可以看到，null不是Object的实例，没有值的它不能作为任何对象的实例。&lt;/p&gt;
+&lt;p&gt;所以，&lt;strong&gt;&lt;em&gt;尽管null是一个对象，但它并不被看作是对象的实例。&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;而null作为一个没有值得对象，用它来使用Object.create实例对象的时候，将覆盖对象的&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;function objectTest() {&lt;br&gt;    var o1 = {};&lt;br&gt;    var o6 = Object.create(Object.prototype);&lt;br&gt;    var o7 = Object.create(null);&lt;br&gt;}&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;调试后可以看到这样的结果在scope中&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt; Local Return value:undefined&lt;br&gt;    o1:Object&lt;br&gt;        &lt;strong&gt;proto&lt;/strong&gt;:Object&lt;br&gt;    o6:Object&lt;br&gt;        &lt;strong&gt;proto&lt;/strong&gt;:Object&lt;br&gt;    o7:Object&lt;br&gt;        No Properties&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;可以看到O1、O6都是自带了```__proto__```属性的，O7是自定义null为prototype来创建对象，所以就没有此属性。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## NaN作为数字却不能自等&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;//NaN的类型确确实实是number数字&lt;br&gt;typeof NaN===’number’&lt;br&gt;//true&lt;/p&gt;
+&lt;p&gt;//NaN又确确实实不等于NaN&lt;br&gt;NaN==NaN&lt;br&gt;//false&lt;/p&gt;
+&lt;p&gt;//要判断是不是NaN只能使用isNaN()方法&lt;br&gt;isNaN(NaN)&lt;br&gt;//true&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## 空数组是真值但却不等于true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;判断是不是真值，if一下。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;if(new Array()){&lt;br&gt;    console.log(“[] is true”);&lt;br&gt;}else{&lt;br&gt;    console.log(“[] is false”);&lt;br&gt;}                       //[] is true&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;通过if的判断可以看出来空数组[]是真值，但是&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;console.log([]==true);  //false&lt;br&gt;if ([]==true) {&lt;br&gt;    console.log(“[] is true”);&lt;br&gt;}else{&lt;br&gt;    console.log(“[] is false”);&lt;br&gt;}                       //false&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;也就是说作为真值的[]==false。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;有点懵圈，来梳理一下。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;我们知道，在js中，我们可以通过if的逻辑判断条件来区分真值/假值，所以可以得到6个假值，分别是：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; false,undefined,null,0,&amp;quot;&amp;quot;,NaN&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;那么除此之外的就都是真值了。可以这样理解：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;在javascript中，所有非布尔值都有一个内置的布尔标志，在进行布尔比较的时候，js就会调用这个布尔标志。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;如上假值，在进行布尔比较的时候，会临时的转变成false。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;但是，并不是说真值就等于true。即在==和!=这类比较运算中，真值不一定等于true。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;比较运算最后都会转到number/string值的隐式转换。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; ECMA规范    ToPrimitive ( input [ , PreferredType ] )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;1. Assert: Type(O) is Object.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2. Assert: Type(hint) is String and its value is either &amp;quot;string&amp;quot; or &amp;quot;number&amp;quot;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3. If hint is &amp;quot;string&amp;quot;, then&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - Let methodNames be « &amp;quot;toString&amp;quot;, &amp;quot;valueOf&amp;quot; ».&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4. Else,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - Let methodNames be « &amp;quot;valueOf&amp;quot;, &amp;quot;toString&amp;quot; ».&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5. For each name in methodNames in List order, do&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - Let method be ? Get(O, name).&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - If IsCallable(method) is true, then&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        - Let result be ? Call(method, O).&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        - If Type(result) is not Object, return result.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6. Throw a TypeError exception.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- 当转换是趋向于string的，则执行toString-&amp;gt;valueOf&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- 当转换时趋向于number的，则执行valueof-&amp;gt;toString&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;所以，根据逻辑顺序就有&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[]==true
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;[]==ToNumber(true)      []==1&lt;br&gt;ToPrimitive([])==1      []==1&lt;br&gt;ToString([])==1         “”==1&lt;br&gt;ToNumber(“”)==1         0==1&lt;br&gt;                        false&lt;br&gt;```&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;null作为对象却不是实例&quot;&gt;&lt;a href=&quot;#null作为对象却不是实例&quot; class=&quot;headerlink&quot; title=&quot;null作为对象却不是实例&quot;&gt;&lt;/a&gt;null作为对象却不是实例&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;typeof null===&amp;apos;object&amp;apos;   -&amp;gt;true&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;可以看到，null确实是一个对象，可它是一个完全没有意义的对象，没有任何属性和方法。&lt;br&gt;我们还知道，&lt;em&gt;所有对象都是Object的实例&lt;/em&gt;，那么null是吗？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://jacean.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="javascript" scheme="http://jacean.github.io/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu重建ESP引导</title>
+    <link href="http://jacean.github.io/2016/06/30/ubuntu%E9%87%8D%E5%BB%BAESP%E5%BC%95%E5%AF%BC/"/>
+    <id>http://jacean.github.io/2016/06/30/ubuntu重建ESP引导/</id>
+    <published>2016-06-30T15:48:54.000Z</published>
+    <updated>2016-06-30T15:52:34.793Z</updated>
+    
+    <content type="html">&lt;p&gt;加固态的时候，把windows完全安装在了固态上，然后就把原来的C盘直接格式化，连带着旧的引导分区都给格式化没了，后来就没法启动Ubuntu。&lt;br&gt;要恢复引导，不是简单的修复，从ESP分区里链接上ubuntu的efi启动就行，必须得重建ubuntu的ESP引导。实际环境是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ESP分区：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- EFI/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - boot/                     //efi启动文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - Microsoft/                //各种字体图标的资源文件和boot内的启动efi文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - (ubuntu/)                 //现在是没有的，目标是生成这个文件夹，只要有这个文件夹就一切好办&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;可以看到根本没有ubuntu的引导文件，所以网上说的&lt;a href=&quot;http://tieba.baidu.com/p/3338849023&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;refind&lt;/a&gt;，easyUEFI等等是不行的。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;要重建ubuntu的引导分区，那么就得先进入ubuntu，然后利用ubuntu自己的系统来重建。&lt;/p&gt;
+&lt;h2 id=&quot;grub命令进入ubuntu&quot;&gt;&lt;a href=&quot;#grub命令进入ubuntu&quot; class=&quot;headerlink&quot; title=&quot;grub命令进入ubuntu&quot;&gt;&lt;/a&gt;grub命令进入ubuntu&lt;/h2&gt;&lt;p&gt;但正是苦于没有引导进不去ubuntu，所以就需要手动慢慢的来找到入口，怎么找，用grub。&lt;br&gt;可以直接做一个grub的U盘，也可以把ubuntu的iso刻录到U盘里，利用其自带的grub来进行。以ubuntu的U盘镜像为例。&lt;br&gt;选择U盘启动，进入后按&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;先用ls看下自己的硬盘结构,找到自己的ubuntu分区,如果不确定的话可以用cat命令的补全来查看.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;我因为加了固态,所以有hd0,hd1,和hd2.先根据分区数量确定了hd2是机械盘,然后用```cat (hd2,_TAB```的补全,发现```msdos9```的格式是```ext*```,所以就确定了msdos9是我的ubuntu主分区.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;接着,就可以设置根文件夹了.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;set root=(hd2,9)                            //指定/boot所在分区&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;然后执行&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;linux /boot/vmli… ro root=/dev/sdb9       //设定内核和根分区,这里有提示出2个版本,一个是36,一个34,我选择了36.&lt;br&gt;                                            //sdb9的意思是我硬盘的第9个分区,sd是sata口接的,b是linux读取时顺序分配的标号,我的固态是sda,机械是sdb.&lt;br&gt;initrd /initrd…                           //补全后是initrd.img,init ramdisk,设定系统加载&lt;br&gt;boot            //自动重启&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;有省略号的地方进行tab补全就好.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; 我做的时候,有几次tab补全没用,后来是用u盘试装了下ubuntu,然后在里面的终端中这样&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;sudo mount /dev/sdb9 /mnt&lt;br&gt;sudo grup-install –boot-directory =/mnt/boot/dev/sda       //提示失败,具体原因忘了,好像是efi怎么了,然后我就退出重启,进入grup,重新试了下tab,就好使了，不知道什么原因&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;计算机重启后直接进入到ubuntu,这时执行&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;sudo grub-install -v&lt;br&gt;[sudo] jacean 的密码：&lt;br&gt;grub-install：信息： executing modprobe efivars 2&amp;gt;/dev/null.&lt;br&gt;grub-install：信息： Looking for /sys/firmware/efi …&lt;br&gt;grub-install：信息： …found.&lt;br&gt;grub-install：信息： … but x86_64-efi platform not available.&lt;br&gt;grub-install：信息： … not found. Looking for /proc/device-tree …&lt;br&gt;grub-install：信息： … not found.&lt;br&gt;Installing for i386-pc platform.&lt;br&gt;grub-install：错误： install device isn’t specified.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;仍然报错.然后就想着用boot-repair.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## 安装boot-repair&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;sudo add-apt-repository ppa:yannubuntu/boot-repair&lt;br&gt;sudo apt-get update&lt;br&gt;sudo apt-get install -y boot-repair&lt;/p&gt;
+&lt;p&gt;sudo boot-repair&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bootrepair自己都提示要等好几分钟，所以就只能等了。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;注意这中间会有提示输入给出的终端命令来移除就得grub和重装新的grub，照着做完后点击弹出窗口的```前进```。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;已成功修复启动。&lt;/p&gt;
+&lt;p&gt;请纸录以下URL：&lt;br&gt;&lt;a href=&quot;http://paste.ubuntu.com/18152255/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://paste.ubuntu.com/18152255/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如果您仍然遇到引导问题，请在此 URL 处留言：&lt;br&gt;boot.repair@gmail.com 或您最喜爱的论坛。&lt;/p&gt;
+&lt;p&gt;现在您可以重新启动计算机。&lt;br&gt;别忘了在BIOS中设置从sdb (500GB)磁盘启动&lt;/p&gt;
+&lt;p&gt;[操作系统正在使用中 - Ubuntu 15.10]的引导文件距磁盘头部太远，你的BIOS可能无法检测到它们。 您可以创建一个/boot分区然后重试 (EXT4, &amp;gt;200MB, 磁盘起始位置). 这可以通过诸如 gParted 等工具来操作。 然后在 [引导修复]的[单独的/boot分区]中选择该分区。 (&lt;a href=&quot;https://help.ubuntu.com/community/BootPartition&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://help.ubuntu.com/community/BootPartition&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;If your computer reboots directly into Windows, try to change the boot order in your BIOS.&lt;br&gt;If your BIOS does not allow to change the boot order, change the default boot entry of the Windows bootloader.&lt;br&gt;For example you can boot into Windows, then type the following command in an admin command prompt:&lt;br&gt;bcdedit /set {bootmgr} path \EFI\ubuntu\shimx64.efi&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;不用管这个，直接确认，然后重启。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;重启之后会发现启动项有很多个，不过ubuntu和ubuntu是存在的。还有我之前做的refind的尝试中的efi启动文件。进入windows用dg删掉之前多余的东西，把esp里的EFI文件夹恢复本来面貌。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;然后，进入ubuntu&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;sudo update-grub&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;重新更新下grub，可以看到之前的废品已经没有了。但是，还有很多windows boot manager之类的启动项，重复又难看，为了保持清爽，可以&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;sudo gedit /boot/grub/grub.cfg&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;在这个文件里面把不需要的注释掉,只留下想要的.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;但是,这又一个缺点就是,如文件开头所述&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;#&lt;/p&gt;
+&lt;h1 id=&quot;DO-NOT-EDIT-THIS-FILE&quot;&gt;&lt;a href=&quot;#DO-NOT-EDIT-THIS-FILE&quot; class=&quot;headerlink&quot; title=&quot;DO NOT EDIT THIS FILE&quot;&gt;&lt;/a&gt;DO NOT EDIT THIS FILE&lt;/h1&gt;&lt;p&gt;#&lt;/p&gt;
+&lt;h1 id=&quot;It-is-automatically-generated-by-grub-mkconfig-using-templates&quot;&gt;&lt;a href=&quot;#It-is-automatically-generated-by-grub-mkconfig-using-templates&quot; class=&quot;headerlink&quot; title=&quot;It is automatically generated by grub-mkconfig using templates&quot;&gt;&lt;/a&gt;It is automatically generated by grub-mkconfig using templates&lt;/h1&gt;&lt;h1 id=&quot;from-etc-grub-d-and-settings-from-etc-default-grub&quot;&gt;&lt;a href=&quot;#from-etc-grub-d-and-settings-from-etc-default-grub&quot; class=&quot;headerlink&quot; title=&quot;from /etc/grub.d and settings from /etc/default/grub&quot;&gt;&lt;/a&gt;from /etc/grub.d and settings from /etc/default/grub&lt;/h1&gt;&lt;p&gt;#&lt;br&gt;```&lt;br&gt;这个文件是根据grub.d和grub这两个文件生成的,改动这个,如果执行grub update或是其他一些更新指令,都会让改动消失恢复默认.所以可酌情去修改grub文件和grub.d文件夹下的文件.可以设置默认启动项,设置前后景色,设置图标等等.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;加固态的时候，把windows完全安装在了固态上，然后就把原来的C盘直接格式化，连带着旧的引导分区都给格式化没了，后来就没法启动Ubuntu。&lt;br&gt;要恢复引导，不是简单的修复，从ESP分区里链接上ubuntu的efi启动就行，必须得重建ubuntu的ESP引导。实际环境是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ESP分区：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- EFI/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - boot/                     //efi启动文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - Microsoft/                //各种字体图标的资源文件和boot内的启动efi文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - (ubuntu/)                 //现在是没有的，目标是生成这个文件夹，只要有这个文件夹就一切好办&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;可以看到根本没有ubuntu的引导文件，所以网上说的&lt;a href=&quot;http://tieba.baidu.com/p/3338849023&quot;&gt;refind&lt;/a&gt;，easyUEFI等等是不行的。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://jacean.github.io/categories/Linux/"/>
+    
+    
+      <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
+    
+      <category term="UEFI" scheme="http://jacean.github.io/tags/UEFI/"/>
+    
+      <category term="引导" scheme="http://jacean.github.io/tags/%E5%BC%95%E5%AF%BC/"/>
+    
+  </entry>
   
   <entry>
     <title>npm常用命令</title>
@@ -342,9 +513,9 @@
       <category term="后端" scheme="http://jacean.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
-    
       <category term="mysql" scheme="http://jacean.github.io/tags/mysql/"/>
+    
+      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
     
       <category term="PDO" scheme="http://jacean.github.io/tags/PDO/"/>
     
@@ -1086,190 +1257,6 @@ function startRecord() {
       <category term="php" scheme="http://jacean.github.io/tags/php/"/>
     
       <category term="vscode" scheme="http://jacean.github.io/tags/vscode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS设置DOM宽高的一些小tips</title>
-    <link href="http://jacean.github.io/2016/04/02/CSS%E8%AE%BE%E7%BD%AEDOM%E5%AE%BD%E9%AB%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8Ftips/"/>
-    <id>http://jacean.github.io/2016/04/02/CSS设置DOM宽高的一些小tips/</id>
-    <published>2016-04-02T13:29:36.000Z</published>
-    <updated>2016-04-16T04:43:43.242Z</updated>
-    
-    <content type="html">&lt;p&gt;做前端开发总会有一些小技巧需要用到，虽然简单，但是也很容易忘记。所以从现在开始就在这记录下一些感觉比较好玩的小tips。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;高度等于宽度&quot;&gt;&lt;a href=&quot;#高度等于宽度&quot; class=&quot;headerlink&quot; title=&quot;高度等于宽度&quot;&gt;&lt;/a&gt;高度等于宽度&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;用js自然很简单了&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&quot;#ss&quot;&lt;/span&gt;).attr(&lt;span class=&quot;string&quot;&gt;&quot;height&quot;&lt;/span&gt;,$(&lt;span class=&quot;string&quot;&gt;&quot;#ss&quot;&lt;/span&gt;).attr(&lt;span class=&quot;string&quot;&gt;&quot;width&quot;&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ol&gt;
-&lt;li&gt;利用padding撑开&lt;br&gt;padding是依靠宽度来定大小的，百分比完全依赖于宽度&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#container&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           width: 100%;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           height: 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           padding-bottom: 100%;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;高度等于屏高&quot;&gt;&lt;a href=&quot;#高度等于屏高&quot; class=&quot;headerlink&quot; title=&quot;高度等于屏高&quot;&gt;&lt;/a&gt;高度等于屏高&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;设置body和html为100%后，里面的元素就可以用百分比控制了&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;body,html&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          height:100%;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       #container&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          width: 100%;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          height: 100%;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          /*padding-bottom: 100%;*/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ol&gt;
-&lt;li&gt;js设置&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//改变div的高度&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           $(&lt;span class=&quot;string&quot;&gt;&quot;#container&quot;&lt;/span&gt;).height($(&lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;).height());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;comment&quot;&gt;//改变div的宽度&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           $(&lt;span class=&quot;string&quot;&gt;&quot;#container&quot;&lt;/span&gt;).width($(&lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;).width());&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;持续更新。。。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;做前端开发总会有一些小技巧需要用到，虽然简单，但是也很容易忘记。所以从现在开始就在这记录下一些感觉比较好玩的小tips。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="http://jacean.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="CSS" scheme="http://jacean.github.io/tags/CSS/"/>
-    
-      <category term="web" scheme="http://jacean.github.io/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JSONP跨域</title>
-    <link href="http://jacean.github.io/2016/04/02/JSONP%E8%B7%A8%E5%9F%9F/"/>
-    <id>http://jacean.github.io/2016/04/02/JSONP跨域/</id>
-    <published>2016-04-02T13:16:01.000Z</published>
-    <updated>2016-04-16T04:52:30.699Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;JSONP跨域&quot;&gt;&lt;a href=&quot;#JSONP跨域&quot; class=&quot;headerlink&quot; title=&quot;JSONP跨域&quot;&gt;&lt;/a&gt;JSONP跨域&lt;/h2&gt;&lt;p&gt;最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。&lt;br&gt;说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。&lt;br&gt;JSONP进行跨域的办法是利用&amp;lt; script&amp;gt;标签不受来源限制。当然，&amp;lt; img&amp;gt;等的来源也是不受限制的。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;p&gt;在请求页面声明一个函数作为回调函数，&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;returnJsonp&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;data&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	alert(data.value);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后添加远程调用&lt;/p&gt;
-&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;srcipt&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;xxx://remote.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;当然，远程调用的文件里必须有这个回调函数的使用，回调函数的参数就是要传递的json数据。&lt;br&gt;同时，注意引用标签应该在回调函数声明之后，以保证回调函数的定义。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//xxx://remote.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;returnJsonp(&amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;value&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;我是要传过去的值&quot;&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;原理很清晰。其实就是引用的远程文件利用自己的数据调用回调函数，我们可以自定义回调函数的处理。&lt;br&gt;所以，只要远程文件能够生成对回调函数的引用，并将json数据传入参数，就大功可成。&lt;br&gt;回调函数在远程服务器端并不一定需要知晓，也就是是可以由客户端指定的，只是这样就需要服务器端解析ｕｒｌ了，传递过来的ｕｒｌ也自然不能只是一个简单的ｊｓ文件。而应该是能解析服务器的语言。&lt;br&gt;如果远程是ｐｈｐ的话，在添加远程ｕｒｌ的时候，记得在最后&lt;em&gt;&amp;amp;callback=returnJsonp&lt;/em&gt;,然后服务器端只需要”$_GET[‘callback’]”,就能获得回调函数的名字，然后拼接出一个js的回调函数的调用就可以了。&lt;/p&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;&amp;lt;script&amp;gt;&quot;&lt;/span&gt;.$_GET[&lt;span class=&quot;string&quot;&gt;&#39;callback&#39;&lt;/span&gt;].&lt;span class=&quot;string&quot;&gt;&quot;(&quot;&lt;/span&gt;.$data.&lt;span class=&quot;string&quot;&gt;&quot;)&quot;&lt;/span&gt;.&lt;span class=&quot;string&quot;&gt;&quot;&amp;lt;/script&amp;gt;&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;strong&gt;有一点要注意，利用JSONP的原理，传过来的并不一定非是JSON数据，也可以是其他对象，在使用中应灵活运用。比如微信传过来的Object对象。&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;JQuery使用JSONP&quot;&gt;&lt;a href=&quot;#JQuery使用JSONP&quot; class=&quot;headerlink&quot; title=&quot;JQuery使用JSONP&quot;&gt;&lt;/a&gt;JQuery使用JSONP&lt;/h2&gt;&lt;p&gt;在dataType处指定类型为jsonp，提供success的回调函数。其他的方式，比如JQuery.get,JQuery.getJSON等，都是一样的指定类型和回调函数就可。&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$.ajax(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        url:src,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        dataType:&lt;span class=&quot;string&quot;&gt;&#39;jsonp&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        data:&lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        jsonp:&lt;span class=&quot;string&quot;&gt;&#39;callback&#39;&lt;/span&gt;,&lt;span class=&quot;comment&quot;&gt;//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//jsonpCallback:&quot;returnJsonp&quot;,//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写&quot;?&quot;，jQuery会自动为你处理数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        success:&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;result&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;comment&quot;&gt;//result就是Json数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        timeout:&lt;span class=&quot;number&quot;&gt;3000&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&quot;附录JSON语法&quot;&gt;&lt;a href=&quot;#附录JSON语法&quot; class=&quot;headerlink&quot; title=&quot;附录JSON语法&quot;&gt;&lt;/a&gt;附录JSON语法&lt;/h2&gt;&lt;p&gt;json和xml一样，是轻量级的数据交换格式。方便书写和理解。&lt;br&gt;JSON 语法是 JavaScript 对象表示语法的子集。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;数据在键值对中&lt;/li&gt;
-&lt;li&gt;数据由逗号分隔&lt;/li&gt;
-&lt;li&gt;花括号保存对象&lt;/li&gt;
-&lt;li&gt;方括号保存数组&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;简单说就有对象和数组两种结构。实例如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;people&quot;&lt;/span&gt;:[&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;firstName&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;Brett&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;lastName&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;McLaughlin&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;email&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;aaaa&quot;&lt;/span&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;firstName&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;Jason&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;lastName&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;Hunter&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;email&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;bbbb&quot;&lt;/span&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;firstName&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;Elliotte&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;lastName&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;Harold&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;email&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;cccc&quot;&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;JSONP跨域&quot;&gt;&lt;a href=&quot;#JSONP跨域&quot; class=&quot;headerlink&quot; title=&quot;JSONP跨域&quot;&gt;&lt;/a&gt;JSONP跨域&lt;/h2&gt;&lt;p&gt;最近做微信开发，因为要调用微信api，所以需要进行跨域访问。ajax就不行了，由于同源策略，它不支持跨域。又因为是进行GET访问，所以选取了JSONP的方式。&lt;br&gt;说明一点，虽然Jquery把JSONP集成到了ajax，但是JSONP确实不是ajax的实现。&lt;br&gt;JSONP进行跨域的办法是利用&amp;lt; script&amp;gt;标签不受来源限制。当然，&amp;lt; img&amp;gt;等的来源也是不受限制的。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="http://jacean.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="web" scheme="http://jacean.github.io/tags/web/"/>
-    
-      <category term="jsonp" scheme="http://jacean.github.io/tags/jsonp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TCP爱情故事——爱情有尽头</title>
-    <link href="http://jacean.github.io/2016/03/28/TCP%E7%88%B1%E6%83%85%E6%95%85%E4%BA%8B%E2%80%94%E2%80%94%E7%88%B1%E6%83%85%E6%9C%89%E5%B0%BD%E5%A4%B4/"/>
-    <id>http://jacean.github.io/2016/03/28/TCP爱情故事——爱情有尽头/</id>
-    <published>2016-03-28T11:26:27.000Z</published>
-    <updated>2016-04-16T04:54:30.435Z</updated>
-    
-    <content type="html">&lt;p&gt;小T和小P过上了幸福的生活。就这样，过了xxx天。&lt;br&gt;因为一些原因(番外)，小T决定还是和小P分手。唉，真是可惜啊。&lt;br&gt;分手呢，是4条短信，也就是传说中的&lt;em&gt;四次挥手&lt;/em&gt;。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;原本呢，小T和小P是恋人，他们在恋爱期(ESTABLISHED)，但是，对吧，所以，继续咯。&lt;br&gt;小T在一番决心之后，终于还是发出了第一条短信。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我们分手吧。(FIN)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;发完之后，小T就进入了主动提出分手的烦闷状态(FIN WAIT1)，一个人闷在被子里，可能在哭，也可能是在睡觉吧，反正我没掀开被子看。&lt;br&gt;小P呢，这傻孩子，虽然也发觉到了两人的感情情况有异了，但还是舍不得，更下不了决心。&lt;br&gt;这天，小P正在床上躺着，突然，嘟，短信提示音，小P伸手拿过手机一看，哦，原来是要分手。拿着手机的手突然无力，手机差点砸到脸上，他心里一阵难过。沉默中坐起身子，靠着床边，盯着手机，1秒，2秒，3秒，。。。(进入了CLOSE WAIT状态)。。。，就这样不知过了多久，他终于发出了消息。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我明白了，给我点时间。(ACK)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;小P继续沉默(CLOSE WAIT)，可能是在回忆过去，也可能是在，谁知道呢，我怎么会直到他在想什么。&lt;br&gt;小T的短信提示音响了，被子里伸出一只手，摸索着找到了手机。可能是哭过，睁开红肿的眼睛看到了屏幕里的字，放下手机，闭上眼，趴在床上，就此无声(进入了FIN WAIT2状态)。&lt;/p&gt;
-&lt;p&gt;摄像机转回小P，这时他正拿着手机，慢慢打字。1个字，2个字，5个字，10个字，2个字，1个字，50个字，3个字，100个字，就这样发吧，那就这样吧。最后，他发出了短信(FIN)，把手机扔到一旁，打开了电视，声音开到很大很大，然后就没有他的声响了(进入了LAST ACK状态)。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;好&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;小T看着只有1个字的短信，知道他们从此结束了。深呼吸，深呼吸，深呼吸，强作笑脸，给了自己一个微笑，想着再回复一条吧。(ACK)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;那就这样吧，祝你幸福&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;一切都结束了，保持微笑，小T看着窗外的天空，很蓝，伸出手，阳光很温暖，想着，就是这么温暖的阳光，给了生命生机，孕育出了这美丽的世界吧。&lt;br&gt;手机放在身边，她在等，等到等不到小P再发来消息，那我们就真的这样了(这就进入了TIME WAIT状态)。&lt;/p&gt;
-&lt;p&gt;小P看着回复，祝我幸福，可能真的会幸福吧，可是再幸福也不会有你了，你的幸福也不会有我了。&lt;br&gt;终究还是分手了，长按关机，对着手机说，你也会幸福的，对吧。&lt;br&gt;双手交叉放在脖颈，躺倒床上，让我最后一次梦到你，梦到属于我们的幸福之后，再醒来，醒来享受没有你的幸福(进入了CLOSED状态)。&lt;/p&gt;
-&lt;p&gt;一小时，两小时，该吃饭了，你在吃饭么，５小时，看来你会很好的。对着快要落山的夕阳挥挥手，明天见。(CLOSED)&lt;/p&gt;
-&lt;p&gt;这段爱情有了自己的结局，也许不是我们期待的走上婚姻殿堂，但是也会是是曾经的幸福。&lt;/p&gt;
-&lt;p&gt;好了，剧情结束。&lt;br&gt;来好好说说ＴＣＰ的四次挥手。图如下&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_TCP-2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;先看第一条短信，小Ｔ说要分手，这是她主动提出要分手，因为她觉得没有感情了，对主机１来说，它提出要关闭连接，是因为没有数据要发送了。&lt;br&gt;第二条，小Ｐ收到后，自然直到小Ｔ是没感情了，但是他还有啊，所以他需要时间去在自己心里砍一刀。对主机２来说，就是主机１你发完了，我还有数据没发完呢，你给老子再等等。然后，小Ｔ就继续等，小Ｐ就继续砍，对应主机就是主机１等待主机２发送完毕数据，主机２继续腾空自己的数据。&lt;br&gt;第三条短信，小Ｐ处理完了自己的感情，觉得可以结束了，就告诉小Ｔ可以分手了。对应于主机２，就是它数据发送完毕了，可以关闭连接了。同时等待主机１来发送最后通牒。&lt;br&gt;第四条短信，小Ｔ收到后，那就分手吧，我说你那边可以确定分手了，别再跟人说你不是单身。然后就等着，看小Ｐ有没有收到我的确定消息，收到了就不会说话，我等待时间过了就自己也关闭，没收到可能还会瞎逼逼，我得再跟你说一次，咱们都是单身了。小Ｐ收到确定消息之后，就直接关闭连接，就此两清，等待下一次的爱情。主机１和主机２也是这样。&lt;/p&gt;
-&lt;p&gt;这里之所以是４条，就是因为小Ｐ可能想不明白，需要等他想明白，也就是主机１虽然没数据了，但是主机２可能还有，得等他发完再说。&lt;br&gt;不过，当小Ｐ也有这念头，主机２数据也正好发完，那就第２，３条短信合一块，直接分手了，直接关闭连接了。&lt;/p&gt;
-&lt;p&gt;还有就是，WAIT TIME，这里是主机１对网络环境保持怀疑，所以要通过２×MSL来自己确认主机２是真的没数据要发送了。&lt;/p&gt;
-&lt;p&gt;这就是我理解的四次挥手了，应该比较清晰了。如果哪里有不对，请指出来我再学习。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;小T和小P过上了幸福的生活。就这样，过了xxx天。&lt;br&gt;因为一些原因(番外)，小T决定还是和小P分手。唉，真是可惜啊。&lt;br&gt;分手呢，是4条短信，也就是传说中的&lt;em&gt;四次挥手&lt;/em&gt;。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="网络" scheme="http://jacean.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="TCP" scheme="http://jacean.github.io/tags/TCP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TCP爱情故事——我们恋爱了</title>
-    <link href="http://jacean.github.io/2016/03/28/TCP%E7%88%B1%E6%83%85%E6%95%85%E4%BA%8B%E2%80%94%E2%80%94%E6%88%91%E4%BB%AC%E6%81%8B%E7%88%B1%E4%BA%86/"/>
-    <id>http://jacean.github.io/2016/03/28/TCP爱情故事——我们恋爱了/</id>
-    <published>2016-03-28T10:44:57.000Z</published>
-    <updated>2016-04-16T04:54:41.451Z</updated>
-    
-    <content type="html">&lt;p&gt;谈恋爱是两。。个。。人。。相互喜欢，然后表白，我喜欢你，你喜欢我，大家就开开心心的在一起了。&lt;br&gt;在这里，我来谈一谈被称为&lt;strong&gt;TCP爱情&lt;/strong&gt;的小故事,&lt;br&gt;这场爱情因为3条短信成就，也就是大家盛传的&lt;em&gt;三次握手&lt;/em&gt;。&lt;br&gt;主人公是小T和小P。一个大方勇敢的姑娘，一个腼腆有才的少年。现在他们都是单身狗状态(CLOSED).&lt;br&gt;然后结局是小T和小P在一起了，他们connect了，简称TCP。&lt;br&gt;故事开始了。。。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;话说春天到了，小P看着人家小情侣成双成对的心里很是羡慕，然后就一直想啊，想啊，要是他 也有对象多好，小P有点害羞，不好意思去跟女孩说话，所以想着要是有人跟他表白该多好，只要看对眼就好啊。不管这想法有多天真，总之，小P是进入了发春状态(执行了LISTEN原语，进入Listen状态),渴望被爱。&lt;/p&gt;
-&lt;p&gt;小T这个姑娘啊，很不错，现在是单身。有一次莫名的邂逅(番外)之后，小T对小P有了莫名的思念，然后渐渐的，越来越关注小P，终于，发现自己喜欢上了虽然有些腼腆，但是可爱干净的小P。在一番纠结之后，小T终于还是决定，我要跟小P表白，我要跟他在一起。于是，勇敢找到小P的电话，发了条短信(执行了CONNECT原语)。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;T：我喜欢你。&lt;br&gt;我还没喜欢过人(SEQ=0,常规:seq=t),&lt;br&gt;你要做第一个吗?&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;SYN同步信号(SEQ=0)&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;发完之后，小T就进入了主动表白等待回应的状态(SYN SENT)。既担心又期待，小心脏扑通扑通的跳个不停，一直盯着手机，生怕错过了回复。&lt;br&gt;嘟，小P发现来短信了，拿起一看，瞬间一脸懵逼，然后仰天大笑，哥的春天到了。想着小T漂亮的脸蛋和巴拉巴拉(自行脑补)，这就是他的梦中女神型啊。于是，拿起手机，给小T回了句(执行ACCEPT原语)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;P:我也喜欢你.&lt;br&gt;我等你等了好久,我愿意做你第一个喜欢的人(ACK=1,常规:ack=t+1)，&lt;br&gt;我没有初恋，你愿意做我的初恋(SEQ=0,seq=p)吗。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;SYN同步信号(SEQ=0,ACK=0+1)&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;发出去后，小P就进入了接受表白快要脱单的状态(SYN RCVD)。&lt;br&gt;小T在忐忑中终于等到了回应，鼓起勇气，深呼吸，拿起手机，闭上眼睛，点击确认，1，2，3，到底是什么。好开心，小P竟然也喜欢我，真的好开心，他还要和我在一起，太激动了，怎么办怎么办，要不要直接答应呢，好纠结，好烦啊，真是烦死人了，直接答应会不会很草率啊，他会不会对我好啊，想着想着短信就发出去了。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;T：好啊。&lt;br&gt;我是你的初恋，你也是我的初恋(常规:seq=t+1,ack=p+1)&lt;/p&gt;
-&lt;p&gt;SYN(SEQ=1,ACK=1)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;于是，小T正式脱单了，进入了恋爱状态(ESTABLISHED)。很快，收到小T肯定回复的小P也知道自己终于脱单了，也进入了恋爱状态(ESTABLISHED)。&lt;br&gt;从此，小T和小P开始了亲密的互动，过上了幸福的生活，他们彼此连接在了一起，就是TCP。&lt;br&gt;这就是小T和小P的TCP爱情故事。&lt;/p&gt;
-&lt;p&gt;多么美好的结局，但是，现实总是残酷的。&lt;br&gt;剧情回到小P收到短信那一刻。&lt;/p&gt;
-&lt;p&gt;————————————————华丽丽的分割线—————————————————————&lt;/p&gt;
-&lt;p&gt;小P看着手机中的短信，“我喜欢你”，这四个字让他有点小激动，但是看到发送人，小T，他懵了，小T不是那个巴拉巴拉(自行脑补)的，一直人送外号“别人家的对象”的女孩吗，我还是不要喜欢她了，我要继续等我的女神。也就是，并没有看对眼，于是，回了句&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;你是个好人。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;剧情到此结束，小T被拒绝了，收到了好人卡(RST标志位为1).&lt;/p&gt;
-&lt;p&gt;爱情，谁知道哪天就变了。下篇，小T和小P就要分手了，也就是释放连接，四次挥手。。。&lt;/p&gt;
-&lt;p&gt;然后，就来具体讲讲３次握手怎么握的了。&lt;br&gt;流程图就是下边这样咯&lt;br&gt;&lt;img src=&quot;http://7xrtyi.com1.z0.glb.clouddn.com/hexoBlog_img_tcp-1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;第一条短信，小Ｔ说喜欢小Ｐ，这就是主动进行连接。主机１向主机２主动发出连接请求，进入同步发送状态，处于ｌｉｓｔｅｎ的主机２发现请求，并接受请求，于是就给回应准备好了。&lt;br&gt;第二条短信，小Ｐ也说喜欢，然后邀请在一起。就是主机２说咱可以连接，回复主机１的序号加１作为确认号，同时还会传送自己序号。然后进入同步接收状态。&lt;br&gt;第三条短信，小Ｔ给小Ｐ确认，两个人建立正式的关系。主机１和主机２也是，两边都问好之后就发送序号和确认号，建立连接。&lt;/p&gt;
-&lt;p&gt;ＴＣＰ是全双工的，也可能两端同时连接，这时候通过序号和确认号，最终建立的是一条连接，进行通信。&lt;/p&gt;
-&lt;p&gt;大体我理解的就是这样，有不对请指出。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;谈恋爱是两。。个。。人。。相互喜欢，然后表白，我喜欢你，你喜欢我，大家就开开心心的在一起了。&lt;br&gt;在这里，我来谈一谈被称为&lt;strong&gt;TCP爱情&lt;/strong&gt;的小故事,&lt;br&gt;这场爱情因为3条短信成就，也就是大家盛传的&lt;em&gt;三次握手&lt;/em&gt;。&lt;br&gt;主人公是小T和小P。一个大方勇敢的姑娘，一个腼腆有才的少年。现在他们都是单身狗状态(CLOSED).&lt;br&gt;然后结局是小T和小P在一起了，他们connect了，简称TCP。&lt;br&gt;故事开始了。。。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="网络" scheme="http://jacean.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="TCP" scheme="http://jacean.github.io/tags/TCP/"/>
     
   </entry>
   
