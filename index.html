@@ -368,22 +368,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>先补充下 __proto__ 和prototype的知识。</p>
+              <p>先补充下 __proto__ 和prototype的知识。</p>
 <h2 id="对象的内部原型-proto-和构造器的原型（prototype）。"><a href="#对象的内部原型-proto-和构造器的原型（prototype）。" class="headerlink" title="对象的内部原型( __proto__ )和构造器的原型（prototype）。"></a>对象的内部原型( __proto__ )和构造器的原型（prototype）。</h2><p>所有构造器/函数(包含自定义)的 __proto__ 都是指向Function.prototype这样一个<em>空函数（typeof Function.prototype===’function’ -&gt;true）</em>的，而Math和JSON这样以对象形式存在的，他们的__proto__是Object.prototype.<br>继续深入有</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.__proto__ === Object.prototype;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">,而</span><br></pre></td></tr></table></figure>
-<p>Object.prototype.<strong>proto</strong> === null<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">所有构造器的实例对象的 \_\_proto\_\_ 都是指向其构造器的 *prototype*。</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">看下面这个例子，</span><br></pre></td></tr></table></figure></p>
-<p>function objectTest() {<br>    var o1 = {};<br>    var o6 = Object.create(Object.prototype);<br>    var o7 = Object.create(null);<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">调试后可以看到这样的结果在scope中</span><br></pre></td></tr></table></figure></p>
-<p> Local Return value:undefined<br>    o1:Object<br>        <strong>proto</strong>:Object<br>    o6:Object<br>        <strong>proto</strong>:Object<br>    o7:Object<br>        No Properties<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">可以看到O1、O6都是自带了\_\_proto\_\_属性的，O7是自定义null为prototype来创建对象，所以就没有此属性。</span><br><span class="line">又\_\_proto\_\_是其构造器的prototype属性，故有，</span><br></pre></td></tr></table></figure></p>
-<p>o1.<strong>proto</strong>===Object.prototype   //true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">详见[JavaScript中__proto__与prototype的关系](http://www.cnblogs.com/snandy/archive/2012/09/01/2664134.html)。</span><br><span class="line"></span><br><span class="line">## 对象的直接属性和\_\_proto\_\_属性</span><br><span class="line">修改构造器的prototype的属性或方法，其实例对象的\_\_proto\_\_依然恒等于构造器的prototype，两者指向同一个对象。</span><br><span class="line">在查找对象属性的时候，顺序是  </span><br><span class="line">&gt; 直接属性 -|-&gt;  \_\_proto\_\_属性,有则返回，无则深入。</span><br><span class="line"></span><br><span class="line">在修改对象属性的时候，顺序是</span><br><span class="line">&gt; 直接属性 -|-|  \_\_proto\_\_属性，只会修改直接属性，而不深入到\_\_proto\_\_这个继承自构造器的属性。</span><br></pre></td></tr></table></figure></p>
-<p>function Person(){<br>    this.name=”jacean”;<br>    this.age=12;<br>}<br>Person.prototype.sex=”male”;<br>Person.prototype.country=”Chinese”;</p>
-<p>var p1=new Person();<br>var p2=new Person();</p>
-<p>//初始状态下两个实例的属性是一样的<br>console.log(p1.name);   //jacean<br>console.log(p1.sex);    //male<br>console.log(p1.<strong>proto</strong>.sex)   //male</p>
-<p>console.log(p2.name);   //jacean<br>console.log(p2.sex);    //male<br>console.log(p2.<strong>proto</strong>.sex)   //male</p>
-<p>console.log(“……”);<br>p1.name=”bob”;<br>p1.sex=”famle”;<br>//更改了p1的直接属性name，因为p1没有sex的直接属性，所以在这里会给p1添加sex的直接属性，而不会深入到<strong>proto</strong>去修改构造器的sex<br>//所以这里的sex修改并不会影响p2<br>console.log(p1.name);   //bob<br>console.log(p1.sex);    //famale<br>console.log(p1.<strong>proto</strong>.sex)   //male</p>
-<p>console.log(p2.name);   //jacean<br>console.log(p2.sex);    //male<br>console.log(p2.<strong>proto</strong>.sex)   //male<br>console.log(“……”);</p>
-<p>Person.prototype.sex=”nomale”;<br>//修改了构造器的sex属性，相对应的p1和p2的<strong>proto</strong>.sex也会发生改变。<br>//p1因为有直接sex属性，所以p1.sex不受影响，而p2没有sex直接属性所以p2.sex是读取的构造器属性<br>console.log(p1.name);   //bob<br>console.log(p1.sex);    //famale<br>console.log(p1.<strong>proto</strong>.sex)   //nomale</p>
-<p>console.log(p2.name);   //jacean<br>console.log(p2.sex);    //nomale,p2是没有sex这个直接属性的，所以这里读到的还是其构造器的属性<br>console.log(p2.<strong>proto</strong>.sex)   //nomale<br>console.log(“……”);<br>```</p>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.__proto__ === Object.prototype;</span><br></pre></td></tr></table></figure>
+<p>,而 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.__proto__ === null</span><br></pre></td></tr></table></figure>
+<p>所有构造器的实例对象的 __proto__ 都是指向其构造器的 <em>prototype</em>。<br>
+          
       
     </div>
     
@@ -400,6 +391,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proto/">__proto__</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/06/30/javascript中对象的直接属性和-proto-属性/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
