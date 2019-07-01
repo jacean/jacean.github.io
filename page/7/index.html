@@ -500,7 +500,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>在C#winform中，可以用Control.MousePosition获得当前鼠标的坐标，使用PointToClient计算鼠标相对于某个控件的坐标，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Point screenPoint = Control.MousePosition;//鼠标相对于屏幕左上角的坐标</span><br><span class="line">Point formPoint = this.PointToClient(Control.MousePosition);//鼠标相对于窗体左上角的坐标</span><br><span class="line">Point contextMenuPoint = contextMenuStrip1.PointToClient(Control.MousePosition); //鼠标相对于contextMenuStrip1左上角的坐标</span><br><span class="line"></span><br><span class="line">this.capture = true;//使用窗口捕捉鼠标移动事件,就是让当前的鼠标所有者为窗体，不能跨越控件</span><br></pre></td></tr></table></figure></p>
+              <p>在C#winform中，可以用Control.MousePosition获得当前鼠标的坐标，使用PointToClient计算鼠标相对于某个控件的坐标，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Point screenPoint = Control.MousePosition;//鼠标相对于屏幕左上角的坐标</div><div class="line">Point formPoint = this.PointToClient(Control.MousePosition);//鼠标相对于窗体左上角的坐标</div><div class="line">Point contextMenuPoint = contextMenuStrip1.PointToClient(Control.MousePosition); //鼠标相对于contextMenuStrip1左上角的坐标</div><div class="line"></div><div class="line">this.capture = true;//使用窗口捕捉鼠标移动事件,就是让当前的鼠标所有者为窗体，不能跨越控件</div></pre></td></tr></table></figure></p>
           
       
     </div>
@@ -945,7 +945,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2017 Jacean Wan
+                &copy; 2019 Jacean Wan
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
