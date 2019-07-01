@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jacean.github.io/"/>
-  <updated>2016-04-16T04:48:57.358Z</updated>
+  <updated>2019-07-01T16:23:19.159Z</updated>
   <id>http://jacean.github.io/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>goback</title>
+    <link href="http://jacean.github.io/2019/07/02/goback/"/>
+    <id>http://jacean.github.io/2019/07/02/goback/</id>
+    <published>2019-07-01T16:22:13.000Z</published>
+    <updated>2019-07-01T16:23:19.159Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h1><p>重新捡起博客，重新学习！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;回归&quot;&gt;&lt;a href=&quot;#回归&quot; class=&quot;headerlink&quot; title=&quot;回归&quot;&gt;&lt;/a&gt;回归&lt;/h1&gt;&lt;p&gt;重新捡起博客，重新学习！&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -591,9 +611,9 @@
       <category term="后端" scheme="http://jacean.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
-    
       <category term="mysql" scheme="http://jacean.github.io/tags/mysql/"/>
+    
+      <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
     
       <category term="PDO" scheme="http://jacean.github.io/tags/PDO/"/>
     
@@ -1161,149 +1181,6 @@ function startRecord() {
       <category term="vscode" scheme="http://jacean.github.io/tags/vscode/"/>
     
       <category term="c/c++" scheme="http://jacean.github.io/tags/c-c/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu安装xampp并配置xdebug利用vscode调试php</title>
-    <link href="http://jacean.github.io/2016/04/04/Ubuntu%E5%AE%89%E8%A3%85xampp%E5%B9%B6%E9%85%8D%E7%BD%AExdebug%E5%88%A9%E7%94%A8vscode%E8%B0%83%E8%AF%95php/"/>
-    <id>http://jacean.github.io/2016/04/04/Ubuntu安装xampp并配置xdebug利用vscode调试php/</id>
-    <published>2016-04-04T08:02:54.000Z</published>
-    <updated>2016-04-16T04:55:27.740Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="安装XAMPP"><a href="#安装XAMPP" class="headerlink" title="安装XAMPP"></a>安装XAMPP</h2><p>去xampp官网下载对应版本，ubuntu会下载.run文件。</p>
-<blockquote>
-<p>sudo mv xampp-linux-x64-5.6.19-0-installer.run  /opt/</p>
-<p>cd /opt/</p>
-<p>sudo -s</p>
-<p>chmod 755 xampp-linux-x64-5.6.19-0-installer.run </p>
-<p>./xampp-linux-x64-5.6.19-0-installer.run </p>
-</blockquote>
-<p>依次执行上面命令，就会打开xampp的安装窗口，安装就好。<br><a id="more"></a></p>
-<h2 id="vscode安装插件"><a href="#vscode安装插件" class="headerlink" title="vscode安装插件"></a>vscode安装插件</h2><p>ctrl-p调出控制，输入</p>
-<blockquote>
-<p>ext install php-debug.</p>
-</blockquote>
-<p>安装完毕，然后在vscode的usersetting里添加如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    </div><div class="line">    // Points to the php executable.</div><div class="line">	&quot;php.validate.executablePath&quot;: &quot;/opt/lampp/bin/php&quot;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>指定php的路径，然后需要配置xdebug。</p>
-<h2 id="配置xdebug"><a href="#配置xdebug" class="headerlink" title="配置xdebug"></a>配置xdebug</h2><p>首先去xdebug官网下载source，然后执行如下命令解压：</p>
-<blockquote>
-<p>tar -zxf xdebug-2.4.0.tgz</p>
-</blockquote>
-<p>执行phpize</p>
-<blockquote>
-<p>cd xdebug-2.4.0/</p>
-<p>/opt/lampp/bin/phpize</p>
-</blockquote>
-<p>显示如下，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Configuring for:</div><div class="line">PHP Api Version:         20131106</div><div class="line">Zend Module Api No:      20131226</div><div class="line">Zend Extension Api No:   220131226</div><div class="line">Cannot find autoconf. Please check your autoconf installation and the</div><div class="line">$PHP_AUTOCONF environment variable. Then, rerun this script.</div></pre></td></tr></table></figure>
-<p>从提示看出我是缺了东西了，那就装上，执行命令如下</p>
-<blockquote>
-<p>sudo apt-get install autoconf</p>
-</blockquote>
-<p>再次执行</p>
-<blockquote>
-<p> /opt/lampp/bin/phpize</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Configuring for:</div><div class="line">PHP Api Version:         20131106</div><div class="line">Zend Module Api No:      20131226</div><div class="line">Zend Extension Api No:   220131226</div></pre></td></tr></table></figure>
-<p>现在可以看出是正常了，可以继续了。</p>
-<blockquote>
-<p> ./configure –enable-xdebug –with-php-config=/opt/lampp/bin/php-config</p>
-<p>sudo make</p>
-</blockquote>
-<p>执行后显示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">xxxxxxxxxxxxxx</div><div class="line">----------------------------------------------------------------------</div><div class="line"></div><div class="line">Build complete.</div><div class="line">Don&apos;t forget to run &apos;make test&apos;.</div></pre></td></tr></table></figure>
-<p>那我就试一试。。。</p>
-<blockquote>
-<p>make test</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Build complete.</div><div class="line">Don&apos;t forget to run &apos;make test&apos;.</div><div class="line"></div><div class="line"></div><div class="line">=====================================================================</div><div class="line">PHP         : /opt/lampp/bin/php </div><div class="line">PHP_SAPI    : cli</div><div class="line">PHP_VERSION : 5.6.19</div><div class="line">ZEND_VERSION: 2.6.0</div><div class="line">PHP_OS      : Linux - Linux jacean-Ubuntu 4.2.0-34-generic #39-Ubuntu SMP Thu Mar 10 22:13:01 UTC 2016 x86_64</div><div class="line">INI actual  : /home/jacean/文档/xdebug-2.4.0/tmp-php.ini</div><div class="line">More .INIs  :  </div><div class="line">CWD         : /home/jacean/文档/xdebug-2.4.0</div><div class="line">Extra dirs  : </div><div class="line">VALGRIND    : Not used</div><div class="line">=====================================================================</div><div class="line">TIME START 2016-04-04 08:30:01</div><div class="line">=====================================================================</div><div class="line">No tests were run.</div></pre></td></tr></table></figure>
-<p>然后安装</p>
-<blockquote>
-<p>sudo make install</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Installing shared extensions:     /opt/lampp/lib/php/extensions/no-debug-non-zts-20131226/</div><div class="line"></div><div class="line">  +----------------------------------------------------------------------+</div><div class="line">  |                                                                      |</div><div class="line">  |   INSTALLATION INSTRUCTIONS                                          |</div><div class="line">  |   =========================                                          |</div><div class="line">  |                                                                      |</div><div class="line">  |   See http://xdebug.org/install.php#configure-php for instructions   |</div><div class="line">  |   on how to enable Xdebug for PHP.                                   |</div><div class="line">  |                                                                      |</div><div class="line">  |   Documentation is available online as well:                         |</div><div class="line">  |   - A list of all settings:  http://xdebug.org/docs-settings.php     |</div><div class="line">  |   - A list of all functions: http://xdebug.org/docs-functions.php    |</div><div class="line">  |   - Profiling instructions:  http://xdebug.org/docs-profiling2.php   |</div><div class="line">  |   - Remote debugging:        http://xdebug.org/docs-debugger.php     |</div><div class="line">  |                                                                      |</div><div class="line">  |                                                                      |</div><div class="line">  |   NOTE: Please disregard the message                                 |</div><div class="line">  |       You should add &quot;extension=xdebug.so&quot; to php.ini                |</div><div class="line">  |   that is emitted by the PECL installer. This does not work for      |</div><div class="line">  |   Xdebug.                                                            |</div><div class="line">  |                                                                      |</div><div class="line">  +----------------------------------------------------------------------+</div></pre></td></tr></table></figure>
-<p>接下来就是配置php.ini，</p>
-<blockquote>
-<p>sudo gvim /opt/lampp/etc/php.ini</p>
-</blockquote>
-<p>末尾添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[Xdebug]</div><div class="line">zend_extension=/opt/lampp/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so</div><div class="line">xdebug.profiler_enable=on</div><div class="line">xdebug.trace_output_dir=&quot;../xdebug&quot;</div><div class="line">xdebug.profile_output_dir=&quot;../xdebug&quot;</div><div class="line">xdebug.remote_enable = 1        //这两行远程是配合vscode的</div><div class="line">xdebug.remote_autostart = 1</div></pre></td></tr></table></figure>
-<p>然后重启ｘａｍｐｐ，在phpinfo页面就可以看到有关ｘｄｅｂｕｇ的信息了。</p>
-<h2 id="启动调试"><a href="#启动调试" class="headerlink" title="启动调试"></a>启动调试</h2><p>xampp默认的网站根目录是htdocs，因为/opt/lamp/htdocs的操作是需要root权限的，很不方便，所以就把根目录改一下。</p>
-<blockquote>
-<p>mkdir ~/workspace/WEB</p>
-</blockquote>
-<p>然后修改httpd.conf,在/opt/lamp/etc下。</p>
-<blockquote>
-<p>sudo gvim httpd.conf</p>
-</blockquote>
-<p>修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># DocumentRoot &quot;/opt/lampp/htdocs&quot;</div><div class="line"># &lt; Directory &quot;/opt/lampp/htdocs&quot;&gt;</div><div class="line">DocumentRoot &quot;/home/jacean/workspace/WEB&quot;</div><div class="line">&lt; Directory &quot;/home/jacean/workspace/WEB&quot;&gt;</div></pre></td></tr></table></figure>
-<p><em>我在&lt;&gt;之间加了一个空格，是为了避免markdown格式显示，应该删掉。</em></p>
-<p>然后，在WEB目录下新建index.php，保存。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$a=<span class="number">1</span>;</div><div class="line">$b=<span class="number">2</span>;</div><div class="line">$c=$a-$b;</div><div class="line">$d=$c+$b;</div><div class="line"><span class="keyword">echo</span> <span class="string">'&lt;strong&gt;hello world!&lt;/strong&gt;'</span>;</div></pre></td></tr></table></figure>
-<p>然后加断点，比如我加到$c那一行。<br>记得在ｄｅｂｕｇ栏中选择设置齿轮，在下拉中选中php debug，会自动生成lanch.json文件，<br>然后再点击绿三角运行。<br>启动调试监听，<br>重启xampp，进入localhost。可以看到vscode自动弹出并标识在断点处，此时可以查看变量等等常用调试操作。<br><img src="http://7xrtyi.com1.z0.glb.clouddn.com/hexoblog-img-vscode-php-debug.jpg" alt="php_debug"></p>
-<p>至此，大功告成！！！</p>
-<h2 id="xampp启动"><a href="#xampp启动" class="headerlink" title="xampp启动"></a>xampp启动</h2><p>要启动xampp桌面程序，可以在命令行输入</p>
-<blockquote>
-<p>cd /opt/lampp<br>sudo ./manager-linux-x64.run</p>
-</blockquote>
-<p>直接命令行启动</p>
-<blockquote>
-<p>lampp start<br>lampp stop<br>lampp restart</p>
-</blockquote>
-<p>只启动和停止Apache：</p>
-<blockquote>
-<p>/opt/lampp/lampp startapache(stopapache)</p>
-</blockquote>
-<p>只启动和停止MySQL：</p>
-<blockquote>
-<p>/opt/lampp/lampp startmysql(stopmysql)</p>
-</blockquote>
-<p>只启动和停止ProFTPD服务器：</p>
-<blockquote>
-<p>/opt/lampp/lampp startftp(stopftp)</p>
-</blockquote>
-<p>启动和停止Apache的SSL支持：</p>
-<blockquote>
-<p>/opt/lampp/lampp startssl(stopssl)</p>
-</blockquote>
-<p>取消自启动：</p>
-<blockquote>
-<p>ln –s /opt/lampp/lampp K01lampp</p>
-</blockquote>
-<p>卸载XAMPP:</p>
-<blockquote>
-<p>rm –rf /opt/lampp</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;安装XAMPP&quot;&gt;&lt;a href=&quot;#安装XAMPP&quot; class=&quot;headerlink&quot; title=&quot;安装XAMPP&quot;&gt;&lt;/a&gt;安装XAMPP&lt;/h2&gt;&lt;p&gt;去xampp官网下载对应版本，ubuntu会下载.run文件。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;sudo mv xampp-linux-x64-5.6.19-0-installer.run  /opt/&lt;/p&gt;
-&lt;p&gt;cd /opt/&lt;/p&gt;
-&lt;p&gt;sudo -s&lt;/p&gt;
-&lt;p&gt;chmod 755 xampp-linux-x64-5.6.19-0-installer.run &lt;/p&gt;
-&lt;p&gt;./xampp-linux-x64-5.6.19-0-installer.run &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;依次执行上面命令，就会打开xampp的安装窗口，安装就好。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://jacean.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-      <category term="Linux" scheme="http://jacean.github.io/categories/%E5%90%8E%E7%AB%AF/Linux/"/>
-    
-    
-      <category term="Ubuntu" scheme="http://jacean.github.io/tags/Ubuntu/"/>
-    
-      <category term="php" scheme="http://jacean.github.io/tags/php/"/>
-    
-      <category term="vscode" scheme="http://jacean.github.io/tags/vscode/"/>
     
   </entry>
   
