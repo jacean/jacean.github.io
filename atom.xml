@@ -611,9 +611,9 @@
       <category term="后端" scheme="http://jacean.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="mysql" scheme="http://jacean.github.io/tags/mysql/"/>
-    
       <category term="PHP" scheme="http://jacean.github.io/tags/PHP/"/>
+    
+      <category term="mysql" scheme="http://jacean.github.io/tags/mysql/"/>
     
       <category term="PDO" scheme="http://jacean.github.io/tags/PDO/"/>
     
